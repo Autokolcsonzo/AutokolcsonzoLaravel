@@ -1,9 +1,9 @@
 <div class="kereses">
 
     <!--       <div class="reszponzivLogGombok">
-                <a href="bejelentkezes.html">Bejelentkezés</a>
-                <a href="regisztracio.html">Regisztráció</a>
-                </div> -->
+                            <a href="bejelentkezes.html">Bejelentkezés</a>
+                            <a href="regisztracio.html">Regisztráció</a>
+                            </div> -->
 
     <form action="">
         <div class="input-box">
