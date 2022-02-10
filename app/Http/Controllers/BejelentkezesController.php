@@ -8,38 +8,38 @@ use Illuminate\Support\Facades\Auth;
 
 class BejelentkezesController extends Controller
 {
-    /*  public function index()
+     public function index()
     {
         return view ('bejelentkezes');
     }
 
     public function addBejelentkezes(Request $request)
     {
-        $cus = new User();
-        $cus->name = $request->name;
-        $cus->password = $request->password;
+        $cus = new felhasznalo();
+        $cus->felhasznalonev = $request->felhasznalonev;
+        $cus->jelszo = $request->jelszo;
         $cus->save();
         
         return view ('bejelentkezes');
     }
 
-    function list() {
+    /* function list() {
         
     } */
 
-    public function index()
+  /*   public function index()
     {
         return view('bejelentkezes');
-    }
+    } */
 
-    public function login(Request $req)
+   /*  public function login(Request $req)
     {
         $validalt = $req->validate([
-            'fnev' => "required",
-            'jelszo1' => "required"
+            'felhasznalonev' => "required",
+            'jelszo' => "required"
         ]);
 
-        /*         if (Auth::attempt($validalt)) {
+                if (Auth::attempt($validalt)) {
             $req->session()->regenerate();
 
             return redirect()->intended('dashboard');
@@ -47,8 +47,8 @@ class BejelentkezesController extends Controller
 
         return back()->withErrors([
             'fnev'
-        ]) */
+        ])
 
         return view('bejelentkezes');
-    }
+    } */
 }

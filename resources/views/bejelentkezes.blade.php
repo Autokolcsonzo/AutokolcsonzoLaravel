@@ -51,22 +51,21 @@
 
                     <div class="sor">
                         <div class="inputfield">
-                            <label for="fnev">Felhasználónév:</label>
+                            <label for="felhasznalonev">Felhasználónév:</label>
 
                             <br />
-                            <input type="text" name="fnev" id="fnev" placeholder="valaki97" /><br />
-                            @error('fnev')
+                            <input type="text" name="felhasznalonev" id="fnev" placeholder="valaki97" /><br />
+                            @error('felhasznalonev')
                             <span>{{$message}}</span>
                             @enderror
                         </div>
 
                         <div class="sor">
                             <div class="inputfield">
-                                <label for="jelszo1">Jelszó:</label>
+                                <label for="jelszo">Jelszó:</label>
                                 <br>
-                                <input type="password" id="jelszo1" name="jelszo1" class="jelszo"
-                                    placeholder="******" />
-                                @error('jelszo1')
+                                <input type="password" id="jelszo1" name="jelszo" class="jelszo" placeholder="******" />
+                                @error('jelszo')
                                 <span>{{$message}}</span>
                                 @enderror
                             </div>

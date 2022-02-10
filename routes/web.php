@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BejelentkezesController;
+use App\Http\Controllers\RegisztralasController;
 
 
 Route::get('/', function () {
@@ -17,12 +18,13 @@ Route::get('/regisztracio', function () {
     return view('regisztracio');
 });
 
-Route::get('/user', [UserController::class, 'index']);
+/* Route::get('/user', [UserController::class, 'index']); */
 
 Route::get('bejelentkezes', [BejelentkezesController::class, 'index'])->name('bejelentkezes');
-Route::post('bejelentkezes', [BejelentkezesController::class, 'login']);
+Route::post('bejelentkezes', [BejelentkezesController::class, 'addBejelentkezes']);
 
-Route::post('regisztracio', [RergisztralasController::class, 'mentes']);
+Route::get('regisztracio', [RegisztralasController::class, 'index']);
+Route::post('regisztracio', [RegisztralasController::class, 'signup']);
 
 Route::get('osszesAutoMenubol', function () {
     return view('osszesAutoMenubol');
