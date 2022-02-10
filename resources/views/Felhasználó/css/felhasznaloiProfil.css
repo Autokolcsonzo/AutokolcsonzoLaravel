@@ -1,0 +1,252 @@
+@charset "utf-8";
+
+.fadatokTable {
+  width: 100%;
+  border-collapse: separate;
+}
+
+.fprofil {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilkep {
+  box-shadow: 10px 10px 5px #ccc;
+  -moz-box-shadow: 10px 10px 5px #ccc;
+  -webkit-box-shadow: 10px 10px 5px #ccc;
+  -khtml-box-shadow: 10px 10px 5px #ccc;
+  margin:10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+background-color: white;
+}
+
+.profilkep img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.fadatok {
+ margin:10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.fadatokTable td {
+  text-align: left;
+  padding: 1em;
+  font-weight: bolder;
+  
+}
+
+tr :nth-child(1) {
+  color: #2365a0;
+  font-size: 1,5em;
+}
+
+tr :nth-child(3) {
+  color: #2365a0;
+  font-size: 1,5em;
+}
+tr :nth-child(2) {
+  font-style: italic;
+  font-size:1em;
+}
+
+tr :nth-child(4) {
+  font-style: italic;
+  font-size:1em;
+}
+
+
+#fkepMod {
+  margin: 10px;
+  background-color: #e0e4e7;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 2px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 16px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+#profkepFel{
+  display: none;
+  margin: 10px;
+
+}
+
+#fkepMod:hover {
+  background-color: #b1c5ee;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+#fadatokMod {
+  margin: 10px;
+  background-color: #e0e4e7;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 2px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 16px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+#fadatokMod:hover {
+  background-color: #b1c5ee;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+.felhasznaloiModositas{
+display:none;
+max-width: 700px;
+}
+
+.sor{
+  display:flex;
+    flex-direction:row;
+}
+
+
+.inputfield{
+  flex:1;
+  margin:10px;
+
+}
+
+.inputfield label{
+
+  color: #17446b;
+  font-weight: bolder;
+
+}
+
+.inputfield input{
+  padding: 10px;
+  background: white;
+  height: 40px;
+  border:none;
+  outline:0;
+  border-radius: 5px;
+}
+
+.form-header {
+  padding:15px 0;
+  border-bottom:1px solid #17446b;
+  font-family: "Teko", sans-serif;
+}
+
+.inputfield input::placeholder{
+  color:#17446b;
+}
+
+
+
+.form-header h3 {
+  font-size: 40px;
+  text-align:center;
+  color:#17446b;
+}
+
+#adatotMent{
+  margin: 10px;
+  background-color: #e0e4e7;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 2px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 16px;
+  width: 200px;
+  border-radius: 5px;
+
+}
+
+#adatotMent:hover{
+  background-color: #b1c5ee;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+  .sor{
+    flex-direction:column; 
+  }
+
+  .fadatok{
+    max-width: 100%;
+  }
+
+  .fadatok tr{
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .fadatok td{
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding:5px;
+
+  }
+
+
+}
+
+@media only screen and (max-width: 550px) {
+  .sor{
+    flex-direction:column; 
+  }
+
+  .fadatok{
+    max-width: 100%;
+  }
+
+  .fadatok tr{
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .fadatok td{
+    flex-grow: 1;
+    flex-basis: 170px;
+   
+
+  }
+
+
+}
+
+
+
+
+
+

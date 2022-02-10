@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+.fFoglalasok {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fFoglalas {
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 20px rgb(0 0 0 / 20%);
+  overflow: hidden;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fFoglalas h3 {
+  color: #17446b;
+  padding: 10px;
+  text-shadow: 0px 4px 4px #8a8484;
+  font-size: 1.5em;
+}
+
+.datum h4 {
+  color: #17446b;
+}
+
+.datum p {
+  font-style: italic;
+}
+
+.datum {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  font-size: 1em;
+}
+
+#foglalasKep {
+  max-width: 100%;
+}
+
+#fogMod {
+  background-color: #e0e4e7;
+  border: none;
+  border-radius: 2px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 5px;
+  margin: 2px;
+}
+
+#fogMod:hover {
+  background-color: #b1c5ee;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+#fogLemond {
+  background-color: #e0e4e7;
+  border: none;
+  border-radius: 2px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 5px;
+  margin: 2px;
+}
+
+#fogLemond:hover {
+  background-color: #b1c5ee;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+.reszletTrigger li {
+  background-color: #e0e4e7;
+  border-radius: 2px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 2px;
+  margin: 10px;
+}
+
+.reszletTrigger li:hover {
+  background-color: #b1c5ee;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .reszletTrigger li:hover {
+    background-color: #e0e4e7;
+    transition: none;
+  }
+
+  #fogMod:hover {
+    background-color: #e0e4e7;
+    transition: none;
+  }
+
+  #fogLemond:hover {
+    background-color: #e0e4e7;
+    transition: none;
+  }
+}
+
+.reszAdatokTable {
+  width: 100%;
+  font-size: 1em;
+}
+
+tr :nth-child(1) {
+  color: #17446b;
+  font-weight: bold;
+}
+
+tr :nth-child(2) {
+  text-align: right;
+}
+
+td {
+  padding: 2px;
+  font-weight: italic;
+}
+
+@media only screen and (max-width: 1200px) {
+  .fFoglalasok {
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fFoglalas {
+    width: 400px;
+  }
+}

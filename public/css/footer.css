@@ -1,0 +1,147 @@
+
+/*FOOTER GLOBAL!*/
+#footer_links,#footer_lists,#footer_lists,#footer_connections,#footer_icons ul{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    padding: 10px;
+}
+#footer_list_1,#footer_list_2{
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+footer{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+/*---------------------------------------------------------------------------------*/
+
+/*footer top*/
+
+#footer_links{
+    width: 100%;
+    flex-direction: column;
+    background-color: rgb(224, 221, 221);
+    align-items: center;
+}
+#tortenetunk{
+    width: 20%;
+    padding-inline: 1rem;
+}
+#tortenetunk dt{
+    text-align: center;
+}
+#tortenetunk dd{
+    text-align: justify;
+    font-weight: 500;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+}
+#footer_connections{
+    flex-direction: row;
+}
+#footer_icons{
+    width: 100%;
+    justify-content: center;
+}
+#footer_icons dl{
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#footer_lists dl dt ,#copyRight{
+    font-family: 'Bebas Neue';
+    opacity: 0.7;
+}
+#footer_lists dl dd{
+    
+    margin-bottom: 7px;
+}
+#footer_lists dl a{
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+#payment_icon_txt{
+    padding-top: -20px;
+}
+/*---------------------------------------------------------------------------------*/
+
+/*footer bottom*/
+
+.telefon_Szam{
+    color: blue;
+}
+#helyszinek{
+    font-weight: 700;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: 20px;
+}
+.vonal1{
+    width: 70%;
+    height: 1px;
+    opacity: 0.2;
+    border-top: 2px solid black;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/*Footer img*/
+#footer_logo img{
+    height: auto;
+    width: 100px;
+}
+#footer_icons ul li img{
+    height: auto;
+    width: 30px;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+#footer_logo #payment_icons img{
+    height: auto;
+    width: 20px;
+}
+/*---------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 1100px) {
+        #footer_links,#footer_lists,#footer_lists,#footer_connections,#footer_icons ul{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            align-content: center;
+            padding: 10px;
+        }
+        #tortenetunk{
+            display:none ;
+        }
+        #footer_links{
+            display: flex;
+            align-items: center;
+        }
+  }
+  @media only screen and (max-width: 995px) {
+    #footer_links,#footer_lists,#footer_connections,#footer_logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+    #tortenetunk{
+        display:none ;
+    }
+    #footer_links{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #helyszinek{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

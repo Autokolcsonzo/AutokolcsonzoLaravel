@@ -1,0 +1,191 @@
+@charset "utf-8";
+
+.adminKereses {
+  display: flex;
+  align-items: center;
+  /*   justify-content: space-between; */
+  background-color: #fff;
+  padding: 15px 30px;
+  border-bottom: 3px solid blue;
+}
+
+.adminKereses .kereses {
+  display: flex;
+  /*  justify-content: flex-start; */
+  /*   align-items: center; */
+  padding: 10px 14px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.adminKereses .kereses i {
+  margin-right: 14px;
+}
+
+.adminKereses .kereses input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.adminKereses .adminFeladatValasztas {
+  display: flex;
+  margin-left: 5%;
+  /*  justify-content: flex-start; */
+  /*   align-items: center; */
+}
+
+.adminKereses .adminFeladatValasztas select {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.oldalNev {
+  color: rgb(38, 38, 94);
+  padding: 30px 30px 0 30px;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.values {
+  padding: 30px 30px 0 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.values .val-box {
+  background-color: white;
+  width: 235px;
+  padding: 16px 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.values .val-box i {
+  font-size: 25px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  /*   background-color: rgb(73, 73, 172); */
+  margin-right: 15px;
+}
+
+.values .val-box:nth-child(1) i {
+  background-color: rgb(73, 73, 172);
+}
+
+.values .val-box:nth-child(2) i {
+  background-color: rgb(115, 115, 150);
+}
+
+.values .val-box:nth-child(3) i {
+  background-color: rgb(74, 121, 150);
+}
+
+.values .val-box h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.values .val-box span {
+  font-size: 15px;
+  color: rgb(59, 59, 56);
+}
+
+/* TÁBLÁZAT */
+
+.tablazat {
+  width: 96%;
+  margin: 30px 0 30px 30px;
+  overflow: auto;
+  background-color: rgb(255, 252, 252);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid rgb(205, 205, 205);
+}
+
+thead,
+tbody {
+  border: 1px solid rgb(205, 205, 205);
+  border-radius: 8px;
+}
+
+thead th {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 12px;
+}
+
+tbody tr td {
+  padding: 10px 15px;
+}
+
+.reszletekGomb a,
+.modositas a,
+.torles a {
+  padding: 4px 10px;
+  background-color: #97b9d246;
+  border: 1px solid #8283853e;
+  border-radius: 5px;
+  color: #2b2b2b;
+}
+
+@media only screen and (max-width: 1151px) {
+  body {
+    background-color: #e0e4e7;
+  }
+  /* }
+
+@media only screen and (max-width: 800px) { */
+  .tablazat {
+    display: flex;
+    margin: auto;
+    width: 60%;
+  }
+
+  table thead th {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  table {
+    padding: 10px;
+  }
+
+  table tr {
+    display: block;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    text-align: center;
+    font-size: 17px;
+  }
+
+  .values .val-box {
+    margin: 2px;
+  }
+
+  .values {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+}

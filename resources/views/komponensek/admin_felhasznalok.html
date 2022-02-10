@@ -1,0 +1,89 @@
+<!-- ADMIN TÁBLÁZAT, KERESÉS -->
+<div class="adminKereses">
+    <div class="n1">
+        <div class="kereses">
+            <i class="far fa-search"></i>
+            <input type="text" placeholder="Search">
+        </div>
+    </div>
+
+    <div class="adminFeladatValasztas">
+        <div>
+            <select name="adminKategoriak" id="adminKategoriak">
+                <option value="adminAutok">Autók</option>
+                <option value="adminFelhasznalok">Felhasználók</option>
+                <option value="adminFoglalasok">Foglalások</option>
+            </select>
+        </div>
+    </div>
+
+</div>
+<h3 class="oldalNev">Felhasználók</h3>
+<div class="values">
+    <div class="val-box">
+        <i class="fas fa-users"></i>
+        <div>
+            <h3>16</h3>
+            <span>Összes felhasználó</span>
+        </div>
+    </div>
+    <!--         </div> -->
+
+    <!--    <div class="values"> -->
+    <div class="val-box">
+        <i class="fas fa-car"></i>
+        <div>
+            <h3>194</h3>
+            <span>Összes foglalás</span>
+        </div>
+    </div>
+    <!--   </div> -->
+    <!-- 
+                    <div class="values"> -->
+    <div class="val-box">
+        <i class="fas fa-money-check-alt"></i>
+        <div>
+            <h3>1.320.456Ft</h3>
+            <span>Bejövő összeg</span>
+        </div>
+    </div>
+</div>
+
+<!-- TÁBLÁZAT -->
+<div class="tablazat">
+    <table>
+        <thead>
+            <tr>
+                <th>Jogkör</th>
+                <th>Felhasználónév</th>
+                <th>E-mail</th>
+                <th>Regisztráció dátuma</th>
+            </tr>
+        </thead>
+        <tbody class="felhasznalokKiiratasa">
+            <tr class="felhasznalok">
+                <td class="jogkor">
+                    <p>3 (felhasználó)</p>
+                </td>
+                <td class="felhnev">
+                    <p>pirike66</p>
+                </td>
+                <td class="email">
+                    <p>pirike66pirike66gmail.com</p>
+                </td>
+                <td class="regDatum">
+                    <p>2021.04.05.</p>
+                </td>
+                <td class="reszletekGomb">
+                    <a href="#">Részletek<!--  <i class="fas fa-long-arrow-right"></i> --></a>
+                </td>
+                <td class="modositas">
+                    <a href="#">Módosítás</a>
+                </td>
+                <td class="torles">
+                    <a href="#">Törlés</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

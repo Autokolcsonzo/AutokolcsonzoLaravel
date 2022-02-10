@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+.form {
+  /* padding: 0;
+  margin: auto;
+  width: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#foglalasszoveg1 {
+  font-size: 45px;
+}
+
+.form form {
+  width: 200%;
+}
+
+.inputfield {
+  margin-left: 30%; /* itt majd ki kéne kalkulálni rendesen */
+  padding: 10px;
+}
+
+.inputfield input {
+  width: 30%;
+  padding: 10px;
+  background: white;
+  border: 1px solid rgba(7, 7, 7, 0.541);
+  height: 40px;
+  outline: 0; /* nem lesz kerete mikor belekattintunk */
+}
+
+.form form .regButton {
+  background-color: #e0e4e7;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 2px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 6px 16px;
+  width: 200px;
+}
+
+.form form .regButton:hover {
+  background-color: #b1c5ee;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+label {
+  font-size: 20px;
+}
+
+.emailLabel,
+.felhLabel {
+  display: flex;
+}

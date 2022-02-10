@@ -1,0 +1,60 @@
+{
+    "autok": [
+        {
+            "autoId": 1,
+            "kep": "./kepek/232311_source.jpg",
+            "marka": "BMW",
+            "modell": "X5",
+            "kivitel": "Kombi",
+            "valto": "Autómata",
+            "uzemanyag": "Benzin",
+            "kategoria": "Luxus",
+            "ar": 5000,
+            "hetAr": 35000,
+            "helyszin": "Budapest",
+            "ajtok": 4,
+            "utasok": 5,
+            "szin": "Kék",
+            "egyeb": [
+                        "struccbőr kormány, ","Nitró, ","Kecskeszőr ülés, ","lyukas kipufogó, "
+                    ]
+        },{
+            "autoId": 2,
+            "kep": "./kepek/elantra-1080p.jpg",
+            "marka": "Opel",
+            "modell": "Corsa",
+            "kivitel": "Kombi",
+            "valto": "Félautómata",
+            "uzemanyag": "Hybrid",
+            "kategoria": "Családi",
+            "ar": 3000,
+            "hetAr": 20000,
+            "helyszin": "Szeged",
+            "ajtok": 4,
+            "utasok": 5,
+            "szin": "Fehér",
+            "egyeb": [
+                        "Kecskeszőr ülés, ","Lyukas kipufogó, ","Gyerek ülés, "
+                    ]
+        },{
+            "autoId": 3,
+            "kep": "./kepek/2018010359.jpg",
+            "marka": "tesla",
+            "modell": "Modell S",
+            "kivitel": "Sport",
+            "valto": "Autómata",
+            "uzemanyag": "Elektromos",
+            "kategoria": "Sport",
+            "ar": 4000,
+            "hetAr": 25000,
+            "helyszin": "Pécs",
+            "ajtok": 4,
+            "utasok": 5,
+            "szin": "Piros",
+            "egyeb": [
+                        "Játék konzol, ","witcher 3, ","Elon Musk bólogató bábú, "
+                    ]
+        }
+    ]
+  }
+  
