@@ -2,18 +2,17 @@
 
 namespace App\Models;
 
-/* use Illuminate\Contracts\Auth\MustVerifyEmail; */
-
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-/* use Illuminate\Foundation\Auth\User as Authenticatable;
+/* use Illuminate\Foundation\Auth\felhasznalo as Authenticatable; */
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens; */
+/* use Laravel\Sanctum\HasApiTokens; */
 
-class felhasznalo extends Model
+class felhasznalo extends /* Authenticatable */Model
 {
     protected $table = 'felhasznalo';
-    use HasFactory;
+    use HasFactory, Notifiable;
 
 /*     public $timestamps = false;
     public $email = false; */
@@ -23,28 +22,40 @@ class felhasznalo extends Model
      *
      * @var array<int, string>
      */
-       /*  protected $fillable = [
-        'name',
+        protected $fillable = [
+        /* 'name',
         'email',
-        'password',
-    ]; */
+        'password', */
+        'vezeteknev',
+            'keresztnev',
+            'felhasznalonev',
+            'jelszo',
+            'szul_ido',
+            'varos',
+            'megye',
+            'ir_szam',
+            'utca',
+            'hazszam',
+            'tel_szam',
+            'e_mail'
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    /*     protected $hidden = [
+        protected $hidden = [
         'password',
         'remember_token',
-    ]; */
+    ];
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-   /*      protected $casts = [
+        protected $casts = [
         'email_verified_at' => 'datetime',
-    ]; */
+    ];
 }

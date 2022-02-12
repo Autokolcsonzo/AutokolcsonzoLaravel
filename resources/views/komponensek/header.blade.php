@@ -7,7 +7,7 @@
                 <a href="bejelentkezes.php">Bejelentkezés
             </button>
             <button class="regisztracio">
-                <a href="regisztracio.php">Regisztráció</a>
+                <a href=" {{'regisztracio'}} ">Regisztráció</a>
             </button>
         </div>
     </div>

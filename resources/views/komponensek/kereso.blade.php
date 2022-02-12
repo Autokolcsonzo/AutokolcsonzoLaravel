@@ -7,6 +7,11 @@
 
     <form action="">
         <div class="input-box">
+            <label for="keresoMezo">Kereső</label>
+            <input type="text" id="keresoMezo" placeholder="pl: kék suzuki">
+        </div>
+        <div class="input-box">
+
             <span>Válassz helyszíneink közül</span>
             <select id="Khelyszinek" name="Khelyszinek">
             </select>
@@ -102,6 +107,15 @@
         <input type="submit" name="kereses" id="keresesBtn" value="Keresés" />
     </div><br>
     <div id="reszletesKeresoBtn-Box">
+        <div id="doboz"></div>
         <a id="reszletesKeresoBtn">Részletes keresés <img id="dropdown_arrow" src="kepek/arrow-circle-outline.svg"></a>
+        <section id="rendezes-box">
+            <label for="rendezes">Rendezés</label>
+            <select id="rendezes" name="rendezes">
+                <option value="alap">alapértelmezett</option>
+                <option value="novekvo">árszerint növekvő</option>
+                <option value="csokkeno">árszerint csökkenő</option>
+            </select>
+        </section>
     </div>
 </div>

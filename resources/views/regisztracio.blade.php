@@ -42,7 +42,7 @@
 
         <div class="fprofil">
             <div class="regisztracioFelulet">
-                <form method="post">
+                <form action="{{ route('regisztracio') }}" method="post">
                     @csrf
                     <div class="form-header">
                         <h3>Regisztráció</h3>
@@ -52,14 +52,23 @@
                             <label for="vezeteknev">Vezetéknév:</label>
                             <br />
 
-                            <input type="text" name="vezeteknev" id="vnev" placeholder="Kovács" />
-
+                            <input type="text" name="vezeteknev" id="vnev" placeholder="Kovács" required />
+                            <!--                             @error('vezeteknev')
+                            <div class="text-red-500 mt-2 text-sm">
+                                {{ $message }}
+                            </div>
+                            @enderror -->
                         </div>
 
                         <div class="inputfield">
                             <label for="keresztnev">Keresztnév:</label><br>
 
                             <input type="text" name="keresztnev" id="knev" placeholder="Kati" />
+                            @error('keresztnev')
+                            <div class="text-red-500 mt-2 text-sm">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
 
                     </div>

@@ -30,7 +30,7 @@ class RegisztralasController extends Controller
 
     public function signup(Request $req)
     {
-        /* EZ NEM JÓÓ */
+        /* 1. verzió, EZ NEM JÓÓ */
         /* $validalt = $req->validate([
             'vezeteknev' => "required",
             'keresztnev' => "required",
@@ -56,7 +56,6 @@ class RegisztralasController extends Controller
             'fnev'
         ]) */
 
-        /* EZ NEM JÓÓÓ */
         /* $felhasznalo = new felhasznalo();
         $felhasznalo->insert([
             'vezeteknev' => $req->input('vezeteknev'),
@@ -75,7 +74,7 @@ class RegisztralasController extends Controller
 
         return redirect('bejelentkezes'); */
 
-        /* EZ MŰKÖDIK */
+        /* 2. verzió, EZ MŰKÖDIK */
         $felhasznalo = new felhasznalo();
         $felhasznalo->vezeteknev = $req->vezeteknev;
         $felhasznalo->keresztnev = $req->keresztnev;
@@ -91,6 +90,40 @@ class RegisztralasController extends Controller
         $felhasznalo->e_mail = $req->e_mail;
         $felhasznalo->save();
 
-        return view ('regisztracio');
+        /* return view ('regisztracio'); */
+        return redirect()->route('bejelentkezes');
+
+        /* 3. VERZIÓ, EZ SEM MŰKÖDIK */
+        /* $this->validate($req, [
+            'vezeteknev' => 'required',
+            'keresztnev' => 'required',
+            'felhasznalonev' => 'required',
+            'jelszo' => 'required|confirmed',
+            'szul_ido' => 'required',
+            'varos' => 'required',
+            'megye' => 'required',
+            'ir_szam' => 'required',
+            'utca' => 'required',
+            'hazszam' => 'required',
+            'tel_szam' => 'required',
+            'e_mail' => 'required',
+        ]);
+
+        felhasznalo::create([
+            'vezeteknev' => $req->vezeteknev,
+            'keresztnev' => $req->keresztnev,
+            'felhasznalonev' => $req->felhasznalonev,
+            'jelszo' => Hash::make($req->jelszo),
+            'szul_ido' => $req->szul_ido,
+            'varos' => $req->varos,
+            'megye' => $req->megye,
+            'ir_szam' => $req->ir_szam,
+            'utca' => $req->utca,
+            'hazszam' => $req->hazszam,
+            'tel_szam' => $req->tel_szam,
+            'e_mail' => $req->e_mail,
+        ]); 
+
+        return redirect()->route('welcome');*/
     }
 }
