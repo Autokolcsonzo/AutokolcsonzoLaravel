@@ -1,8 +1,8 @@
 <div class="wrapper">
     <div class="navbar">
         <div class="reszpGombok">
-            <a class="reszpBejelentkezes" href="bejelentkezes.php">Bejelentkezés</a>
-            <a class="reszpRegisztracio" href="regisztracio.php">Regisztráció</a>
+            <a class="reszpBejelentkezes" href="{{ route('bejelentkezes') }}">Bejelentkezés</a>
+            <a class="reszpRegisztracio" href="{{ route('regisztracio') }}">Regisztráció</a>
         </div>
         <div class="nav_right">
             <ul>
@@ -43,7 +43,7 @@
             <div class="logo">
                 <img src="kepek/logo.png" alt="logo" />
             </div>
-            <li><a href="welcome.php">Kezdőlap</a></li>
+            <li><a href="{{ route('welcome') }}">Kezdőlap</a></li>
             <li><a href="#">Rólunk</a></li>
             <li><a href="#">Feltételek</a></li>
             <li>
@@ -68,9 +68,9 @@
 <!-- MOBIL NAV -->
 <div class="mobilNav">
     <ul class="navLista2">
-        <li><a href="welcome.php">Kezdőlap</a></li>
-        <li><a href="bejelentkezes.php">Bejelentkezés</a></li>
-        <li><a href="regisztracio.php">Regisztráció</a></li>
+        <li><a href=" {{ route('welcome') }} ">Kezdőlap</a></li>
+        <li><a href=" {{ route('bejelentkezes') }} ">Bejelentkezés</a></li>
+        <li><a href=" {{ route('regisztracio') }} ">Regisztráció</a></li>
         <li><a href="#">Rólunk</a></li>
         <li><a href="#">Feltételek</a></li>
         <li><a href="#">Járműveink</a></li>
