@@ -7,7 +7,9 @@ use App\Models\Auto;
 
 class AutokListazasaController extends Controller
 {
+    //https://www.youtube.com/watch?v=T9q1uT2BEZI&t=1185s
     // https://www.youtube.com/watch?v=A1UtXw-bIeE
+    //https://www.toptal.com/laravel/restful-laravel-api-tutorial
     public function index()
     {
         $result = Auto::all(); // az Auto modellből adja vissza az összes adatot
