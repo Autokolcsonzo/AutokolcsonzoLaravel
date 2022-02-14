@@ -4,7 +4,7 @@
         <div class="gombok">
             <button class="bejelentkezes" a>
                 <i class="fa fa-user"></i></a>
-                <a href="bejelentkezes.php">Bejelentkezés
+                <a href=" {{'bejelentkezes'}} ">Bejelentkezés
             </button>
             <button class="regisztracio">
                 <a href=" {{'regisztracio'}} ">Regisztráció</a>

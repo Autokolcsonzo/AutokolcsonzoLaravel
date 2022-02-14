@@ -7,9 +7,9 @@ use App\Http\Controllers\BejelentkezesController;
 use App\Http\Controllers\RegisztralasController;
 
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 Route::get('/welcome', [FooldalController::class, 'index'])->name('welcome');
 
@@ -32,3 +32,9 @@ Route::post('regisztracio', [RegisztralasController::class, 'signup']);
 Route::get('osszesAutoMenubol', function () {
     return view('osszesAutoMenubol');
 });
+
+Route::get('articles', 'ArticleController@index');
+Route::get('articles/{id}', 'ArticleController@show');
+Route::post('articles', 'ArticleController@store');
+Route::put('articles/{id}', 'ArticleController@update');
+Route::delete('articles/{id}', 'ArticleController@delete');
