@@ -47,10 +47,10 @@
             <li><a href="#">Rólunk</a></li>
             <li><a href="#">Feltételek</a></li>
             <li>
-                <a href="osszesAutoMenubol.html">Járműveink <i class="fa fa-arrow-right"></i></a>
+                <a href="{{ route('osszesAutoMenubol') }}">Járműveink <i class="fa fa-arrow-right"></i></a>
                 <div class="autokMenu">
                     <ul>
-                        <li><a href="osszesAutoMenubol.php">Összes</a></li>
+                        <li><a href="{{ route('osszesAutoMenubol') }}">Összes</a></li>
                         <li><a href="#">Autók</a></li>
                         <li><a href="#">Furgonok</a></li>
                         <li><a href="#">Pickupok</a></li>
@@ -73,7 +73,7 @@
         <li><a href=" {{ route('regisztracio') }} ">Regisztráció</a></li>
         <li><a href="#">Rólunk</a></li>
         <li><a href="#">Feltételek</a></li>
-        <li><a href="#">Járműveink</a></li>
+        <li><a href="{{ route('osszesAutoMenubol') }}">Járműveink</a></li>
         <li>
             <img src="kepek/profile.png" alt="profil" />
         </li>
