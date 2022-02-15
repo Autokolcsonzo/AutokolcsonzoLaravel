@@ -21,7 +21,7 @@
     <script src="js/autoLista/autoAjax.js"></script>
     <script src="js/autoLista/auto.js"></script>
     <script src="js/autoLista/autok.js"></script>
-    <script src="js/cards/autoCard.js"></script>
+    <script src="js/autoLista/autoBetoltes.js"></script>
     <style>
     /* Betűtípusok */
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');

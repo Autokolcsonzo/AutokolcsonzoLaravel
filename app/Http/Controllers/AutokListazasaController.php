@@ -14,7 +14,7 @@ class AutokListazasaController extends Controller
     public function index()
     {
         $result = Auto::all(); // az Auto modellből adja vissza az összes adatot
-        return $result;
+        return response()->view('jarmuTalalatiLista' ,compact($result));
     }
 
     public function create()
@@ -43,7 +43,7 @@ class AutokListazasaController extends Controller
     public function show($alvazSzam)
     {
         $result = Auto::where('alvazSzam','=',$alvazSzam)->first();/* find($alvazSzam); */
-        return $result;
+        return response()->json($result);
     }
 
     public function edit($alvazSzam)

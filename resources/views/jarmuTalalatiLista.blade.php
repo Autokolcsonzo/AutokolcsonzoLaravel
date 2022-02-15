@@ -16,11 +16,11 @@
     <script src="js/kereso/keresesiOpciokAjax.js"></script>
     <script src="js/kereso/keresesiOpciok.js"></script>
     <script src="js/reszponzivDolgok.js"></script>
+    <!-- <script src="js/autoLista/autoBetoltes.js"></script> MEGHAL TŐLE AZ OLDAL XD -->
     <script src="js/autoLista/autoAjax.js"></script>
     <script src="js/autoLista/auto.js"></script>
     <script src="js/kereso/keresoFeltoltes.js"></script>
     <script src="js/autoLista/autok.js"></script>
-    <script src="js/cards/autoCard.js"></script>
     <meta name="csrf-token" content=<?php $token=csrf_token(); echo $token;?>>
     <style>
     /* Betűtípusok */
