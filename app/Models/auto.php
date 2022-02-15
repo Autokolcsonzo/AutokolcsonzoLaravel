@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Auto extends Model
 {
-    protected $table = 'auto';
+    /* protected $table = 'auto'; */
     use HasFactory;
+    
+    protected $table = 'auto';
+    protected $primaryKey = ['alvazSzam'];
+    public $incrementing = false;
+    public $timestamps = false;
 }

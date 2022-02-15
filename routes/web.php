@@ -9,7 +9,6 @@ use App\Http\Controllers\osszesAutoMenubolController;
 use App\Http\Controllers\FelhasznalokController;
 
 
-
 Route::get('/', [FooldalController::class, 'index'])->name('welcome');
 
 Route::get('bejelentkezes', [BejelentkezesController::class, 'index'])->name('bejelentkezes');
@@ -25,6 +24,7 @@ Route::get('osszesAutoMenubol', function () {
 Route::get('osszesAutoMenubol', [osszesAutoMenubolController::class, 'index'])->name('osszesAutoMenubol');
 
 
+
 //felhasznaloApi
 
 
@@ -33,3 +33,8 @@ Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 
 Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update']);
 Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
 Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
+
+Route::get('jarmuTalalatiLista', function () {
+    return view('jarmuTalalatiLista');
+});
+

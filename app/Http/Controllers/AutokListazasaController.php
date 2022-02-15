@@ -10,6 +10,7 @@ class AutokListazasaController extends Controller
     //https://www.youtube.com/watch?v=T9q1uT2BEZI&t=1185s
     // https://www.youtube.com/watch?v=A1UtXw-bIeE
     //https://www.toptal.com/laravel/restful-laravel-api-tutorial
+    //https://www.youtube.com/watch?v=5fTFHAwWRV4
     public function index()
     {
         $result = Auto::all(); // az Auto modellből adja vissza az összes adatot
@@ -41,17 +42,17 @@ class AutokListazasaController extends Controller
 
     public function show($alvazSzam)
     {
-        $result = Auto::find($alvazSzam);
+        $result = Auto::where('alvazSzam','=',$alvazSzam)->first();/* find($alvazSzam); */
         return $result;
     }
 
-    public function edit($id)
+    public function edit($alvazSzam)
     {
     }
 
     public function update(Request $request, $alvazSzam)
     {
-        $auto = Auto::find($alvazSzam);
+        $result = Auto::where('alvazSzam','=',$alvazSzam)->first();
         $auto->alvazSzam = $request->alvazSzam;
         $auto->modell = $request->modell;
         $auto->telephely = $request->telephely;
@@ -70,7 +71,7 @@ class AutokListazasaController extends Controller
 
     public function destroy($alvazSzam)
     {
-        $auto = Auto::find($alvazSzam);
+        $result = Auto::where('alvazSzam','=',$alvazSzam)->first();
         $result = $auto->delete();
         if ($result) {
             return ['result' => 'Auto deleted.'];
