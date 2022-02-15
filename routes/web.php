@@ -6,9 +6,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BejelentkezesController;
 use App\Http\Controllers\RegisztralasController;
 use App\Http\Controllers\osszesAutoMenubolController;
+use App\Http\Controllers\FelhasznalokController;
 
 
-Route::get('/welcome', [FooldalController::class, 'index'])->name('welcome');
+
+Route::get('/', [FooldalController::class, 'index'])->name('welcome');
 
 Route::get('bejelentkezes', [BejelentkezesController::class, 'index'])->name('bejelentkezes');
 Route::post('bejelentkezes', [BejelentkezesController::class, 'addBejelentkezes']);
@@ -21,3 +23,13 @@ Route::get('osszesAutoMenubol', function () {
 });
 
 Route::get('osszesAutoMenubol', [osszesAutoMenubolController::class, 'index'])->name('osszesAutoMenubol');
+
+
+//felhasznaloApi
+
+
+Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
+Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show']);
+Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update']);
+Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
+Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
