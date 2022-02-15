@@ -8,7 +8,7 @@ use App\Http\Controllers\RegisztralasController;
 use App\Http\Controllers\osszesAutoMenubolController;
 
 
-Route::get('/welcome', [FooldalController::class, 'index'])->name('welcome');
+Route::get('/', [FooldalController::class, 'index'])->name('welcome');
 
 Route::get('bejelentkezes', [BejelentkezesController::class, 'index'])->name('bejelentkezes');
 Route::post('bejelentkezes', [BejelentkezesController::class, 'addBejelentkezes']);
@@ -21,3 +21,7 @@ Route::get('osszesAutoMenubol', function () {
 });
 
 Route::get('osszesAutoMenubol', [osszesAutoMenubolController::class, 'index'])->name('osszesAutoMenubol');
+
+Route::get('jarmuTalalatiLista', function () {
+    return view('jarmuTalalatiLista');
+});

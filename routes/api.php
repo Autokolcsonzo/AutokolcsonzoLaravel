@@ -22,8 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource("auto", AutokListazasaController::class);
 
-Route::get('auto', 'AutokListazasaController@index');
-Route::get('auto/{alvazSzam}', 'AutokListazasaController@show');
-Route::post('auto', 'AutokListazasaController@store');
-Route::put('auto/{alvazSzam}', 'AutokListazasaController@update');
-Route::delete('auto/{alvazSzam}', 'AutokListazasaController@delete');
+Route::get('auto', 'App\Http\Controllers\AutokListazasaController@index'); // kell elé a teljes útvonal különben itthon nem tetszik neki :D:D:D:DS
+Route::get('auto/{alvazSzam}', 'App\Http\Controllers\AutokListazasaController@show');
+Route::post('auto', 'App\Http\Controllers\AutokListazasaController@store');
+Route::put('auto/{alvazSzam}', 'App\Http\Controllers\AutokListazasaController@update');
+Route::delete('auto/{alvazSzam}', 'App\Http\Controllers\AutokListazasaController@delete');

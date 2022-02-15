@@ -21,6 +21,7 @@
     <script src="js/kereso/keresoFeltoltes.js"></script>
     <script src="js/autoLista/autok.js"></script>
     <script src="js/cards/autoCard.js"></script>
+    <meta name="csrf-token" content=<?php $token=csrf_token(); echo $token;?>>
     <style>
     /* Betűtípusok */
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
