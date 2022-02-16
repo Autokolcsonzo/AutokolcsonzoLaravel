@@ -34,7 +34,9 @@ Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 
 Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
 Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
 
-Route::get('jarmuTalalatiLista', function () {
-    return view('jarmuTalalatiLista');
+
+Route::get('felhasznaloiProfil', function () {
+    return view('felhasznaloiProfil');
 });
+
 
