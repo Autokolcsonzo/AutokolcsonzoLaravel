@@ -27,7 +27,7 @@ class Auto {
       this.reszletekTrigger();
     });
     this.foglalas.on("click", () => {
-      this.foglalasTrigger();
+      this.foglalasTrigger(this.adat);
     });
     $(this.elem).on({
       mouseenter: ()=> {
@@ -37,6 +37,7 @@ class Auto {
         $(this.elem.find(".jarmu-card-kep")).css("transform", "scale(1.0)");
       }
   }, this.elem);
+
   }
 
   setAdat(adat) {
@@ -60,6 +61,7 @@ class Auto {
     this.foglalas.text("Foglalás");
     this.reszletek.text("Részletek");
     this.zarva = true;
+    this.nyitva = false
   }
 
   reszletekTrigger() {
@@ -71,7 +73,24 @@ class Auto {
       this.zarva = true;
     }
   }
-  foglalasTrigger(){
-    alert("foglalás oldal megnyitása.");
+  foglalasTrigger(adat){
+    this.adat = adat;
+    let localFoglalasObj = {
+      autoId:adat.autoId,
+      kep:adat.kep,
+      marka:adat.marka,
+      modell:adat.modell,
+      kivitel:adat.kivitel,
+      ar:adat.ar,
+      helyszin:adat.helyszin,
+      tolDatum:$('#elvitel').val(),
+      tolIdo:$('#idoEl').val(),
+      igDatum:$('#visszavitel').val(),
+      igIdo:$('#idoVissza').val(),
+      vegosszeg:'Null'
+    };
+    localStorage.setItem('foglalasraObj',JSON.stringify(localFoglalasObj));
+    const foglalasAblak = new FoglalasMain();
+    foglalasAblak.Main();
   }
 }
