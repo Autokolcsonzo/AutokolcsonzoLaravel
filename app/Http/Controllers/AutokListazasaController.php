@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Auto;
+use Illuminate\Http\Request;
 
 class AutokListazasaController extends Controller
 {
@@ -14,7 +15,7 @@ class AutokListazasaController extends Controller
     public function index()
     {
         $result = Auto::all(); // az Auto modellből adja vissza az összes adatot
-        return response()->view('jarmuTalalatiLista' ,compact($result));
+        return $result;
     }
 
     public function create()
@@ -42,7 +43,7 @@ class AutokListazasaController extends Controller
 
     public function show($alvazSzam)
     {
-        $result = Auto::where('alvazSzam','=',$alvazSzam)->first();/* find($alvazSzam); */
+        $result = Auto::where('alvazSzam', '=', $alvazSzam)->first();/* find($alvazSzam); */
         return response()->json($result);
     }
 
@@ -52,7 +53,8 @@ class AutokListazasaController extends Controller
 
     public function update(Request $request, $alvazSzam)
     {
-        $result = Auto::where('alvazSzam','=',$alvazSzam)->first();
+        $auto = new Auto;
+        $result = Auto::where('alvazSzam', '=', $alvazSzam)->first();
         $auto->alvazSzam = $request->alvazSzam;
         $auto->modell = $request->modell;
         $auto->telephely = $request->telephely;
@@ -71,7 +73,8 @@ class AutokListazasaController extends Controller
 
     public function destroy($alvazSzam)
     {
-        $result = Auto::where('alvazSzam','=',$alvazSzam)->first();
+        $auto = new Auto;
+        $result = Auto::where('alvazSzam', '=', $alvazSzam)->first();
         $result = $auto->delete();
         if ($result) {
             return ['result' => 'Auto deleted.'];
