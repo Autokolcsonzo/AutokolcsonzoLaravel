@@ -22,13 +22,14 @@
     <script src="js/autoLista/autok.js"></script>
     <script src="js/autoLista/foglalas.js"></script>
     <script src="js/kereso/idopont.js"></script>
-    <meta name="csrf-token" content=<?php $token=csrf_token(); echo $token;?>>
+    <meta name="csrf-token" content=<?php $token = csrf_token();
+                                    echo $token; ?>>
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -57,98 +58,97 @@
 
         <!-- felhasználóknak segítség/információ a foglaláshoz -->
         <div id="primary_content">
-        <div id="myModal" class="modal">
+            <div id="myModal" class="modal">
 
-<!-- Modal content -->
-<div class="modal-content">
-  <h1 id="Foglalas-cim">Foglalás leadása</h1>
-  <h1 id="foglalas-bezaras">X</h1>
-  <form action="POST">
-      <section id="valasztott-jarmu-adatok">
-          <img id="valasztott-jarmu-kep" src="kepek\232311_source.jpg" alt="kocsi">
-          <div id="valasztott-jarmu-adatok-wrapp">
-              <section id="valasztott-jarmu-parameterek">
-                  <span id="valasztott-jarmu-marka"></span>
-                  <span id="valasztott-jarmu-modell"></span>
-                  <span id="valasztott-jarmu-kivitel"></span>
-              </section>
-              <span id="valasztott-jarmu-helyszin">Budapest</span>
-          </div>
-          
-      </section>
-      <section id="valasztott-jarmu-ar">
-          <span id="valasztott-jarmu-napiAr">0</span>
-          <span id="valasztott-jarmu-vegosszeg">0</span>
-          <span id="valasztott-jarmu-kedvezmeny">0</span>
-      </section>
-      <section id="foglalas-tol-box">
-          <label for="foglalas-tol">Felvétel:</label><br>
-          <input id="foglalas-tolD" name="foglalas-tol" type="date">
-          <input id="foglalas-tolI" name="foglalas-tol" type="time">
-      </section>
-      <section id="foglalas-ig-box">
-          <label for="foglalas-ig">Letétel:</label><br>
-          <input id="foglalas-igD" name="foglalas-ig" type="date">
-          <input id="foglalas-igI" name="foglalas-ig" type="time"> 
-      </section>
-      <button id="lefoglalas" class="" type="submit">Lefoglalás</button>
-  </form>
-  <div id="Felhasznaloi-feltetelek">
-      <p>Until recently, the prevailing view assumed lorem ipsum was born as a nonsense text. “It's not Latin, though it looks like it, and it actually says nothing,” Before & After magazine answered a curious reader, “Its ‘words’ loosely approximate the frequency with which letters occur in English, which is why at a glance it looks pretty real.”
-          “Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.”
-          McClintock's eye for detail certainly helped narrow the whereabouts of lorem ipsum's origin, however, the “how and when” still remain something of a mystery, with competing theories and timelines.</p>
-  </div>
-  <input type="button" id="Felhasznaloi-feltetelek-btn" value="Felhasználói feltételek">
-</div>
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <h1 id="Foglalas-cim">Foglalás leadása</h1>
+                    <h1 id="foglalas-bezaras">X</h1>
+                    <form action="POST">
+                        <section id="valasztott-jarmu-adatok">
+                            <img id="valasztott-jarmu-kep" src="kepek\232311_source.jpg" alt="kocsi">
+                            <div id="valasztott-jarmu-adatok-wrapp">
+                                <section id="valasztott-jarmu-parameterek">
+                                    <span id="valasztott-jarmu-marka"></span>
+                                    <span id="valasztott-jarmu-modell"></span>
+                                    <span id="valasztott-jarmu-kivitel"></span>
+                                </section>
+                                <span id="valasztott-jarmu-helyszin">Budapest</span>
+                            </div>
 
-</div>
-          
+                        </section>
+                        <section id="valasztott-jarmu-ar">
+                            <span id="valasztott-jarmu-napiAr">0</span>
+                            <span id="valasztott-jarmu-vegosszeg">0</span>
+                            <span id="valasztott-jarmu-kedvezmeny">0</span>
+                        </section>
+                        <section id="foglalas-tol-box">
+                            <label for="foglalas-tol">Felvétel:</label><br>
+                            <input id="foglalas-tolD" name="foglalas-tol" type="date">
+                            <input id="foglalas-tolI" name="foglalas-tol" type="time">
+                        </section>
+                        <section id="foglalas-ig-box">
+                            <label for="foglalas-ig">Letétel:</label><br>
+                            <input id="foglalas-igD" name="foglalas-ig" type="date">
+                            <input id="foglalas-igI" name="foglalas-ig" type="time">
+                        </section>
+                        <button id="lefoglalas" class="" type="submit">Lefoglalás</button>
+                    </form>
+                    <div id="Felhasznaloi-feltetelek">
+                        <p>Until recently, the prevailing view assumed lorem ipsum was born as a nonsense text. “It's not Latin, though it looks like it, and it actually says nothing,” Before & After magazine answered a curious reader, “Its ‘words’ loosely approximate the frequency with which letters occur in English, which is why at a glance it looks pretty real.”
+                            “Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.”
+                            McClintock's eye for detail certainly helped narrow the whereabouts of lorem ipsum's origin, however, the “how and when” still remain something of a mystery, with competing theories and timelines.</p>
+                    </div>
+                    <input type="button" id="Felhasznaloi-feltetelek-btn" value="Felhasználói feltételek">
+                </div>
 
-
-
-
-          <div id="jarmu-lista">
-
-              <div class="jarmu-card" id="">
-                  <div class="jarmu-card-img-box">
-                      <img class="jarmu-card-kep" src="" alt="">
-                  </div>
-
-                  <div class="card-block-1">
-                      <span class="jarmu-card-marka"></span>
-                      <span class="jarmu-card-tipus"></span>
-                      <span class="jarmu-card-kivitel"></span>
-                  </div>
-                  <div class="card-block-2">
-                      <span class="jarmu-card-ar"></span>
-                      <span class="jarmu-card-arHeti"></span>
-                      <span class="jarmu-card-telephely"></span>
-                  </div>
-                  <div class="card-block-3">
-                      <span class="jarmu-card-ajtok"></span>
-                      <span class="jarmu-card-utasok"></span>
-                      <span class="jarmu-card-szín"></span>
-                  </div>
-                  <div class="card-block-4">
-                      <span class="jarmu-card-valto"></span>
-                      <span class="jarmu-card-uzemanyag"></span>
-                      <span class="jarmu-card-kategoria"></span>
-                  </div>
-                  <div class="card-block-5">
-                      <ul class="jarmu-card-extra">
-                      </ul>
-                  </div>
-
-                  <div class="jarmu-card-buttons">
-                      <input class="jarmu-card-foglalas" type="button" value="Foglalás">
-                      <input class="jarmu-card-reszletek" type="button" value="Részletek">
-                  </div>
-              </div>
+            </div>
 
 
 
 
-          </div>
+
+            <div id="jarmu-lista">
+
+                <div class="jarmu-card" id="">
+                    <div class="jarmu-card-img-box">
+                        <img class="jarmu-card-kep" src="" alt="">
+                    </div>
+
+                    <div class="card-block-1">
+                        <span class="jarmu-card-marka"></span>
+                        <span class="jarmu-card-tipus"></span>
+                        <span class="jarmu-card-kivitel"></span>
+                    </div>
+                    <div class="card-block-2">
+                        <span class="jarmu-card-ar"></span>
+                        <span class="jarmu-card-arHeti"></span>
+                        <span class="jarmu-card-telephely"></span>
+                    </div>
+                    <div class="card-block-3">
+                        <span class="jarmu-card-ajtok"></span>
+                        <span class="jarmu-card-utasok"></span>
+                        <span class="jarmu-card-szín"></span>
+                    </div>
+                    <div class="card-block-4">
+                        <span class="jarmu-card-valto"></span>
+                        <span class="jarmu-card-uzemanyag"></span>
+                    </div>
+                    <div class="card-block-5">
+                        <ul class="jarmu-card-extra">
+                        </ul>
+                    </div>
+
+                    <div class="jarmu-card-buttons">
+                        <input class="jarmu-card-foglalas" type="button" value="Foglalás">
+                        <input class="jarmu-card-reszletek" type="button" value="Részletek">
+                    </div>
+                </div>
+
+
+
+
+            </div>
         </div>
 
         <!-- Footer -->

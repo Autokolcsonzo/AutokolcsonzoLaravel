@@ -41,7 +41,3 @@ Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::clas
 Route::get('felhasznaloiProfil', function () {
     return view('felhasznaloiProfil');
 });
-
-
-
-

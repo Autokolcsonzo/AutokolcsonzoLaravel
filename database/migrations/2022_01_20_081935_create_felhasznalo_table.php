@@ -19,7 +19,7 @@ class CreateFelhasznaloTable extends Migration
             $table->char('keresztnev', 30)->nullable();
             $table->char('felhasznalonev', 30);
             $table->char('jelszo', 32);
-            $table->dateTime('szul_ido')->nullable();
+            $table->date('szul_ido')->nullable();
             $table->binary('profilkep')->nullable();
             $table->char('varos', 40)->nullable();
             $table->char('megye', 30)->nullable();

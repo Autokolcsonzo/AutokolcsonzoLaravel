@@ -9,13 +9,16 @@ use Illuminate\Http\Request;
 class AutokListazasaController extends Controller
 {
     //https://www.youtube.com/watch?v=T9q1uT2BEZI&t=1185s
-    // https://www.youtube.com/watch?v=A1UtXw-bIeE
+    //https://www.youtube.com/watch?v=A1UtXw-bIeE
     //https://www.toptal.com/laravel/restful-laravel-api-tutorial
     //https://www.youtube.com/watch?v=5fTFHAwWRV4
     public function index()
     {
-        $result = Auto::all(); // az Auto modellből adja vissza az összes adatot
-        return $result;
+        $result = Auto::join('modell', 'auto.modell', '=', 'modell.modell_id')
+            ->get(['auto.*', 'modell.*']);
+        return view('jarmuTalalatiLista', compact('result'));
+        /* $result = Auto::all();
+        return $result; */
     }
 
     public function create()
@@ -43,8 +46,10 @@ class AutokListazasaController extends Controller
 
     public function show($alvazSzam)
     {
-        $result = Auto::where('alvazSzam', '=', $alvazSzam)->first();/* find($alvazSzam); */
-        return response()->json($result);
+        /* $result = Auto::where('alvazSzam', '=', $alvazSzam)->first(); */
+        /* return response()->json($result); */
+        $auto = Auto::find($alvazSzam);
+        return response()->json($auto);
     }
 
     public function edit($alvazSzam)
