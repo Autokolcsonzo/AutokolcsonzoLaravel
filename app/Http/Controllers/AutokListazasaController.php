@@ -13,6 +13,10 @@ class AutokListazasaController extends Controller
     //https://www.youtube.com/watch?v=A1UtXw-bIeE
     //https://www.toptal.com/laravel/restful-laravel-api-tutorial
     //https://www.youtube.com/watch?v=5fTFHAwWRV4
+
+    //TÖBB TÁBLÁS LEKÉRDEZÉS
+    //https://www.educative.io/edpresso/how-to-perform-inner-join-of-two-tables-in-laravel-query?fbclid=IwAR28h_m-5DCNlVJeM3Y9EJ9GW04dYY4vA5fzYPKPQO3XxFIM-E03gxoVX3c
+
     public function index()
     {
         $result = DB::table('auto')
@@ -21,11 +25,6 @@ class AutokListazasaController extends Controller
             ->select('auto.napiAr', 'auto.szin', 'modell.marka', 'modell.modell', 'modell.kivitel', 'modell.uzemanyag', 'telephely.varos',)
             ->get();
         return $result;
-        /*  $result = Auto::join('modell', 'auto.modell', '=', 'modell.modell_id')
-            ->get(['auto.*', 'modell.*']);
-        return view('jarmuTalalatiLista', compact('result')); */
-        /* $result = Auto::all();
-        return $result; */
     }
 
     public function create()
