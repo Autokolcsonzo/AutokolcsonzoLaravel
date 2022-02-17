@@ -1,18 +1,54 @@
 class AutoAjax {
-    constructor() {}
-  
+    constructor(token) {
+        this.token = token;
+    }
+
     getAdat(apiVegpont, tomb, myCallback) {
-      tomb.splice(0, tomb.length);
-      console.log(apiVegpont);
-      $.ajax({
-        url: apiVegpont,
-        type: "GET",
-        success: function (result) {
-          result.forEach((value) => {
-            tomb.push(value);
-          });
-          myCallback(tomb);
-        },
-      });
+        $.ajax({
+            url: apiVegpont,
+            type: "GET",
+            success: function (result) {
+                tomb.splice(0, tomb.length);
+                [result].forEach((value) => {
+                    tomb.push(value);
+                });
+                myCallback(tomb);
+            },
+        });
+    }
+
+    postAdat(apiVegpont, adat) {
+        $.ajax({
+            headers: { "X-CSRF-TOKEN": this.token },
+            url: apiVegpont,
+            type: "POST",
+            data: adat,
+            success: function (result) {
+                console.log(result);
+            },
+        });
+    }
+
+    deleteAdat(apiVegpont, id) {
+        $.ajax({
+            headers: { "X-CSRF-TOKEN": this.token },
+            url: apiVegpont + "/" + id,
+            type: "DELETE",
+            success: function (result) {
+                console.log(result);
+            },
+        });
+    }
+
+    putAdat(apiVegpont, adat) {
+        $.ajax({
+            headers: { "X-CSRF-TOKEN": this.token },
+            type: "POST",
+            url: apiVegpont,
+            data: adat,
+            success: function (result) {
+                console.log(result);
+            },
+        });
     }
 }

@@ -39,4 +39,6 @@ Route::get('felhasznaloiProfil', function () {
     return view('felhasznaloiProfil');
 });
 
-
+Route::get('jarmuTalalatiLista', function () {
+    return view('jarmuTalalatiLista');
+});
