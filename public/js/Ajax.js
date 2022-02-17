@@ -12,9 +12,11 @@ class MyAjax {
           type: "GET",
           success: function (result) {
               tomb.splice(0, tomb.length);
-              [result].forEach((value) => {
+              result.forEach((value) => {
                   tomb.push(value);
               });
+              console.log(tomb);
+
               myCallback(tomb);
           },
       });
