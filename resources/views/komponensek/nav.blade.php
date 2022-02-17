@@ -44,7 +44,7 @@
                 <img src="kepek/logo.png" alt="logo" />
             </div>
             <li><a href="{{ route('welcome') }}">Kezdőlap</a></li>
-            <li><a href="">Rólunk</a></li>
+            <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
             <li><a href="#">Feltételek</a></li>
             <li>
                 <a href="{{ route('osszesAutoMenubol') }}">Járműveink <i class="fa fa-arrow-right"></i></a>
@@ -71,7 +71,7 @@
         <li><a href=" {{ route('welcome') }} ">Kezdőlap</a></li>
         <li><a href=" {{ route('bejelentkezes') }} ">Bejelentkezés</a></li>
         <li><a href=" {{ route('regisztracio') }} ">Regisztráció</a></li>
-        <li><a href="">Rólunk</a></li>
+        <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
         <li><a href="#">Feltételek</a></li>
         <li><a href="{{ route('osszesAutoMenubol') }}">Járműveink</a></li>
         <li>

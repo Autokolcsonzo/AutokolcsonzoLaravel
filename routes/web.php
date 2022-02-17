@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BejelentkezesController;
 use App\Http\Controllers\RegisztralasController;
 use App\Http\Controllers\osszesAutoMenubolController;
+use App\Http\Controllers\MenuRolunkController;
 use App\Http\Controllers\FelhasznalokController;
 
 
@@ -22,6 +23,8 @@ Route::get('osszesAutoMenubol', function () {
 });
 
 Route::get('osszesAutoMenubol', [osszesAutoMenubolController::class, 'index'])->name('osszesAutoMenubol');
+Route::get('rolunk', [MenuRolunkController::class, 'index'])->name('rolunk');
+
 
 
 
