@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Auto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AutokListazasaController extends Controller
 {
@@ -14,9 +15,15 @@ class AutokListazasaController extends Controller
     //https://www.youtube.com/watch?v=5fTFHAwWRV4
     public function index()
     {
-        $result = Auto::join('modell', 'auto.modell', '=', 'modell.modell_id')
+        $result = DB::table('auto')
+            ->join('modell', 'auto.modell', '=', 'modell.modell_id')
+            ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
+            ->select('auto.napiAr', 'auto.szin', 'modell.marka', 'modell.modell', 'modell.kivitel', 'modell.uzemanyag', 'telephely.varos',)
+            ->get();
+        return $result;
+        /*  $result = Auto::join('modell', 'auto.modell', '=', 'modell.modell_id')
             ->get(['auto.*', 'modell.*']);
-        return view('jarmuTalalatiLista', compact('result'));
+        return view('jarmuTalalatiLista', compact('result')); */
         /* $result = Auto::all();
         return $result; */
     }

@@ -3,24 +3,21 @@ class MyAjax {
         this.token = token;
     }
 
- 
-
     getAdat(apiVegpont, tomb, myCallback) {
-     
-      $.ajax({
-          url: apiVegpont,
-          type: "GET",
-          success: function (result) {
-              tomb.splice(0, tomb.length);
-              result.forEach((value) => {
-                  tomb.push(value);
-              });
-              console.log(tomb);
+        $.ajax({
+            url: apiVegpont,
+            type: "GET",
+            success: function (result) {
+                tomb.splice(0, tomb.length);
+                result.forEach((value) => {
+                    tomb.push(value);
+                });
+                console.log(tomb);
 
-              myCallback(tomb);
-          },
-      });
-  }
+                myCallback(tomb);
+            },
+        });
+    }
 
     postAdat(apiVegpont, adat) {
         $.ajax({

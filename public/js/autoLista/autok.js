@@ -1,17 +1,19 @@
 $(function () {
     const token = $('meta[name="csrf-token"]').attr("content");
-    const autoAjax = new AutoAjax(token);
+    const myAjax = new MyAjax(token);
     const autok = [];
-    let apiVegpont = "http://localhost:8000/api/auto";
-    autoAjax.getAdat(apiVegpont, autok, autoFeltoltes);
 
-    function autoFeltoltes() {
+    let apiVegpont = "http://localhost:8000/api/auto";
+
+    myAjax.getAdat(apiVegpont, autok, autoFeltoltes);
+
+    function autoFeltoltes(autok) {
         const szuloElem = $("#jarmu-lista");
         const sablonElem = $(".jarmu-card");
         szuloElem.empty();
         sablonElem.show();
         autok.forEach(function (elem) {
-            /*  console.log(elem); */
+            console.log(elem);
             const ujElem = sablonElem.clone().appendTo(szuloElem);
             const ujTermek = new Auto(ujElem, elem);
             console.log(autok);
@@ -20,7 +22,7 @@ $(function () {
     }
 
     //Sortok
-    let keresomezo = $("#keresoMezo");
+    /*     let keresomezo = $("#keresoMezo");
     keresomezo.on("keyup", () => {
         autok.splice(0, autok.length);
         $("#jarmu-lista").empty();
@@ -42,5 +44,5 @@ $(function () {
             apivegpont += "?_sort=ar&_order=desc";
             autoAjax.getAdat(apivegpont, autok, autoFeltoltes);
         }
-    });
+    }); */
 });

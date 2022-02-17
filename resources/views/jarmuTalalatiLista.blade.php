@@ -117,7 +117,7 @@
 
                     <div class="card-block-1">
                         <span class="jarmu-card-marka"></span>
-                        <span class="jarmu-card-tipus"></span>
+                        <span class="jarmu-card-modell"></span>
                         <span class="jarmu-card-kivitel"></span>
                     </div>
                     <div class="card-block-2">
@@ -126,12 +126,12 @@
                         <span class="jarmu-card-telephely"></span>
                     </div>
                     <div class="card-block-3">
-                        <span class="jarmu-card-ajtok"></span>
-                        <span class="jarmu-card-utasok"></span>
+                        <!--                         <span class="jarmu-card-ajtok"></span>
+                        <span class="jarmu-card-utasok"></span> -->
                         <span class="jarmu-card-szín"></span>
                     </div>
                     <div class="card-block-4">
-                        <span class="jarmu-card-valto"></span>
+                        <!--                         <span class="jarmu-card-valto"></span> -->
                         <span class="jarmu-card-uzemanyag"></span>
                     </div>
                     <div class="card-block-5">

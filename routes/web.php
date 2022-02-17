@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FooldalController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\BejelentkezesController;
 use App\Http\Controllers\RegisztralasController;
 use App\Http\Controllers\osszesAutoMenubolController;
@@ -37,4 +36,8 @@ Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::clas
 
 Route::get('felhasznaloiProfil', function () {
     return view('felhasznaloiProfil');
+});
+
+Route::get('jarmuTalalatiLista', function () {
+    return view('jarmuTalalatiLista');
 });
