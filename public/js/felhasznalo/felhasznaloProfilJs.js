@@ -13,14 +13,14 @@ $(function () {
         szuloElem.empty();
         //console.log(felhasznalok);
         szuloElem.show();
+        console.log(felhasznalok[0].felhasznalo_id);
 
         felhasznalok.forEach(function (elem) {
-            /*   console.log(elem); */
-            /*  if (elem["felhasznalo_id"] === 1) { */
-            const ujElem = sablonElem.clone().appendTo(szuloElem);
-            const ujTermek = new FelhasznaloProfil(ujElem, elem);
-            console.log(felhasznalok);
-            /*   } */
+            if (elem["felhasznalo_id"] == 1) {
+                const ujElem = sablonElem.clone().appendTo(szuloElem);
+                const ujTermek = new FelhasznaloProfil(ujElem, elem);
+                console.log(felhasznalok);
+            }
         });
         $(".fadatok").append(
             '<input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása" />'

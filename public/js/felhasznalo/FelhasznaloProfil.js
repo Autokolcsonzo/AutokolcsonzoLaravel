@@ -20,6 +20,7 @@ class FelhasznaloProfil {
   }
 
   setAdat(adat) {
+    console.log(adat);
     this.fnev.text(adat.felhasznalonev);
     this.jelszo.text(adat.jelszo);
     this.vnev.text(adat.vezeteknev);
