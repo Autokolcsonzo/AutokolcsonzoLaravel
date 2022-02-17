@@ -7,6 +7,8 @@ use App\Http\Controllers\BejelentkezesController;
 use App\Http\Controllers\RegisztralasController;
 use App\Http\Controllers\osszesAutoMenubolController;
 use App\Http\Controllers\FelhasznalokController;
+use App\Http\Controllers\jarmuTalalatiLista;
+
 
 
 Route::get('/', [FooldalController::class, 'index'])->name('welcome');
@@ -37,4 +39,8 @@ Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::clas
 
 Route::get('felhasznaloiProfil', function () {
     return view('felhasznaloiProfil');
+});
+
+Route::get('jarmuTalalatiLista', function () {
+    return view('jarmuTalalatiLista');
 });

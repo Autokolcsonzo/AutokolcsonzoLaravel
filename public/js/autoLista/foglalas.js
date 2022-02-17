@@ -118,6 +118,9 @@ class FoglalasFeltoltes {
         kapottKedvezmeny +
         "% al"
     );
+    if(isNaN(vegosszeg)){
+      vegosszeg=0;
+    }
     this.vegosszeg.text(vegosszeg);
     this.kedvezmeny.text(kapottKedvezmeny);
   }
