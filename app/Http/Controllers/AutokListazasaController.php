@@ -26,6 +26,16 @@ class AutokListazasaController extends Controller
             ->get();
         return $result;
     }
+    
+public function adminIndex()
+    {
+        $result = DB::table('auto')
+            ->join('modell', 'auto.modell', '=', 'modell.modell_id')
+            ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
+            ->select('auto.rendszam', 'modell.marka', 'telephely.varos',)
+            ->get();
+        return $result;
+    }
 
     public function create()
     {

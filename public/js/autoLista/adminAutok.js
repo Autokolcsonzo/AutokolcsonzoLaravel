@@ -3,7 +3,7 @@ $(function () {
     const myAjax = new MyAjax(token);
     const adminAutok = [];
 
-    let apiVegpont = "http://localhost:8000/api/auto";
+    let apiVegpont = "http://localhost:8000/api/adminAuto";
 
     myAjax.getAdat(apiVegpont, adminAutok, autoFeltoltes);
 
@@ -13,7 +13,7 @@ $(function () {
         szuloElem.empty();
         sablonElem.show();
         adminAutok.forEach(function (elem) {
-            console.log(elem);
+            /* console.log(elem); */
             const ujElem = sablonElem.clone().appendTo(szuloElem);
             const ujTermek = new Auto(ujElem, elem);
             console.log(adminAutok);

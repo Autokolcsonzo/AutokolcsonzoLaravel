@@ -8,13 +8,13 @@ class Auto {
 
         this.setAdat(this.adat);
 
-        this.reszletek.on("click", () => {
+        /*   this.reszletek.on("click", () => {
             this.reszletekTrigger();
         });
 
         this.foglalas.on("click", () => {
             this.foglalasTrigger(this.adat);
-        });
+        }); */
     }
 
     setAdat(adat) {

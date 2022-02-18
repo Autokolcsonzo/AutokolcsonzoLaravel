@@ -100,7 +100,7 @@
             </div>
 
             <div class="tablazat">
-                <table width="100%" class="szuloELem">
+                <table width="100%">
                     <thead>
                         <tr>
                             <th>Státusz</th>
@@ -109,8 +109,8 @@
                             <th>Telephely</th>
                         </tr>
                     </thead>
-                    <tbody class="adminAuto">
-                        <tr>
+                    <tbody class="szuloELem">
+                        <tr class="adminAuto">
                             <td class="tablazatStatusz">
                                 <input type="checkbox" id="statuszInput" name="statuszInput">
                             </td>
