@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="../css/footer.css" />
     <!--   <link rel="stylesheet" href="css/fooldal.css" /> -->
     <link rel="stylesheet" href="../css/nav.css" />
-    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="../css/admin/admin.css" />
 </head>
 
 <body>

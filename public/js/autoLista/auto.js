@@ -110,6 +110,6 @@ class Auto {
             }
         }
         console.log((100 - kapottKedvezmeny) / 100);
-        return ((100 - kapottKedvezmeny) / 100) * 7;
+        return ((100 - kapottKedvezmeny) / 100) * 7; //JSON server szükséges hozzá
     }
 }

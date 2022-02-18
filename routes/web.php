@@ -10,6 +10,7 @@ use App\Http\Controllers\MenuFeltetelekController;
 use App\Http\Controllers\FelhasznalokController;
 use App\Http\Controllers\jarmuTalalatiLista;
 
+use App\Http\Controllers\FormController;
 
 
 Route::get('/', [FooldalController::class, 'index'])->name('welcome');
@@ -48,3 +49,18 @@ Route::get('felhasznaloiProfil', function () {
 Route::get('jarmuTalalatiLista', function () {
     return view('jarmuTalalatiLista');
 });
+
+Route::get('adminAutok', function () {
+    return view('adminAutok');
+});
+
+Route::get('adminFelhasznalok', function () {
+    return view('adminFelhasznalok');
+});
+
+/* Route::get('probaForm', function () {
+    return view('probaForm');
+}); */
+
+Route::get('probaForm', [FormController::class, 'index']);
+Route::post('store-form', [FormController::class, 'store']);
