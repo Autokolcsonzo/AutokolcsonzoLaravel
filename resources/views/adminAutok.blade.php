@@ -14,6 +14,11 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/autoLista/adminAuto.js"></script>
+    <script src="../js/autoLista/adminAutok.js"></script>
+    <meta name="csrf-token" content=<?php $token = csrf_token();
+                                    echo $token; ?>>
     <style>
     /* Betűtípusok */
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
@@ -95,67 +100,21 @@
             </div>
 
             <div class="tablazat">
-                <table width="100%">
+                <table width="100%" class="szuloELem">
                     <thead>
                         <tr>
-                            <td>Státusz</td>
-                            <td>Rendszám</td>
-                            <td>Megnevezés</td>
-                            <td>Telephely</td>
+                            <th>Státusz</th>
+                            <th>Rendszám</th>
+                            <th>Megnevezés</th>
+                            <th>Telephely</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="adminAuto">
                         <tr>
                             <td class="tablazatStatusz">
                                 <input type="checkbox" id="statuszInput" name="statuszInput">
                             </td>
-                            <td class="rendzszam">
-                                <p>ABC-123</p>
-                            </td>
-                            <td class="megnevezes">
-                                <p>Audi A4</p>
-                            </td>
-                            <td class="telephely">
-                                <p>Budapest</p>
-                            </td>
-                            <td class="reszletekGomb">
-                                <a href="#">Részletek <i class="fas fa-long-arrow-right"></i></a>
-                            </td>
-                            <td class="modositas">
-                                <a href="#">Módosítás</a>
-                            </td>
-                            <td class="torles">
-                                <a href="#">Törlés</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="tablazatStatusz">
-                                <input type="checkbox" id="statuszInput" name="statuszInput">
-                            </td>
-                            <td class="rendzszam">
-                                <p>ABC-123</p>
-                            </td>
-                            <td class="megnevezes">
-                                <p>Audi A4</p>
-                            </td>
-                            <td class="telephely">
-                                <p>Budapest</p>
-                            </td>
-                            <td class="reszletekGomb">
-                                <a href="#">Részletek <i class="fas fa-long-arrow-right"></i></a>
-                            </td>
-                            <td class="modositas">
-                                <a href="#">Módosítás</a>
-                            </td>
-                            <td class="torles">
-                                <a href="#">Törlés</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="tablazatStatusz">
-                                <input type="checkbox" id="statuszInput" name="statuszInput">
-                            </td>
-                            <td class="rendzszam">
+                            <td class="rendszam">
                                 <p>ABC-123</p>
                             </td>
                             <td class="megnevezes">
