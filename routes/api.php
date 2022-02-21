@@ -24,6 +24,9 @@ Route::apiResource('auto', AutokListazasaController::class);
 
 Route::get('auto', [AutokListazasaController::class, 'index']);
 Route::get('adminAuto', [AutokListazasaController::class, 'adminIndex']);
+Route::get('osszesFelhasznalo', [AutokListazasaController::class, 'adminOsszesFelhasznalo']);
+
+Route::delete('adminAuto/{alvazSzam}', [AutokListazasaController::class, 'destroy']);
 
 /* Route::get('auto/{alvazSzam}', 'AutokListazasaController@show');
 Route::post('auto', 'AutokListazasaController@store');

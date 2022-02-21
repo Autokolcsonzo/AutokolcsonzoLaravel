@@ -19,7 +19,7 @@ Route::get('bejelentkezes', [BejelentkezesController::class, 'index'])->name('be
 Route::post('bejelentkezes', [BejelentkezesController::class, 'addBejelentkezes']);
 
 Route::get('regisztracio', [RegisztralasController::class, 'index'])->name('regisztracio');
-Route::post('regisztracio', [RegisztralasController::class, 'signup']);
+Route::post('regisztracio', [RegisztralasController::class, 'store']); 
 
 Route::get('osszesAutoMenubol', function () {
     return view('osszesAutoMenubol');

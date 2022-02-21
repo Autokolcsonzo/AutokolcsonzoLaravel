@@ -21,9 +21,9 @@ class CreateFelhasznaloTable extends Migration
             $table->char('jelszo', 32);
             $table->date('szul_ido')->nullable();
             $table->binary('profilkep')->nullable();
-            $table->char('varos', 40)->nullable();
-            $table->char('megye', 30)->nullable();
             $table->char('ir_szam', 5)->nullable();
+            $table->char('megye', 30)->nullable();
+            $table->char('varos', 40)->nullable();
             $table->char('utca', 30)->nullable();
             $table->char('hazszam', 10)->nullable();
             $table->char('tel_szam', 12)->nullable();

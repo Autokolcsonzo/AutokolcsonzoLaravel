@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\Models\felhasznalo;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Felhasznalo;
 
 class RegisztralasController extends Controller
 {
@@ -22,10 +24,97 @@ class RegisztralasController extends Controller
     }
     } */
 
-    public function index(/* Request $req */)
+    public function index()
     {
        /*  print_r($req->all()); */
         return view('regisztracio');
+    }
+
+    public function store(Request $req) {
+        /* dd($req->only('felhasznalonev', 'jelszo')); */
+        
+        // validáció
+        $validator = Validator::make($req->all(), [
+            'vezeteknev' => 'required',
+            'keresztnev' => 'required',
+            'felhasznalonev' => 'required',
+            'jelszo' => 'required', //|confirmed nem működik :D
+            'szul_ido' => 'required',
+            'ir_szam' => 'required',
+            'megye' => 'required',
+            'varos' => 'required',
+            'utca' => 'required',
+            'hazszam' => 'required',
+            'tel_szam' => 'required',
+            'e_mail' => 'required',
+        ]);
+
+        /* if (!$validator->fails())
+       {
+       $validated_data=$req->all();
+       $category = new Felhasznalo();
+       $category->fill($validated_data);
+       $category->save();
+       return $category->category_id;
+       } 
+      else {
+       return $validator->errors();
+      } */
+       
+        /*  $this->validate($request, $rules); */
+        
+        /* if ( $request->scheduleInMonths > 36){
+            echo "Ooops error not captured!!!";
+        } */
+        
+       /*  $validator = \Validator::make($req->all(), $rules); */
+
+        /* if ($validator->fails()) {
+           return response()->json($validator->errors(),400);
+        } */
+
+        /* $this->validate($req, [
+            'vezeteknev' => 'required',
+            'keresztnev' => 'required',
+            'felhasznalonev' => 'required',
+            'jelszo' => 'required|confirmed',
+            'szul_ido' => 'required',
+            'varos' => 'required',
+            'megye' => 'required',
+            'ir_szam' => 'required',
+            'utca' => 'required',
+            'hazszam' => 'required',
+            'tel_szam' => 'required',
+            'e_mail' => 'required',
+        ]); */
+
+        // felhasználó eltárolása
+
+        Felhasznalo::create([
+            'vezeteknev' => $req->vezeteknev,
+            'keresztnev' => $req->keresztnev,
+            'felhasznalonev' => $req->felhasznalonev,
+            'jelszo' => $req->jelszo, //Hash::make($req->jelszo) jelszó hosszát változtatni kell
+            'szul_ido' => $req->szul_ido,
+            'ir_szam' => $req->ir_szam,
+            'megye' => $req->megye,
+            'varos' => $req->varos,
+            'utca' => $req->utca,
+            'hazszam' => $req->hazszam,
+            'tel_szam' => $req->tel_szam,
+            'e_mail' => $req->e_mail,
+        ]);
+        // bejelentkeztetés
+        /* auth()->attempt([
+            'felhasznalonev' => $req->felhasznalonev,
+            'jelszo' => $req->jelszo,
+        ]);  */
+        // E HELYETT ELVILEG JÓ AZ ALÁBBI
+       /*  auth()->attempt($req->only('felhasznalonev', 'jelszo')); */
+       //Error Class "\App\Models\User" not found 
+
+        // redirect
+        return redirect()->route('welcome');
     }
 
     public function signup(Request $req)
@@ -75,7 +164,7 @@ class RegisztralasController extends Controller
         return redirect('bejelentkezes'); */
 
         /* 2. verzió, EZ MŰKÖDIK */
-        $felhasznalo = new felhasznalo();
+        $felhasznalo = new Felhasznalo();
         $felhasznalo->vezeteknev = $req->vezeteknev;
         $felhasznalo->keresztnev = $req->keresztnev;
         $felhasznalo->felhasznalonev = $req->felhasznalonev;
@@ -92,38 +181,5 @@ class RegisztralasController extends Controller
 
         /* return view ('regisztracio'); */
         return redirect()->route('bejelentkezes');
-
-        /* 3. VERZIÓ, EZ SEM MŰKÖDIK */
-        /* $this->validate($req, [
-            'vezeteknev' => 'required',
-            'keresztnev' => 'required',
-            'felhasznalonev' => 'required',
-            'jelszo' => 'required|confirmed',
-            'szul_ido' => 'required',
-            'varos' => 'required',
-            'megye' => 'required',
-            'ir_szam' => 'required',
-            'utca' => 'required',
-            'hazszam' => 'required',
-            'tel_szam' => 'required',
-            'e_mail' => 'required',
-        ]);
-
-        felhasznalo::create([
-            'vezeteknev' => $req->vezeteknev,
-            'keresztnev' => $req->keresztnev,
-            'felhasznalonev' => $req->felhasznalonev,
-            'jelszo' => Hash::make($req->jelszo),
-            'szul_ido' => $req->szul_ido,
-            'varos' => $req->varos,
-            'megye' => $req->megye,
-            'ir_szam' => $req->ir_szam,
-            'utca' => $req->utca,
-            'hazszam' => $req->hazszam,
-            'tel_szam' => $req->tel_szam,
-            'e_mail' => $req->e_mail,
-        ]); 
-
-        return redirect()->route('welcome');*/
     }
 }

@@ -13,12 +13,12 @@
     <script src="js/hambiMenu.js"></script>
     <script src="js/reszponzivDolgok.js"></script>
     <style>
-        /* Betűtípusok */
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+    /* Betűtípusok */
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -41,7 +41,7 @@
 
         <div class="fprofil">
             <div class="regisztracioFelulet">
-                <form action="{{ route('regisztracio') }}" method="post">
+                <form action="{{ route('regisztracio') }}" method="POST">
                     @csrf
                     <div class="form-header">
                         <h3>Regisztráció</h3>
@@ -51,23 +51,28 @@
                             <label for="vezeteknev">Vezetéknév:</label>
                             <br />
 
-                            <input type="text" name="vezeteknev" id="vnev" placeholder="Kovács" required />
-                            <!--                             @error('vezeteknev')
+                            <input type="text" name="vezeteknev" id="vnev" placeholder="Kovács" />
+                            <!-- @error('vezeteknev')
                             <div class="text-red-500 mt-2 text-sm">
                                 {{ $message }}
                             </div>
                             @enderror -->
+                            @if ($errors->has('vezeteknev'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('vezeteknev') }}</strong>
+                            </span>
+                            @endif
                         </div>
 
                         <div class="inputfield">
                             <label for="keresztnev">Keresztnév:</label><br>
 
                             <input type="text" name="keresztnev" id="knev" placeholder="Kati" />
-                            @error('keresztnev')
-                            <div class="text-red-500 mt-2 text-sm">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                            @if ($errors->has('keresztnev'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('keresztnev') }}</strong>
+                            </span>
+                            @endif
                         </div>
 
                     </div>
@@ -78,6 +83,11 @@
 
                             <br />
                             <input type="text" name="felhasznalonev" id="fnev" placeholder="valaki97" /><br />
+                            @if ($errors->has('felhasznalonev'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('felhasznalonev') }}</strong>
+                            </span>
+                            @endif
                         </div>
 
                         <div class="inputfield">
@@ -122,7 +132,11 @@
                             <label for="ir_szam">Cím:</label>
                             <br />
                             <input type="text" name="ir_szam" id="iranyitoszam" placeholder="Irányítószám" />
-
+                            @if ($errors->has('ir_szam'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('ir_szam') }}</strong>
+                            </span>
+                            @endif
                         </div>
 
                     </div>
@@ -131,6 +145,11 @@
 
                         <div class="inputfield">
                             <input type="text" id="megye" placeholder="Megye" />
+                            @if ($errors->has('megye'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('megye') }}</strong>
+                            </span>
+                            @endif
                         </div>
 
                         <div class="inputfield">
