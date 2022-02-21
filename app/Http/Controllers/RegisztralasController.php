@@ -111,7 +111,7 @@ class RegisztralasController extends Controller
         ]);  */
         // E HELYETT ELVILEG JÓ AZ ALÁBBI
        /*  auth()->attempt($req->only('felhasznalonev', 'jelszo')); */
-       //Error Class "\App\Models\User" not found 
+       // Undefined array key "password" 
 
         // redirect
         return redirect()->route('welcome');
