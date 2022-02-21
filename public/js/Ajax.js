@@ -12,7 +12,7 @@ class MyAjax {
                 result.forEach((value) => {
                     tomb.push(value);
                 });
-                console.log(tomb);
+                //console.log(tomb);
 
                 myCallback(tomb);
             },
