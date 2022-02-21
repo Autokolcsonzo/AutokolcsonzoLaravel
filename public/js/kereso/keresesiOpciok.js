@@ -1,4 +1,5 @@
 $(function () {
+    const datumIdo = new DatumIdo();
     const myAjax = new MyAjax();
     let opciok = [];
     const keresoF = new KeresoFeltolo();
@@ -25,4 +26,5 @@ $(function () {
             keresoF.markaModellKapcsolat(valasztottMarka, opciok);
         }
     });
+
 });

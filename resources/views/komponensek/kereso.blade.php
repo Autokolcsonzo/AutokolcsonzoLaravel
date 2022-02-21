@@ -27,8 +27,12 @@
             <input type="date" id="visszavitel" name="visszavitel" />
         </div>
         <div class="input-box2">
-            <input style="margin-top: 10px" type="time" id="idoEl" name="idoEl"/>
-            <input style="margin-top: 10px" type="time" id="idoVissza" name="idoVissza" />
+            <select style="margin-top: 10px" type="time" id="idoEl" name="idoEl"> 
+                
+            </select>
+            <select style="margin-top: 10px" type="time" id="idoVissza" name="idoVissza">
+            
+            </select>
         </div>
     </form>
     <div id="dropdown_kereso">
