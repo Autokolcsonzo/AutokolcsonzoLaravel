@@ -15,12 +15,14 @@ class FelhasznaloProfil {
     this.email = this.elem.find("#email");
     this.tszam = this.elem.find("#tszam");
     this.profkep=$("#profKep");
+    
+    
     this.setAdat(adat);
 
   }
 
   setAdat(adat) {
-    console.log(adat);
+    //console.log(adat);
     this.fnev.text(adat.felhasznalonev);
     this.jelszo.text(adat.jelszo);
     this.vnev.text(adat.vezeteknev);
@@ -32,7 +34,7 @@ class FelhasznaloProfil {
     this.utca.text(adat.utca);
     this.hszam.text(adat.hazszam);
     this.email.text(adat.e_mail);
-    this.tszam.text(adat.tszam);
+    this.tszam.text(adat.tel_szam);
     this.profkep.attr("src",adat.profilkep);
     
   

@@ -70,15 +70,7 @@
 
                         </tr>
 
-                        <tr>
-                            <td>Felhasznalónév: </td>
-                            <td id="fnev">valaki97</td>
-                            <td>Jelszó: </td>
-                            <td id="jelszo">********</td>
-
-
-                        </tr>
-
+                   
                         <tr>
                             <td>Vezetéknév: </td>
                             <td id="vnev">Kovács</td>
@@ -177,12 +169,7 @@
                                     placeholder="******" />
                             </div>
 
-                            <div class="inputfield">
-                                <label for="jelszo2">Jelszó újra:</label>
-                                <br>
-                                <input type="password" name="jelszo2" id="jelszo2" class="jelszo"
-                                    placeholder="******" />
-                            </div>
+                         
 
                         </div>
 

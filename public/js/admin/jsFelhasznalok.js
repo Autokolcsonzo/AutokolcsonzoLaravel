@@ -1,23 +1,27 @@
 $(function () {
-  const myAjax = new MyAjax();
-  const felhasznalok = [];
-  const szuloElem = $(".felhasznalokKiiratasa");
-  const sablonElem = $(".felhasznalok");
-  szuloElem.empty();
-  let apiVegpont = "http://localhost:3000/felhasznalo";
+    const token = $('meta[name="csrf-token"]').attr("content");
+    const myAjax = new MyAjax(token);
+    const felhasznalok = [];
+    let url = "http://localhost:8000/api";
 
-  myAjax.getAdat(apiVegpont, felhasznalok, TermekValasztas);
+    let apiVegpont = url + "/" + "felhasznalo";
+    
+    const szuloElem = $(".felhasznalokKiiratasa");
+    const sablonElem = $(".felhasznalok");
+    szuloElem.empty();
 
-  function TermekValasztas() {
-    // van egy sablonelemünk
-    szuloElem.show();
-    /*     sablonElem.show(); */
-    felhasznalok.forEach(function (elem) {
-      const ujElem = sablonElem.clone().appendTo(szuloElem);
-      const ujTermek = new Felhasznalo(ujElem, elem);
-    });
+    myAjax.getAdat(apiVegpont, felhasznalok, TermekValasztas);
 
-    //sablonElem.remove();
-    sablonElem.hide();
-  }
+    function TermekValasztas() {
+        // van egy sablonelemünk
+        szuloElem.show();
+        /*     sablonElem.show(); */
+        felhasznalok.forEach(function (elem) {
+            const ujElem = sablonElem.clone().appendTo(szuloElem);
+            const ujTermek = new Felhasznalo(ujElem, elem);
+        });
+
+        //sablonElem.remove();
+        sablonElem.hide();
+    }
 });
