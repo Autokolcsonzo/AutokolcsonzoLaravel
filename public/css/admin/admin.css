@@ -1,107 +1,244 @@
 @charset "utf-8";
 
 .adminKereses {
-  display: flex;
-  align-items: center;
-  /*   justify-content: space-between; */
-  background-color: #fff;
-  padding: 15px 30px;
-  border-bottom: 3px solid blue;
+    display: flex;
+    align-items: center;
+    /*   justify-content: space-between; */
+    background-color: #fff;
+    padding: 15px 30px;
+    border-bottom: 3px solid blue;
 }
 
 .adminKereses .kereses {
-  display: flex;
-  /*  justify-content: flex-start; */
-  /*   align-items: center; */
-  padding: 10px 14px;
-  border: 1px solid gray;
-  border-radius: 4px;
+    display: flex;
+    /*  justify-content: flex-start; */
+    /*   align-items: center; */
+    padding: 10px 14px;
+    border: 1px solid gray;
+    border-radius: 4px;
 }
 
 .adminKereses .kereses i {
-  margin-right: 14px;
+    margin-right: 14px;
 }
 
 .adminKereses .kereses input {
-  border: none;
-  outline: none;
-  font-size: 14px;
+    border: none;
+    outline: none;
+    font-size: 14px;
 }
 
-.adminKereses .adminFeladatValasztas {
-  display: flex;
-  margin-left: 5%;
-  /*  justify-content: flex-start; */
-  /*   align-items: center; */
+.adminKereses .adminFeladatValasztas,
+.ujAutoFelvetele {
+    display: flex;
+    margin-left: 5%;
+    /*  justify-content: flex-start; */
+    /*   align-items: center; */
 }
 
-.adminKereses .adminFeladatValasztas select {
-  padding: 10px;
-  font-size: 14px;
+.adminKereses,
+.adminFeladatValasztas select,
+.ujAutoFelvetele {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.ujAutoGomb {
+    padding: 10px;
 }
 
 .oldalNev {
-  color: rgb(38, 38, 94);
-  padding: 30px 30px 0 30px;
-  font-size: 35px;
-  font-weight: 700;
+    color: rgb(38, 38, 94);
+    padding: 30px 30px 0 30px;
+    font-size: 35px;
+    font-weight: 700;
 }
 
 .values {
-  padding: 30px 30px 0 30px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
+    padding: 30px 30px 30px 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .values .val-box {
-  background-color: white;
-  width: 235px;
-  padding: 16px 20px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+    background-color: white;
+    width: 235px;
+    padding: 16px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .values .val-box i {
-  font-size: 25px;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 50%;
-  text-align: center;
-  color: white;
-  /*   background-color: rgb(73, 73, 172); */
-  margin-right: 15px;
+    font-size: 25px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    /*   background-color: rgb(73, 73, 172); */
+    margin-right: 15px;
 }
 
 .values .val-box:nth-child(1) i {
-  background-color: rgb(73, 73, 172);
+    background-color: rgb(73, 73, 172);
 }
 
 .values .val-box:nth-child(2) i {
-  background-color: rgb(115, 115, 150);
+    background-color: rgb(115, 115, 150);
 }
 
 .values .val-box:nth-child(3) i {
-  background-color: rgb(74, 121, 150);
+    background-color: rgb(74, 121, 150);
 }
 
 .values .val-box h3 {
-  font-size: 18px;
-  font-weight: 600;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .values .val-box span {
-  font-size: 15px;
-  color: rgb(59, 59, 56);
+    font-size: 15px;
+    color: rgb(59, 59, 56);
+}
+
+/* ADMIN AUTÓ MÓDOSÍTÁS */
+
+.autoAdatokModositas {
+    display: none;
+    max-width: 700px;
+}
+
+/* ADMIN AUTÓ FELTÖLTÉS */
+
+.autoAdatokFeltoltes {
+    display: none;
+    max-width: 700px;
 }
 
 /* TÁBLÁZAT */
 
-.tablazat {
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 0.35em;
+}
+
+table th,
+table td {
+    padding: 0.625em;
+    text-align: center;
+}
+
+table th {
+    font-size: 0.85em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 1050px) {
+    body {
+        background-color: #e0e4e7;
+    }
+    /* }
+
+@media only screen and (max-width: 800px) { */
+    /* .tablazat {
+    display: flex;
+    margin: auto;
+    width: 60%;
+  }
+
+  table thead th {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  table {
+    padding: 10px;
+  }
+
+  table tr {
+    display: block;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    text-align: center;
+    font-size: 17px;
+  }
+
+  .values .val-box {
+    margin: 2px;
+  }
+
+  .values {
+    flex-direction: column;
+    margin-bottom: 20px;
+  } */
+}
+
+@media screen and (max-width: 800px) {
+    table {
+        border: 0;
+    }
+
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: 0.625em;
+    }
+
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: 0.8em;
+        text-align: right;
+    }
+
+    table td::before {
+        /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+}
+/* .tablazat {
   width: 96%;
   margin: 30px 0 30px 30px;
   overflow: auto;
@@ -143,49 +280,4 @@ tbody tr td {
   border: 1px solid #8283853e;
   border-radius: 5px;
   color: #2b2b2b;
-}
-
-@media only screen and (max-width: 1151px) {
-  body {
-    background-color: #e0e4e7;
-  }
-  /* }
-
-@media only screen and (max-width: 800px) { */
-  .tablazat {
-    display: flex;
-    margin: auto;
-    width: 60%;
-  }
-
-  table thead th {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  table {
-    padding: 10px;
-  }
-
-  table tr {
-    display: block;
-  }
-
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    text-align: center;
-    font-size: 17px;
-  }
-
-  .values .val-box {
-    margin: 2px;
-  }
-
-  .values {
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-}
+} */

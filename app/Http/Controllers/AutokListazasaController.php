@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Auto;
+use App\Models\auto;
+use App\Models\felhasznalo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -27,13 +28,22 @@ class AutokListazasaController extends Controller
         return $result;
     }
     
-public function adminIndex()
+    public function adminIndex()
     {
         $result = DB::table('auto')
             ->join('modell', 'auto.modell', '=', 'modell.modell_id')
             ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
             ->select('auto.rendszam', 'modell.marka', 'telephely.varos',)
             ->get();
+        return $result;
+    }
+
+    public function adminOsszesFelhasznalo()
+    {
+        $result = DB::table('felhasznalo')
+            ->select('felhasznalo_id', DB::raw('COUNT(felhasznalo_id)'))
+            ->groupBy('felhasznalo_id');
+        /*     ->get(); */
         return $result;
     }
 

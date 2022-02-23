@@ -15,8 +15,8 @@
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <script src="../js/ajax.js"></script>
-    <script src="../js/autoLista/adminAuto.js"></script>
-    <script src="../js/autoLista/adminAutok.js"></script>
+    <script src="../js/admin/adminAuto.js"></script>
+    <script src="../js/admin/adminAutok.js"></script>
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
     <style>
@@ -66,14 +66,21 @@
                     </div>
                 </div>
 
+                <div class="ujAutoFelvetele">
+                    <div>
+                        <input type="button" name="ujAutoGomb" class="ujAutoGomb" value="Új autó felvétele">
+                    </div>
+                </div>
 
             </div>
+
             <h3 class="oldalNev">Autók</h3>
+
             <div class="values">
                 <div class="val-box">
                     <i class="fas fa-users"></i>
-                    <div>
-                        <h3>16</h3>
+                    <div class="felhasznalokSzamaSablon">
+                        <h3 class="felhasznalokSzama">16</h3>
                         <span>Összes felhasználó</span>
                     </div>
                 </div>
@@ -100,13 +107,275 @@
             </div>
 
             <div class="tablazat">
-                <table width="100%">
+                <table>
                     <thead>
                         <tr>
-                            <th>Státusz</th>
-                            <th>Rendszám</th>
-                            <th>Megnevezés</th>
-                            <th>Telephely</th>
+                            <th scope="col">Státusz</th>
+                            <th scope="col">Rendszám</th>
+                            <th scope="col">Megnevezés</th>
+                            <th scope="col">Telephely</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="szuloElem">
+                        <tr class="adminAuto">
+                            <td class="tablazatStatusz" data-label="Státusz">
+                                <input type="checkbox" id="statuszInput" name="statuszInput">
+                            </td>
+                            <td class="rendszam" data-label="Rendszám">
+                                <p>ABC-123</p>
+                            </td>
+                            <td class="megnevezes" data-label="Megnevezés">
+                                <p>Audi A4</p>
+                            </td>
+                            <td class="telephely" data-label="Telephely">
+                                <p>Budapest</p>
+                            </td>
+                            <td class="reszletekGomb">
+                                <input type="button" name="autoReszletek" class="autoReszletek" value="Részletek" />
+                            </td>
+                            <td class="modositas">
+                                <input type="button" name="autoMod" class="autoMod" value="Módosítás" />
+                            </td>
+                            <td class="torles">
+                                <input type="button" name="autoTorles" class="autoTorles" value="Törlés" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Autó adatainak módosítása -->
+            <div class="autoAdatokModositas">
+                <form action="">
+
+                    <div class="form-header">
+                        <h3>Adatok módosítása</h3>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="alvazSzam">Alvázszám:</label>
+                            <br />
+                            <input type="text" name="alvazSzam" class="alvazSzam" />
+
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="marka">Márka:</label><br>
+
+                            <input type="text" name="marka" class="marka" />
+                        </div>
+
+                    </div>
+
+                    <div class="sor">
+
+                        <div class="inputfield">
+                            <label for="modell">Modell:</label><br>
+
+                            <input type="text" name="modell" class="modell" />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="tipus">Típus:</label>
+                            <br />
+                            <input type="text" name="tipus" class="tipus" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="evjarat">Évjárat:</label>
+
+                            <br />
+                            <input type="text" name="evjarat" class="evjarat" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="kivitel">Kivitel:</label> <br />
+                            <input type="text" class="kivitel" name="kivitel" />
+                        </div>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="uzemanyag">Üzemanyag:</label>
+
+                            <br />
+                            <input type="text" name="uzemanyag" class="uzemanyag" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="teljesitmeny">Teljesítmény:</label> <br />
+                            <input type="text" class="teljesitmeny" name="teljesitmeny" />
+                        </div>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="telephely">Telephely (1-Budapest, 2-Székesfehérvár):</label>
+
+                            <br />
+                            <input type="text" name="telephely" class="telephely" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="napiAr">Napi ár:</label> <br />
+                            <input type="text" class="napiAr" name="napiAr" />
+                        </div>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="extra_megnevezese">Autó extrái:</label>
+
+                            <br />
+                            <input type="text" name="extra_megnevezese" class="extra_megnevezese" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="kep">Kép:</label> <br />
+                            <input type="file" name="kep" class="kep">
+                        </div>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="szin">Modell tulajdonság:</label>
+
+                            <br />
+                            <input type="text" name="tulajdonsag" class="tulajdonsag" /><br />
+                        </div>
+
+                        <!-- <div class="inputfield">
+                            <label for="forgalmiSzam">Forgalmi száma:</label> <br />
+                            <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
+                        </div> -->
+                    </div>
+
+
+
+
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="szin">Szín:</label>
+
+                            <br />
+                            <input type="text" name="telszinephely" class="szin" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="forgalmiSzam">Forgalmi száma:</label> <br />
+                            <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
+                        </div>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="statusz">Státusz:</label>
+
+                            <br />
+                            <input type="text" name="statusz" class="statusz" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="rendszam">Rendszám:</label> <br />
+                            <input type="text" class="rendszam" name="rendszam" />
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Adatok mentése" id="adatotMent" />
+
+
+                </form>
+            </div>
+
+            <!-- Új adatok feltöltése -->
+            <div class="autoAdatokFeltoltes">
+                <form action="">
+
+                    <div class="form-header">
+                        <h3>Adatok módosítása</h3>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="alvazSzam">Alvázszám:</label>
+                            <br />
+                            <input type="text" name="alvazSzam" class="alvazSzam" />
+
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="modell">Modell:</label><br>
+
+                            <input type="text" name="modell" class="modell" />
+                        </div>
+
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="telephely">Telephely:</label>
+
+                            <br />
+                            <input type="text" name="telephely" class="telephely" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="napiAr">Napi ár:</label> <br />
+                            <input type="text" class="napiAr" name="napiAr" />
+                        </div>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="szin">Szín:</label>
+
+                            <br />
+                            <input type="text" name="telszinephely" class="szin" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="forgalmiSzam">Forgalmi száma:</label> <br />
+                            <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
+                        </div>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="statusz">Státusz:</label>
+
+                            <br />
+                            <input type="text" name="statusz" class="statusz" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="rendszam">Rendszám:</label> <br />
+                            <input type="text" class="rendszam" name="rendszam" />
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Adatok mentése" id="adatotMent" />
+
+
+                </form>
+            </div>
+
+
+            <!-- <table width="100%">
+                    <thead>
+                        <tr>
+                            <th scope="col">Státusz</th>
+                            <th scope="col">Rendszám</th>
+                            <th scope="col">Megnevezés</th>
+                            <th scope="col">Telephely</th>
                         </tr>
                     </thead>
                     <tbody class="szuloELem">
@@ -134,8 +403,8 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
-            </div>
+                </table> -->
+
 
         </div>
 

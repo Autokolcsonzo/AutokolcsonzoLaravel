@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\felhasznalo;
 use Illuminate\Support\Facades\Auth;
@@ -10,10 +10,12 @@ class BejelentkezesController extends Controller
 {
      public function index()
     {
+        /* dd(auth()->felhasznalo()); */
+        
         return view ('bejelentkezes');
     }
 
-    public function addBejelentkezes(Request $request)
+  /*   public function addBejelentkezes(Request $request)
     {
         $cus = new felhasznalo();
         $cus->felhasznalonev = $request->felhasznalonev;
@@ -21,20 +23,23 @@ class BejelentkezesController extends Controller
         $cus->save();
         
         return view ('bejelentkezes');
-    }
-
-    /* function list() {
-        
     } */
 
-  /*   public function index()
+    public function store(Request $req)
     {
-        return view('bejelentkezes');
-    } */
-
-   /*  public function login(Request $req)
-    {
-        $validalt = $req->validate([
+        $validator = Validator::make($req->all(), [
+            'felhasznalonev' => 'required',
+            'jelszo' => 'required', //|confirmed nem működik :D
+        ]);
+         Felhasznalo::create([
+            'felhasznalonev' => $req->felhasznalonev,
+            'jelszo' => $req->jelszo, //Hash::make($req->jelszo) jelszó hosszát változtatni kell
+        ]);
+        /* if (auth()->attempt($req->only('felhasznalonev', 'jelszo'))) {
+            return back()->with('status', 'invalid login details');
+        } */
+        return redirect()->route('welcome');
+        /* $validalt = $req->validate([
             'felhasznalonev' => "required",
             'jelszo' => "required"
         ]);
@@ -47,8 +52,8 @@ class BejelentkezesController extends Controller
 
         return back()->withErrors([
             'fnev'
-        ])
+        ]);
 
-        return view('bejelentkezes');
-    } */
+        return view('bejelentkezes'); */
+    }
 }

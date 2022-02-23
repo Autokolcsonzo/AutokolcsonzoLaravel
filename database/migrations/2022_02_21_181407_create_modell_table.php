@@ -18,7 +18,6 @@ class CreateModellTable extends Migration
             $table->char('marka', 30);
             $table->char('tipus', 30);
             $table->char('modell', 30);
-            /*  $table->integer('evjarat', 4); */
             $table->date('evjarat');
             $table->char('kivitel', 30);
             $table->char('uzemanyag', 15);

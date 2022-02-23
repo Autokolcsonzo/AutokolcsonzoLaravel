@@ -43,6 +43,7 @@
             <div class="logo">
                 <img src="kepek/logo.png" alt="logo" />
             </div>
+            @guest
             <li><a href="{{ route('welcome') }}">Kezdőlap</a></li>
             <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
             <li><a href="{{ route('feltetelek') }}">Feltételek</a></li>
@@ -57,6 +58,9 @@
                     </ul>
                 </div>
             </li>
+            @else
+            <li><a href="#">Profilom</a></li>
+            @endguest
         </ul>
     </div>
     <!-- HAMBI MENÜ GOMB -->

@@ -76,9 +76,10 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(FelhasznaloModell $felhasznalo)
+    public function edit($felhasznalo_id)
     {
-        //
+       /* $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
+        return view('felhasznalo.felhasznaloiProfil',compact('felhasznalo','felhasznalo_id'));*/
     }
 
     /**
@@ -90,7 +91,7 @@ class FelhasznalokController extends Controller
      */
     public function update(Request $request, $felhasznalo_id)
     {
-        $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
+        $felhasznalo = FelhasznaloModell::findOrFail($felhasznalo_id);
         $felhasznalo->felhasznalo_id = $request->felhasznalo_id;
         $felhasznalo->vezeteknev = $request->vezeteknev;
         $felhasznalo->keresztnev = $request->keresztnev;
@@ -109,6 +110,8 @@ class FelhasznalokController extends Controller
         $felhasznalo->jogkor = $request->jogkor;
         $felhasznalo->telephely = $request->telephely;
        $felhasznalo->save();
+       return redirect()->route('felhasznalo.update', ['felhasznalo' => $felhasznalo_id]);
+      
     }
 
     /**

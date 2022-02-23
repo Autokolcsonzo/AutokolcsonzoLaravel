@@ -12,14 +12,26 @@ use App\Http\Controllers\jarmuTalalatiLista;
 
 use App\Http\Controllers\FormController;
 
+use App\Http\Controllers\CustomAuthController;
+Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+Route::get('regisztracio', [CustomAuthController::class, 'registration'])->name('register-user');
+Route::post('regisztracio', [CustomAuthController::class, 'customRegistration'])->name('regisztracio); 
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::get('/', [FooldalController::class, 'index'])->name('welcome');
 
+Auth::routes();
 Route::get('bejelentkezes', [BejelentkezesController::class, 'index'])->name('bejelentkezes');
-Route::post('bejelentkezes', [BejelentkezesController::class, 'addBejelentkezes']);
+Route::post('bejelentkezes', [BejelentkezesController::class, 'store']);
 
 Route::get('regisztracio', [RegisztralasController::class, 'index'])->name('regisztracio');
-Route::post('regisztracio', [RegisztralasController::class, 'signup']);
+Route::post('regisztracio', [RegisztralasController::class, 'store']); 
+
+/* Route::group(['middleware' => 'web'], function() {
+        Route::get('regisztracio', 'RegisztralasController@store');
+    }); */
 
 Route::get('osszesAutoMenubol', function () {
     return view('osszesAutoMenubol');
@@ -37,7 +49,8 @@ Route::get('feltetelek', [MenuFeltetelekController::class, 'index'])->name('felt
 
 Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
 Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show']);
-Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update']);
+Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
+
 Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
 Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
 

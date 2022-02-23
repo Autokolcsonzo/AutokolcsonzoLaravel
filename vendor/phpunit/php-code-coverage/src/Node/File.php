@@ -12,8 +12,10 @@ namespace SebastianBergmann\CodeCoverage\Node;
 use function array_filter;
 use function count;
 use function range;
+<<<<<<< HEAD
 use SebastianBergmann\CodeCoverage\CrapIndex;
-use SebastianBergmann\LinesOfCode\LinesOfCode;
+=======
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
 
 /**
  * @internal This class is not covered by the backward compatibility promise for phpunit/php-code-coverage
@@ -81,7 +83,7 @@ final class File extends AbstractNode
     private $functions = [];
 
     /**
-     * @var LinesOfCode
+     * @psalm-var array{linesOfCode: int, commentLinesOfCode: int, nonCommentLinesOfCode: int}
      */
     private $linesOfCode;
 
@@ -125,7 +127,10 @@ final class File extends AbstractNode
      */
     private $codeUnitsByLine = [];
 
-    public function __construct(string $name, AbstractNode $parent, array $lineCoverageData, array $functionCoverageData, array $testData, array $classes, array $traits, array $functions, LinesOfCode $linesOfCode)
+    /**
+     * @psalm-param array{linesOfCode: int, commentLinesOfCode: int, nonCommentLinesOfCode: int} $linesOfCode
+     */
+    public function __construct(string $name, AbstractNode $parent, array $lineCoverageData, array $functionCoverageData, array $testData, array $classes, array $traits, array $functions, array $linesOfCode)
     {
         parent::__construct($name, $parent);
 
@@ -172,7 +177,10 @@ final class File extends AbstractNode
         return $this->functions;
     }
 
-    public function linesOfCode(): LinesOfCode
+    /**
+     * @psalm-return array{linesOfCode: int, commentLinesOfCode: int, nonCommentLinesOfCode: int}
+     */
+    public function linesOfCode(): array
     {
         return $this->linesOfCode;
     }
@@ -330,7 +338,7 @@ final class File extends AbstractNode
 
     private function calculateStatistics(array $classes, array $traits, array $functions): void
     {
-        foreach (range(1, $this->linesOfCode->linesOfCode()) as $lineNumber) {
+        foreach (range(1, $this->linesOfCode['linesOfCode']) as $lineNumber) {
             $this->codeUnitsByLine[$lineNumber] = [];
         }
 
@@ -338,7 +346,7 @@ final class File extends AbstractNode
         $this->processTraits($traits);
         $this->processFunctions($functions);
 
-        foreach (range(1, $this->linesOfCode->linesOfCode()) as $lineNumber) {
+        foreach (range(1, $this->linesOfCode['linesOfCode']) as $lineNumber) {
             if (isset($this->lineCoverageData[$lineNumber])) {
                 foreach ($this->codeUnitsByLine[$lineNumber] as &$codeUnit) {
                     $codeUnit['executableLines']++;
@@ -557,7 +565,8 @@ final class File extends AbstractNode
                 $this->functions[$functionName]['executedBranches'] = count(
                     array_filter(
                         $this->functionCoverageData[$functionName]['branches'],
-                        static function (array $branch) {
+                        static function (array $branch)
+                        {
                             return (bool) $branch['hit'];
                         }
                     )
@@ -572,7 +581,8 @@ final class File extends AbstractNode
                 $this->functions[$functionName]['executedPaths'] = count(
                     array_filter(
                         $this->functionCoverageData[$functionName]['paths'],
-                        static function (array $path) {
+                        static function (array $path)
+                        {
                             return (bool) $path['hit'];
                         }
                     )
@@ -616,7 +626,8 @@ final class File extends AbstractNode
             $methodData['executedBranches'] = count(
                 array_filter(
                     $this->functionCoverageData[$key]['branches'],
-                    static function (array $branch) {
+                    static function (array $branch)
+                    {
                         return (bool) $branch['hit'];
                     }
                 )
@@ -631,7 +642,8 @@ final class File extends AbstractNode
             $methodData['executedPaths'] = count(
                 array_filter(
                     $this->functionCoverageData[$key]['paths'],
-                    static function (array $path) {
+                    static function (array $path)
+                    {
                         return (bool) $path['hit'];
                     }
                 )

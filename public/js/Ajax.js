@@ -42,11 +42,12 @@ class MyAjax {
         });
     }
 
-    putAdat(apiVegpont, adat) {
+    putAdat(apiVegpont, id,adat) {
         $.ajax({
             headers: { "X-CSRF-TOKEN": this.token },
-            type: "POST",
-            url: apiVegpont,
+            datatype:'JSON',
+            type: "PUT",
+            url: apiVegpont+"/"+id,
             data: adat,
             success: function (result) {
                 console.log(result);
