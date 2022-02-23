@@ -41,6 +41,9 @@
 
         <div class="fprofil">
             <div class="bejelentkezoFelulet">
+                @if (session('status'))
+                {{ session('status') }}
+                @endif
                 <form method="POST" action="{{ route('bejelentkezes') }}">
                     @csrf
                     <div class="form-header">
