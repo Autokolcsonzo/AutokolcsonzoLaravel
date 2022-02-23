@@ -2,26 +2,26 @@ $(function () {
     const token = $('meta[name="csrf-token"]').attr("content");
     const myAjax = new MyAjax(token);
     const felhasznalok = [];
-    let url = "http://localhost:8000/api";
+    let url = "http://localhost:8000/";
 
-    let apiVegpont = url + "/" + "felhasznalo";
-    
+    let apiVegpont = url +"api"+ "/" + "felhasznalo";
+
     const szuloElem = $(".felhasznalokKiiratasa");
     const sablonElem = $(".felhasznalok");
     szuloElem.empty();
 
-    myAjax.getAdat(apiVegpont, felhasznalok, TermekValasztas);
+    myAjax.getAdat(apiVegpont, felhasznalok, Megjelenit);
 
-    function TermekValasztas() {
-        // van egy sablonelemünk
+    function Megjelenit() {
+        
         szuloElem.show();
-        /*     sablonElem.show(); */
+       
         felhasznalok.forEach(function (elem) {
             const ujElem = sablonElem.clone().appendTo(szuloElem);
             const ujTermek = new Felhasznalo(ujElem, elem);
         });
 
-        //sablonElem.remove();
+    
         sablonElem.hide();
     }
 });
