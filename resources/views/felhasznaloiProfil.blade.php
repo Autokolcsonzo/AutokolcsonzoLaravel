@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content=<?php $token=csrf_token(); echo $token;?>>
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,7 +19,7 @@
     <script src="../js/Ajax.js"></script>
     <script src="../js/felhasznalo/FelhasznaloProfil.js"></script>
     <script src="../js/felhasznalo/felhasznaloProfilJs.js"></script>
-    <script src="../js/felhasznalo/modosit.js"></script>
+    
     <script src="../js/hambiMenu.js"></script>
 
     <style>
@@ -70,15 +70,7 @@
 
                         </tr>
 
-                        <tr>
-                            <td>Felhasznalónév: </td>
-                            <td id="fnev">valaki97</td>
-                            <td>Jelszó: </td>
-                            <td id="jelszo">********</td>
-
-
-                        </tr>
-
+                   
                         <tr>
                             <td>Vezetéknév: </td>
                             <td id="vnev">Kovács</td>
@@ -125,13 +117,15 @@
 
                     </tr>
                     </table>
-                    <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása" />
 
                 </div>
+                <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása" style="display:block"/>
 
 
                 <div class="felhasznaloiModositas">
-                    <form action="">
+                <form method="POST" action="{{ route('felhasznalo.update', $felhasznalo->felhasznalo_id) }}">
+                     @csrf 
+                        @method('PUT')
                         <div class="form-header">
                             <h3>Adatok módosítása</h3>
                         </div>
@@ -139,14 +133,14 @@
                             <div class="inputfield">
                                 <label for="nev">Vezetéknév:</label>
                                 <br />
-                                <input type="text" name="vnev" id="vnev" placeholder="Kovács" />
+                                <input type="text" name="vnev" id="ivnev" placeholder="Kovács" />
 
                             </div>
 
                             <div class="inputfield">
                                 <label for="nev">Keresztnév:</label><br>
 
-                                <input type="text" name="knev" id="knev" placeholder="Kati" />
+                                <input type="text" name="knev" id="iknev" placeholder="Kati" />
                             </div>
 
                         </div>
@@ -160,41 +154,36 @@
                                 <label for="fnev">Felhasználónév:</label>
 
                                 <br />
-                                <input type="text" name="fnev" id="fnev" placeholder="valaki97" /><br />
+                                <input type="text" name="fnev" id="ifnev" placeholder="valaki97" /><br />
                             </div>
 
                             <div class="inputfield">
                                 <label for="email">E-mail cím:</label> <br />
-                                <input type="email" id="email" name="email" placeholder="valami@gmail.com" />
+                                <input type="email" id="iemail" name="email" placeholder="valami@gmail.com" />
                             </div>
                         </div>
 
                         <div class="sor">
                             <div class="inputfield">
-                                <label for="jelszo1">Jelszó:</label>
+                                <label for="jelszo">Jelszó:</label>
                                 <br>
-                                <input type="password" id="jelszo1" name="jelszo1" class="jelszo"
+                                <input type="text" id="ijelszo" name="jelszo" 
                                     placeholder="******" />
                             </div>
 
-                            <div class="inputfield">
-                                <label for="jelszo2">Jelszó újra:</label>
-                                <br>
-                                <input type="password" name="jelszo2" id="jelszo2" class="jelszo"
-                                    placeholder="******" />
-                            </div>
+                         
 
                         </div>
 
                         <div class="sor">
                             <div class="inputfield">
                                 <label for="szdatum">Születési dátum:</label><br>
-                                <input type="date" name="szdatum" id="szdatum" /><br>
+                                <input type="date" name="szdatum" id="iszdatum" /><br>
                             </div>
 
                             <div class="inputfield">
                                 <label for="telszam">Telefonszám:</label><br>
-                                <input type="text" class="telszam" placeholder="+36-20-345-6789" />
+                                <input type="text" id="itelszam" placeholder="+36-20-345-6789" />
                             </div>
 
                         </div>
@@ -206,7 +195,7 @@
                             <div class="inputfield">
                                 <label>Cím:</label>
                                 <br />
-                                <input type="text" id="iranyitoszam" placeholder="Irányítószám" />
+                                <input type="text" id="iiranyitoszam" placeholder="Irányítószám" />
 
                             </div>
 
@@ -215,11 +204,11 @@
                         <div class="sor">
 
                             <div class="inputfield">
-                                <input type="text" id="megye" placeholder="Megye" />
+                                <input type="text" id="imegye" placeholder="Megye" />
                             </div>
 
                             <div class="inputfield">
-                                <input type="text" id="varos" placeholder="Város" />
+                                <input type="text" id="ivaros" placeholder="Város" />
                             </div>
 
 
@@ -234,13 +223,13 @@
                         <div class="sor">
 
                             <div class="inputfield">
-                                <input type="text" id="utca" placeholder="Utca" />
+                                <input type="text" id="iutca" placeholder="Utca" />
 
                             </div>
 
                             <div class="inputfield">
 
-                                <input type="text" id="hazszam" placeholder="Házszám" />
+                                <input type="text" id="ihazszam" placeholder="Házszám" />
                             </div>
 
 

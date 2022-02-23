@@ -1,23 +1,27 @@
 $(function () {
-  const myAjax = new MyAjax();
-  const felhasznalok = [];
-  const szuloElem = $(".felhasznalokKiiratasa");
-  const sablonElem = $(".felhasznalok");
-  szuloElem.empty();
-  let apiVegpont = "http://localhost:3000/felhasznalo";
+    const token = $('meta[name="csrf-token"]').attr("content");
+    const myAjax = new MyAjax(token);
+    const felhasznalok = [];
+    let url = "http://localhost:8000/";
 
-  myAjax.getAdat(apiVegpont, felhasznalok, TermekValasztas);
+    let apiVegpont = url +"api"+ "/" + "felhasznalo";
 
-  function TermekValasztas() {
-    // van egy sablonelemünk
-    szuloElem.show();
-    /*     sablonElem.show(); */
-    felhasznalok.forEach(function (elem) {
-      const ujElem = sablonElem.clone().appendTo(szuloElem);
-      const ujTermek = new Felhasznalo(ujElem, elem);
-    });
+    const szuloElem = $(".felhasznalokKiiratasa");
+    const sablonElem = $(".felhasznalok");
+    szuloElem.empty();
 
-    //sablonElem.remove();
-    sablonElem.hide();
-  }
+    myAjax.getAdat(apiVegpont, felhasznalok, Megjelenit);
+
+    function Megjelenit() {
+        
+        szuloElem.show();
+       
+        felhasznalok.forEach(function (elem) {
+            const ujElem = sablonElem.clone().appendTo(szuloElem);
+            const ujTermek = new Felhasznalo(ujElem, elem);
+        });
+
+    
+        sablonElem.hide();
+    }
 });

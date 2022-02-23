@@ -5,7 +5,11 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
+<<<<<<< HEAD
         'reference' => 'a4913e83e1f7dcb226800cb8c28fdc73e0ab2f6c',
+=======
+        'reference' => '3ef64fb4c78bf76cda2803b059ffab1ce3d7f6fe',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -196,187 +200,311 @@
         'illuminate/auth' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/broadcasting' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/bus' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/cache' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/collections' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/config' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/console' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/container' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/contracts' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/cookie' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/database' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/encryption' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/events' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/filesystem' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/hashing' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/http' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/log' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/macroable' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/mail' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/notifications' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/pagination' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/pipeline' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/queue' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/redis' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/routing' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/session' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/support' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/testing' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/translation' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/validation' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'illuminate/view' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v8.83.1',
+=======
+                0 => 'v8.83.2',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             ),
         ),
         'kodova/hamcrest-php' => array(
@@ -386,12 +514,21 @@
             ),
         ),
         'laravel/framework' => array(
+<<<<<<< HEAD
             'pretty_version' => 'v8.83.1',
             'version' => '8.83.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/framework',
             'aliases' => array(),
             'reference' => 'bddba117f8bce2f3c9875ca1ca375a96350d0f4d',
+=======
+            'pretty_version' => 'v8.83.2',
+            'version' => '8.83.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/framework',
+            'aliases' => array(),
+            'reference' => 'b91b3b5b39fbbdc763746f5714e08d50a4dd7857',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
@@ -400,6 +537,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
+<<<<<<< HEAD
             'reference' => 'a4913e83e1f7dcb226800cb8c28fdc73e0ab2f6c',
             'dev_requirement' => false,
         ),
@@ -419,6 +557,27 @@
             'install_path' => __DIR__ . '/../laravel/sanctum',
             'aliases' => array(),
             'reference' => '89937617fa144ddb759a740861a47c4f2fd2245b',
+=======
+            'reference' => '3ef64fb4c78bf76cda2803b059ffab1ce3d7f6fe',
+            'dev_requirement' => false,
+        ),
+        'laravel/sail' => array(
+            'pretty_version' => 'v1.13.5',
+            'version' => '1.13.5.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/sail',
+            'aliases' => array(),
+            'reference' => 'aeb6eeb55b22c328d2f301145b97288127691d48',
+            'dev_requirement' => true,
+        ),
+        'laravel/sanctum' => array(
+            'pretty_version' => 'v2.14.2',
+            'version' => '2.14.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/sanctum',
+            'aliases' => array(),
+            'reference' => 'dc5d749ba9bfcfd68d8f5c272238f88bea223e66',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             'dev_requirement' => false,
         ),
         'laravel/serializable-closure' => array(
@@ -629,12 +788,21 @@
             'dev_requirement' => true,
         ),
         'phpunit/php-code-coverage' => array(
+<<<<<<< HEAD
             'pretty_version' => '9.2.11',
             'version' => '9.2.11.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/php-code-coverage',
             'aliases' => array(),
             'reference' => '665a1ac0a763c51afc30d6d130dac0813092b17f',
+=======
+            'pretty_version' => '9.2.12',
+            'version' => '9.2.12.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpunit/php-code-coverage',
+            'aliases' => array(),
+            'reference' => 'c011a0b6aaa4acd2f39b7f51fb4ad4442b6ec631',
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
             'dev_requirement' => true,
         ),
         'phpunit/php-file-iterator' => array(

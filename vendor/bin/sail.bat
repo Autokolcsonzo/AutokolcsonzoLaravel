@@ -1,5 +1,9 @@
 @ECHO OFF
 setlocal DISABLEDELAYEDEXPANSION
 SET BIN_TARGET=%~dp0/../laravel/sail/bin/sail
+<<<<<<< HEAD
 SET COMPOSER_BIN_DIR=%~dp0
+=======
+SET COMPOSER_RUNTIME_BIN_DIR=%~dp0
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
 bash "%BIN_TARGET%" %*
