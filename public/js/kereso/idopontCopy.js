@@ -1,4 +1,4 @@
-class DatumIdo2 {
+/*class DatumIdo2 {
     constructor() {
         this.atlepettHonapok = 1;
         this.valdat = $("#elvitel");
@@ -141,4 +141,4 @@ class DatumIdo2 {
             $("#visszavitel, #foglalas-igD").attr("value", plusNap);
         }
     }
-}
+}*/

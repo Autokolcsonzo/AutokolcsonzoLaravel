@@ -14,6 +14,7 @@
     <script src="js/hambiMenu.js"></script>
     <script src="js/reszponzivDolgok.js"></script>
     <script src="js/kereso/dropDownKereso.js"></script>
+    <script src="js/kereso/idopont.js"></script>
     <script src="js/kereso/keresesiOpciokAjax.js"></script>
     <script src="js/kereso/keresesiOpciok.js"></script>
     <script src="js/kereso/keresoFeltoltes.js"></script>

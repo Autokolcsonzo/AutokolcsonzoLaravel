@@ -17,6 +17,7 @@ class DatumIdo {
         $("#elvitel, #visszavitel").on("change", () => {
             this.setMinDate();
             $("#visszavitel").attr("min", $("#elvitel").val());
+            $("#elvitel").attr("max", $("#visszavitel").val());
             $("#visszavitel").attr("value", "");
             this.setMinIdo();
         });
