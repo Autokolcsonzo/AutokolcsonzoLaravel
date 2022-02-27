@@ -23,7 +23,6 @@ class KeresoFeltolo{
         $("#modell").append(`<option value='modell'>--Modell--</option>`);
         $("#kivitel").append(`<option value=''>--Kivitel--</option>`);
         $("#uzemanyag").append(`<option value=''>--Üzemanyag--</option>`);
-        //$("#valto").append(`<option value='valto'>--Váltó--</option>`);
         $("#etol, #eig").append(`<option value=''>--Évjátat--</option>`);
         opciok.forEach(function (obj) {
           for (let marka in obj.marka) {

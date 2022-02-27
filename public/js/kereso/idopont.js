@@ -9,15 +9,12 @@ class DatumIdo {
         this.aktDatumInt = 0;
 
         //-------setterek-----------
-        /*this.setMinDate();
-        $("#visszavitel,#foglalas-igD").attr("min", $("#elvitel,#foglalas-tolD").val());
-        $("#visszavitel,#foglalas-igD").attr("value", "");
-        this.setMinIdo();*/
+        
 
         this.setMinDate();
         this.setMaxDate();
         this.setMinIdo();
-        //this.handelerMinIdoUtkozes();
+        
         //----------------triggerek--------------
         $(` #elvitel, 
             #visszavitel,
@@ -26,31 +23,12 @@ class DatumIdo {
             this.handelerMinDatumUtkozes();
             this.setMinIdo();
             this.handelerMinIdoUtkozes();
+            console.log('foglalas datum modosult.');
             
         });
-        console.log(
-            "elviteli dátum : " +
-                $("#elvitel").val() +
-                "\nvisszhozatali dátum : " +
-                $("#visszavitel").val() +
-                "\nelIdo : " +
-                $("#idoEl").val() +
-                "\nvisszaIdo : " +
-                $("#idoVissza").val()
-        );
         $(`#idoEl,
            #foglalas-tolI,
            #foglalas-igI`).on("change", () => {
-            console.log(
-                "elviteli dátum : " +
-                    $("#elvitel").val() +
-                    "\nvisszhozatali dátum : " +
-                    $("#visszavitel").val() +
-                    "\nelIdo : " +
-                    $("#idoEl").val() +
-                    "\nvisszaIdo : " +
-                    $("#idoVissza").val()
-            );
             this.handelerMinIdoUtkozes();
         });
     }
@@ -171,81 +149,11 @@ class DatumIdo {
                 }
             }
         }
-        if ($("#foglalas-tolD").val() == this.getMinDate().MinDatumString) {
-            for (let index = ora + 1; index <= 24; index++) {
-                if (ora + 1 == index) {
-                    $("#foglalas-tolI").append(
-                        `<option value="${index + ":" + perc + ":00"}">${
-                            index + ":" + perc
-                        }</option>`
-                    );
-                } else if (index == 24) {
-                    $("#foglalas-tolI").append(
-                        `<option value="00:00:00">${"00:00"}</option>`
-                    );
-                } else {
-                    $("#foglalas-tolI").append(
-                        `<option value="${index + ":00:00"}">${
-                            index + ":00"
-                        }</option>`
-                    );
-                }
-            }
-        } else {
-            for (let index = 1; index <= 24; index++) {
-                if (index == 24) {
-                    $("#foglalas-tolI").append(
-                        `<option value="00:00:00">${"00:00"}</option>`
-                    );
-                } else {
-                    $("#foglalas-tolI").append(
-                        `<option value="${index + ":00:00"}">${
-                            index + ":00"
-                        }</option>`
-                    );
-                }
-            }
-        }
-        if ($("#foglalas-igD").val() == this.getMinDate().MinDatumString) {
-            for (let index = ora + 2; index <= 24; index++) {
-                if (ora + 2 == index) {
-                    $("#foglalas-igI").append(
-                        `<option value="${index + ":" + perc + ":00"}">${
-                            index + ":" + perc
-                        }</option>`
-                    );
-                } else if (index == 24) {
-                    $("#foglalas-igI").append(
-                        `<option value="00:00:00">${"00:00"}</option>`
-                    );
-                } else {
-                    $("#foglalas-igI").append(
-                        `<option value="${index + ":00:00"}">${
-                            index + ":00"
-                        }</option>`
-                    );
-                }
-            }
-        } else {
-            for (let index = 1; index <= 24; index++) {
-                if (index == 24) {
-                    $("#foglalas-igI").append(
-                        `<option value="00:00:00">${"00:00"}</option>`
-                    );
-                } else {
-                    $("#foglalas-igI").append(
-                        `<option value="${index + ":00:00"}">${
-                            index + ":00"
-                        }</option>`
-                    );
-                }
-            }
-        }
+        
     }
 
     handelerMinIdoUtkozes() {
         if($("#elvitel").val() > $("#visszavitel").val()){
-            console.log("asdasdsada")
             return
         }else{
             if (
@@ -265,30 +173,6 @@ class DatumIdo {
                         );
                     } else {
                         $("#idoVissza").append(
-                            `<option value="${index + ":00:00"}">${
-                                index + ":00"
-                            }</option>`
-                        );
-                    }
-                }
-            }
-
-            if (
-                $("#foglalas-tolD").val() == $("#foglalas-igD").val() &&
-                $("#foglalas-tolD").val() != this.getMinDate().MinDatumString
-            ) {
-                let elvitelOra = parseInt($("#foglalas-tolI").val().split(":"));
-                if (isNaN(elvitelOra)) {
-                    elvitelOra = 0;
-                }
-                $("#foglalas-igI").empty();
-                for (let index = elvitelOra + 1; index <= 24; index++) {
-                    if (index == 24) {
-                        $("#foglalas-igI").append(
-                            `<option value="00:00:00"}">${"00:00"}</option>`
-                        );
-                    } else {
-                        $("#foglalas-igI").append(
                             `<option value="${index + ":00:00"}">${
                                 index + ":00"
                             }</option>`

@@ -1,5 +1,8 @@
 class Auto {
     constructor(elem, adat) {
+        if((elem && adat) == null || 0){
+            return ;
+        }else{
         this.elem = elem;
         this.adat = adat;
         this.autoId = this.elem.find(".jarmu-card-foglalas");
@@ -16,7 +19,6 @@ class Auto {
         this.hover = this.elem.find(".jarmu-card");
         this.szin = this.elem.find(".jarmu-card-szín");
         this.egyeb = this.elem.find(".jarmu-card-extra");
-        
         this.setAdat(this.adat);
 
         this.reszletek.on("click", () => {
@@ -42,6 +44,7 @@ class Auto {
             },
             this.elem
         );
+        }
     }
     
     setAdat(adat) {
@@ -85,10 +88,12 @@ class Auto {
             kivitel: adat.kivitel,
             napiAr: adat.napiAr,
             helyszin: adat.helyszin,
+            /*
             tolDatum: $("#elvitel").val(),
             tolIdo: $("#idoEl").val(),
             igDatum: $("#visszavitel").val(),
             igIdo: $("#idoVissza").val(),
+            */
             vegosszeg: "Null",
         };
         localStorage.setItem("foglalasraObj", JSON.stringify(localFoglalasObj));
@@ -106,4 +111,9 @@ class Auto {
         }
         return ((100 - kapottKedvezmeny) / 100) * 7; //JSON server szükséges hozzá
     }
+    setKedvezmenyek(){
+        const apiVegpont = "http://localhost:3000/kedvezmenyek";
+        const kedvezmenyek = new KedvezmenyAjax();
+        kedvezmenyek.getAdat(apiVegpont);
+      }
 }

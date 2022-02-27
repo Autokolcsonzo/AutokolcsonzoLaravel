@@ -4,9 +4,9 @@ $(function () {
     const autok = [];
 
     let apiVegpont = "http://localhost:8000/api/auto";
-
     myAjax.getAdat(apiVegpont, autok, autoFeltoltes);
-
+    const kedvezmeny = new Auto();
+    kedvezmeny.setKedvezmenyek();
     function autoFeltoltes(autok) {
         const szuloElem = $("#jarmu-lista");
         const sablonElem = $(".jarmu-card");

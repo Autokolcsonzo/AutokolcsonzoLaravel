@@ -1,26 +1,4 @@
-$(function(){
-    /*
-    const kfs = new KeresoFeltolteseLocalStorage();
-    kfs.setHozottParameterek();
-    let keresoLocalSOBJ = localStorage.getItem('keresoLocalSOBJ');
-    keresoLocalSOBJ = JSON.parse(keresoLocalSOBJ);
-    $('#idoEl').val(keresoLocalSOBJ.elvitelIdo).change();
-    $('#idoVissza').val(keresoLocalSOBJ.visszaIdo).change();
-    //$('#Khelyszinek').val(keresoLocalSOBJ.telephely).change();
-    console.log(kfs.getAdatToLocalS());
-    */
-    console.log(
-        "elviteli dátum : " +
-            $("#elvitel").val() +
-            "\nvisszhozatali dátum : " +
-            $("#visszavitel").val() +
-            "\nelIdo : " +
-            $("#idoEl").val() +
-            "\nvisszaIdo : " +
-            $("#idoVissza").val()
-    );
-    
-});
+
 
 
 class KeresoFeltolteseLocalStorage {
@@ -41,10 +19,7 @@ class KeresoFeltolteseLocalStorage {
         this.arTol = $("#min");
         this.arIg = $("#max");
         
-        //const datumIdo = new DatumIdo();
-        //datumIdo.handelerMinIdoUtkozes();
-        //datumIdo.handelerMinDatumUtkozes();
-        //datumIdo.setMinIdo();
+        
         
         $(this.keresoBtn).on("click", () => {
             console.log("Jelenleg még nem tudsz keresni."); // ide egy új api végpontnak kell eljutnia vagy másik helyre kell tenni ezt a kód részt.
@@ -67,9 +42,7 @@ class KeresoFeltolteseLocalStorage {
             this.telephely.val(keresOBJ.telephely);
             this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
             this.elvitelDatuma.attr("max", keresOBJ.visszavitelDatuma).change();
-            //this.elvitelIdo.val(keresOBJ.elvitelIdo).change();
             this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma).change();
-            //this.visszaIdo.val(keresOBJ.visszaIdo).change();
             this.marka.val(keresOBJ.marka).change();
             this.modell.val(keresOBJ.modell).change();
             this.kivitel.val(keresOBJ.kivitel).change();
@@ -84,7 +57,7 @@ class KeresoFeltolteseLocalStorage {
             
             $('.kersoCheckbox:checkbox').each(function () {
                 for (let index = 0; index < keresOBJ.checkBoxok.length; index++) {
-                    //checkboxLocalon.push(keresOBJ.checkBoxok[index])
+                    
                     if($(this).val() == keresOBJ.checkBoxok[index]){
                         $(this).prop( "checked", true );
                     }

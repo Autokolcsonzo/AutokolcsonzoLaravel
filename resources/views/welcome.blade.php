@@ -18,6 +18,7 @@
     <script src="js/kereso/keresoFeltoltes.js"></script>	
     <script src="js/kereso/keresesiOpciok.js"></script>	
     <script src="js/kereso/idopont.js"></script>		
+    <script src="js/kereso/keresoFeltolteseLocalS.js"></script>
     <script src="js/kereso/keresoLocalstorage.js"></script>
     <style>
     /* Betűtípusok */
