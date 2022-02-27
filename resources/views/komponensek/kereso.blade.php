@@ -66,11 +66,11 @@
                 </select>
             </section>
 
-            <section>
+            <!--<section>
                 <label for="valto">Váltó</label>
                 <select id="valto" name="valto">
                 </select>
-            </section>
+            </section>-->
 
 
             <div id="modell_evjarat">
@@ -86,10 +86,10 @@
 
             </div>
         </div>
-        <section id="ulesek">
+        <!--<section id="ulesek">
             <label for="ulesek">Ülések száma</label>
             <input type="number" name="ulesek">
-        </section>
+        </section>-->
         <section id="minmax-wrapp">
             <div id="minmaxLable">
                 <label for="min">tól-</label>
@@ -108,8 +108,16 @@
         </section>
     </div>
     <div id="keresoBtn-Box">
-        <input type="submit" name="kereses" id="keresesBtn" value="Keresés" />
+
+    
+        @if(Request::is('jarmuTalalatiLista'))
+            <input type="button" name="kereses" id="keresesBtn" class="btn btn-xs btn-info pull-right" value="Keresés">
+        @else
+            <a name="kereses" id="keresesBtn" href="jarmuTalalatiLista" class="btn btn-xs btn-info pull-right">Keresés</a>
+        @endif
+    
     </div><br>
+
     <div id="reszletesKeresoBtn-Box">
         <div id="doboz"></div>
         <a id="reszletesKeresoBtn">Részletes keresés <img id="dropdown_arrow" src="kepek/arrow-circle-outline.svg"></a>

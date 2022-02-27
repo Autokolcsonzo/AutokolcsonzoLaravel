@@ -17,7 +17,7 @@ Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('regisztracio', [CustomAuthController::class, 'registration'])->name('register-user');
-Route::post('regisztracio', [CustomAuthController::class, 'customRegistration'])->name('regisztracio); 
+Route::post('regisztracio', [CustomAuthController::class, 'customRegistration'])->name('regisztracio'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::get('/', [FooldalController::class, 'index'])->name('welcome');

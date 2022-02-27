@@ -21,7 +21,7 @@ class FoglalasFeltoltes {
     this.elem = elem;
     this.adat = adat;
     this.autoId = this.elem.find("#lefoglalas");
-    this.ar = this.elem.find("#valasztott-jarmu-napiAr");
+    this.napiAr = this.elem.find("#valasztott-jarmu-napiAr");
     this.helyszin = this.elem.find("#valasztott-jarmu-helyszin");
     this.igDatum = this.elem.find("#foglalas-igD");
     this.igIdo = this.elem.find("#foglalas-igI");
@@ -37,6 +37,7 @@ class FoglalasFeltoltes {
     this.bezaras = this.elem.find("#foglalas-bezaras");
     this.felhasznaloiF = this.elem.find("#Felhasznaloi-feltetelek-btn");
     this.zarva = true;
+    this.idopont = new DatumIdo();
     this.setFoglalas(this.adat);
 
     this.felhasznaloiF.on("click", () => {
@@ -53,6 +54,15 @@ class FoglalasFeltoltes {
       adat.tolDatum = this.tolDatum.val();
       this.setFoglalas(this.adat);
     });
+    $(` #foglalas-tolD,
+        #foglalas-igD`).on("change", () => {
+          console.log("datum setterek a keresőben")
+                this.idopont.setMinDate();
+                $("#foglalas-igD").attr("min", $("#foglalas-tolD").val());
+                $("#foglalas-tolD").attr("max", $("#foglalas-igD").val());
+                $("#foglalas-igD").attr("value", "");
+                //this.setFoglalas(this.adat)
+        });
   }
 
   //Figyelem! Nem klien oldalon számoljuk a végösszeget csupán megjelenítjük a felhasználó számára
@@ -65,7 +75,7 @@ class FoglalasFeltoltes {
 
     this.adat = adat;
     this.autoId.attr("data", adat.autoId);
-    this.ar.text(adat.ar);
+    this.napiAr.text(adat.napiAr);
     this.helyszin.text(adat.helyszin);
     this.igDatum.val(adat.igDatum);
     this.igIdo.val(adat.igIdo);
@@ -76,6 +86,10 @@ class FoglalasFeltoltes {
     this.tolDatum.val(adat.tolDatum);
     this.tolIdo.val(adat.tolIdo);
     this.VegosszegKalkulalasa(adat);
+    this.idopont.setMinDate();
+    $("#foglalas-igD").attr("min", $("#foglalas-tolD").val());
+    $("#foglalas-tolD").attr("max", $("#foglalas-igD").val());
+    $("#foglalas-igD").attr("value", "");
   }
 
   felhasznaloiFTrigger() {
@@ -105,7 +119,7 @@ class FoglalasFeltoltes {
     }
     const kedvFloat = (100 - kapottKedvezmeny) / 100;
     console.log(kedvFloat);
-    const vegosszeg = adat.ar * kulonbsegNapokban * kedvFloat;
+    let vegosszeg = adat.napiAr * kulonbsegNapokban * kedvFloat;
 
     console.log(
       "ennyi napra kapott : " +
@@ -124,6 +138,7 @@ class FoglalasFeltoltes {
     this.vegosszeg.text(vegosszeg);
     this.kedvezmeny.text(kapottKedvezmeny);
   }
+
   bezarasTrigger() {
     $(".modal-content").css("display", "none");
     $("#myModal").css("display", "none");

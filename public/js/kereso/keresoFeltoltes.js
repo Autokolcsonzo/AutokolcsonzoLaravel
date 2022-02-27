@@ -17,13 +17,14 @@ class KeresoFeltolo{
       }
     
       opcioFeltoltes(opciok) {
-        $("#Khelyszinek").append(`<option value='helyszinek'>--Helyszín--</option>`);
+          
+        $("#Khelyszinek").append(`<option value=''>--Helyszín--</option>`);
         $("#marka").append(`<option value='marka'>--Márka--</option>`);
         $("#modell").append(`<option value='modell'>--Modell--</option>`);
-        $("#kivitel").append(`<option value='kivitel'>--Kivitel--</option>`);
-        $("#uzemanyag").append(`<option value='uzemanyag'>--Üzemanyag--</option>`);
-        $("#valto").append(`<option value='valto'>--Váltó--</option>`);
-        $("#etol, #eig").append(`<option value='evjarat'>--Évjátat--</option>`);
+        $("#kivitel").append(`<option value=''>--Kivitel--</option>`);
+        $("#uzemanyag").append(`<option value=''>--Üzemanyag--</option>`);
+        //$("#valto").append(`<option value='valto'>--Váltó--</option>`);
+        $("#etol, #eig").append(`<option value=''>--Évjátat--</option>`);
         opciok.forEach(function (obj) {
           for (let marka in obj.marka) {
             let option = `<option value='${marka}'>${marka}</option>`;
@@ -54,7 +55,7 @@ class KeresoFeltolo{
           for (let index = 0; index < obj.checkboxs.length; index++) {
             $("#check_wrapper-1").append(`<section>
                                             <label for="${obj.checkboxs[index]}">${obj.checkboxs[index]}</label>
-                                            <input type="checkbox" name="${obj.checkboxs[index]}" value="${obj.checkboxs[index]}">
+                                            <input class="kersoCheckbox" type="checkbox" name="${obj.checkboxs[index]}" value="${obj.checkboxs[index]}">
                                           </section>`);
           }
             evjarat(obj.evjarat[0],obj.evjarat[1]);
@@ -65,6 +66,15 @@ class KeresoFeltolo{
               }
             }
         });
+        let keresoLocalSOBJ = localStorage.getItem('keresoLocalSOBJ');
+        keresoLocalSOBJ = JSON.parse(keresoLocalSOBJ);
+        if(keresoLocalSOBJ != null || 0){
+          const kfs = new KeresoFeltolteseLocalStorage();
+          kfs.setHozottParameterek();
+          $('#idoEl').val(keresoLocalSOBJ.elvitelIdo).change();
+          $('#idoVissza').val(keresoLocalSOBJ.visszaIdo).change();
+        }
+        
       }
 
 }
