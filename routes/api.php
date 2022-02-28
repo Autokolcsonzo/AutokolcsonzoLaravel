@@ -19,10 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('auto', AutokListazasaController::class);
+Route::apiResource('auto_fill', AutokListazasaController::class);
 
 
-Route::get('auto', [AutokListazasaController::class, 'index']);
+Route::get('auto_fill', [AutokListazasaController::class, 'index']);
 Route::get('adminAuto', [AutokListazasaController::class, 'adminIndex']);
 Route::get('osszesFelhasznalo', [AutokListazasaController::class, 'adminOsszesFelhasznalo']);
 

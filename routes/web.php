@@ -77,3 +77,6 @@ Route::get('adminFelhasznalok', function () {
 
 Route::get('probaForm', [FormController::class, 'index']);
 Route::post('store-form', [FormController::class, 'store']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
