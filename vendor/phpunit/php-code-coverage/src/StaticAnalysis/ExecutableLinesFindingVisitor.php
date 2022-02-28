@@ -18,7 +18,11 @@ use PhpParser\Node\Expr\NullsafePropertyFetch;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\StaticPropertyFetch;
 use PhpParser\Node\Expr\Ternary;
+<<<<<<< HEAD
+use PhpParser\Node\Scalar;
+=======
 use PhpParser\Node\Scalar\Encapsed;
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
 use PhpParser\Node\Stmt\Break_;
 use PhpParser\Node\Stmt\Case_;
 use PhpParser\Node\Stmt\Catch_;
@@ -145,6 +149,10 @@ final class ExecutableLinesFindingVisitor extends NodeVisitorAbstract
                $node instanceof NullsafePropertyFetch ||
                $node instanceof PropertyFetch ||
                $node instanceof Return_ ||
+<<<<<<< HEAD
+               $node instanceof Scalar ||
+=======
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
                $node instanceof StaticPropertyFetch ||
                $node instanceof Switch_ ||
                $node instanceof Ternary ||

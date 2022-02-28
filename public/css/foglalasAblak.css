@@ -136,11 +136,18 @@
 #valasztott-jarmu-ar{
     color: orange;
 }
-#foglalas-tol-box input,#foglalas-ig-box input{
+#foglalas-tol-box input, #foglalas-tol-box select ,#foglalas-ig-box input ,#foglalas-ig-box select{
     border-radius: 10px;
     border: none;
     padding: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background: white;
+    height: unset;
+    outline: 0; /* nem lesz kerete mikor belekattintunk */
+    font-size: unset;
+
+
+
 }
 #foglalas-tol-box,#foglalas-ig-box{
   text-align: left;

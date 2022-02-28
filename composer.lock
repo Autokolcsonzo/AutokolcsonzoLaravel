@@ -1207,6 +1207,7 @@
                 "issues": "https://github.com/laravel/sanctum/issues",
                 "source": "https://github.com/laravel/sanctum"
             },
+
             "time": "2022-02-16T14:40:23+00:00"
         },
         {
@@ -6530,6 +6531,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
+
                 "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.12"
             },
             "funding": [
@@ -6538,6 +6540,7 @@
                     "type": "github"
                 }
             ],
+
             "time": "2022-02-23T06:30:26+00:00"
         },
         {

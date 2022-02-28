@@ -19,7 +19,7 @@
                 <h2>Laravel 8 Form Validation Tutorial</h2>
             </div>
             <div class="card-body">
-                <form name="felhasznalo" id="felhasznalo" method="post" action="{{url('store-form')}}">
+                <form method="post" action="{{ route('regisztracio') }}">
                     @csrf
                     <div class="form-group">
                         <label for="vezeteknev">vezeteknev</label>

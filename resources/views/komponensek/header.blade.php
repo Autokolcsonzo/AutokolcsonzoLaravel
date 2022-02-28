@@ -1,5 +1,6 @@
 <div class="header">
     <!-- headerben a bejelentkezés és regisztráció gombok -->
+    @guest
     <div class="hsor1">
         <div class="gombok">
             <button class="bejelentkezes" a>
@@ -11,6 +12,7 @@
             </button>
         </div>
     </div>
+    @endguest
 
     <!-- főszöveg és kis kép div-je -->
     <div class="hsor2">

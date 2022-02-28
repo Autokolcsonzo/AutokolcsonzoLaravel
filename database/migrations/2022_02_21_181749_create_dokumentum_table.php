@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTelephelyTable extends Migration
+class CreateDokumentumTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateTelephelyTable extends Migration
      */
     public function up()
     {
-        Schema::create('telephely', function (Blueprint $table) {
-            $table->increments('telephely_id');
-            $table->char('megye', 30);
-            $table->char('ir_szam', 5);
-            $table->char('varos', 40);
-            $table->char('utca', 30);
-            $table->char('hazszam', 10);
+        Schema::create('dokumentum', function (Blueprint $table) {
+            $table->integer('felhasznalo')->unsigned();
+            $table->char('jogositvany', 8);
+            $table->char('szemelyi', 8);
+            $table->foreign('felhasznalo')->references('felhasznalo_id')->on('felhasznalo');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateTelephelyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('telephely');
+        Schema::dropIfExists('dokumentum');
     }
 }

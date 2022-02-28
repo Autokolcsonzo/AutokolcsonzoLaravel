@@ -4,27 +4,14 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-/* use Illuminate\Database\Eloquent\Model; */
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 /* use Laravel\Sanctum\HasApiTokens; */
 
-class felhasznalo extends Authenticatable
+class User extends Authenticatable
 {
-    public function getAuthPassword()
-{
-    return $this->a_password;
-}
-/* public function setPasswordAttribute($value)
-    {
-        if( \Hash::needsRehash($value) ) {
-            $value = \Hash::make($value);
-        }
-        $this->attributes['jelszo'] = $value;
-    } */
-
-    protected $table = 'felhasznalo';
-    protected $guard = 'felhasznalo';
+    protected $table = 'Felhasznalo';
     use HasFactory, Notifiable;
 
 /*     public $timestamps = false;
@@ -36,21 +23,18 @@ class felhasznalo extends Authenticatable
      * @var array<int, string>
      */
         protected $fillable = [
-        /* 'name',
-        'email',
-        'password', */
         'vezeteknev',
-        'keresztnev',
-        'felhasznalonev',
-        'jelszo',
-        'szul_ido',
-        'ir_szam',
-        'megye',
-        'varos',
-        'utca',
-        'hazszam',
-        'tel_szam',
-        'e_mail'
+            'keresztnev',
+            'felhasznalonev',
+            'jelszo',
+            'szul_ido',
+            'ir_szam',
+            'megye',
+            'varos',
+            'utca',
+            'hazszam',
+            'tel_szam',
+            'e_mail'
     ];
 
     /**

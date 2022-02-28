@@ -2,6 +2,8 @@
 
 All notable changes are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+<<<<<<< HEAD
+=======
 ## [9.2.12] - 2022-02-23
 
 ### Changed
@@ -14,6 +16,7 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 * [#854](https://github.com/sebastianbergmann/php-code-coverage/issues/854): "Class Coverage Distribution" and "Class Complexity" graphs are not displayed at full width
 * [#897](https://github.com/sebastianbergmann/php-code-coverage/issues/897): `declare(strict_types=1)` marked as uncovered
 
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
 ## [9.2.11] - 2022-02-18
 
 ### Changed
@@ -372,7 +375,10 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 * This component is no longer supported on PHP 7.1
 
+<<<<<<< HEAD
+=======
 [9.2.12]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.11...9.2.12
+>>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
 [9.2.11]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.10...9.2.11
 [9.2.10]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.9...9.2.10
 [9.2.9]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.8...9.2.9
