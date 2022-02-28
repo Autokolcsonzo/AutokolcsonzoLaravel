@@ -48,6 +48,7 @@ Route::get('adminAutok', [AdminAutokController::class, 'adminAutok']);
 Route::post('adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
 
 
+<<<<<<< HEAD
 //felhasznaloApi
 Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
 Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show']);
@@ -55,3 +56,10 @@ Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 
 
 Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
 Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
+=======
+Route::get('probaForm', [FormController::class, 'index']);
+Route::post('store-form', [FormController::class, 'store']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+>>>>>>> a1497c0814114927be03fd4ec2b2e56d273540e4

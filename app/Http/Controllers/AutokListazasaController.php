@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\auto;
+//use App\Models\auto;
+use App\Models\auto_fill;
 use App\Models\felhasznalo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,11 +21,33 @@ class AutokListazasaController extends Controller
 
     public function index()
     {
+<<<<<<< HEAD
         $result = DB::table('auto')
             ->join('modell', 'auto.modell', '=', 'modell.modell_id')
             ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
           //  ->join('auto_kepek', 'auto.alvazSzam', '=', 'auto_kepek.alvazSzam')
             ->select('auto.napiAr', 'auto.szin', 'modell.marka', 'modell.modell', 'modell.kivitel', 'modell.uzemanyag', 'telephely.varos',)
+=======
+        $result = DB::table('auto_fill')
+            ->select(   'auto_fill.alvazSzam',
+                        'auto_fill.statusz',
+                        'auto_fill.napiAr',
+                        'auto_fill.szin',
+                        'auto_fill.marka',
+                        'auto_fill.tipus',
+                        'auto_fill.modell',
+                        'auto_fill.evjarat',
+                        'auto_fill.kivitel',
+                        'auto_fill.uzemanyag',
+                        'auto_fill.teljesitmeny',
+                        'auto_fill.tulajdonsag',
+                        'auto_fill.extra_megnevezese',
+                        'auto_fill.megye',
+                        'auto_fill.ir_szam',
+                        'auto_fill.varos',
+                        'auto_fill.utca',
+                        'auto_fill.hazszam')
+>>>>>>> a1497c0814114927be03fd4ec2b2e56d273540e4
             ->get();
         return $result;
     }
