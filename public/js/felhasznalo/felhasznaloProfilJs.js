@@ -108,5 +108,7 @@ $(function () {
             }
         });
     }
-    console.log("fnev : "+$("tbody tr td #fnev").val())
+
+  
+    
 });

@@ -10,20 +10,19 @@
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/admin/Felhasznalo.js"></script>
     <script src="../js/Ajax.js"></script>
     <script src="../js/admin/jsFelhasznalok.js"></script>
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -123,21 +122,149 @@
                                 <p>2021.04.05.</p>
                             </td>
                             <td class="reszletekGomb">
-                                <a href="#">Részletek
-                                    <!--  <i class="fas fa-long-arrow-right"></i> -->
-                                </a>
+                            <td><a class="fReszletek">Részletek</a></td>
                             </td>
                             <td class="modositas">
-                                <a href="#">Módosítás</a>
+                                <input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" />
                             </td>
                             <td class="torles">
                                 <a href="#">Törlés</a>
                             </td>
+
                         </tr>
+                        <tr class="reszletek">
+                            <td colspan="5">
+                                <div>
+                                    <table class="table">
+                                        <tr>
+                                            <td>ide jönnek</td>
+                                            <td>a részletek</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </td>
+                        </tr>
+
                     </tbody>
+
+
                 </table>
             </div>
+            <div class="formcontainer">
+                <div class="felhasznaloiModositas">
+                    <form method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="form-header">
+                            <h3>Adatok módosítása</h3>
+                        </div>
+                        <div class="sor">
+                            <div class="inputfield">
+                                <label for="nev">Vezetéknév:</label>
+                                <br />
+                                <input type="text" name="vnev" id="ivnev" placeholder="Kovács" />
 
+                            </div>
+
+                            <div class="inputfield">
+                                <label for="nev">Keresztnév:</label><br>
+
+                                <input type="text" name="knev" id="iknev" placeholder="Kati" />
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div class="sor">
+                            <div class="inputfield">
+                                <label for="fnev">Felhasználónév:</label>
+
+                                <br />
+                                <input type="text" name="fnev" id="ifnev" placeholder="valaki97" /><br />
+                            </div>
+
+                            <div class="inputfield">
+                                <label for="email">E-mail cím:</label> <br />
+                                <input type="email" id="iemail" name="email" placeholder="valami@gmail.com" />
+                            </div>
+                        </div>
+
+
+
+                        <div class="sor">
+                            <div class="inputfield">
+                                <label for="szdatum">Születési dátum:</label><br>
+                                <input type="date" name="szdatum" id="iszdatum" /><br>
+                            </div>
+
+                            <div class="inputfield">
+                                <label for="telszam">Telefonszám:</label><br>
+                                <input type="text" id="itelszam" placeholder="+36-20-345-6789" />
+                            </div>
+
+                        </div>
+
+
+                        <div class="sor">
+
+
+                            <div class="inputfield">
+                                <label>Cím:</label>
+                                <br />
+                                <input type="text" id="iiranyitoszam" placeholder="Irányítószám" />
+
+                            </div>
+
+                        </div>
+
+                        <div class="sor">
+
+                            <div class="inputfield">
+                                <input type="text" id="imegye" placeholder="Megye" />
+                            </div>
+
+                            <div class="inputfield">
+                                <input type="text" id="ivaros" placeholder="Város" />
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+
+
+                        <div class="sor">
+
+                            <div class="inputfield">
+                                <input type="text" id="iutca" placeholder="Utca" />
+
+                            </div>
+
+                            <div class="inputfield">
+
+                                <input type="text" id="ihazszam" placeholder="Házszám" />
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                        <input type="submit" value="Adatok mentése" id="adatotMent" />
+
+
+                    </form>
+                </div>
+            </div>
 
         </div>
 

@@ -135,8 +135,8 @@ tbody tr td {
   padding: 10px 15px;
 }
 
-.reszletekGomb a,
-.modositas a,
+
+
 .torles a {
   padding: 4px 10px;
   background-color: #97b9d246;
@@ -144,6 +144,115 @@ tbody tr td {
   border-radius: 5px;
   color: #2b2b2b;
 }
+
+.formcontainer{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.fadatokMod{
+  padding: 4px 10px;
+  background-color: #97b9d246;
+  border: 1px solid #8283853e;
+  border-radius: 5px;
+  color: #2b2b2b;
+}
+
+
+.fReszletek{
+  padding: 4px 10px;
+  background-color: #97b9d246;
+  border: 1px solid #8283853e;
+  border-radius: 5px;
+  color: #2b2b2b;
+
+}
+
+tr.reszletek {
+  display: none;
+  width: 100%;
+}
+tr.reszletek div {
+  display: none;
+}
+
+.felhasznaloiModositas{
+  display:none;
+  max-width: 700px;
+  }
+  
+  .sor{
+    display:flex;
+      flex-direction:row;
+  }
+  
+  
+  .inputfield{
+    flex:1;
+    margin:10px;
+  
+  }
+  
+  .inputfield label{
+  
+    color: #17446b;
+    font-weight: bolder;
+  
+  }
+  
+  .inputfield input{
+    padding: 10px;
+    background: white;
+    height: 40px;
+    border:none;
+    outline:0;
+    border-radius: 5px;
+  }
+  
+  .form-header {
+    padding:15px 0;
+    border-bottom:1px solid #17446b;
+    font-family: "Teko", sans-serif;
+  }
+  
+  .inputfield input::placeholder{
+    color:#17446b;
+  }
+  
+  
+  
+  .form-header h3 {
+    font-size: 40px;
+    text-align:center;
+    color:#17446b;
+  }
+  
+  #adatotMent{
+    margin: 10px;
+    background-color: #e0e4e7;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 2px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+      rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 16px;
+    width: 200px;
+    border-radius: 5px;
+  
+  }
+  
+  #adatotMent:hover{
+    background-color: #b1c5ee;
+    text-decoration: none;
+    transition-duration: 0.2s;
+  }
+  
+  
 
 @media only screen and (max-width: 1151px) {
   body {
