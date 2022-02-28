@@ -110,7 +110,7 @@ class FelhasznalokController extends Controller
         $felhasznalo->jogkor = $request->jogkor;
         $felhasznalo->telephely = $request->telephely;
        $felhasznalo->save();
-       return redirect()->route('felhasznalo.update', ['felhasznalo' => $felhasznalo_id]);
+       return redirect()->route('felhasznaloiProfil');
       
     }
 

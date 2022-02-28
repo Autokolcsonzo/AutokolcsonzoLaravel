@@ -15,12 +15,11 @@ class CreateAutoKepekTable extends Migration
     {
         Schema::create('auto_kepek', function (Blueprint $table) {
             $table->increments('auto_kep_id');
-            $table->char('alvazSzam', 17);
-            $table->index('alvazSzam');
+            $table->integer('alvazSzam')->unsigned();
             $table->foreign('alvazSzam')->references('alvazSzam')->on('auto');
             $table->binary('kep');
             $table->timestamp('kesz_datum')->useCurrent();
-            $table->boolean('nyilvanose');
+            $table->boolean('nyilvanose')->nullable();
             $table->timestamps();
         });
     }

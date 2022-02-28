@@ -2,29 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+/* use Illuminate\Contracts\Auth\MustVerifyEmail; */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-/* use Illuminate\Database\Eloquent\Model; */
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+/* use Illuminate\Foundation\Auth\User as Authenticatable; */
 use Illuminate\Notifications\Notifiable;
 /* use Laravel\Sanctum\HasApiTokens; */
 
-class felhasznalo extends Authenticatable
+class felhasznalo extends Model
 {
-    public function getAuthPassword()
-{
-    return $this->a_password;
-}
-/* public function setPasswordAttribute($value)
-    {
-        if( \Hash::needsRehash($value) ) {
-            $value = \Hash::make($value);
-        }
-        $this->attributes['jelszo'] = $value;
-    } */
-
     protected $table = 'felhasznalo';
-    protected $guard = 'felhasznalo';
     use HasFactory, Notifiable;
 
 /*     public $timestamps = false;

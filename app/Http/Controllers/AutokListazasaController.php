@@ -23,6 +23,7 @@ class AutokListazasaController extends Controller
         $result = DB::table('auto')
             ->join('modell', 'auto.modell', '=', 'modell.modell_id')
             ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
+          //  ->join('auto_kepek', 'auto.alvazSzam', '=', 'auto_kepek.alvazSzam')
             ->select('auto.napiAr', 'auto.szin', 'modell.marka', 'modell.modell', 'modell.kivitel', 'modell.uzemanyag', 'telephely.varos',)
             ->get();
         return $result;
@@ -38,13 +39,15 @@ class AutokListazasaController extends Controller
         return $result;
     }
 
-    public function adminOsszesFelhasznalo()
+    public function adminOsszesFelhasznalok()
     {
-        $result = DB::table('felhasznalo')
+       /*  $result = DB::table('felhasznalo')->get()->count(); */
+        dd('ok');
+        /* return view('adminAutok', compact('result')); */
+        /* $result = DB::table('felhasznalo')
             ->select('felhasznalo_id', DB::raw('COUNT(felhasznalo_id)'))
             ->groupBy('felhasznalo_id');
-        /*     ->get(); */
-        return $result;
+        return $result; */
     }
 
     public function create()

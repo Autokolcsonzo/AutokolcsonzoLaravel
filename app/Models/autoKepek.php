@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TelephelyModel extends Model
+class autoKepek extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'kep'
+    ];
 }

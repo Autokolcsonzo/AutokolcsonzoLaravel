@@ -18,7 +18,7 @@ class CreateModellTable extends Migration
             $table->char('marka', 30);
             $table->char('tipus', 30);
             $table->char('modell', 30);
-            $table->date('evjarat');
+            $table->date('evjarat'); // date helyett year?
             $table->char('kivitel', 30);
             $table->char('uzemanyag', 15);
             $table->char('teljesitmeny', 10);

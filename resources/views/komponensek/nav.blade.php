@@ -1,8 +1,10 @@
 <div class="wrapper">
     <div class="navbar">
         <div class="reszpGombok">
+            @guest
             <a class="reszpBejelentkezes" href="{{ route('bejelentkezes') }}">Bejelentkezés</a>
             <a class="reszpRegisztracio" href="{{ route('regisztracio') }}">Regisztráció</a>
+            @endguest
         </div>
         <div class="nav_right">
             <ul>
@@ -44,6 +46,7 @@
                 <img src="kepek/logo.png" alt="logo" />
             </div>
             @guest
+            <li><a href="logout">Kijelentkezés</a></li>
             <li><a href="{{ route('welcome') }}">Kezdőlap</a></li>
             <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
             <li><a href="{{ route('feltetelek') }}">Feltételek</a></li>

@@ -5,6 +5,9 @@ class Auto {
         this.rendszam = this.elem.find(".rendszam");
         this.megnevezes = this.elem.find(".megnevezes");
         this.telephely = this.elem.find(".telephely");
+        this.felhasznalokSzamaSablon = this.elem.find(
+            ".felhasznalokSzamaSablon"
+        );
 
         this.modositGomb = this.elem.children(".autoMod");
         this.torolGomb = this.elem.children(".autoTorles");
@@ -27,6 +30,7 @@ class Auto {
         this.rendszam.text(adat.rendszam);
         this.megnevezes.text(adat.marka);
         this.telephely.text(adat.telephely);
+        this.felhasznalokSzamaSablon.text(adat.felhasznalokSzamaSablon);
     }
 
     kattintasTrigger() {

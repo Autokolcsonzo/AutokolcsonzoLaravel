@@ -21,11 +21,7 @@ use function str_replace;
 use function strpos;
 use function substr;
 use SebastianBergmann\CodeCoverage\CodeCoverage;
-<<<<<<< HEAD
-use SebastianBergmann\CodeCoverage\ProcessedCodeCoverageData;
-=======
 use SebastianBergmann\CodeCoverage\Data\ProcessedCodeCoverageData;
->>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
 use SebastianBergmann\CodeCoverage\StaticAnalysis\FileAnalyser;
 
 /**

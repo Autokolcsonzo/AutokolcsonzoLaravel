@@ -44,9 +44,19 @@
                 @if (session('status'))
                 {{ session('status') }}
                 @endif
-                <form method="POST" action="{{ route('bejelentkezes') }}">
+                <form action="{{ 'login-user' }}" method="POST">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">
+                        {{Session::get('success')}}
+                    </div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class="alert alert-danger">
+                        {{Session::get('fail')}}
+                    </div>
+                    @endif
                     @csrf
-                    <div class="form-header">
+                    <div class=" form-header">
                         <h3>Bejelentkezés</h3>
                     </div>
                     <div class="sor">
@@ -55,9 +65,7 @@
 
                             <br />
                             <input type="text" name="felhasznalonev" id="fnev" placeholder="valaki97" /><br />
-                            @error('felhasznalonev')
-                            <span>{{$message}}</span>
-                            @enderror
+                            <span class="text-danger">@error('felhasznalonev') {{$message}} @enderror</span>
                         </div>
 
                         <div class="sor">
@@ -65,9 +73,7 @@
                                 <label for="jelszo">Jelszó:</label>
                                 <br>
                                 <input type="password" id="jelszo1" name="jelszo" class="jelszo" placeholder="******" />
-                                @error('jelszo')
-                                <span>{{$message}}</span>
-                                @enderror
+                                <span class="text-danger">@error('jelszo') {{$message}} @enderror</span>
                             </div>
 
                         </div>

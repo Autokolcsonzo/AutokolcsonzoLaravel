@@ -8,8 +8,6 @@ $(function () {
 
     myAjax.getAdat(apiVegpont, felhasznalok, MegjelenitFelhasznalok);
 
-   
-
     function MegjelenitFelhasznalok(felhasznalok) {
         const szuloElem = $(".fadatok");
         const sablonElem = $(".fadatokTable");
@@ -36,10 +34,10 @@ $(function () {
     $(window).on("modosit", (event) => {
         event.preventDefault();
         id = event.detail.id;
-        let felhasznaloiAdatok = localStorage.getItem('felhasznaloiAdatok');
+        let felhasznaloiAdatok = localStorage.getItem("felhasznaloiAdatok");
         let felhasznaloiAdatokobj = JSON.parse(felhasznaloiAdatok);
 
-        console.log("fnev : "+$("#ifnev").val())
+        console.log("fnev : " + $("#ifnev").val());
         console.log(felhasznaloiAdatokobj.felhasznalonev);
         $("#ifnev").val(felhasznaloiAdatokobj.felhasznalonev);
         $("#ivnev").val(felhasznaloiAdatokobj.vezeteknev);
@@ -55,35 +53,35 @@ $(function () {
         $("#itelszam").val(felhasznaloiAdatokobj.tel_szam);
     });
 
-    $("#adatotMent").on("click",()=>{
-        let felhasznalonev=$("#ifnev").val();
+    $("#adatotMent").on("click", () => {
+        let felhasznalonev = $("#ifnev").val();
         console.log("kattint");
-        let vezeteknev=$("#ivnev").val();
-        let keresztnev=$("#iknev").val();
-        let jelszo=$("#ijelszo").val();
-        let szul_ido=$("#iszdatum").val();
-        let ir_szam=$("#iiranyitoszam").val();
-        let megye=$("#imegye").val();
-        let varos=$("#ivaros").val();
-        let utca=$("#iutca").val();
-        let hazszam=$("#ihazszam").val();
-        let e_mail=$("#iemail").val();
-        let tel_szam=$("#itelszam").val();
-        let ujAdat={
-            "felhasznalonev":felhasznalonev,
-            "vezeteknev":vezeteknev,
-            "keresztnev":keresztnev,
-            "jelszo":jelszo,
-            "szul_ido":szul_ido,
-            "ir_szam":ir_szam,
-            "megye":megye,
-            "varos":varos,
-            "utca":utca,
-            "hazszam":hazszam,
-            "e_mail":e_mail,
-            "tel_szam":tel_szam
+        let vezeteknev = $("#ivnev").val();
+        let keresztnev = $("#iknev").val();
+        let jelszo = $("#ijelszo").val();
+        let szul_ido = $("#iszdatum").val();
+        let ir_szam = $("#iiranyitoszam").val();
+        let megye = $("#imegye").val();
+        let varos = $("#ivaros").val();
+        let utca = $("#iutca").val();
+        let hazszam = $("#ihazszam").val();
+        let e_mail = $("#iemail").val();
+        let tel_szam = $("#itelszam").val();
+        let ujAdat = {
+            felhasznalonev: felhasznalonev,
+            vezeteknev: vezeteknev,
+            keresztnev: keresztnev,
+            jelszo: jelszo,
+            szul_ido: szul_ido,
+            ir_szam: ir_szam,
+            megye: megye,
+            varos: varos,
+            utca: utca,
+            hazszam: hazszam,
+            e_mail: e_mail,
+            tel_szam: tel_szam,
         };
-        ajax.putAdat(apiVegpont, id, ujAdat);
+        myAjax.putAdat(apiVegpont, id, ujAdat);
         location.reload();
     });
 
@@ -108,5 +106,5 @@ $(function () {
             }
         });
     }
-    console.log("fnev : "+$("tbody tr td #fnev").val())
+    console.log("fnev : " + $("tbody tr td #fnev").val());
 });

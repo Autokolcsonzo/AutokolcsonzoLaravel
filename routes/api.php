@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutokListazasaController;
+use App\Http\Controllers\AdminAutokController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,11 @@ Route::apiResource('auto', AutokListazasaController::class);
 
 
 Route::get('auto', [AutokListazasaController::class, 'index']);
-Route::get('adminAuto', [AutokListazasaController::class, 'adminIndex']);
-Route::get('osszesFelhasznalo', [AutokListazasaController::class, 'adminOsszesFelhasznalo']);
+Route::get('adminAutok', [AutokListazasaController::class, 'adminIndex']);
+/* Route::get('adminAutok', [AdminAutokController::class, 'index']);*/
+Route::get('osszesFelhasznalo', [AutokListazasaController::class, 'adminOsszesFelhasznalok']); 
 
-Route::delete('adminAuto/{alvazSzam}', [AutokListazasaController::class, 'destroy']);
+Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']);
 
 /* Route::get('auto/{alvazSzam}', 'AutokListazasaController@show');
 Route::post('auto', 'AutokListazasaController@store');

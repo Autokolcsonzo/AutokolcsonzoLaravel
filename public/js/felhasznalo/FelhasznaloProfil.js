@@ -1,4 +1,3 @@
-
 class FelhasznaloProfil {
     constructor(elem, adat) {
         this.adat = adat;
@@ -16,14 +15,13 @@ class FelhasznaloProfil {
         this.email = this.elem.find("#email");
         this.tszam = this.elem.find("#tszam");
         this.felhasznaloModosit = $("#fadatokMod");
-        
+
         this.adatotMent = $("#adatotMent");
 
         this.felhasznaloModosit.on("click", () => {
             this.kattintasTrigger("modosit");
             this.teszt();
         });
-       
 
         this.profkep = $("#profKep");
 
@@ -41,7 +39,7 @@ class FelhasznaloProfil {
         this.megye.text(adat.megye);
         this.varos.text(adat.varos);
         this.utca.text(adat.utca);
-        this.hszam.text(adat.hazszam);""
+        this.hszam.text(adat.hazszam);
         this.email.text(adat.e_mail);
         this.tszam.text(adat.tel_szam);
         this.profkep.attr("src", adat.profilkep);
@@ -51,12 +49,15 @@ class FelhasznaloProfil {
         let esemeny = new CustomEvent(gomb, {
             detail: this.adat,
         });
-        localStorage.setItem('felhasznaloiAdatok', JSON.stringify(esemeny.detail));
+        localStorage.setItem(
+            "felhasznaloiAdatok",
+            JSON.stringify(esemeny.detail)
+        );
 
         window.dispatchEvent(esemeny);
     }
 
-    teszt(){
-      console.log("TEST")
+    teszt() {
+        console.log("TEST");
     }
 }

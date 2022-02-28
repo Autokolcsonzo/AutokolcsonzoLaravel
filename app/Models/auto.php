@@ -13,17 +13,27 @@ class Auto extends Model
     protected $table = 'auto';
     protected $primaryKey = ['alvazSzam'];
     public $incrementing = false;
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
-        'alvazSzam',
+        /* 'alvazSzam',
         'modell',
         'telephely',
         'napiAr',
         'szin',
         'forgalmiSzam',
         'statusz',
-        'rendszam'
+        'rendszam',
+        'kep' */
+        'alvazSzam',
+        'modell',
+            'telephely',
+            'napiAr',
+            'kep',
+            'telephely',
+            'forgalmiSzam',
+            'statusz',
+            'rendszam'
     ];
 
     /**

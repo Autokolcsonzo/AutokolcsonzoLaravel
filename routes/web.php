@@ -9,52 +9,24 @@ use App\Http\Controllers\MenuRolunkController;
 use App\Http\Controllers\MenuFeltetelekController;
 use App\Http\Controllers\FelhasznalokController;
 use App\Http\Controllers\jarmuTalalatiLista;
-
-use App\Http\Controllers\FormController;
-
+use App\Http\Controllers\AdminAutokController;
 use App\Http\Controllers\CustomAuthController;
-Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
-Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
-Route::get('regisztracio', [CustomAuthController::class, 'registration'])->name('register-user');
-Route::post('regisztracio', [CustomAuthController::class, 'customRegistration'])->name('regisztracio); 
-Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
+/* Regisztráció, bejelentkezés, kiejelntkezés */
+Route::get('/login', [CustomAuthController::class, 'login'])->middleware('alreadyLoggedIn');
+Route::get('/registration', [CustomAuthController::class, 'registration']);
+Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
+Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('login-user');
+Route::get('/dashboard', [CustomAuthController::class, 'dashboard'])->middleware('isLoggedIn');
+Route::get('/logout', [CustomAuthController::class, 'logout']);
+
+/* Alap routeok */
 Route::get('/', [FooldalController::class, 'index'])->name('welcome');
-
-Auth::routes();
 Route::get('bejelentkezes', [BejelentkezesController::class, 'index'])->name('bejelentkezes');
-Route::post('bejelentkezes', [BejelentkezesController::class, 'store']);
-
 Route::get('regisztracio', [RegisztralasController::class, 'index'])->name('regisztracio');
-Route::post('regisztracio', [RegisztralasController::class, 'store']); 
-
-/* Route::group(['middleware' => 'web'], function() {
-        Route::get('regisztracio', 'RegisztralasController@store');
-    }); */
-
-Route::get('osszesAutoMenubol', function () {
-    return view('osszesAutoMenubol');
-});
-
 Route::get('osszesAutoMenubol', [osszesAutoMenubolController::class, 'index'])->name('osszesAutoMenubol');
 Route::get('rolunk', [MenuRolunkController::class, 'index'])->name('rolunk');
 Route::get('feltetelek', [MenuFeltetelekController::class, 'index'])->name('feltetelek');
-
-
-
-
-//felhasznaloApi
-
-
-Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
-Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show']);
-Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
-
-Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
-Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
-
-
 Route::get('felhasznaloiProfil', function () {
     return view('felhasznaloiProfil');
 });
@@ -71,9 +43,15 @@ Route::get('adminFelhasznalok', function () {
     return view('adminFelhasznalok');
 });
 
-/* Route::get('probaForm', function () {
-    return view('probaForm');
-}); */
+/* Admin API */
+Route::get('adminAutok', [AdminAutokController::class, 'adminAutok']);
+Route::post('adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
 
-Route::get('probaForm', [FormController::class, 'index']);
-Route::post('store-form', [FormController::class, 'store']);
+
+//felhasznaloApi
+Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
+Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show']);
+Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update']);
+
+Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
+Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);

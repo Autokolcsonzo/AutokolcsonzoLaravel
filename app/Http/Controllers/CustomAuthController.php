@@ -1,53 +1,31 @@
 <?php
- 
+
 namespace App\Http\Controllers;
- 
+
 use Illuminate\Http\Request;
+use App\Models\Felhasznalo;
 use Hash;
 use Session;
-use App\Models\felhasznalo;
-use Illuminate\Support\Facades\Auth;
- 
+
 class CustomAuthController extends Controller
 {
- 
-    public function index()
+    public function login()
     {
-        return view('bejelentkezes');
-    }  
-       
- 
-    public function customLogin(Request $request)
-    {
-        $request->validate([
-            'felhasznalonev' => 'required',
-            'jelszo' => 'required',
-        ]);
-    
-        $credentials = $request->only('felhasznalonev', 'jelszo');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('welcome')
-                        ->withSuccess('Signed in');
-        }
-   
-        return redirect("bejelentkezes")->withSuccess('Login details are not valid');
+        return view("auth.login");
     }
- 
- 
- 
+
     public function registration()
     {
-        return view('regisztracio');
+        return view("auth.registration");
     }
-       
- 
-    public function customRegistration(Request $request)
-    {  
+
+    public function registerUser(Request $request)
+    {
         $request->validate([
             'vezeteknev' => 'required',
             'keresztnev' => 'required',
             'felhasznalonev' => 'required',
-            'jelszo' => 'required', //|confirmed nem működik :D
+            'jelszo' => 'required',
             'szul_ido' => 'required',
             'ir_szam' => 'required',
             'megye' => 'required',
@@ -55,49 +33,64 @@ class CustomAuthController extends Controller
             'utca' => 'required',
             'hazszam' => 'required',
             'tel_szam' => 'required',
-            'e_mail' => 'required',
+            'e_mail' => 'required'
         ]);
-            
-        $data = $request->all();
-        $check = $this->create($data);
-          
-        return redirect("welcome")->withSuccess('You have signed-in');
-    }
- 
- 
-    public function create(array $data)
-    {
-      return felhasznalo::create([
-        'vezeteknev' => $data['vezeteknev'],
-            'keresztnev' => $data['keresztnev'],
-            'felhasznalonev' => $data['felhasznalonev'],
-            'jelszo' => $data['jelszo'], //Hash::make($req->jelszo) jelszó hosszát változtatni kell
-            'szul_ido' => $data['szul_ido'],
-            'ir_szam' => $data['ir_szam'],
-            'megye' => $data['megye'],
-            'varos' => $data['varos'],
-            'utca' => $data['utca'],
-            'hazszam' => $data['hazszam'],
-            'tel_szam' => $data['tel_szam'],
-            'e_mail' => $data['e_mail']
-      ]);
-    }    
-     
- 
-    public function dashboard()
-    {
-        if(Auth::check()){
-            return view('welcome');
+        $felhasznalo = new Felhasznalo();
+        $felhasznalo->vezeteknev = $request->vezeteknev;
+        $felhasznalo->keresztnev = $request->keresztnev;
+        $felhasznalo->felhasznalonev = $request->felhasznalonev;
+        $felhasznalo->jelszo = Hash::make($request->jelszo);
+        $felhasznalo->szul_ido = $request->szul_ido;
+        $felhasznalo->ir_szam = $request->ir_szam;
+        $felhasznalo->megye = $request->megye;
+        $felhasznalo->varos = $request->varos;
+        $felhasznalo->utca = $request->utca;
+        $felhasznalo->hazszam = $request->hazszam;
+        $felhasznalo->tel_szam = $request->tel_szam;
+        $felhasznalo->e_mail = $request->e_mail;
+        $res = $felhasznalo->save();
+        if ($res) {
+            return back()->with('success', 'regisztráltál');
+        } else {
+            return back()->with('fail', 'NEM regisztráltál');
         }
-   
-        return redirect("bejelentkezes")->withSuccess('You are not allowed to access');
     }
-     
- 
-    public function signOut() {
-        Session::flush();
-        Auth::logout();
-   
-        return Redirect('bejelentkezes');
+
+    public function loginUser(Request $request)
+    {
+        $request->validate([
+            'felhasznalonev' => 'required',
+            'jelszo' => 'required'
+        ]);
+        $felhasznalo = Felhasznalo::where('felhasznalonev', '=', $request->felhasznalonev)->first();
+        if ($felhasznalo) {
+
+            if (Hash::check($request->jelszo, $felhasznalo->jelszo)) {
+                $request->session()->put('loginId', $felhasznalo->felhasznalo_id);
+                return redirect('dashboard');
+            } else {
+                return back()->with('fail', 'Jelszó nem ugyan az.');
+            }
+
+        } else {
+            return back()->with('fail', 'Ez az email nem regisztrált.');
+        }
+        
+    }
+
+    public function dashboard() {
+        /* dd("anyád"); */
+        $data = array();
+        if(Session::has('loginId')) {
+            $data = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
+        }
+        return view('dashboard', compact('data'));
+    }
+
+    public function logout() {
+        if (Session::has('loginId')) {
+            Session::pull('loginId');
+            return redirect('login');
+        }
     }
 }

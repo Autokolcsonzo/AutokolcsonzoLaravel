@@ -4,11 +4,11 @@ $(function () {
     const adminAutok = [];
     const felhasznalok = [];
 
-    let apiVegpont = "http://localhost:8000/api/adminAuto";
-    let osszesFelhasznalo = "http://localhost:8000/api/osszesFelhasznalo";
+    let osszesFelhasznaloApi = "http://localhost:8000/api/osszesFelhasznalo";
+    let apiVegpont = "http://localhost:8000/api/adminAutok";
 
+    myAjax.getAdat(osszesFelhasznaloApi, felhasznalok, felhasznalokFeltoltes);
     myAjax.getAdat(apiVegpont, adminAutok, autoFeltoltes);
-    myAjax.getAdat(osszesFelhasznalo, felhasznalok, felhasznalokFeltoltes);
 
     function autoFeltoltes(adminAutok) {
         const szuloElem = $(".tablazat .szuloElem");
@@ -35,14 +35,15 @@ $(function () {
     });
 
     function felhasznalokFeltoltes(felhasznalok) {
-        const szuloElem = $(".val-box");
-        const sablonElem = $(".felhasznalokSzamaSablon");
+        console.log("felhasznalok feltoltes");
+        const szuloElem = $(".values");
+        const sablonElem = $(".val-box");
         szuloElem.empty();
         sablonElem.show();
         felhasznalok.forEach(function (elem) {
             console.log(elem);
             const ujElem = sablonElem.clone().appendTo(szuloElem);
-            const ujTermek = new AdminAdatok(ujElem, elem);
+            const ujTermek = new Auto(ujElem, elem);
         });
 
         sablonElem.hide();
@@ -73,7 +74,7 @@ $(function () {
 
     function UjAutoFelvetele() {
         $(".ujAutoGomb").on("click", () => {
-            $(".autoAdatokFeltoltes").slideDown(500);
+            $(".autoAdatokModositas").slideDown(500);
         });
     }
 

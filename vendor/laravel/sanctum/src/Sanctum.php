@@ -34,13 +34,9 @@ class Sanctum
      */
     public static function currentApplicationUrlWithPort()
     {
-<<<<<<< HEAD
-        return env('APP_URL') ? ','.parse_url(env('APP_URL'), PHP_URL_HOST).(parse_url(env('APP_URL'), PHP_URL_PORT) ? ':'.parse_url(env('APP_URL'), PHP_URL_PORT) : '') : '';
-=======
         $appUrl = config('app.url');
 
         return $appUrl ? ','.parse_url($appUrl, PHP_URL_HOST).(parse_url($appUrl, PHP_URL_PORT) ? ':'.parse_url($appUrl, PHP_URL_PORT) : '') : '';
->>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
     }
 
     /**

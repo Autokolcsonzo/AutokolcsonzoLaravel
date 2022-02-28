@@ -19,7 +19,7 @@
     <script src="../js/Ajax.js"></script>
     <script src="../js/felhasznalo/FelhasznaloProfil.js"></script>
     <script src="../js/felhasznalo/felhasznaloProfilJs.js"></script>
-    
+
     <script src="../js/hambiMenu.js"></script>
 
     <style>
@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="{{ asset('css/felhasznalo/felhasznaloiProfil.css') }}">
-    
+
 </head>
 
 <body>
@@ -70,7 +70,7 @@
 
                         </tr>
 
-                   
+
                         <tr>
                             <td>Vezetéknév: </td>
                             <td id="vnev">Kovács</td>
@@ -119,13 +119,15 @@
                     </table>
 
                 </div>
-                <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása" style="display:block"/>
+                <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása"
+                    style="display:block" />
 
 
                 <div class="felhasznaloiModositas">
-                <form method="POST" action="{{ route('felhasznalo.update', $felhasznalo->felhasznalo_id) }}">
-                     @csrf 
+                    <form method="POST" action="">
+
                         @method('PUT')
+                        @csrf
                         <div class="form-header">
                             <h3>Adatok módosítása</h3>
                         </div>
@@ -167,11 +169,10 @@
                             <div class="inputfield">
                                 <label for="jelszo">Jelszó:</label>
                                 <br>
-                                <input type="text" id="ijelszo" name="jelszo" 
-                                    placeholder="******" />
+                                <input type="text" id="ijelszo" name="jelszo" placeholder="******" />
                             </div>
 
-                         
+
 
                         </div>
 
