@@ -9,19 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Scriptek -->
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/hambiMenu.js"></script>
     <script src="js/reszponzivDolgok.js"></script>
     <script src="js/kereso/dropDownKereso.js"></script>
-    <script src="js/kereso/keresesiOpciokAjax.js"></script>
-    <script src="js/kereso/keresesiOpciok.js"></script>
-    <script src="js/reszponzivDolgok.js"></script>
+    <script src="js/kereso/keresesiOpciokAjax.js"></script>	
+    <script src="js/kereso/keresoFeltoltes.js"></script>	
+    <script src="js/kereso/keresesiOpciok.js"></script>	
+    <script src="js/kereso/idopont.js"></script>		
     <script src="js/autoLista/autoAjax.js"></script>
     <script src="js/autoLista/auto.js"></script>
-    <script src="js/kereso/keresoFeltoltes.js"></script>
     <script src="js/autoLista/autok.js"></script>
     <script src="js/autoLista/foglalas.js"></script>
-    <script src="js/kereso/idopont.js"></script>
+    <script src="js/kereso/keresoFeltolteseLocalS.js"></script>
+    
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
     <style>
@@ -41,7 +43,6 @@
     <link rel="stylesheet" href="css/nav.css" />
     <link rel="stylesheet" href="css/kereso.css" />
     <link rel="stylesheet" href="css/autoCard.css" />
-    <link rel="stylesheet" href="css/foglalasAblak.css" />
     <link rel="stylesheet" href="css/jarmuTalalatiLista.css" />
 </head>
 
@@ -58,6 +59,7 @@
 
         <!-- felhasználóknak segítség/információ a foglaláshoz -->
         <div id="primary_content">
+        <link rel="stylesheet" href="css/foglalasAblak.css" />
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
@@ -84,13 +86,13 @@
                         </section>
                         <section id="foglalas-tol-box">
                             <label for="foglalas-tol">Felvétel:</label><br>
-                            <input id="foglalas-tolD" name="foglalas-tol" type="date">
-                            <input id="foglalas-tolI" name="foglalas-tol" type="time">
+                            <input id="foglalas-tolD" name="foglalas-tol" type="date" required>
+                            <select id="foglalas-tolI" name="foglalas-tol" required></select>
                         </section>
                         <section id="foglalas-ig-box">
                             <label for="foglalas-ig">Letétel:</label><br>
-                            <input id="foglalas-igD" name="foglalas-ig" type="date">
-                            <input id="foglalas-igI" name="foglalas-ig" type="time">
+                            <input id="foglalas-igD" name="foglalas-ig" type="date" required>
+                            <select id="foglalas-igI" name="foglalas-ig" required></select>
                         </section>
                         <button id="lefoglalas" class="" type="submit">Lefoglalás</button>
                     </form>

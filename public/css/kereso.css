@@ -49,8 +49,7 @@
     font-size: 20px;
 }
 
-.input-box input,
-select {
+.input-box input, select {
     padding: 10px;
     background: rgba(192, 204, 240, 0.37);
     border: 1px solid rgb(177, 177, 180);
@@ -234,10 +233,11 @@ select {
 #autoValto {
     font-size: 12pt;
 }
-
-#keresesBtn {
+#keresesBtn{
     margin: 10px;
     padding: 10px 30px;
+    border: 1px solid black;
+    background-color: whitesmoke;
 }
 #keresesBtn:hover {
     background-color: #b1c5ee;
