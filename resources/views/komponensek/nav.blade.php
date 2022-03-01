@@ -2,8 +2,8 @@
     <div class="navbar">
         <div class="reszpGombok">
             @guest
-            <a class="reszpBejelentkezes" href="{{ route('bejelentkezes') }}">Bejelentkezés</a>
-            <a class="reszpRegisztracio" href="{{ route('regisztracio') }}">Regisztráció</a>
+            <a class="reszpBejelentkezes" href="{{ 'login' }}">Bejelentkezés</a>
+            <a class="reszpRegisztracio" href="{{ 'registration' }}">Regisztráció</a>
             @endguest
         </div>
         <div class="nav_right">
@@ -76,8 +76,8 @@
 <div class="mobilNav">
     <ul class="navLista2">
         <li><a href=" {{ route('welcome') }} ">Kezdőlap</a></li>
-        <li><a href=" {{ route('bejelentkezes') }} ">Bejelentkezés</a></li>
-        <li><a href=" {{ route('regisztracio') }} ">Regisztráció</a></li>
+        <li><a href=" {{ 'login' }} ">Bejelentkezés</a></li>
+        <li><a href=" {{ 'registration' }} ">Regisztráció</a></li>
         <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
         <li><a href="{{ route('feltetelek') }}">Feltételek</a></li>
         <li><a href="{{ route('osszesAutoMenubol') }}">Járműveink</a></li>
