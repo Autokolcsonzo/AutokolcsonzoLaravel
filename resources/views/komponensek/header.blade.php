@@ -5,14 +5,14 @@
             @guest
             <button class="bejelentkezes" a>
                 <i class="fa fa-user"></i></a>
-                <a href=" {{'bejelentkezes'}} ">Bejelentkezés
+                <a href=" {{'login'}} ">Bejelentkezés
             </button>
             <button class="regisztracio">
-                <a href=" {{'regisztracio'}} ">Regisztráció</a>
+                <a href=" {{'registration'}} ">Regisztráció</a>
             </button>
             @else
             button class="regisztracio">
-            <a href=" {{'regisztracio'}} ">Kijelentkezés</a>
+            <a href=" {{'registration'}} ">Kijelentkezés</a>
             </button>
             @endguest
         </div>

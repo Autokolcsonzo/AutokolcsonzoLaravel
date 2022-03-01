@@ -23,16 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('auto_fill', AutokListazasaController::class);
 
 
-<<<<<<< HEAD
-Route::get('auto', [AutokListazasaController::class, 'index']);
-Route::get('adminAutok', [AutokListazasaController::class, 'adminIndex']);
-/* Route::get('adminAutok', [AdminAutokController::class, 'index']);*/
-Route::get('osszesFelhasznalo', [AutokListazasaController::class, 'adminOsszesFelhasznalok']); 
-=======
 Route::get('auto_fill', [AutokListazasaController::class, 'index']);
 Route::get('adminAuto', [AutokListazasaController::class, 'adminIndex']);
 Route::get('osszesFelhasznalo', [AutokListazasaController::class, 'adminOsszesFelhasznalo']);
->>>>>>> a1497c0814114927be03fd4ec2b2e56d273540e4
 
 Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']);
 
