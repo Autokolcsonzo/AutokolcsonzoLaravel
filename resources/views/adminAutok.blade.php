@@ -153,7 +153,7 @@
                 <h2 class="alert alert-success">{{ session('status') }}</h2>
                 @endif
 
-                <form action="{{ route('adminAutok') }}" method="POST">
+                <form action="{{ 'adminAutok' }}" method="POST">
                     @csrf
                     <div class="form-header">
                         <h3>Adatok módosítása</h3>
