@@ -124,10 +124,9 @@
 
 
                 <div class="felhasznaloiModositas">
-                    <form method="POST" action="">
-
-                        @method('PUT')
-                        @csrf
+                <form action="{{ route('aluminio.store', $producto->id) }}" method="post" enctype="multipart/form-data">
+                  @csrf
+                  @method('PUT')
                         <div class="form-header">
                             <h3>Adatok módosítása</h3>
                         </div>

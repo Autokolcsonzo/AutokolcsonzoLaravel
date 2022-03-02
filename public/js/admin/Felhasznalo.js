@@ -2,10 +2,10 @@ class Felhasznalo {
   constructor(elem, adat) {
     this.adat = adat;
     this.elem = elem;
-    this.jogkor = this.elem.children(".jogkor");
-    this.felhasznalonev = this.elem.children(".felhnev");
-    this.e_mail = this.elem.children(".email");
-    this.reg_datum = this.elem.children(".regDatum");
+    this.jogkor = this.elem.find(".jogkor");
+    this.felhasznalonev = this.elem.find(".felhnev");
+    this.e_mail = this.elem.find(".email");
+    this.reg_datum = this.elem.find(".regDatum");
    
 
     this.setAdat(adat);
