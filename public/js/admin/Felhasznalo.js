@@ -28,18 +28,6 @@ class Felhasznalo {
     this.reszletek.text("Ez egy szar")
   }
 
- ReszletekMegjelenes(e) {
-  e.preventDefault();
-        
-  var targetrow = $(this).closest('tr').next('.reszletek');
-  targetrow.show().find('.div').slideToggle('slow', function(){
-      console.log("kattint");
-    if (!$(this).is(':visible')) {
-      targetrow.hide();
-    }
-  });
-       
-     
-    }
+
  
 }
