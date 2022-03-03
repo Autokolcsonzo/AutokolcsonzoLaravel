@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutokListazasaController;
+use App\Http\Controllers\KedvezmenyekController;
 /* use App\Http\Controllers\AdminAutokController; */
 
 /*
@@ -21,7 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('auto_fill', AutokListazasaController::class);
-
+Route::apiResource('kedvezmeny', KedvezmenyekController::class);
 
 Route::get('auto_fill', [AutokListazasaController::class, 'index']);
+Route::get('kedvezmeny', [KedvezmenyekController::class, 'index']);
 //Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']); 

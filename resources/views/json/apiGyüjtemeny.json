@@ -1,13 +1,4 @@
 {
-    "kedvezmenyek": [
-        {
-          "0": 0,
-          "3": 5,
-          "5": 10,
-          "7": 15,
-          "10":20
-        }
-      ],
       "keresoParameter": [
         {
           "helyszin": ["Budapest", "Szeged", "Pécs"],
