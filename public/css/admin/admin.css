@@ -179,13 +179,13 @@ table td {
 
 }
 
-tr.reszletek {
+/* tr.reszletek {
   display: none;
   width: 100%;
 }
 tr.reszletek div {
   display: none;
-}
+} */
 
 .felhasznaloiModositas{
   display:none;

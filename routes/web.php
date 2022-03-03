@@ -22,7 +22,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 Route::get('/', [FooldalController::class, 'index'])->name('welcome');
 
-Auth::routes();
+
 Route::get('bejelentkezes', [BejelentkezesController::class, 'index'])->name('bejelentkezes');
 Route::post('bejelentkezes', [BejelentkezesController::class, 'store']);
 
@@ -47,12 +47,12 @@ Route::get('feltetelek', [MenuFeltetelekController::class, 'index'])->name('felt
 //felhasznaloApi
 
 
-Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
-Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show']);
+Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index'])->name('felhasznalo.index');
+Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show'])->name('felhasznalo.show');
 Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
 
-Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
-Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
+Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store'])->name('felhasznalo.store');
+Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy'])->name('felhasznalo.destroy');
 
 
 Route::get('felhasznaloiProfil', function () {
@@ -77,3 +77,6 @@ Route::get('adminFelhasznalok', function () {
 
 Route::get('probaForm', [FormController::class, 'index']);
 Route::post('store-form', [FormController::class, 'store']);
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

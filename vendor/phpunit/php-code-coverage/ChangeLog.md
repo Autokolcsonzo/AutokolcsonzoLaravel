@@ -2,9 +2,26 @@
 
 All notable changes are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-<<<<<<< HEAD
-=======
-## [9.2.12] - 2022-02-23
+## [9.2.14] - 2022-02-28
+
+### Fixed
+
+* [#904](https://github.com/sebastianbergmann/php-code-coverage/issues/904): Lines of code containing the `match` keyword were not recognized as executable correctly
+* [#905](https://github.com/sebastianbergmann/php-code-coverage/issues/905): Lines of code in constructors were not recognized as executable correctly when constructor property promotion is used
+
+## [9.2.13] - 2022-02-23
+
+### Changed
+
+* The contents of the static analysis sourcecode files is now used to generate the static analysis cache version identifier
+
+### Fixed
+
+* Reverted rename of `SebastianBergmann\CodeCoverage\ProcessedCodeCoverageData` to `SebastianBergmann\CodeCoverage\Data\ProcessedCodeCoverageData` (this class is marked as `@internal` and not covered by the backward compatibility promise, but it is (still) used directly by PHPUnit)
+* Reverted rename of `SebastianBergmann\CodeCoverage\RawCodeCoverageData` to `SebastianBergmann\CodeCoverage\Data\RawCodeCoverageData` (this class is marked as `@internal` and not covered by the backward compatibility promise, but it is (still) used directly by PHPUnit)
+* The `ArrayDim`, `Cast`, and `MethodCall` nodes are now considered when determining whether a line of code is executable or not
+
+## [9.2.12] - 2022-02-23 [YANKED]
 
 ### Changed
 
@@ -16,7 +33,6 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 * [#854](https://github.com/sebastianbergmann/php-code-coverage/issues/854): "Class Coverage Distribution" and "Class Complexity" graphs are not displayed at full width
 * [#897](https://github.com/sebastianbergmann/php-code-coverage/issues/897): `declare(strict_types=1)` marked as uncovered
 
->>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
 ## [9.2.11] - 2022-02-18
 
 ### Changed
@@ -114,7 +130,7 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 ### Fixed
 
-* [#810](https://github.com/sebastianbergmann/php-code-coverage/issues/810): `SebastianBergmann\CodeCoverage\Driver\Driver::forLineCoverage()` and `SebastianBergmann\CodeCoverage\Driver\Driver::forLineAndPathCoverage()` are marked as internal 
+* [#810](https://github.com/sebastianbergmann/php-code-coverage/issues/810): `SebastianBergmann\CodeCoverage\Driver\Driver::forLineCoverage()` and `SebastianBergmann\CodeCoverage\Driver\Driver::forLineAndPathCoverage()` are marked as internal
 
 ### Removed
 
@@ -375,10 +391,9 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 * This component is no longer supported on PHP 7.1
 
-<<<<<<< HEAD
-=======
-[9.2.12]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.11...9.2.12
->>>>>>> a38e506e46993bc510fe7a8767e8492e1dce022d
+[9.2.14]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.13...9.2.14
+[9.2.13]: https://github.com/sebastianbergmann/php-code-coverage/compare/c011a0b6aaa4acd2f39b7f51fb4ad4442b6ec631...9.2.13
+[9.2.12]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.11...c011a0b6aaa4acd2f39b7f51fb4ad4442b6ec631
 [9.2.11]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.10...9.2.11
 [9.2.10]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.9...9.2.10
 [9.2.9]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.8...9.2.9

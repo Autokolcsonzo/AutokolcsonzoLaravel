@@ -105,12 +105,18 @@
                             <th>Felhasználónév</th>
                             <th>E-mail</th>
                             <th>Regisztráció dátuma</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
+
                     <tbody class="felhasznalokKiiratasa">
+
                         <tr class="felhasznalok">
                             <td class="jogkor">
-                                <p>3 (felhasználó)</p>
+                                <p>3 (felhasználó)/p>
                             </td>
                             <td class="felhnev">
                                 <p>pirike66</p>
@@ -130,10 +136,10 @@
                             <td class="torles">
                                 <a href="#">Törlés</a>
                             </td>
-
                         </tr>
                         <tr class="reszletek">
-                            <td colspan="5">
+                            <td colspan="7">
+                                5555555555555555
                                 <div>
                                     <table class="table">
                                         <tr>
@@ -144,12 +150,15 @@
 
                                 </div>
                             </td>
+
                         </tr>
+
 
                     </tbody>
 
 
                 </table>
+                
             </div>
             <div class="formcontainer">
                 <div class="felhasznaloiModositas">

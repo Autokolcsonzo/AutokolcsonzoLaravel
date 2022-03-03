@@ -15,8 +15,8 @@ class FelhasznalokController extends Controller
      */
     public function index()
     {
-        $felhasznalok = FelhasznaloModell::all(); 
-        return $felhasznalok;
+        $felhasznalo = FelhasznaloModell::all(); 
+        return $felhasznalo;
     }
 
     /**
@@ -67,6 +67,7 @@ class FelhasznalokController extends Controller
     public function show($felhasznalo_id)
     {
         $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
+      
         return response()->json($felhasznalo);
     }
 
@@ -78,8 +79,9 @@ class FelhasznalokController extends Controller
      */
     public function edit($felhasznalo_id)
     {
-       /* $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
-        return view('felhasznalo.felhasznaloiProfil',compact('felhasznalo','felhasznalo_id'));*/
+        /* $felhasznalo = FelhasznaloModell::findOrFail($felhasznalo_id); */
+
+     
     }
 
     /**
@@ -91,14 +93,17 @@ class FelhasznalokController extends Controller
      */
     public function update(Request $request, $felhasznalo_id)
     {
+
+        
+    
         $felhasznalo = FelhasznaloModell::findOrFail($felhasznalo_id);
-        $felhasznalo->felhasznalo_id = $request->felhasznalo_id;
+     
         $felhasznalo->vezeteknev = $request->vezeteknev;
         $felhasznalo->keresztnev = $request->keresztnev;
         $felhasznalo->felhasznalonev = $request->felhasznalonev;
         $felhasznalo->jelszo = $request->jelszo;
         $felhasznalo->szul_ido = $request->szul_ido;
-        $felhasznalo->profilkep = $request->profilkep;
+     
         $felhasznalo->varos = $request->varos;
         $felhasznalo->megye = $request->megye;
         $felhasznalo->ir_szam = $request->ir_szam;
@@ -106,10 +111,10 @@ class FelhasznalokController extends Controller
         $felhasznalo->hazszam = $request->hazszam;
         $felhasznalo->tel_szam = $request->tel_szam;
         $felhasznalo->e_mail = $request->e_mail;
-        $felhasznalo->reg_datum = $request->reg_datum;
-        $felhasznalo->jogkor = $request->jogkor;
-        $felhasznalo->telephely = $request->telephely;
-       $felhasznalo->save();
+     
+        
+       $felhasznalo->update();
+      
        return redirect()->route('felhasznalo.update', ['felhasznalo' => $felhasznalo_id]);
       
     }
