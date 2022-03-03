@@ -7,19 +7,47 @@ use Illuminate\Http\Request;
 use App\Models\auto;
 use App\Models\autoKepek;
 use App\Models\modell;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class AdminAutokController extends Controller
 {
-   
-    public function index() {
+
+    /* public function index()
+    {
         $count = DB::table('felhasznalo')->get()->count();
         return view('adminAutok', compact('count'));
+    } */
+
+    public function adminIndex()
+    {
+        $result = DB::table('auto')
+            ->join(
+                'modell',
+                'auto.modell',
+                '=',
+                'modell.modell_id'
+            )
+            ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
+            ->select('auto.rendszam', 'modell.marka', 'telephely.varos')
+            ->get();
+        return $result;
     }
 
-     public function store(Request $req) {
-      /*   $modell_id = 'modell_id'; */
-        
+    public function adminOsszesFelhasznalok()
+    {
+        /*  $result = DB::table('felhasznalo')->get()->count(); */
+        /*  dd('ok'); */
+        /* return view('adminAutok', compact('result')); */
+        /* $result = DB::table('felhasznalo')
+            ->select('felhasznalo_id', DB::raw('COUNT(felhasznalo_id)'))
+            ->groupBy('felhasznalo_id');
+        return $result; */
+    }
+
+    public function store(Request $req)
+    {
+        /*   $modell_id = 'modell_id'; */
+
         $modell = [
             'marka' => $req->marka,
             'tipus' => $req->tipus,
@@ -64,13 +92,13 @@ class AdminAutokController extends Controller
            $auto->kep = $filename;
        } */
 
-        DB::table('auto_kepek')->insert($auto_kepek); 
-        
-     //   return redirect()->back();
-         return redirect()->back()->with('status', 'adatok sikeresen feltöltve');
-            
+        DB::table('autoKepek')->insert($auto_kepek);
 
-        
+        //   return redirect()->back();
+        return redirect()->back()->with('status', 'adatok sikeresen feltöltve');
+
+
+
         /* public function save(Request $request)
     {
          
@@ -100,7 +128,7 @@ class AdminAutokController extends Controller
         /* dd($req->only('felhasznalonev', 'jelszo')); */
 
         // validáció
-     /*    $validator = Validator::make($req->all(), [
+        /*    $validator = Validator::make($req->all(), [
             'alvazSzam' => 'required',
             'marka' => 'required',
             'modell' => 'required',
@@ -120,7 +148,7 @@ class AdminAutokController extends Controller
             'rendszam' => 'required',
         ]); */
 
-       /* $auto = new auto;
+        /* $auto = new auto;
        $auto->alvazSzam = $req->input('alvazSzam');
        $auto->marka = $req->input('marka');
        $auto->modell = $req->input('modell');
@@ -150,7 +178,7 @@ class AdminAutokController extends Controller
 
         // felhasználó eltárolása
 
-       /*  auto::create([
+        /*  auto::create([
             'alvazSzam' => $req->alvazSzam,
             'marka' => $req->marka,
             'modell' => $req->modell,
@@ -173,5 +201,4 @@ class AdminAutokController extends Controller
         // redirect
         /* return redirect()->route('welcome'); */
     }
-
 }

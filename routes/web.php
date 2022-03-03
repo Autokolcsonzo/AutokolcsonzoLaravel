@@ -8,11 +8,11 @@ use App\Http\Controllers\osszesAutoMenubolController;
 use App\Http\Controllers\MenuRolunkController;
 use App\Http\Controllers\MenuFeltetelekController;
 use App\Http\Controllers\FelhasznalokController;
-use App\Http\Controllers\jarmuTalalatiLista;
 use App\Http\Controllers\AdminAutokController;
 use App\Http\Controllers\CustomAuthController;
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
+
 Route::get('/login', [CustomAuthController::class, 'login'])->middleware('alreadyLoggedIn');
 Route::get('/registration', [CustomAuthController::class, 'registration']);
 Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
@@ -44,8 +44,8 @@ Route::get('adminFelhasznalok', function () {
 });
 
 /* Admin API */
-Route::get('adminAutok', [AdminAutokController::class, 'adminAutok']);
-Route::post('adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
+Route::get('/api/adminAutok', [AdminAutokController::class, 'adminAutok']);
+Route::post('/api/adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
 
 
 //felhasznaloApi
