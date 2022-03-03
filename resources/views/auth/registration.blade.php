@@ -41,7 +41,17 @@
 
         <div class="fprofil">
             <div class="regisztracioFelulet">
-                <form action="{{ route('regisztracio') }}" method="POST">
+                <form action="{{ 'register-user' }}" method="POST">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">
+                        {{Session::get('success')}}
+                    </div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class="alert alert-danger">
+                        {{Session::get('fail')}}
+                    </div>
+                    @endif
                     @csrf
                     <div class="form-header">
                         <h3>Regisztráció</h3>
@@ -51,22 +61,14 @@
                             <label for="vezeteknev">Vezetéknév:</label>
                             <br />
                             <input type="text" name="vezeteknev" id="vnev" placeholder="Kovács" required />
-                            @if ($errors->has('vezeteknev'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('vezeteknev') }}</strong>
-                            </span>
-                            @endif
+                            <span class="text-danger">@error('vezeteknev') {{$message}} @enderror</span>
                         </div>
 
                         <div class="inputfield">
                             <label for="keresztnev">Keresztnév:</label><br>
 
                             <input type="text" name="keresztnev" id="knev" placeholder="Kati" required />
-                            @if ($errors->has('keresztnev'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('keresztnev') }}</strong>
-                            </span>
-                            @endif
+                            <span class="text-danger">@error('keresztnev') {{$message}} @enderror</span>
                         </div>
 
                     </div>
@@ -77,11 +79,7 @@
 
                             <br />
                             <input type="text" name="felhasznalonev" id="fnev" placeholder="valaki97" required /><br />
-                            @if ($errors->has('felhasznalonev'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('felhasznalonev') }}</strong>
-                            </span>
-                            @endif
+                            <span class="text-danger">@error('felhasznalonev') {{$message}} @enderror</span>
                         </div>
 
                         <div class="inputfield">
@@ -128,11 +126,7 @@
                             <label for="ir_szam">Cím:</label>
                             <br />
                             <input type="text" name="ir_szam" id="iranyitoszam" placeholder="Irányítószám" required />
-                            @if ($errors->has('ir_szam'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('ir_szam') }}</strong>
-                            </span>
-                            @endif
+
                         </div>
 
                     </div>
@@ -141,11 +135,7 @@
 
                         <div class="inputfield">
                             <input type="text" id="megye" name="megye" placeholder="Megye" required />
-                            @if ($errors->has('megye'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('megye') }}</strong>
-                            </span>
-                            @endif
+
                         </div>
 
                         <div class="inputfield">

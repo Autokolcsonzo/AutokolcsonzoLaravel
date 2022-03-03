@@ -9,6 +9,7 @@ class modell extends Model
 {
     use HasFactory;
     protected $table = 'modell';
+    public $timestamps = true;
 
     protected $fillable = [
         'marka',

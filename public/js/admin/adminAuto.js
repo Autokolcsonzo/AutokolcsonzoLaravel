@@ -27,6 +27,7 @@ class Auto {
         this.rendszam.text(adat.rendszam);
         this.megnevezes.text(adat.marka);
         this.telephely.text(adat.telephely);
+       // this.felhasznalokSzamaSablon.text(adat.felhasznalokSzamaSablon);
     }
 
     kattintasTrigger() {

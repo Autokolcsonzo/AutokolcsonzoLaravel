@@ -3,7 +3,7 @@ $(function () {
     const myAjax = new MyAjax(token);
     const autok = [];
 
-    let apiVegpont = "http://localhost:8000/api/auto";
+    let apiVegpont = "http://localhost:8000/api/auto_fill";
     myAjax.getAdat(apiVegpont, autok, autoFeltoltes);
     const kedvezmeny = new Auto();
     kedvezmeny.setKedvezmenyek();
@@ -24,14 +24,14 @@ $(function () {
     keresomezo.on("keyup", () => {
         autok.splice(0, autok.length);
         $("#jarmu-lista").empty();
-        let apivegpont = "http://localhost:8000/api/auto";
+        let apivegpont = "http://localhost:8000/api/auto_fill";
         apivegpont += "?q=" + keresomezo.val();
         console.log(autok);
         myAjax.getAdat(apivegpont, autok, autoFeltoltes);
     });
 
     $("#rendezes").on("change", () => {
-        let apivegpont = "http://localhost:8000/api/auto";
+        let apivegpont = "http://localhost:8000/api/auto_fill";
         $("#jarmu-lista").empty();
         if ($("#rendezes").val() == "alap") {
             myAjax.getAdat(apivegpont, autok, autoFeltoltes);

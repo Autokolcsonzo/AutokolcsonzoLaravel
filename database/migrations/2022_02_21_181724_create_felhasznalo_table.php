@@ -14,21 +14,21 @@ class CreateFelhasznaloTable extends Migration
     public function up()
     {
         Schema::create('felhasznalo', function (Blueprint $table) {
-            $table->increments('felhasznalo_id')->start_from(1000);
-            $table->char('vezeteknev', 30)->nullable();
-            $table->char('keresztnev', 30)->nullable();
+            $table->increments('felhasznalo_id');
+            $table->char('vezeteknev', 30);
+            $table->char('keresztnev', 30);
             $table->char('felhasznalonev', 30);
-            $table->char('jelszo', 32);
-            $table->date('szul_ido')->nullable();
+            $table->char('jelszo', 70);
+            $table->date('szul_ido');
             $table->binary('profilkep')->nullable();
-            $table->char('ir_szam', 5)->nullable();
-            $table->char('megye', 30)->nullable();
-            $table->char('varos', 40)->nullable();
-            $table->char('utca', 30)->nullable();
-            $table->char('hazszam', 10)->nullable();
-            $table->char('tel_szam', 12)->nullable();
-            $table->char('e_mail', 60)->nullable();
-            $table->timestamp('reg_datum')->useCurrent();
+            $table->char('ir_szam', 5);
+            $table->char('megye', 30);
+            $table->char('varos', 40);
+            $table->char('utca', 30);
+            $table->char('hazszam', 10);
+            $table->char('tel_szam', 12);
+            $table->char('e_mail', 60);
+            $table->timestamp('reg_datum');
             $table->tinyInteger('jogkor')->nullable();
             $table->integer('telephely')->unsigned()->nullable();
             $table->foreign('telephely')->references('telephely_id')->on('telephely');

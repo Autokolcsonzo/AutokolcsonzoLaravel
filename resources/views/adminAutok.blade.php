@@ -10,8 +10,7 @@
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <script src="../js/ajax.js"></script>
@@ -20,12 +19,12 @@
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -80,7 +79,7 @@
                 <div class="val-box">
                     <i class="fas fa-users"></i>
                     <div class="felhasznalokSzamaSablon">
-                        <h3 class="felhasznalokSzama">16</h3>
+                        <h3 class="felhasznalokSzama">123</h3>
                         <span>Összes felhasználó</span>
                     </div>
                 </div>
@@ -149,8 +148,13 @@
 
             <!-- Autó adatainak módosítása -->
             <div class="autoAdatokModositas">
-                <form action="">
 
+                @if (session('status'))
+                <h2 class="alert alert-success">{{ session('status') }}</h2>
+                @endif
+
+                <form action="{{ 'adminAutok' }}" method="POST">
+                    @csrf
                     <div class="form-header">
                         <h3>Adatok módosítása</h3>
                     </div>
@@ -245,12 +249,12 @@
                     </div>
 
                     <div class="sor">
-                        <div class="inputfield">
-                            <label for="szin">Modell tulajdonság:</label>
+                        <!--   <div class="inputfield">
+                            <label for="tulajdonsag">Modell tulajdonság:</label>
 
                             <br />
                             <input type="text" name="tulajdonsag" class="tulajdonsag" /><br />
-                        </div>
+                        </div> -->
 
                         <!-- <div class="inputfield">
                             <label for="forgalmiSzam">Forgalmi száma:</label> <br />
@@ -267,7 +271,7 @@
                             <label for="szin">Szín:</label>
 
                             <br />
-                            <input type="text" name="telszinephely" class="szin" /><br />
+                            <input type="text" name="szin" class="szin" /><br />
                         </div>
 
                         <div class="inputfield">

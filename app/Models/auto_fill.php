@@ -5,35 +5,37 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Auto extends Model
+class auto_fill extends Model
 {
-    /* protected $table = 'auto'; */
     use HasFactory;
 
-    protected $table = 'auto';
-    protected $primaryKey = 'alvazSzam';
+    protected $table = 'auto_fill';
+    protected $primaryKey = ['alvazSzam'];
     public $incrementing = false;
     public $timestamps = false;
 
     protected $fillable = [
-        /* 'alvazSzam',
+        'alvazSzam',
         'modell',
         'telephely',
         'napiAr',
         'szin',
-        'forgalmiSzam',
         'statusz',
-        'rendszam',
-        'kep' */
-        'alvazSzam',
+        'marka',
+        'tipus',
         'modell',
-            'telephely',
-            'napiAr',
-            'kep',
-            'telephely',
-            'forgalmiSzam',
-            'statusz',
-            'rendszam'
+        'evjarat',
+        'kivitel',
+        'uzemanyag',
+        'teljesitmeny',
+        'tulajdonsag',
+        'kep',
+        'extra_megnevezese',
+        'megye',
+        'ir_szam',
+        'varos',
+        'utca',
+        'hazszam'
     ];
 
     /**
