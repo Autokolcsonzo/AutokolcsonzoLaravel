@@ -34,8 +34,17 @@ class AdminAutokController extends Controller
         return view('adminAutok', compact('count'));
     }
 
-    public function update(Request $req, $alvazSzam) {
-         $validator = Validator::make($req->all(), [
+     public function autoById($rendszam) {
+        return response()->json(auto::find($rendszam), 200);
+    }
+
+    public function update(Request $req, auto $rendszam) {
+
+        $auto->update($req->all());
+        return response()->json($auto, 200);
+        
+
+        /*  $validator = Validator::make($req->all(), [
             'alvazSzam' => 'required',
             'marka' => 'required',
             'modell' => 'required',
@@ -75,11 +84,11 @@ class AdminAutokController extends Controller
        $auto->rendszam = $req->input('rendszam');
         $auto->update();
 
-        return reaponae()->json(['message'=>'updated'], 200);
+        return response()->json(['message'=>'updated'], 200);
        }
        else {
-           return reaponae()->json(['message'=>'neeem updated'], 404);
-       }
+           return response()->json(['message'=>'neeem updated'], 404);
+       } */
     }
 
     
