@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutokListazasaController;
+/* use App\Http\Controllers\AdminAutokController; */
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,4 @@ Route::apiResource('auto_fill', AutokListazasaController::class);
 
 
 Route::get('auto_fill', [AutokListazasaController::class, 'index']);
-Route::get('adminAuto', [AutokListazasaController::class, 'adminIndex']);
-Route::get('osszesFelhasznalo', [AutokListazasaController::class, 'adminOsszesFelhasznalo']);
-
-Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']);
+//Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']); 

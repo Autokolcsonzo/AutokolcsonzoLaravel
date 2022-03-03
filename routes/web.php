@@ -44,8 +44,10 @@ Route::get('adminFelhasznalok', function () {
 });
 
 /* Admin API */
-Route::get('/api/adminAutok', [AdminAutokController::class, 'adminAutok']);
+Route::get('/api/adminAutok', [AdminAutokController::class, 'adminIndex']);
 Route::post('/api/adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
+
+Route::put('/api/adminAutok/{alvazSzam}/update', [AdminAutokController::class, 'update']);
 
 
 //felhasznaloApi
