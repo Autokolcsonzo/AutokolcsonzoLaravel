@@ -9,12 +9,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="csrf-token" content=<?php $token=csrf_token(); echo $token;?>>
+    <meta name="csrf-token" content=<?php $token = csrf_token();
+                                    echo $token; ?>>
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/Ajax.js"></script>
     <script src="../js/felhasznalo/FelhasznaloProfil.js"></script>
@@ -23,12 +23,12 @@
     <script src="../js/hambiMenu.js"></script>
 
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -63,7 +63,7 @@
 
                         <tr>
                             <td>Felhasznalónév: </td>
-                            <td id="fnev">valaki97</td>
+                            <td id="fnev"></td>
                             <td>Jelszó: </td>
                             <td id="jelszo">********</td>
 
@@ -119,29 +119,29 @@
                     </table>
 
                 </div>
-                <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása"
-                    style="display:block" />
+                <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása" style="display:block" />
 
 
                 <div class="felhasznaloiModositas">
-                <form action="{{ route('aluminio.store', $producto->id) }}" method="post" enctype="multipart/form-data">
-                  @csrf
-                  @method('PUT')
+                    <form method="post" action="{{ route('felhasznalo.update',$felhasznalo->felhasznalo_id) }}" enctype="multipart/form-data">
+
+                        <input type="hidden" name="_method" value="PUT">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-header">
                             <h3>Adatok módosítása</h3>
                         </div>
                         <div class="sor">
                             <div class="inputfield">
-                                <label for="nev">Vezetéknév:</label>
+                                <label for="vezeteknev">Vezetéknév:</label>
                                 <br />
-                                <input type="text" name="vnev" id="ivnev" placeholder="Kovács" />
+                                <input type="text" name="vezeteknev" id="ivnev" placeholder="Kovács" />
 
                             </div>
 
                             <div class="inputfield">
-                                <label for="nev">Keresztnév:</label><br>
+                                <label for="keresztnev">Keresztnév:</label><br>
 
-                                <input type="text" name="knev" id="iknev" placeholder="Kati" />
+                                <input type="text" name="keresztnev" id="iknev" placeholder="Kati" />
                             </div>
 
                         </div>
@@ -152,15 +152,15 @@
 
                         <div class="sor">
                             <div class="inputfield">
-                                <label for="fnev">Felhasználónév:</label>
+                                <label for="felhasznalonev">Felhasználónév:</label>
 
                                 <br />
-                                <input type="text" name="fnev" id="ifnev" placeholder="valaki97" /><br />
+                                <input type="text" name="felhasznalonev" id="ifnev" placeholder="valaki97" /><br />
                             </div>
 
                             <div class="inputfield">
-                                <label for="email">E-mail cím:</label> <br />
-                                <input type="email" id="iemail" name="email" placeholder="valami@gmail.com" />
+                                <label for="e_mail">E-mail cím:</label> <br />
+                                <input type="email" id="iemail" name="e_mail" placeholder="valami@gmail.com" />
                             </div>
                         </div>
 
@@ -168,7 +168,7 @@
                             <div class="inputfield">
                                 <label for="jelszo">Jelszó:</label>
                                 <br>
-                                <input type="text" id="ijelszo" name="jelszo" placeholder="******" />
+                                <input type="text" id="ijelszo" name="jelszo" placeholder="****" />
                             </div>
 
 
@@ -177,13 +177,13 @@
 
                         <div class="sor">
                             <div class="inputfield">
-                                <label for="szdatum">Születési dátum:</label><br>
-                                <input type="date" name="szdatum" id="iszdatum" /><br>
+                                <label for="szul_datum">Születési dátum:</label><br>
+                                <input type="date" name="szul_datum" id="iszdatum" /><br>
                             </div>
 
                             <div class="inputfield">
-                                <label for="telszam">Telefonszám:</label><br>
-                                <input type="text" id="itelszam" placeholder="+36-20-345-6789" />
+                                <label for="tel_szam">Telefonszám:</label><br>
+                                <input type="text" name="tel_szam" id="itelszam" placeholder="+36-20-345-6789" />
                             </div>
 
                         </div>
@@ -191,24 +191,24 @@
 
                         <div class="sor">
 
-
+                            <label for="ir_szam"></label>
                             <div class="inputfield">
                                 <label>Cím:</label>
                                 <br />
-                                <input type="text" id="iiranyitoszam" placeholder="Irányítószám" />
+                                <input type="text" name="ir_szam" id="iiranyitoszam" placeholder="Irányítószám" />
 
                             </div>
 
                         </div>
 
                         <div class="sor">
-
+                            <label for="megye"></label>
                             <div class="inputfield">
-                                <input type="text" id="imegye" placeholder="Megye" />
+                                <input type="text" name="megye" id="imegye" placeholder="Megye" />
                             </div>
-
+                            <label for="varos"></label>
                             <div class="inputfield">
-                                <input type="text" id="ivaros" placeholder="Város" />
+                                <input type="text" name="varos" id="ivaros" placeholder="Város" />
                             </div>
 
 
@@ -221,15 +221,15 @@
 
 
                         <div class="sor">
-
+                            <label for="utca"></label>
                             <div class="inputfield">
-                                <input type="text" id="iutca" placeholder="Utca" />
+                                <input type="text" name="utca" id="iutca" placeholder="Utca" />
 
                             </div>
-
+                            <label for="hazszam"></label>
                             <div class="inputfield">
 
-                                <input type="text" id="ihazszam" placeholder="Házszám" />
+                                <input type="text" name="hazszam" id="ihazszam" placeholder="Házszám" />
                             </div>
 
 

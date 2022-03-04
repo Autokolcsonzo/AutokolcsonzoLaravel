@@ -79,12 +79,12 @@ class CustomAuthController extends Controller
     }
 
     public function dashboard() {
-        /* dd("anyád"); */
+     
         $data = array();
         if(Session::has('loginId')) {
             $data = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
         }
-        return view('dashboard', compact('data'));
+        return view('felhasznaloiProfil', compact('data'));
     }
 
     public function logout() {
