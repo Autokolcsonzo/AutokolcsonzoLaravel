@@ -145,7 +145,7 @@ table td {
 
 
 
-.torles a {
+.torles{
   padding: 4px 10px;
   background-color: #97b9d246;
   border: 1px solid #8283853e;
@@ -179,13 +179,13 @@ table td {
 
 }
 
-tr.reszletek {
+/* tr.reszletek {
   display: none;
   width: 100%;
 }
 tr.reszletek div {
   display: none;
-}
+} */
 
 .felhasznaloiModositas{
   display:none;

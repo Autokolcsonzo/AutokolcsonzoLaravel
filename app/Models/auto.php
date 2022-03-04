@@ -11,9 +11,9 @@ class Auto extends Model
     use HasFactory;
 
     protected $table = 'auto';
-    protected $primaryKey = ['alvazSzam'];
+    protected $primaryKey = 'alvazSzam';
     public $incrementing = false;
-    public $timestamps = true;
+    public $timestamps = false;
 
     protected $fillable = [
         /* 'alvazSzam',

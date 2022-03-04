@@ -15,8 +15,8 @@ class FelhasznalokController extends Controller
      */
     public function index()
     {
-        $felhasznalok = FelhasznaloModell::all();
-        return $felhasznalok;
+        $felhasznalo = FelhasznaloModell::all(); 
+        return $felhasznalo;
     }
 
     /**
@@ -67,6 +67,7 @@ class FelhasznalokController extends Controller
     public function show($felhasznalo_id)
     {
         $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
+      
         return response()->json($felhasznalo);
     }
 
@@ -79,10 +80,9 @@ class FelhasznalokController extends Controller
     public function edit($felhasznalo_id)
 
     {
-        $felhasznalo = new FelhasznaloModell();
-        $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
+        /* $felhasznalo = FelhasznaloModell::findOrFail($felhasznalo_id); */
 
-        return redirect()->route('felhasznalo.edit', ['felhasznalo' => $felhasznalo]);
+     
     }
 
     /**
@@ -92,23 +92,20 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,FelhasznaloModell $felhasznalo)
+    public function update(Request $request,$felhasznalo_id)
     {
 
-        $felhasznalo->update($request->all());
-
-        return redirect()->route('felhasznalo.update')
-            ->with('success','Product updated successfully');
-/* 
-        $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
-
-        $felhasznalo->vezeteknev = $request->get('vezeteknev');
+        
+    
+        $felhasznalo = FelhasznaloModell::findOrFail($felhasznalo_id);
+     
+        $felhasznalo->vezeteknev = $request->vezeteknev;
         $felhasznalo->keresztnev = $request->keresztnev;
         $felhasznalo->felhasznalonev = $request->felhasznalonev;
         dd("helo");
         $felhasznalo->jelszo = $request->jelszo;
         $felhasznalo->szul_ido = $request->szul_ido;
-
+     
         $felhasznalo->varos = $request->varos;
         $felhasznalo->megye = $request->megye;
         $felhasznalo->ir_szam = $request->ir_szam;
@@ -116,12 +113,12 @@ class FelhasznalokController extends Controller
         $felhasznalo->hazszam = $request->hazszam;
         $felhasznalo->tel_szam = $request->tel_szam;
         $felhasznalo->e_mail = $request->e_mail;
-        $felhasznalo->save();
-       */
-        /*  $felhasznalo = FelhasznaloModell::paginate();
-        return view("felhasznalo.update")->with('felhasznalo', $felhasznalo); */
-        /* return redirect()->back()->with('status','Felhasználó módosítva'); */
-        /*  return view('felhasznalo.update')->with('felhasznalo', $felhasznalo); */
+     
+        
+       $felhasznalo->update();
+      
+       return redirect()->route('felhasznalo.update', ['felhasznalo' => $felhasznalo_id]);
+      
     }
 
     /**

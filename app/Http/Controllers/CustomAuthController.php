@@ -79,7 +79,6 @@ class CustomAuthController extends Controller
     }
 
     public function dashboard() {
-     
         $data = array();
         if(Session::has('loginId')) {
             $data = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
