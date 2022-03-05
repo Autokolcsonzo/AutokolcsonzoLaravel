@@ -1,13 +1,4 @@
 {
-    "kedvezmenyek": [
-        {
-          "0": 0,
-          "3": 5,
-          "5": 10,
-          "7": 15,
-          "10":20
-        }
-      ],
       "keresoParameter": [
         {
           "helyszin": ["Budapest", "Szeged", "Pécs"],
@@ -20,7 +11,6 @@
           },
           "kivitel": ["Kobi", "cabrio", "Félcabrio", "Kisbusz"],
           "uzemanyag": ["Benzin", "Elektromos", "Hybrid"],
-          "valto": ["Autómata", "Félautómata", "Manuális"],
           "evjarat": [2001,2022],
           "checkboxs":["GPS","ABS","Tempomat","Önvezető","Nitro"]
         }

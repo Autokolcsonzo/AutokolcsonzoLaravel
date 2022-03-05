@@ -15,7 +15,7 @@ class CreateAutoExtraTable extends Migration
     {
         Schema::create('auto_extra', function (Blueprint $table) {
             $table->increments('auto_extra_id');
-            $table->integer('alvazSzam')->unsigned();
+            $table->char('alvazSzam');
             $table->foreign('alvazSzam')->references('alvazSzam')->on('auto');
             $table->char('extra_megnevezese', 50);
             $table->timestamps();

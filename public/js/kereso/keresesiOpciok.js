@@ -26,5 +26,18 @@ $(function () {
             keresoF.markaModellKapcsolat(valasztottMarka, opciok);
         }
     });
+    $("#etol").on("change", (tol, ig) => {
+        tol = $("#etol").val();
+        ig = $("#eig").val();
 
+        keresoF.evjarat(tol, ig);
+
+        console.log("Valasztott értékek : " + tol, ig);
+    });
+
+    $("#min, #max").on("keyup", () => {
+        setTimeout(function () {
+            keresoF.arSav();
+        }, 2000);
+    });
 });
