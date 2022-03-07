@@ -62,6 +62,17 @@
                             <option value="adminFoglalasok">Foglalások</option>
                         </select>
                     </div>
+                    </div>
+
+                    
+                <div class="jogkorValasztas">
+                    <div>
+                        <select name="jogkorKategoriak" id="jogkorKategoriak">
+                            <option value="felhasznaloJog">Felhasználók</option>
+                           
+                            <option value="adminJog">Adminok</option>
+                        </select>
+                    </div>
                 </div>
 
             </div>
@@ -103,23 +114,38 @@
                 <h2>Felhasználónev</h2>
                 <h2>E-mail</h2>
                 <h2>Reg. dátum</h2>
+                <h2></h2>
+                <h2></h2>
+                <h2></h2>
                 </div>
                 <div class="felhasznalo">
 
-
+                <div class="foadatok">
 <p class="jogkor">Jogkör</p>
 <p class="felhnev">Felhasználó név</p>
 <p class="email">Email</p>
 <p class="regDatum">regDatum</p>
-<input type="button" name="fReszletek" class="fReszletek" value="Részletek" />
-<input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" />
-<input type="button" name="torles" class="torles" value="Törlés" />
+<p><input type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
+<p><input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" /></p>
+<p><input type="button" name="torles" class="torles" value="Törlés" /></p>
+                </div>
+                
 <div class="reszletek">
+
+<p class="iranyitoszam">Irányítószám</p>
+<p class="megye">Megye</p>
+<p class="varos">Város</p>
+<p class="utca">Utca</p>
+<p class="hazszam">Házszám</p>
+<p class="telszam">Telefonszám</p>
+<p class="szul_ido">Születési idő</p>
+
+
+
 </div>
 
 
 </div>
-
 
 </div>
 
