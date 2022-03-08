@@ -25,3 +25,6 @@ Route::apiResource('auto_fill', AutokListazasaController::class);
 
 Route::get('auto_fill', [AutokListazasaController::class, 'index']);
 //Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']); 
+
+Route::apiResource('KeresoView', AutokListazasaController::class);
+Route::get('KeresoView', [AutokListazasaController::class, 'KeresoView']);
