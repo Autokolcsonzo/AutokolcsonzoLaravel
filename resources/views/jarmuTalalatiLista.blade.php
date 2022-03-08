@@ -133,8 +133,9 @@
                         <span class="jarmu-card-szín"></span>
                     </div>
                     <div class="card-block-4">
-                        <!--                         <span class="jarmu-card-valto"></span> -->
+                        <span class="jarmu-card-evjarat"></span>
                         <span class="jarmu-card-uzemanyag"></span>
+                        <span class="jarmu-card-teljesitmeny"></span>
                     </div>
                     <div class="card-block-5">
                         <ul class="jarmu-card-extra">

@@ -11,6 +11,8 @@ class Auto {
         this.modell = this.elem.find(".jarmu-card-modell");
         this.kivitel = this.elem.find(".jarmu-card-kivitel");
         this.uzemanyag = this.elem.find(".jarmu-card-uzemanyag");
+        this.evjarat = this.elem.find(".jarmu-card-evjarat");
+        this.teljesitmeny = this.elem.find(".jarmu-card-teljesitmeny");
         this.ar = this.elem.find(".jarmu-card-ar");
         this.hetAr = this.elem.find(".jarmu-card-arHeti");
         this.helyszin = this.elem.find(".jarmu-card-telephely");
@@ -50,17 +52,19 @@ class Auto {
     setAdat(adat) {
         $(".card-block-3,.card-block-5").css("display", "none");
         this.adat = adat;
-        this.autoId.attr("id", adat.autoId);
+        this.autoId.attr("id", adat.alvazSzam);
         this.kep.attr("src", adat.kep);
         this.marka.text(adat.marka);
         this.modell.text(adat.modell);
         this.kivitel.text(adat.kivitel);
         this.uzemanyag.text(adat.uzemanyag);
+        this.evjarat.text(adat.evjarat);
+        this.teljesitmeny.text(adat.teljesitmeny);
         this.ar.text(adat.napiAr);
         this.hetAr.text(adat.napiAr * this.hetiAr());
         this.helyszin.text(adat.varos);
         this.szin.text(adat.szin);
-        this.egyeb.text(adat.egyeb);
+        this.egyeb.text(adat.tulajdonsag);
         this.foglalas.text("Foglalás");
         this.reszletek.text("Részletek");
         this.zarva = true;
@@ -87,7 +91,7 @@ class Auto {
             modell: adat.modell,
             kivitel: adat.kivitel,
             napiAr: adat.napiAr,
-            helyszin: adat.helyszin,
+            helyszin: adat.megye+" "+adat.varos+" "+adat.utca+" "+adat.hazszam,
             /*
             tolDatum: $("#elvitel").val(),
             tolIdo: $("#idoEl").val(),
