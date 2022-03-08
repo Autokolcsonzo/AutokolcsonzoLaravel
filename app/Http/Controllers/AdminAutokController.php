@@ -8,9 +8,12 @@ use App\Models\autoKepek;
 use App\Models\modell;
 use App\Models\Felhasznalo;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AdminAutokController extends Controller
 {
+    
     public function adminIndex()
     {
         $result = DB::table('auto')
@@ -35,79 +38,42 @@ class AdminAutokController extends Controller
         return view('adminAutok', compact('count'));
     }
 
-     public function autoById($rendszam) {
-        return response()->json(auto::find($rendszam), 200);
+    public function create() {
+        $autok = Auto::all();
+        return view('adminAutok', compact('autok'));
     }
 
-    public function update(Request $req, auto $rendszam) {
-
-        $auto->update($req->all());
-        return response()->json($auto, 200);
-        
-
-        /*  $validator = Validator::make($req->all(), [
-            'alvazSzam' => 'required',
-            'marka' => 'required',
-            'modell' => 'required',
-            'tipus' => 'required',
-            'evjarat' => 'required',
-            'kivitel' => 'required',
-            'uzemanyag' => 'required',
-            'teljesitmeny' => 'required',
-            'telephely' => 'required',
-            'napiAr' => 'required',
-            'extra_megnevezese' => 'required',
-            'tulajdonsag' => 'required',
-            'szin' => 'required',
-            'forgalmiSzam' => 'required',
-            'statusz' => 'required',
-            'rendszam' => 'required',
-        ]);
-
-        $auto = Auto::find($alvazSzam);
-        if ($auto) {
-            $auto->alvazSzam = $req->input('alvazSzam');
-            $auto->marka = $req->input('marka');
-            $auto->modell = $req->input('modell');
-            $auto->tipus = $req->input('tipus');
-            $auto->evjarat = $req->input('evjarat');
-            $auto->kivitel = $req->input('kivitel');
-            $auto->uzemanyag = $req->input('uzemanyag');
-            $auto->teljesitmeny = $req->input('teljesitmeny');
-            $auto->telephely = $req->input('telephely');
-            $auto->napiAr = $req->input('napiAr');
-            $auto->extra_megnevezese = $req->input('extra_megnevezese');
-            $auto->tulajdonsag = $req->input('tulajdonsag');
-            $auto->szin = $req->input('szin');
-            $auto->forgalmiSzam = $req->input('forgalmiSzam');
-            $auto->statusz = $req->input('statusz');
-            $auto->rendszam = $req->input('rendszam');
-            $auto->update();
-
-            return response()->json(['message' => 'updated'], 200);
-        } else {
-            return response()->json(['message' => 'neeem updated'], 404);
-        }
-    } */
-
-       /*  return response()->json(['message'=>'updated'], 200);
-       }
-       else {
-           return response()->json(['message'=>'neeem updated'], 404);
-       }  */
+     public function edit($auto) {
+         $auto = Auto::find($auto);
+         return view('adminAutok', compact('auto'));
+        /* return response()->json(auto::find($rendszam), 200); */
     }
 
+    public function update(Request $req, $data) {
+        $input = $req->all();
 
+        $data = Auto::find($data);
 
-    public function dashboard() {
-        $data = array();
-        if(Session::has('loginId')) {
-            $data = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
-        }
-        return view('adminAutokMasolat', compact('data'));
+        $data->alvazSzam = $input['alvazSzam'];
+      //  $data->marka = $input['marka'];
+        $data->modell = $input['modell'];
+  /*       $data->tipus = $input['tipus'];
+        $data->evjarat = $input['evjarat'];
+        $data->kivitel = $input['kivitel'];
+        $data->uzemanyag = $input['uzemanyag'];
+        $data->teljesitmeny = $input['teljesitmeny']; */
+        $data->telephely = $input['telephely'];
+        $data->napiAr = $input['napiAr'];
+       /*  $data->extra_megnevezese = $input['extra_megnevezese'];
+        $data->kep = $input['kep']; */
+        $data->szin = $input['szin'];
+        $data->forgalmiSzam = $input['forgalmiSzam'];
+        $data->statusz = $input['statusz'];
+        $data->rendszam = $input['rendszam'];
+        $data->save();
+
+        return redirect('/adminAutok');
     }
-
-
 
     public function store(Request $req)
     {
@@ -161,109 +127,6 @@ class AdminAutokController extends Controller
 
         //   return redirect()->back();
         return redirect()->back()->with('status', 'adatok sikeresen feltöltve');
-
-
-
-        /* public function save(Request $request)
-    {
-         
-        $validatedData = $request->validate([
-         'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
- 
-        ]);
- 
-        $name = $request->file('image')->getClientOriginalName();
- 
-        $path = $request->file('image')->store('public/images');
- 
- 
-        $save = new Photo;
- 
-        $save->name = $name;
-        $save->path = $path;
- 
-        $save->save();
- 
-        return redirect('upload-image')->with('status', 'Image Has been uploaded');
- 
-    } */
-
-
-
-        /* dd($req->only('felhasznalonev', 'jelszo')); */
-
-        // validáció
-        /*    $validator = Validator::make($req->all(), [
-            'alvazSzam' => 'required',
-            'marka' => 'required',
-            'modell' => 'required',
-            'tipus' => 'required',
-            'evjarat' => 'required',
-            'kivitel' => 'required',
-            'uzemanyag' => 'required',
-            'teljesitmeny' => 'required',
-            'telephely' => 'required',
-            'napiAr' => 'required',
-            'extra_megnevezese' => 'required',
-            'kep' => 'required',
-            'tulajdonsag' => 'required',
-            'szin' => 'required',
-            'forgalmiSzam' => 'required',
-            'statusz' => 'required',
-            'rendszam' => 'required',
-        ]); */
-
-        /* $auto = new auto;
-       $auto->alvazSzam = $req->input('alvazSzam');
-       $auto->marka = $req->input('marka');
-       $auto->modell = $req->input('modell');
-       $auto->tipus = $req->input('tipus');
-       $auto->evjarat = $req->input('evjarat');
-       $auto->kivitel = $req->input('kivitel');
-       $auto->uzemanyag = $req->input('uzemanyag');
-       $auto->teljesitmeny = $req->input('teljesitmeny');
-       $auto->telephely = $req->input('telephely');
-       $auto->napiAr = $req->input('napiAr');
-       $auto->extra_megnevezese = $req->input('extra_megnevezese');
-       $auto->tulajdonsag = $req->input('tulajdonsag');
-       $auto->szin = $req->input('szin');
-       $auto->forgalmiSzam = $req->input('forgalmiSzam');
-       $auto->statusz = $req->input('statusz');
-       $auto->rendszam = $req->input('rendszam');
-       if ($req->hasFile('kep'))
-       {
-           $file = $req->file('kep');
-           $extension = $file->getClientOriginalExtension();
-           $filename = time().'.'.$extension;
-           $file->move('kepek/autok/', $filename);
-           $auto->kep = $filename;
-       }
-       $auto->save();
-       return redirect()->back()->with('status', 'adatok sikeresen feltöltve'); */
-
-        // felhasználó eltárolása
-
-        /*  auto::create([
-            'alvazSzam' => $req->alvazSzam,
-            'marka' => $req->marka,
-            'modell' => $req->modell,
-            'tipus' => $req->tipus,
-            'evjarat' => $req->evjarat,
-            'kivitel' => $req->kivitel,
-            'uzemanyag' => $req->uzemanyag,
-            'teljesitmeny' => $req->teljesitmeny,
-            'telephely' => $req->telephely,
-            'napiAr' => $req->napiAr,
-            'extra_megnevezese' => $req->extra_megnevezese,
-           // 'kep' => $req->kep,
-            'tulajdonsag' => $req->tulajdonsag,
-            'szin' => $req->telephely,
-            'forgalmiSzam' => $req->forgalmiSzam,
-            'statusz' => $req->statusz,
-            'rendszam' => $req->rendszam,
-        ]); */
-
-        // redirect
-        /* return redirect()->route('welcome'); */
     }
+
 }

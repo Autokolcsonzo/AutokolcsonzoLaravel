@@ -15,6 +15,7 @@ $(function () {
         const sablonElem = $(".adminAuto");
         szuloElem.empty();
         sablonElem.show();
+
         adminAutok.forEach(function (elem) {
             /* console.log(elem); */
             const ujElem = sablonElem.clone().appendTo(szuloElem);

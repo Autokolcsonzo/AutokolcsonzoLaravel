@@ -10,7 +10,7 @@ use App\Http\Controllers\MenuRolunkController;
 use App\Http\Controllers\MenuFeltetelekController;
 use App\Http\Controllers\FelhasznalokController;
 use App\Http\Controllers\CustomAuthController;
-use App\Http\Controllers\Proba;
+use App\Http\Controllers\AdminAutokController;
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
 
@@ -45,13 +45,12 @@ Route::get('adminFelhasznalok', function () {
 });
 
 /* Admin API */
-Route::get('/api/adminAutok', [Proba::class, 'adminIndex']);
-Route::post('/adminAutok', [Proba::class, 'store'])->name('adminAutok');
+Route::get('/api/adminAutok', [AdminAutokController::class, 'adminIndex']);
+Route::post('/adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
 
-Route::get('/adminAutokMasolat-edit/{data}', [Proba::class, 'edit']);
-Route::put('/adminAutokMasolat-edit/{data}', [Proba::class, 'update']);
-
-//Route::get('adminAutokMasolat', [Proba::class, 'dashboard']);
+Route::get('adminAutok', [AdminAutokController::class, 'create']);
+Route::put('adminAutok/{auto}', [AdminAutokController::class, 'edit']);
+Route::put('/adminAutok/{auto}', [AdminAutokController::class, 'update']);
 
 
 //felhasznaloApi
