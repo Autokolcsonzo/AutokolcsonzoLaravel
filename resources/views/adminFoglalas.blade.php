@@ -58,22 +58,14 @@
                     <div>
                         <select name="adminKategoriak" id="adminKategoriak">
                             <option value="adminAutok">Autók</option>
-                            <option value="adminFelhasznalok">Felhasználók</option>
+
                             <option value="adminFoglalasok">Foglalások</option>
                         </select>
                     </div>
                 </div>
 
 
-                <div class="jogkorValasztas">
-                    <div>
-                        <select name="jogkorKategoriak" id="jogkorKategoriak">
-                            <option value="felhasznaloJog">Felhasználók</option>
 
-                            <option value="adminJog">Adminok</option>
-                        </select>
-                    </div>
-                </div>
 
             </div>
             <h3 class="oldalNev">Felhasználók</h3>
@@ -108,53 +100,53 @@
             </div>
 
 
-            <div class="felhasznalokAdmin">
-                <div class="felhFejlec">
-                    <h2>Jogkör</h2>
-                    <h2>Felhasználónev</h2>
-                    <h2>E-mail</h2>
-                    <h2>Reg. dátum</h2>
+            <div class="foglalasAdmin">
+                <div class="fogFejlec">
+                    <h2>Azonosító</h2>
+                    <h2>Alvázszám</h2>
+                    <h2>Felhasználó</h2>
+                    <h2>Foglalás ideje</h2>
                     <h2></h2>
                     <h2></h2>
                     <h2></h2>
                 </div>
-                <div class="felhasznalo">
+                <div class="foglalas">
 
                     <div class="foadatok">
-                        <p class="jogkor">Jogkör</p>
-                        <p class="felhnev">Felhasználó név</p>
-                        <p class="email">Email</p>
-                        <p class="regDatum">regDatum</p>
+                        <p class="azonosito">Azonosító</p>
+                        <p class="alvazszam">Alvázszám</p>
+                        <p class="felhasznalo">Felhasználó</p>
+                        <p class="fogIdo">Foglalás ideje</p>
                         <p><input type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
                         <p><input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" /></p>
                         <p><input type="button" name="torles" class="torles" value="Törlés" /></p>
                     </div>
 
                     <div class="reszletek">
-                    <div class="reszlet">
-                        <div class="reszletFejlec">
-                            <h2>Irányítószám</h2>
-                            <h2>Megye</h2>
-                            <h2>Város</h2>
-                            <h2>Utca</h2>
-                            <h2>Házszám</h2>
-                            <h2>Telefonszám</h2>
-                            <h2>Születési idő</h2>
+                        <div class="reszlet">
+                            <div class="reszletFejlec">
+                                <h2>Elvitel</h2>
+                                <h2>Visszahozatal</h2>
+                                <h2>Érvényesség</h2>
+                                <h2>Kedvezmény</h2>
+                                <h2>Állapot</h2>
+                                <h2></h2>
+                                <h2></h2>
+                            </div>
+                            <div class="reszletadatok">
+                                <p class="elvitel">Elvitel</p>
+                                <p class="visszahozatal">Visszahozatal</p>
+                                <p class="ervenyesseg">Érvényesség</p>
+                                <p class="kedvezmeny">Kedvezmény</p>
+                                <p class="allapot">Állapot</p>
+
+
+                            </div>
                         </div>
-                        <div class="reszletadatok">
-                            <p class="iranyitoszam">Irányítószám</p>
-                            <p class="megye">Megye</p>
-                            <p class="varos">Város</p>
-                            <p class="utca">Utca</p>
-                            <p class="hazszam">Házszám</p>
-                            <p class="telszam">Telefonszám</p>
-                            <p class="szul_ido">Születési idő</p>
 
-
-
-                        </div>
                     </div>
-                    </div>
+
+
                 </div>
 
             </div>
@@ -165,7 +157,7 @@
 
 
             <div class="formcontainer">
-                <div class="felhasznaloiModositas">
+                <div class="foglalasModositas">
                     <form method="POST">
                         @csrf
                         @method('PUT')
@@ -174,101 +166,44 @@
                         </div>
                         <div class="sor">
                             <div class="inputfield">
-                                <label for="nev">Vezetéknév:</label>
+                                <label for="elvitelDate">Elvitel dátuma:</label>
                                 <br />
-                                <input type="text" name="vnev" id="ivnev" placeholder="Kovács" />
+                                <input type="date" name="elvitelDate" id="elvitelDate" />
 
                             </div>
 
                             <div class="inputfield">
-                                <label for="nev">Keresztnév:</label><br>
-
-                                <input type="text" name="knev" id="iknev" placeholder="Kati" />
-                            </div>
-
-                        </div>
-
-
-
-
-
-                        <div class="sor">
-                            <div class="inputfield">
-                                <label for="fnev">Felhasználónév:</label>
-
+                                <label for="visszahozDate">Visszahozatal dátuma:</label>
                                 <br />
-                                <input type="text" name="fnev" id="ifnev" placeholder="valaki97" /><br />
-                            </div>
-
-                            <div class="inputfield">
-                                <label for="email">E-mail cím:</label> <br />
-                                <input type="email" id="iemail" name="email" placeholder="valami@gmail.com" />
-                            </div>
-                        </div>
-
-
-
-                        <div class="sor">
-                            <div class="inputfield">
-                                <label for="szdatum">Születési dátum:</label><br>
-                                <input type="date" name="szdatum" id="iszdatum" /><br>
-                            </div>
-
-                            <div class="inputfield">
-                                <label for="telszam">Telefonszám:</label><br>
-                                <input type="text" id="itelszam" placeholder="+36-20-345-6789" />
+                                <input type="date" name="visszahozDate" id="visszahozDate" />
                             </div>
 
                         </div>
-
-
                         <div class="sor">
-
-
                             <div class="inputfield">
-                                <label>Cím:</label>
+                                <label for="elvitelTime">Elvitel ideje:</label>
                                 <br />
-                                <input type="text" id="iiranyitoszam" placeholder="Irányítószám" />
+                                <select type="time" id="elvitelTime" name="elvitelTime">
 
+                                </select>
+                            </div>
+
+                            <div class="inputfield">
+                                <label for="visszahozTime">Visszahozatal ideje:</label>
+                                <br />
+                                <select type="time" id="visszahozTime" name="visszahozTime">
+
+                                </select>
                             </div>
 
                         </div>
 
-                        <div class="sor">
-
-                            <div class="inputfield">
-                                <input type="text" id="imegye" placeholder="Megye" />
-                            </div>
-
-                            <div class="inputfield">
-                                <input type="text" id="ivaros" placeholder="Város" />
-                            </div>
 
 
 
 
 
 
-
-                        </div>
-
-
-                        <div class="sor">
-
-                            <div class="inputfield">
-                                <input type="text" id="iutca" placeholder="Utca" />
-
-                            </div>
-
-                            <div class="inputfield">
-
-                                <input type="text" id="ihazszam" placeholder="Házszám" />
-                            </div>
-
-
-
-
-                        </div>
 
 
 

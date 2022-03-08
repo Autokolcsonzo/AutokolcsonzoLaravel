@@ -62,7 +62,7 @@ nav ul li:hover .autokMenu {
   text-decoration: 2px underline #17446b;
 }
 
-.felhasznaloMenu ul,
+/* .felhasznaloMenu ul,
 .felhasznaloMenu ul li a {
   width: 250px;
   padding-left: 20px;
@@ -93,7 +93,7 @@ nav ul li:hover .felhasznaloMenu {
 
 .felhasznaloMenu li:hover {
   text-decoration: 2px underline #17446b;
-}
+} */
 
 .reszponzivLogo,
 .reszponzivCim,
@@ -211,7 +211,15 @@ nav ul li:hover .felhasznaloMenu {
     /* reszp. felső menüsor elemei */
     display: flex;
     float: right;
-    margin-right: 350px;
+    margin-right: 300px;
+  }
+
+  .felhasznaloFelsoNav ul {
+    margin-right: 320px;
+  }
+
+  .kijelentkezesGomb, .profilNavGomb {
+    display: none;
   }
 
   nav ul li {

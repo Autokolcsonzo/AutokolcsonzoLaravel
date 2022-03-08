@@ -2,19 +2,13 @@
     <!-- headerben a bejelentkezés és regisztráció gombok -->
     <div class="hsor1">
         <div class="gombok">
-            @guest
             <button class="bejelentkezes" a>
                 <i class="fa fa-user"></i></a>
-                <a href=" {{'login'}} ">Bejelentkezés
+                <a href=" {{'login'}} ">Bejelentkezés</a>
             </button>
             <button class="regisztracio">
                 <a href=" {{'registration'}} ">Regisztráció</a>
             </button>
-            @else
-            button class="regisztracio">
-            <a href=" {{'registration'}} ">Kijelentkezés</a>
-            </button>
-            @endguest
         </div>
     </div>
 

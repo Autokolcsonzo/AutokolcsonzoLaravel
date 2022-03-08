@@ -120,8 +120,7 @@
     max-width: 700px;
 }
 
-
-/*adatok*/
+/*felhasználói adatok adatok*/
 
 .felhasznalokAdmin{
   background-color: white;
@@ -131,6 +130,7 @@
   width:100%;
   margin-bottom:10px;
 }
+
 
 .felhFejlec{
   display: flex;
@@ -166,6 +166,8 @@
 
 }
 
+
+/*részletek lenyíló*/
 .reszletek{
   display: flex;
   align-items: center;
@@ -175,10 +177,73 @@
  
 }
 
+.reszlet{
+  width:100%;
+}
+
 .reszletek p{
   flex:1;
   font-size:1rem;
 }
+
+.reszletFejlec{
+  display: flex;
+  background-color:#ddd;
+  align-items: center;
+  padding:5px;
+ 
+
+
+}
+
+.reszletFejlec h2{
+ flex:1;
+ font-size:1rem;
+ 
+
+
+}
+
+.reszletadatok{
+  display: flex;
+  align-items: center;
+  padding:5px;
+  border-bottom:1px solid gray;
+
+}
+
+.reszletadatok p{
+ 
+  flex:1;
+  font-size:1rem;
+  
+
+}
+/*foglalási adatok*/
+
+.foglalasAdmin{
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  width:100%;
+  margin-bottom:10px;
+}
+
+.fogFejlec{
+  display: flex;
+  background-color:#ddd;
+  align-items: center;
+  padding:5px;
+ }
+
+ .fogFejlec h2{
+  flex:1;
+  font-size:1rem;
+  
+ 
+ 
+ }
 /* TÁBLÁZAT */
 
 table {
@@ -256,6 +321,13 @@ tr.reszletek div {
   max-width: 700px;
   }
   
+
+
+  .foglalasModositas{
+   /*  display:none; */
+    max-width: 700px;
+    }
+
   .sor{
     display:flex;
       flex-direction:row;
