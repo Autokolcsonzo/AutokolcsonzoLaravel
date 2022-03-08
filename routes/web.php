@@ -11,6 +11,7 @@ use App\Http\Controllers\MenuFeltetelekController;
 use App\Http\Controllers\FelhasznalokController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Proba;
+use App\Http\Controllers\AdminFoglalasController;
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
 
@@ -44,6 +45,10 @@ Route::get('adminFelhasznalok', function () {
     return view('adminFelhasznalok');
 });
 
+Route::get('adminFoglalas', function () {
+    return view('adminFoglalas');
+});
+
 /* Admin API */
 Route::get('/api/adminAutok', [Proba::class, 'adminIndex']);
 Route::post('/adminAutok', [Proba::class, 'store'])->name('adminAutok');
@@ -61,5 +66,12 @@ Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 
 
 Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
 Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
+
+
+/* Foglalás API */
+
+Route::get('/api/foglalas', [AdminFoglalasController::class, 'index']);
+Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
+
 
 

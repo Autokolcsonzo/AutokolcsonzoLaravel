@@ -50,6 +50,7 @@ class Felhasznalo {
         $(this.elem.children(".reszletek")).slideDown(500);
         this.zarva = false;
     } else if (!this.zarva) {
+      
         $(this.elem.children(".reszletek")).slideUp(500);
         this.zarva = true;
     }
