@@ -3,7 +3,7 @@ $(function () {
     const myAjax = new MyAjax();
     let opciok = [];
     const keresoF = new KeresoFeltolo();
-    let apiVegpont = "http://localhost:3000/keresoParameter";
+    let apiVegpont = "http://localhost:8000/api/keresoview";
     myAjax.getAdat(apiVegpont, opciok, keresoF.opcioFeltoltes);
     let optionDOM = `
               #Khelyszinek option,

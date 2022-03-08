@@ -10,7 +10,7 @@ use App\Http\Controllers\MenuFeltetelekController;
 use App\Http\Controllers\FelhasznalokController;
 use App\Http\Controllers\AdminAutokController;
 use App\Http\Controllers\CustomAuthController;
-
+use App\Http\Controllers\KeresoViewController;
 /* Regisztráció, bejelentkezés, kiejelntkezés */
 
 Route::get('/login', [CustomAuthController::class, 'login'])->middleware('alreadyLoggedIn');
@@ -58,5 +58,3 @@ Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 
 
 Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
 Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
-
-

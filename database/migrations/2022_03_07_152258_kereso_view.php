@@ -34,19 +34,19 @@ class KeresoView extends Migration
     private function createView(): string
     {
         return <<<SQL
-            CREATE VIEW KeresoView AS
+            CREATE VIEW keresoview AS
                 SELECT 
-                    modell.marka, 
-                    MIN(modell.evjarat), 
-                    MAX(modell.evjarat), 
-                    modell.kivitel, 
-                    modell.uzemanyag, 
-                    modell_tulajdonsag.tulajdonsag,
-                    telephely.varos
-                    FROM
-                        modell,
-                        modell_tulajdonsag,
-                        telephely
+                    auto_fill.marka,
+                    auto_fill.modell,
+                    auto_fill.evjarat,
+                    auto_fill.kivitel,
+                    auto_fill.uzemanyag,
+                    auto_fill.tulajdonsag,
+                    auto_fill.varos
+                FROM
+                    auto_fill
+                WHERE
+                auto_fill.statusz = 0;
             SQL;
     }
    
@@ -59,7 +59,7 @@ class KeresoView extends Migration
     {
         return <<<SQL
 
-            DROP VIEW IF EXISTS `auto_fill`;
+            DROP VIEW IF EXISTS `keresoview`;
             SQL;
     }
 }
