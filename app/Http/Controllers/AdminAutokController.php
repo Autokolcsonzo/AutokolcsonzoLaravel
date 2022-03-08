@@ -144,7 +144,7 @@ class AdminAutokController extends Controller
            $auto->kep = $filename;
        } */
 
-        DB::table('autoKepek')->insert($auto_kepek);
+        DB::table('auto_kepek')->insert($auto_kepek);
 
         //   return redirect()->back();
         return redirect()->back()->with('status', 'adatok sikeresen feltöltve');

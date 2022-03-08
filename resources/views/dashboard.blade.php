@@ -11,7 +11,6 @@
     <!-- Scriptek -->
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/hambiMenu.js"></script>
     <script src="js/reszponzivDolgok.js"></script>
     <script src="js/kereso/dropDownKereso.js"></script>
     <script src="js/kereso/keresesiOpciokAjax.js"></script>
@@ -20,6 +19,7 @@
     <script src="js/autoLista/autoAjax.js"></script>
     <script src="js/autoLista/auto.js"></script>
     <script src="js/autoLista/autok.js"></script>
+    <script src="js/hambiMenu.js"></script>
     <style>
     /* Betűtípusok */
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
@@ -44,9 +44,23 @@
 <body>
     <main>
         <!-- TABLET, STB. NÉZET -->
-        @include('komponensek/nav')
+        @include('komponensek/felhasznaloNav')
+
         <!-- HEADER -->
-        @include('komponensek/header')
+        <div class="header">
+            <div class="hsor1"></div>
+        <!-- főszöveg és kis kép div-je -->
+            <div class="hsor2">
+                <!-- header-ben a főszöveg -->
+                <div class="headerSzoveg">
+                    <h1 id="foglalasszoveg1">Keresd meg a számodra megfelelő autót!</h1>
+                    <h1 id="foglalasszoveg2">Kezdj bele a foglalásba!</h1>
+                </div>
+                <div class="headerkep">
+                    <img src="kepek/headerimgSmaller.png" id="fokep" alt="" />
+                </div>
+            </div>
+        </div>
 
         <!-- KERESŐFELÜLET -->
         @include('komponensek/kereso')

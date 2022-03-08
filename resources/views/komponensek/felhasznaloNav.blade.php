@@ -1,11 +1,10 @@
 <div class="wrapper">
     <div class="navbar">
         <div class="reszpGombok">
-            <a class="reszpBejelentkezes" href="{{ 'login' }}">Bejelentkezés</a>
-            <a class="reszpRegisztracio" href="{{ 'registration' }}">Regisztráció</a>
+        
         </div>
         <div class="nav_right">
-            <!-- <ul>
+            <ul>
                 <li class="nr_li dd_main">
                     <img src="kepek/profile.png" alt="profile_img">
 
@@ -21,12 +20,12 @@
                             <ul>
                                 <li>Profilom</li>
                                 <li>Foglalásaim</li>
-                                <li>Logout</li>
+                                <li><a href="logout">Kijelentkezés</a></li>
                             </ul>
                         </div>
                     </div>
                 </li>
-            </ul> -->
+            </ul>
         </div>
     </div>
 </div>
@@ -36,18 +35,20 @@
     <h1 class="reszponzivCim">Keresd meg a számodra megfelelő autót!</h1>
 </div>
 
-<nav>
+<nav class="felhasznaloFelsoNav">
     <div class="container">
         <p class="reszponzivLogo">DropMyRide</p>
         <ul>
             <div class="logo">
                 <img src="kepek/logo.png" alt="logo" />
             </div>
+            <li class="profilNavGomb"><a href="#">Profilom</a></li>
             <li><a href="{{ route('welcome') }}">Kezdőlap</a></li>
             <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
             <li><a href="{{ route('feltetelek') }}">Feltételek</a></li>
             <li>
                 <a href="{{ route('osszesAutoMenubol') }}">Járműveink<!--  <i class="fa fa-arrow-right"></i> --></a>
+                <li class="kijelentkezesGomb"><a href="logout">Kijelentkezés</a></li>
                 <!-- <div class="autokMenu">
                     <ul>
                         <li><a href="{{ route('osszesAutoMenubol') }}">Összes</a></li>
@@ -69,13 +70,13 @@
 <div class="mobilNav">
     <ul class="navLista2">
         <li><a href=" {{ route('welcome') }} ">Kezdőlap</a></li>
-        <li><a href=" {{ 'login' }} ">Bejelentkezés</a></li>
-        <li><a href=" {{ 'registration' }} ">Regisztráció</a></li>
+        <li><a href="#">Profilom</a></li>
         <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
         <li><a href="{{ route('feltetelek') }}">Feltételek</a></li>
         <li><a href="{{ route('osszesAutoMenubol') }}">Járműveink</a></li>
-        <li>
+        <!-- <li>
             <img src="kepek/profile.png" alt="profil" />
-        </li>
+        </li> -->
+        <li class="kijelentkezesGomb"><a href="logout">Kijelentkezés</a></li>
     </ul>
 </div>

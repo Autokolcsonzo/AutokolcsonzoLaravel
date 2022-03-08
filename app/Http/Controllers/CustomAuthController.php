@@ -83,7 +83,7 @@ class CustomAuthController extends Controller
         if(Session::has('loginId')) {
             $data = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
         }
-        return view('felhasznaloiProfil', compact('data'));
+        return view('dashboard', compact('data'));
     }
 
     public function logout() {

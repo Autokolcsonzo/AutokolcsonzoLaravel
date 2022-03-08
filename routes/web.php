@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FooldalController;
 use App\Http\Controllers\BejelentkezesController;
 use App\Http\Controllers\RegisztralasController;
@@ -45,11 +46,11 @@ Route::get('adminFelhasznalok', function () {
 
 /* Admin API */
 Route::get('/api/adminAutok', [AdminAutokController::class, 'adminIndex']);
-Route::post('/api/adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
+ Route::post('/adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
 
 Route::get('/api/adminAutok/{rendszam}', [AdminAutokController::class, 'autoById']);
 Route::put('/api/adminAutok/{auto}', [AdminAutokController::class, 'update']);
-
+ 
 
 //felhasznaloApi
 Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
