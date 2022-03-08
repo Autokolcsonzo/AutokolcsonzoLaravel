@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\auto;
 use App\Models\autoKepek;
 use App\Models\modell;
+use App\Models\Felhasznalo;
 use Illuminate\Support\Facades\DB;
 
 class AdminAutokController extends Controller
@@ -95,6 +96,18 @@ class AdminAutokController extends Controller
            return response()->json(['message'=>'neeem updated'], 404);
        }  */
     }
+
+
+
+    public function dashboard() {
+        $data = array();
+        if(Session::has('loginId')) {
+            $data = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
+        }
+        return view('adminAutokMasolat', compact('data'));
+    }
+
+
 
     public function store(Request $req)
     {

@@ -74,10 +74,8 @@
             </div>
 
             <h3 class="oldalNev">Autók</h3>
-            <h1>Üdv: </h1>
-            <h2> {{$data->keresztnev}} </h2>
-            <!-- 3 ablak adatokkal -->
-            <div class="values">
+<!-- 3 ablak adatokkal -->
+<div class="values">
                 <div class="val-box">
                     <i class="fas fa-users"></i>
                     <div class="felhasznalokSzamaSablon">
@@ -155,8 +153,9 @@
                 <h2 class="alert alert-success">{{ session('status') }}</h2>
                 @endif
 
-                <form action="{{ 'adminAutok' }}" method="POST">
+                <form action="{{ url('/adminAutokMasolat-edit/'.$data->alvazSzam) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="form-header">
                         <h3>Adatok módosítása</h3>
                     </div>
@@ -165,14 +164,14 @@
                         <div class="inputfield">
                             <label for="alvazSzam">Alvázszám:</label>
                             <br />
-                            <input type="text" name="alvazSzam" class="alvazSzam" />
+                            <input type="text" name="alvazSzam" class="alvazSzam" value="{{ old('alvazSzam') ?? $data->alvazSzam }}"/>
 
                         </div>
 
                         <div class="inputfield">
                             <label for="marka">Márka:</label><br>
 
-                            <input type="text" name="marka" class="marka" />
+                            <input type="text" name="marka" class="marka" value="{{ old('marka') ?? $data->marka }}" />
                         </div>
 
                     </div>
@@ -182,13 +181,13 @@
                         <div class="inputfield">
                             <label for="modell">Modell:</label><br>
 
-                            <input type="text" name="modell" class="modell" />
+                            <input type="text" name="modell" class="modell" value="{{ old('modell') ?? $data->modell }}" />
                         </div>
 
                         <div class="inputfield">
                             <label for="tipus">Típus:</label>
                             <br />
-                            <input type="text" name="tipus" class="tipus" />
+                            <input type="text" name="tipus" class="tipus" value="{{ old('tipus') ?? $data->tipus }}" />
 
                         </div>
 
@@ -199,12 +198,12 @@
                             <label for="evjarat">Évjárat:</label>
 
                             <br />
-                            <input type="text" name="evjarat" class="evjarat" /><br />
+                            <input type="text" name="evjarat" class="evjarat" value="{{ old('evjarat') ?? $data->evjarat }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="kivitel">Kivitel:</label> <br />
-                            <input type="text" class="kivitel" name="kivitel" />
+                            <input type="text" class="kivitel" name="kivitel" value="{{ old('kivitel') ?? $data->kivitel }}" />
                         </div>
                     </div>
 
@@ -213,12 +212,12 @@
                             <label for="uzemanyag">Üzemanyag:</label>
 
                             <br />
-                            <input type="text" name="uzemanyag" class="uzemanyag" /><br />
+                            <input type="text" name="uzemanyag" class="uzemanyag" value="{{ old('uzemanyag') ?? $data->uzemanyag }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="teljesitmeny">Teljesítmény:</label> <br />
-                            <input type="text" class="teljesitmeny" name="teljesitmeny" />
+                            <input type="text" class="teljesitmeny" name="teljesitmeny" value="{{ old('teljesitmeny') ?? $data->teljesitmeny }}" />
                         </div>
                     </div>
 
@@ -227,12 +226,12 @@
                             <label for="telephely">Telephely (1-Budapest, 2-Székesfehérvár):</label>
 
                             <br />
-                            <input type="text" name="telephely" class="telephely" /><br />
+                            <input type="text" name="telephely" class="telephely" value="{{ old('telephely') ?? $data->telephely }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="napiAr">Napi ár:</label> <br />
-                            <input type="text" class="napiAr" name="napiAr" />
+                            <input type="text" class="napiAr" name="napiAr" value="{{ old('napiAr') ?? $data->napiAr }}" />
                         </div>
                     </div>
 
@@ -241,12 +240,12 @@
                             <label for="extra_megnevezese">Autó extrái:</label>
 
                             <br />
-                            <input type="text" name="extra_megnevezese" class="extra_megnevezese" /><br />
+                            <input type="text" name="extra_megnevezese" class="extra_megnevezese" value="{{ old('extra_megnevezese') ?? $data->extra_megnevezese }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="kep">Kép:</label> <br />
-                            <input type="file" name="kep" class="kep">
+                            <input type="file" name="kep" class="kep" value="{{ old('kep') ?? $data->kep }}">
                         </div>
                     </div>
 
@@ -273,12 +272,12 @@
                             <label for="szin">Szín:</label>
 
                             <br />
-                            <input type="text" name="szin" class="szin" /><br />
+                            <input type="text" name="szin" class="szin" value="{{ old('szin') ?? $data->szin }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="forgalmiSzam">Forgalmi száma:</label> <br />
-                            <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
+                            <input type="text" class="forgalmiSzam" name="forgalmiSzam" value="{{ old('forgalmiSzam') ?? $data->forgalmiSzam }}" />
                         </div>
                     </div>
 
@@ -287,12 +286,12 @@
                             <label for="statusz">Státusz:</label>
 
                             <br />
-                            <input type="text" name="statusz" class="statusz" /><br />
+                            <input type="text" name="statusz" class="statusz" value="{{ old('statusz') ?? $data->statusz }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="rendszam">Rendszám:</label> <br />
-                            <input type="text" class="rendszam" name="rendszam" />
+                            <input type="text" class="rendszam" name="rendszam" value="{{ old('rendszam') ?? $data->rendszam }}" />
                         </div>
                     </div>
 
