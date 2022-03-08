@@ -6,8 +6,8 @@ $(function () {
 
     let apiVegpont = url +"api"+ "/" + "felhasznalo";
 
-    const szuloElem = $(".felhasznalokKiiratasa");
-    const sablonElem = $(".felhasznalok");
+    const szuloElem = $(".felhasznalokAdmin");
+    const sablonElem = $(".felhasznalo");
     szuloElem.empty();
 
     myAjax.getAdat(apiVegpont, felhasznalok, Megjelenit);
@@ -15,12 +15,19 @@ $(function () {
     function Megjelenit() {
         
         szuloElem.show();
+        $( ".felhasznalokAdmin" ).append("<div class='felhFejlec'></div>");
+        $( ".felhFejlec" ).append( "<h2>Jogkör</h2><h2>Felhasználónev</h2><h2>E-mail</h2><h2>Reg. dátum</h2><h2></h2><h2></h2><h2></h2>" );
        
         felhasznalok.forEach(function (elem) {
             console.log(sablonElem);
+           
             const ujElem = sablonElem.clone().appendTo(szuloElem);
             const ujTermek = new Felhasznalo(ujElem, elem);
+           
+
         });
+
+      
         ModositMegjelenes();
 
     
@@ -28,7 +35,7 @@ $(function () {
     }
 
 
-
+   
 
 
     function ModositMegjelenes() {
