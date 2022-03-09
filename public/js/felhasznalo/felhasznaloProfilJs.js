@@ -5,6 +5,7 @@ $(function () {
     let url = "http://localhost:8000/";
 
     let apiVegpont = url + "api" + "/" + "felhasznalo";
+    let apiVegpont2 = url + "api" + "/" + "felhasznalo/felhasznalo_id";
 
     myAjax.getAdat(apiVegpont, felhasznalok, MegjelenitFelhasznalok);
 

@@ -96,61 +96,38 @@
                 </div>
             </div>
 
-            <!-- TÁBLÁZAT -->
-            <div class="tablazat">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Jogkör</th>
-                            <th>Felhasználónév</th>
-                            <th>E-mail</th>
-                            <th>Regisztráció dátuma</th>
-                        </tr>
-                    </thead>
-                    <tbody class="felhasznalokKiiratasa">
-                        <tr class="felhasznalok">
-                            <td class="jogkor">
-                                <p>3 (felhasználó)</p>
-                            </td>
-                            <td class="felhnev">
-                                <p>pirike66</p>
-                            </td>
-                            <td class="email">
-                                <p>pirike66pirike66gmail.com</p>
-                            </td>
-                            <td class="regDatum">
-                                <p>2021.04.05.</p>
-                            </td>
-                            <td class="reszletekGomb">
-                            <td><a class="fReszletek">Részletek</a></td>
-                            </td>
-                            <td class="modositas">
-                                <input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" />
-                            </td>
-                            <td class="torles">
-                                <a href="#">Törlés</a>
-                            </td>
-
-                        </tr>
-                        <tr class="reszletek">
-                            <td colspan="5">
-                                <div>
-                                    <table class="table">
-                                        <tr>
-                                            <td>ide jönnek</td>
-                                            <td>a részletek</td>
-                                        </tr>
-                                    </table>
-
-                                </div>
-                            </td>
-                        </tr>
-
-                    </tbody>
+           
+            <div class="felhasznalokAdmin">
+                <div class="felhFejlec">
+                <h2>Jogkör</h2>
+                <h2>Felhasználónev</h2>
+                <h2>E-mail</h2>
+                <h2>Reg. dátum</h2>
+                </div>
+                <div class="felhasznalo">
 
 
-                </table>
-            </div>
+<p class="jogkor">Jogkör</p>
+<p class="felhnev">Felhasználó név</p>
+<p class="email">Email</p>
+<p class="regDatum">regDatum</p>
+<input type="button" name="fReszletek" class="fReszletek" value="Részletek" />
+<input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" />
+<input type="button" name="torles" class="torles" value="Törlés" />
+<div class="reszletek">
+</div>
+
+
+</div>
+
+
+</div>
+
+                
+ 
+
+
+
             <div class="formcontainer">
                 <div class="felhasznaloiModositas">
                     <form method="POST">

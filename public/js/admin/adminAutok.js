@@ -5,10 +5,24 @@ $(function () {
     const felhasznalok = [];
 
     let apiVegpont = "http://localhost:8000/api/adminAutok";
+<<<<<<< HEAD
+    /* let osszesFelhasznaloApi = "http://localhost:8000/api/osszesFelhasznalo"; */
+
+    myAjax.getAdat(apiVegpont, adminAutok, autoFeltoltes);
+    /* myAjax.getAdat(osszesFelhasznaloApi, felhasznalok, felhasznalokFeltoltes); */
+=======
+<<<<<<< HEAD
+/*     let osszesFelhasznaloApi = "http://localhost:8000/api/osszesFelhasznalo"; */
+
+    myAjax.getAdat(apiVegpont, adminAutok, autoFeltoltes);
+/*     myAjax.getAdat(osszesFelhasznaloApi, felhasznalok, felhasznalokFeltoltes); */
+=======
     let osszesFelhasznaloApi = "http://localhost:8000/api/osszesFelhasznalo";
 
     myAjax.getAdat(apiVegpont, adminAutok, autoFeltoltes);
     myAjax.getAdat(osszesFelhasznaloApi, felhasznalok, felhasznalokFeltoltes);
+>>>>>>> 6ba26745090eb82b7df809030a17195582f4dbe1
+>>>>>>> 27199321244c73f617a45685c13df77151aa7ca0
 
     function autoFeltoltes(adminAutok) {
         const szuloElem = $(".tablazat .szuloElem");
