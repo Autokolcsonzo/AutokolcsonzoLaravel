@@ -55,7 +55,7 @@ class FelhasznalokController extends Controller
         $felhasznalo->reg_datum = $request->reg_datum;
         $felhasznalo->jogkor = $request->jogkor;
         $felhasznalo->telephely = $request->telephely;
-       $felhasznalo->save();
+        $felhasznalo->save();
     }
 
     /**
@@ -78,6 +78,7 @@ class FelhasznalokController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($felhasznalo_id)
+
     {
         /* $felhasznalo = FelhasznaloModell::findOrFail($felhasznalo_id); */
 
@@ -91,7 +92,7 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $felhasznalo_id)
+    public function update(Request $request,$felhasznalo_id)
     {
 
         
@@ -101,6 +102,7 @@ class FelhasznalokController extends Controller
         $felhasznalo->vezeteknev = $request->vezeteknev;
         $felhasznalo->keresztnev = $request->keresztnev;
         $felhasznalo->felhasznalonev = $request->felhasznalonev;
+        dd("helo");
         $felhasznalo->jelszo = $request->jelszo;
         $felhasznalo->szul_ido = $request->szul_ido;
      

@@ -80,7 +80,6 @@ class AutoFView extends Migration
     private function dropView(): string
     {
         return <<<SQL
-
             DROP VIEW IF EXISTS `auto_fill`;
             SQL;
     }

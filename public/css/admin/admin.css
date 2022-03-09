@@ -29,7 +29,7 @@
 }
 
 .adminKereses .adminFeladatValasztas,
-.ujAutoFelvetele {
+.ujAutoFelvetele,.jogkorValasztas {
     display: flex;
     margin-left: 5%;
     /*  justify-content: flex-start; */
@@ -38,7 +38,7 @@
 
 .adminKereses,
 .adminFeladatValasztas select,
-.ujAutoFelvetele {
+.ujAutoFelvetele,.jogkorValasztas select {
     padding: 10px;
     font-size: 14px;
 }
@@ -120,6 +120,130 @@
     max-width: 700px;
 }
 
+/*felhasználói adatok adatok*/
+
+.felhasznalokAdmin{
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  width:100%;
+  margin-bottom:10px;
+}
+
+
+.felhFejlec{
+  display: flex;
+  background-color:#ddd;
+  align-items: center;
+  padding:5px;
+ 
+
+
+}
+
+.felhFejlec h2{
+ flex:1;
+ font-size:1rem;
+ 
+
+
+}
+
+.foadatok{
+  display: flex;
+  align-items: center;
+  padding:5px;
+  border-bottom:1px solid gray;
+
+}
+
+.foadatok p{
+ 
+  flex:1;
+  font-size:1rem;
+  
+
+}
+
+
+/*részletek lenyíló*/
+.reszletek{
+  display: flex;
+  align-items: center;
+  padding:5px;
+  border-bottom:1px solid gray;
+  
+ 
+}
+
+.reszlet{
+  width:100%;
+}
+
+.reszletek p{
+  flex:1;
+  font-size:1rem;
+}
+
+.reszletFejlec{
+  display: flex;
+  background-color:#ddd;
+  align-items: center;
+  padding:5px;
+ 
+
+
+}
+
+.reszletFejlec h2{
+ flex:1;
+ font-size:1rem;
+ 
+
+
+}
+
+.reszletadatok{
+  display: flex;
+  align-items: center;
+  padding:5px;
+  border-bottom:1px solid gray;
+
+}
+
+.reszletadatok p{
+ 
+  flex:1;
+  font-size:1rem;
+  
+
+}
+/*foglalási adatok*/
+
+.foglalasAdmin{
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  width:100%;
+  margin-bottom:10px;
+}
+
+.fogFejlec{
+  display: flex;
+  background-color:#ddd;
+  align-items: center;
+  padding:5px;
+ }
+
+ .fogFejlec h2{
+  flex:1;
+  font-size:1rem;
+  
+ 
+ 
+ }
 /* TÁBLÁZAT */
 
 table {
@@ -179,19 +303,20 @@ table td {
 
 }
 
-/* tr.reszletek {
-  display: none;
-  width: 100%;
-}
-tr.reszletek div {
-  display: none;
-} */
+
 
 .felhasznaloiModositas{
   display:none;
   max-width: 700px;
   }
   
+
+
+  .foglalasModositas{
+    display:none; 
+    max-width: 700px;
+    }
+
   .sor{
     display:flex;
       flex-direction:row;

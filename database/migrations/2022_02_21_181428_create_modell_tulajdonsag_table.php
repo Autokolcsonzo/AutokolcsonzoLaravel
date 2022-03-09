@@ -16,7 +16,7 @@ class CreateModellTulajdonsagTable extends Migration
         Schema::create('modell_tulajdonsag', function (Blueprint $table) {
             $table->increments('modell_tul_id');
             $table->integer('modell_id')->unsigned();
-            $table->char('tulajdonsag', 50);
+            $table->char('tulajdonsag', 50)->nullable($value = true);
             $table->foreign('modell_id')->references('modell_id')->on('modell');
             $table->timestamps();
         });

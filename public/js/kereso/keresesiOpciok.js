@@ -3,7 +3,7 @@ $(function () {
     const myAjax = new MyAjax();
     let opciok = [];
     const keresoF = new KeresoFeltolo();
-    let apiVegpont = "http://localhost:3000/keresoParameter";
+    let apiVegpont = "http://localhost:8000/api/keresoview";
     myAjax.getAdat(apiVegpont, opciok, keresoF.opcioFeltoltes);
     let optionDOM = `
               #Khelyszinek option,
@@ -26,5 +26,18 @@ $(function () {
             keresoF.markaModellKapcsolat(valasztottMarka, opciok);
         }
     });
+    $("#etol").on("change", (tol, ig) => {
+        tol = $("#etol").val();
+        ig = $("#eig").val();
 
+        keresoF.evjarat(tol, ig);
+
+        console.log("Valasztott értékek : " + tol, ig);
+    });
+
+    $("#min, #max").on("keyup", () => {
+        setTimeout(function () {
+            keresoF.arSav();
+        }, 2000);
+    });
 });

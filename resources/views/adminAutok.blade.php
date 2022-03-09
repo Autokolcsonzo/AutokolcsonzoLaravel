@@ -10,7 +10,8 @@
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <script src="../js/ajax.js"></script>
@@ -19,12 +20,12 @@
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
     <style>
-        /* Betűtípusok */
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+    /* Betűtípusok */
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -74,7 +75,14 @@
             </div>
 
             <h3 class="oldalNev">Autók</h3>
+            <div>
+                @foreach($autok as $auto)
 
+                @endforeach
+            </div>
+
+
+            <!-- 3 ablak adatokkal -->
             <div class="values">
                 <div class="val-box">
                     <i class="fas fa-users"></i>
@@ -136,6 +144,7 @@
                                 <input type="button" name="autoReszletek" class="autoReszletek" value="Részletek" />
                             </td>
                             <td class="modositas">
+                                <!-- <a class="autoMod" href="{{ url('/adminAutokMasolat/'.$auto->alvazSzam) }}">Módosítás</a> -->
                                 <input type="button" name="autoMod" class="autoMod" value="Módosítás" />
                             </td>
                             <td class="torles">
@@ -153,7 +162,8 @@
                 <h2 class="alert alert-success">{{ session('status') }}</h2>
                 @endif
 
-                <form action="{{ 'adminAutok' }}" method="POST">
+                <form action="{{ url('/adminAutokMasolat/'.$auto->alvazSzam) }}" method="POST">
+                    @method('PUT')
                     @csrf
                     <div class="form-header">
                         <h3>Adatok módosítása</h3>
@@ -163,14 +173,15 @@
                         <div class="inputfield">
                             <label for="alvazSzam">Alvázszám:</label>
                             <br />
-                            <input type="text" name="alvazSzam" class="alvazSzam" />
+                            <input type="text" name="alvazSzam" class="alvazSzam"
+                                value="{{ old('alvazSzam') ?? $auto->alvazSzam }}" />
 
                         </div>
 
                         <div class="inputfield">
                             <label for="marka">Márka:</label><br>
 
-                            <input type="text" name="marka" class="marka" />
+                            <input type="text" name="marka" class="marka" value="{{ old('marka') ?? $auto->marka }}" />
                         </div>
 
                     </div>
@@ -180,13 +191,14 @@
                         <div class="inputfield">
                             <label for="modell">Modell:</label><br>
 
-                            <input type="text" name="modell" class="modell" />
+                            <input type="text" name="modell" class="modell"
+                                value="{{ old('modell') ?? $auto->modell }}" />
                         </div>
 
                         <div class="inputfield">
                             <label for="tipus">Típus:</label>
                             <br />
-                            <input type="text" name="tipus" class="tipus" />
+                            <input type="text" name="tipus" class="tipus" value="{{ old('tipus') ?? $auto->tipus }}" />
 
                         </div>
 
@@ -197,12 +209,14 @@
                             <label for="evjarat">Évjárat:</label>
 
                             <br />
-                            <input type="text" name="evjarat" class="evjarat" /><br />
+                            <input type="text" name="evjarat" class="evjarat"
+                                value="{{ old('evjarat') ?? $auto->evjarat }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="kivitel">Kivitel:</label> <br />
-                            <input type="text" class="kivitel" name="kivitel" />
+                            <input type="text" class="kivitel" name="kivitel"
+                                value="{{ old('kivitel') ?? $auto->kivitel }}" />
                         </div>
                     </div>
 
@@ -211,12 +225,14 @@
                             <label for="uzemanyag">Üzemanyag:</label>
 
                             <br />
-                            <input type="text" name="uzemanyag" class="uzemanyag" /><br />
+                            <input type="text" name="uzemanyag" class="uzemanyag"
+                                value="{{ old('uzemanyag') ?? $auto->uzemanyag }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="teljesitmeny">Teljesítmény:</label> <br />
-                            <input type="text" class="teljesitmeny" name="teljesitmeny" />
+                            <input type="text" class="teljesitmeny" name="teljesitmeny"
+                                value="{{ old('teljesitmeny') ?? $auto->teljesitmeny }}" />
                         </div>
                     </div>
 
@@ -225,12 +241,14 @@
                             <label for="telephely">Telephely (1-Budapest, 2-Székesfehérvár):</label>
 
                             <br />
-                            <input type="text" name="telephely" class="telephely" /><br />
+                            <input type="text" name="telephely" class="telephely"
+                                value="{{ old('telephely') ?? $auto->telephely }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="napiAr">Napi ár:</label> <br />
-                            <input type="text" class="napiAr" name="napiAr" />
+                            <input type="text" class="napiAr" name="napiAr"
+                                value="{{ old('napiAr') ?? $auto->napiAr }}" />
                         </div>
                     </div>
 
@@ -239,27 +257,28 @@
                             <label for="extra_megnevezese">Autó extrái:</label>
 
                             <br />
-                            <input type="text" name="extra_megnevezese" class="extra_megnevezese" /><br />
+                            <input type="text" name="extra_megnevezese" class="extra_megnevezese"
+                                value="{{ old('extra_megnevezese') ?? $auto->extra_megnevezese }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="kep">Kép:</label> <br />
-                            <input type="file" name="kep" class="kep">
+                            <input type="file" name="kep" class="kep" value="{{ old('kep') ?? $auto->kep }}">
                         </div>
                     </div>
 
                     <div class="sor">
                         <!--   <div class="inputfield">
-                            <label for="tulajdonsag">Modell tulajdonság:</label>
+            <label for="tulajdonsag">Modell tulajdonság:</label>
 
-                            <br />
-                            <input type="text" name="tulajdonsag" class="tulajdonsag" /><br />
-                        </div> -->
+            <br />
+            <input type="text" name="tulajdonsag" class="tulajdonsag" /><br />
+        </div> -->
 
                         <!-- <div class="inputfield">
-                            <label for="forgalmiSzam">Forgalmi száma:</label> <br />
-                            <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
-                        </div> -->
+            <label for="forgalmiSzam">Forgalmi száma:</label> <br />
+            <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
+        </div> -->
                     </div>
 
 
@@ -271,12 +290,14 @@
                             <label for="szin">Szín:</label>
 
                             <br />
-                            <input type="text" name="szin" class="szin" /><br />
+                            <input type="text" name="szin" class="szin"
+                                value="{{ old('szin') ?? $auto->szin }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="forgalmiSzam">Forgalmi száma:</label> <br />
-                            <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
+                            <input type="text" class="forgalmiSzam" name="forgalmiSzam"
+                                value="{{ old('forgalmiSzam') ?? $auto->forgalmiSzam }}" />
                         </div>
                     </div>
 
@@ -285,12 +306,14 @@
                             <label for="statusz">Státusz:</label>
 
                             <br />
-                            <input type="text" name="statusz" class="statusz" /><br />
+                            <input type="text" name="statusz" class="statusz"
+                                value="{{ old('statusz') ?? $auto->statusz }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="rendszam">Rendszám:</label> <br />
-                            <input type="text" class="rendszam" name="rendszam" />
+                            <input type="text" class="rendszam" name="rendszam"
+                                value="{{ old('rendszam') ?? $auto->rendszam }}" />
                         </div>
                     </div>
 

@@ -84,6 +84,14 @@
   font-weight: bold;
   content: "Üzemanyag: ";
 }
+.jarmu-card-evjarat::before {
+  font-weight: bold;
+  content: "Évjárat: ";
+}
+.jarmu-card-teljesitmeny::before {
+  font-weight: bold;
+  content: "Lóerő: ";
+}
 .jarmu-card-extra::before {
   margin-right: 5px;
   font-weight: bold;
