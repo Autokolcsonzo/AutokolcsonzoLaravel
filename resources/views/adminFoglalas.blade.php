@@ -11,9 +11,9 @@
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <script src="../js/admin/Felhasznalo.js"></script>
+    <script src="../js/admin/AdminFoglalas.js"></script>
     <script src="../js/Ajax.js"></script>
-    <script src="../js/admin/jsFelhasznalok.js"></script>
+    <script src="../js/admin/jsAdminFoglalas.js"></script>
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <style>
@@ -130,7 +130,7 @@
                                 <h2>Érvényesség</h2>
                                 <h2>Kedvezmény</h2>
                                 <h2>Állapot</h2>
-                                <h2></h2>
+                                <h2>Telephely</h2>
                                 <h2></h2>
                             </div>
                             <div class="reszletadatok">
@@ -139,6 +139,8 @@
                                 <p class="ervenyesseg">Érvényesség</p>
                                 <p class="kedvezmeny">Kedvezmény</p>
                                 <p class="allapot">Állapot</p>
+                                <p class="telephely">Telephely</p>
+                                <p class></p>
 
 
                             </div>

@@ -303,18 +303,7 @@ table td {
 
 }
 
-/* tr.reszletek {
-  display: none;
-  width: 100%;
-}
-tr.reszletek div {
-  display: none;
-} */
 
-
-.reszletek{
-  
-}
 
 .felhasznaloiModositas{
   display:none;
@@ -324,7 +313,7 @@ tr.reszletek div {
 
 
   .foglalasModositas{
-   /*  display:none; */
+    display:none; 
     max-width: 700px;
     }
 

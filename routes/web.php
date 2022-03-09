@@ -72,3 +72,4 @@ Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::clas
 
 Route::get('/api/foglalas', [AdminFoglalasController::class, 'index']);
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
+Route::get('/api/foglalas/expand={child}', [AdminFoglalasController::class, 'expand']);

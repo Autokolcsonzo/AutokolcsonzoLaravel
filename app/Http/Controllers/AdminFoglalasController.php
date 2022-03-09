@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AdminFoglalas;
+use App\Models\AdminFoglalasModel;
 use Illuminate\Support\Facades\DB;
 
-class AutokListazasaController extends Controller
+class AdminFoglalasController extends Controller
 {
 
     public function index()
     {
-        $foglalas = AdminFoglalas::all(); 
+        $foglalas = AdminFoglalasModel::all(); 
         return $foglalas;
     }
 
@@ -22,9 +23,11 @@ class AutokListazasaController extends Controller
     {
     }
 
-    public function store(Request $request)
+    public function store(Request $fogl_azonosito)
     {
-       
+        $foglalas = AdminFoglalasModel::find($fogl_azonosito);
+      
+        return response()->json($foglalas);
     }
 
     public function show($fogl_azonosito)
@@ -44,5 +47,11 @@ class AutokListazasaController extends Controller
     public function destroy($fogl_azonosito)
     {
         
+    }
+
+    public function expand()
+    {
+        $foglalas=AdminFoglalasModel::with('felhasznalo')->get();
+        return $foglalas;
     }
 }

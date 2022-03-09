@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AdminFoglalas extends Model
+class AdminFoglalasModel extends Model
 {
     use HasFactory;
 
@@ -25,6 +25,10 @@ class AdminFoglalas extends Model
             'kedvezmeny',
             'allapot'
     ];
+
+    public function felhasznalo(){
+        return $this->hasOne(FelhasznaloModell::class, 'felhasznalo_id', 'felhasznalo');
+    }
 
   
 
