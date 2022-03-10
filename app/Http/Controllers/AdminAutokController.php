@@ -25,7 +25,7 @@ class AdminAutokController extends Controller
         //return view('adminAutok', compact('result'));
     }
     
-    public function osszFelhasznalo() {
+    public function osszAdatok() {
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('foglalas')->select('kifizetendo_osszegeg')->count();

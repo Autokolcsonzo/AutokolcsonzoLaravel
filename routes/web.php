@@ -61,12 +61,13 @@ Route::put('/adminAutok/{auto}', [AdminAutokController::class, 'update']);
 
 Route::delete('/delete-adminAutok/{auto}', [AdminAutokController::class, 'delete']);
 
-Route::get('adminAutok', [AdminAutokController::class, 'osszFelhasznalo']);
+Route::get('adminAutok', [AdminAutokController::class, 'osszAdatok']);
 
 //felhasznaloApi
 Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
 Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show']);
 Route::post('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
+Route::get('adminFelhasznalok', [FelhasznalokController::class, 'osszAdatok']);
 
 
 
@@ -75,3 +76,4 @@ Route::post('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class,
 Route::get('/api/foglalas', [AdminFoglalasController::class, 'index']);
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
 Route::get('/api/foglalas/expand={child}', [AdminFoglalasController::class, 'expand']);
+Route::get('adminFoglalas', [AdminFoglalasController::class, 'osszAdatok']);

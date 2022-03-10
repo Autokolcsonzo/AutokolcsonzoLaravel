@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\FelhasznaloModell;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FelhasznalokController extends Controller
 {
@@ -134,5 +135,12 @@ class FelhasznalokController extends Controller
     {
         $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
         $felhasznalo->delete();
+    }
+
+    public function osszAdatok() {
+        $felhasznalok = DB::table('felhasznalo')->count();
+        $foglalasok = DB::table('foglalas')->count();
+        $bevetel = DB::table('foglalas')->select('kifizetendo_osszegeg')->count();
+        return view('adminFelhasznalok', compact('felhasznalok', 'foglalasok', 'bevetel'));
     }
 }
