@@ -49,8 +49,10 @@ Route::get('/api/adminAutok', [AdminAutokController::class, 'adminIndex']);
 Route::post('/adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
 
 Route::get('adminAutok', [AdminAutokController::class, 'create']);
-Route::put('adminAutok/{auto}', [AdminAutokController::class, 'edit']);
+Route::get('/adminAutok/{auto}', [AdminAutokController::class, 'edit']);
 Route::put('/adminAutok/{auto}', [AdminAutokController::class, 'update']);
+
+Route::delete('/delete-adminAutok/{auto}', [AdminAutokController::class, 'delete']);
 
 
 //felhasznaloApi
@@ -62,3 +64,4 @@ Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
 Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
 
 
+Route::get('adminAutok', [AdminAutokController::class, 'osszFelhasznalo']);
