@@ -63,10 +63,9 @@ Route::put('/adminAutok/{auto}', [AdminAutokController::class, 'update']);
 //felhasznaloApi
 Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
 Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show']);
-Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
+Route::post('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
 
-Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
-Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
+
 
 /* Foglalás API */
 
