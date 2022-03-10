@@ -38,8 +38,8 @@ $(function () {
         let felhasznaloiAdatok = localStorage.getItem("felhasznaloiAdatok");
         let felhasznaloiAdatokobj = JSON.parse(felhasznaloiAdatok);
 
-        console.log("fnev : " + $("#ifnev").val());
-        console.log(felhasznaloiAdatokobj.felhasznalonev);
+      
+
         $("#ifnev").val(felhasznaloiAdatokobj.felhasznalonev);
         $("#ivnev").val(felhasznaloiAdatokobj.vezeteknev);
         $("#iknev").val(felhasznaloiAdatokobj.keresztnev);
@@ -82,6 +82,7 @@ $(function () {
             e_mail: e_mail,
             tel_szam: tel_szam,
         };
+        
         myAjax.putAdat(apiVegpont, id, ujAdat);
         location.reload();
     });
