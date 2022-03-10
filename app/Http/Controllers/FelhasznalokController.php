@@ -44,7 +44,6 @@ class FelhasznalokController extends Controller
         $felhasznalo->felhasznalonev = $request->felhasznalonev;
         $felhasznalo->jelszo = $request->jelszo;
         $felhasznalo->szul_ido = $request->szul_ido;
-        $felhasznalo->profilkep = $request->profilkep;
         $felhasznalo->varos = $request->varos;
         $felhasznalo->megye = $request->megye;
         $felhasznalo->ir_szam = $request->ir_szam;
@@ -52,10 +51,15 @@ class FelhasznalokController extends Controller
         $felhasznalo->hazszam = $request->hazszam;
         $felhasznalo->tel_szam = $request->tel_szam;
         $felhasznalo->e_mail = $request->e_mail;
-        $felhasznalo->reg_datum = $request->reg_datum;
-        $felhasznalo->jogkor = $request->jogkor;
-        $felhasznalo->telephely = $request->telephely;
+       
         $felhasznalo->save();
+
+        $felhasznalo_kepek = [
+          
+            'profilkep' => $req->kep
+        ];
+
+        DB::table('felhasznalo')->insert($felhasznalo_kepek);
     }
 
     /**
@@ -102,10 +106,8 @@ class FelhasznalokController extends Controller
         $felhasznalo->vezeteknev = $request->vezeteknev;
         $felhasznalo->keresztnev = $request->keresztnev;
         $felhasznalo->felhasznalonev = $request->felhasznalonev;
-        dd("helo");
         $felhasznalo->jelszo = $request->jelszo;
         $felhasznalo->szul_ido = $request->szul_ido;
-     
         $felhasznalo->varos = $request->varos;
         $felhasznalo->megye = $request->megye;
         $felhasznalo->ir_szam = $request->ir_szam;
@@ -115,9 +117,10 @@ class FelhasznalokController extends Controller
         $felhasznalo->e_mail = $request->e_mail;
      
         
-       $felhasznalo->update();
+       $felhasznalo->save();
+       return view('felhasznalo.update', compact('felhasznalo'));
       
-       return redirect()->route('felhasznalo.update', ['felhasznalo' => $felhasznalo_id]);
+      
       
     }
 

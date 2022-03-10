@@ -43,7 +43,7 @@
 
 <body>
     <main>
-
+        
         <!-- TABLET, STB. NÉZET -->
         @include('komponensek/nav')
 

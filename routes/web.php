@@ -10,6 +10,9 @@ use App\Http\Controllers\MenuRolunkController;
 use App\Http\Controllers\MenuFeltetelekController;
 use App\Http\Controllers\FelhasznalokController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\KeresoViewController;
+
+use App\Http\Controllers\AdminFoglalasController;
 use App\Http\Controllers\AdminAutokController;
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
@@ -44,6 +47,10 @@ Route::get('adminFelhasznalok', function () {
     return view('adminFelhasznalok');
 });
 
+Route::get('adminFoglalas', function () {
+    return view('adminFoglalas');
+});
+
 /* Admin API */
 Route::get('/api/adminAutok', [AdminAutokController::class, 'adminIndex']);
 Route::post('/adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
@@ -54,14 +61,17 @@ Route::put('/adminAutok/{auto}', [AdminAutokController::class, 'update']);
 
 Route::delete('/delete-adminAutok/{auto}', [AdminAutokController::class, 'delete']);
 
+Route::get('adminAutok', [AdminAutokController::class, 'osszFelhasznalo']);
 
 //felhasznaloApi
 Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
 Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show']);
-Route::put('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
-
-Route::post('/api/felhasznalo', [FelhasznalokController::class, 'store']);
-Route::delete('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'destroy']);
+Route::post('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
 
 
-Route::get('adminAutok', [AdminAutokController::class, 'osszFelhasznalo']);
+
+/* Foglalás API */
+
+Route::get('/api/foglalas', [AdminFoglalasController::class, 'index']);
+Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
+Route::get('/api/foglalas/expand={child}', [AdminFoglalasController::class, 'expand']);

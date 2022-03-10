@@ -9,33 +9,19 @@ class KeresoViewModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'KeresoView';
-    protected $primaryKey = ['alvazSzam'];
+    protected $table = 'keresoview';
+    //protected $primaryKey = ['tulajdonsag'];
     public $incrementing = false;
     public $timestamps = false;
 
     protected $fillable = [
-        'alvazSzam',
-        'modell',
-        'telephely',
-        'napiAr',
-        'szin',
-        'statusz',
         'marka',
-        'tipus',
         'modell',
         'evjarat',
         'kivitel',
         'uzemanyag',
-        'teljesitmeny',
         'tulajdonsag',
-        'kep',
-        'extra_megnevezese',
-        'megye',
-        'ir_szam',
-        'varos',
-        'utca',
-        'hazszam'
+        'varos'
     ];
 
     /**

@@ -116,7 +116,7 @@ class Auto {
         return ((100 - kapottKedvezmeny) / 100) * 7; //JSON server szükséges hozzá
     }
     setKedvezmenyek(){
-        const apiVegpont = "http://localhost:3000/kedvezmenyek";
+        const apiVegpont = "http://127.0.0.1:8000/api/kedvezmeny";
         const kedvezmenyek = new KedvezmenyAjax();
         kedvezmenyek.getAdat(apiVegpont);
       }
