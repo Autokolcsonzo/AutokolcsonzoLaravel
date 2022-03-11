@@ -10,8 +10,7 @@
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <script src="../js/ajax.js"></script>
@@ -20,12 +19,12 @@
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -75,11 +74,6 @@
             </div>
 
             <h3 class="oldalNev">Autók</h3>
-            <div>
-                @foreach($autok as $auto)
-
-                @endforeach
-            </div>
 
 
             <!-- 3 ablak adatokkal -->
@@ -113,47 +107,55 @@
                 </div>
             </div>
 
-            <div class="tablazat">
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">Státusz</th>
-                            <th scope="col">Rendszám</th>
-                            <th scope="col">Megnevezés</th>
-                            <th scope="col">Telephely</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody class="szuloElem">
-                        <tr class="adminAuto">
-                            <td class="tablazatStatusz" data-label="Státusz">
-                                <input type="checkbox" id="statuszInput" name="statuszInput">
-                            </td>
-                            <td class="rendszam" data-label="Rendszám">
-                                <p>ABC-123</p>
-                            </td>
-                            <td class="megnevezes" data-label="Megnevezés">
-                                <p>Audi A4</p>
-                            </td>
-                            <td class="telephely" data-label="Telephely">
-                                <p>Budapest</p>
-                            </td>
-                            <td class="reszletekGomb">
-                                <input type="button" name="autoReszletek" class="autoReszletek" value="Részletek" />
-                            </td>
-                            <td class="modositas">
-                                <!-- <a class="autoMod" href="{{ url('/adminAutokMasolat/'.$auto->alvazSzam) }}">Módosítás</a> -->
-                                <input type="button" name="autoMod" class="autoMod" value="Módosítás" />
-                            </td>
-                            <td class="torles">
-                                <input type="button" name="autoTorles" class="autoTorles" value="Törlés" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="felhasznalokAdmin">
+                <div class="felhFejlec">
+                    <h2>Státusz</h2>
+                    <h2>Rendszám</h2>
+                    <h2>Megnevezés</h2>
+                    <h2>Telephely</h2>
+                    <h2></h2>
+                    <h2></h2>
+                    <h2></h2>
+                </div>
+                <div class="felhasznalo">
+
+                    <div class="foadatok">
+                        <p class="statusz">Státusz</p>
+                        <p class="rendszam">Rendszám</p>
+                        <p class="megnevezes">Megnevezés</p>
+                        <p class="varos">Telephely</p>
+                        <p><input type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
+                        <p><input type="button" name="fadatokMod" class="fadatokMod" value="Módosítás" /></p>
+                        <p><input type="button" name="torles" class="torles" value="Törlés" /></p>
+                    </div>
+
+                    <div class="reszletek">
+                        <div class="reszlet">
+                            <div class="reszletFejlec">
+                                <h2>Irányítószám</h2>
+                                <h2>Megye</h2>
+                                <h2>Város</h2>
+                                <h2>Utca</h2>
+                                <h2>Házszám</h2>
+                                <h2>Telefonszám</h2>
+                                <h2>Születési idő</h2>
+                            </div>
+                            <div class="reszletadatok">
+                                <p class="iranyitoszam">Irányítószám</p>
+                                <p class="megye">Megye</p>
+                                <p class="varos">Város</p>
+                                <p class="utca">Utca</p>
+                                <p class="hazszam">Házszám</p>
+                                <p class="telszam">Telefonszám</p>
+                                <p class="szul_ido">Születési idő</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            @foreach($auto as $autok)
+            @endforeach
 
             <!-- Autó adatainak módosítása -->
             <div class="autoAdatokModositas">
@@ -162,7 +164,7 @@
                 <h2 class="alert alert-success">{{ session('status') }}</h2>
                 @endif
 
-                <form action="{{ url('/adminAutokMasolat/'.$auto->alvazSzam) }}" method="POST">
+                <form action="update" method="POST">
                     @method('PUT')
                     @csrf
                     <div class="form-header">
@@ -173,8 +175,7 @@
                         <div class="inputfield">
                             <label for="alvazSzam">Alvázszám:</label>
                             <br />
-                            <input type="text" name="alvazSzam" class="alvazSzam"
-                                value="{{ old('alvazSzam') ?? $auto->alvazSzam }}" />
+                            <input type="text" name="alvazSzam" class="alvazSzam" value="{{ $auto->alvazSzam }}" />
 
                         </div>
 
@@ -191,8 +192,7 @@
                         <div class="inputfield">
                             <label for="modell">Modell:</label><br>
 
-                            <input type="text" name="modell" class="modell"
-                                value="{{ old('modell') ?? $auto->modell }}" />
+                            <input type="text" name="modell" class="modell" value="{{ old('modell') ?? $auto->modell }}" />
                         </div>
 
                         <div class="inputfield">
@@ -209,14 +209,12 @@
                             <label for="evjarat">Évjárat:</label>
 
                             <br />
-                            <input type="text" name="evjarat" class="evjarat"
-                                value="{{ old('evjarat') ?? $auto->evjarat }}" /><br />
+                            <input type="text" name="evjarat" class="evjarat" value="{{ old('evjarat') ?? $auto->evjarat }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="kivitel">Kivitel:</label> <br />
-                            <input type="text" class="kivitel" name="kivitel"
-                                value="{{ old('kivitel') ?? $auto->kivitel }}" />
+                            <input type="text" class="kivitel" name="kivitel" value="{{ old('kivitel') ?? $auto->kivitel }}" />
                         </div>
                     </div>
 
@@ -225,14 +223,12 @@
                             <label for="uzemanyag">Üzemanyag:</label>
 
                             <br />
-                            <input type="text" name="uzemanyag" class="uzemanyag"
-                                value="{{ old('uzemanyag') ?? $auto->uzemanyag }}" /><br />
+                            <input type="text" name="uzemanyag" class="uzemanyag" value="{{ old('uzemanyag') ?? $auto->uzemanyag }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="teljesitmeny">Teljesítmény:</label> <br />
-                            <input type="text" class="teljesitmeny" name="teljesitmeny"
-                                value="{{ old('teljesitmeny') ?? $auto->teljesitmeny }}" />
+                            <input type="text" class="teljesitmeny" name="teljesitmeny" value="{{ old('teljesitmeny') ?? $auto->teljesitmeny }}" />
                         </div>
                     </div>
 
@@ -241,14 +237,12 @@
                             <label for="telephely">Telephely (1-Budapest, 2-Székesfehérvár):</label>
 
                             <br />
-                            <input type="text" name="telephely" class="telephely"
-                                value="{{ old('telephely') ?? $auto->telephely }}" /><br />
+                            <input type="text" name="telephely" class="telephely" value="{{ old('telephely') ?? $auto->telephely }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="napiAr">Napi ár:</label> <br />
-                            <input type="text" class="napiAr" name="napiAr"
-                                value="{{ old('napiAr') ?? $auto->napiAr }}" />
+                            <input type="text" class="napiAr" name="napiAr" value="{{ old('napiAr') ?? $auto->napiAr }}" />
                         </div>
                     </div>
 
@@ -257,8 +251,7 @@
                             <label for="extra_megnevezese">Autó extrái:</label>
 
                             <br />
-                            <input type="text" name="extra_megnevezese" class="extra_megnevezese"
-                                value="{{ old('extra_megnevezese') ?? $auto->extra_megnevezese }}" /><br />
+                            <input type="text" name="extra_megnevezese" class="extra_megnevezese" value="{{ old('extra_megnevezese') ?? $auto->extra_megnevezese }}" /><br />
                         </div>
 
                         <div class="inputfield">
@@ -290,14 +283,12 @@
                             <label for="szin">Szín:</label>
 
                             <br />
-                            <input type="text" name="szin" class="szin"
-                                value="{{ old('szin') ?? $auto->szin }}" /><br />
+                            <input type="text" name="szin" class="szin" value="{{ old('szin') ?? $auto->szin }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="forgalmiSzam">Forgalmi száma:</label> <br />
-                            <input type="text" class="forgalmiSzam" name="forgalmiSzam"
-                                value="{{ old('forgalmiSzam') ?? $auto->forgalmiSzam }}" />
+                            <input type="text" class="forgalmiSzam" name="forgalmiSzam" value="{{ old('forgalmiSzam') ?? $auto->forgalmiSzam }}" />
                         </div>
                     </div>
 
@@ -306,14 +297,12 @@
                             <label for="statusz">Státusz:</label>
 
                             <br />
-                            <input type="text" name="statusz" class="statusz"
-                                value="{{ old('statusz') ?? $auto->statusz }}" /><br />
+                            <input type="text" name="statusz" class="statusz" value="{{ old('statusz') ?? $auto->statusz }}" /><br />
                         </div>
 
                         <div class="inputfield">
                             <label for="rendszam">Rendszám:</label> <br />
-                            <input type="text" class="rendszam" name="rendszam"
-                                value="{{ old('rendszam') ?? $auto->rendszam }}" />
+                            <input type="text" class="rendszam" name="rendszam" value="{{ old('rendszam') ?? $auto->rendszam }}" />
                         </div>
                     </div>
 
@@ -325,7 +314,7 @@
 
             <!-- Új adatok feltöltése -->
             <div class="autoAdatokFeltoltes">
-                <form action="">
+                <form action="adminAutok">
 
                     <div class="form-header">
                         <h3>Adatok módosítása</h3>

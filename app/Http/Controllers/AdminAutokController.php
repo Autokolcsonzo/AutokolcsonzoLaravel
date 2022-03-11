@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Session;
 
 class AdminAutokController extends Controller
 {
-    
+
     public function adminIndex()
     {
         $result = DB::table('auto')
             ->join('modell', 'auto.modell', '=', 'modell.modell_id')
             ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
-            ->select('auto.rendszam', 'modell.marka', 'telephely.varos')
+            ->select('auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
             ->get();
         return $result;
     }
@@ -38,33 +38,36 @@ class AdminAutokController extends Controller
         return view('adminAutok', compact('count'));
     }
 
-    public function create() {
+    public function create()
+    {
         $autok = Auto::all();
         return view('adminAutok', compact('autok'));
     }
 
-     public function edit($auto) {
-         $auto = Auto::find($auto);
-         return view('adminAutok', compact('auto'));
+    public function edit($alvazSzam)
+    {
+        $auto = Auto::find($alvazSzam);
+        return view('adminAutok', compact('auto'));
         /* return response()->json(auto::find($rendszam), 200); */
     }
 
-    public function update(Request $req, $data) {
+    public function update(Request $req, $data)
+    {
         $input = $req->all();
 
         $data = Auto::find($data);
 
         $data->alvazSzam = $input['alvazSzam'];
-      //  $data->marka = $input['marka'];
+        //  $data->marka = $input['marka'];
         $data->modell = $input['modell'];
-  /*       $data->tipus = $input['tipus'];
+        /*       $data->tipus = $input['tipus'];
         $data->evjarat = $input['evjarat'];
         $data->kivitel = $input['kivitel'];
         $data->uzemanyag = $input['uzemanyag'];
         $data->teljesitmeny = $input['teljesitmeny']; */
         $data->telephely = $input['telephely'];
         $data->napiAr = $input['napiAr'];
-       /*  $data->extra_megnevezese = $input['extra_megnevezese'];
+        /*  $data->extra_megnevezese = $input['extra_megnevezese'];
         $data->kep = $input['kep']; */
         $data->szin = $input['szin'];
         $data->forgalmiSzam = $input['forgalmiSzam'];
@@ -128,5 +131,4 @@ class AdminAutokController extends Controller
         //   return redirect()->back();
         return redirect()->back()->with('status', 'adatok sikeresen feltöltve');
     }
-
 }

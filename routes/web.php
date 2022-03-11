@@ -56,8 +56,8 @@ Route::get('/api/adminAutok', [AdminAutokController::class, 'adminIndex']);
 Route::post('/adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
 
 Route::get('adminAutok', [AdminAutokController::class, 'create']);
-Route::put('adminAutok/{auto}', [AdminAutokController::class, 'edit']);
-Route::put('/adminAutok/{auto}', [AdminAutokController::class, 'update']);
+Route::get('adminAutok/{alvazSzam}', [AdminAutokController::class, 'edit']);
+Route::put('/adminAutok/{alvazSzam}', [AdminAutokController::class, 'update']);
 
 
 //felhasznaloApi

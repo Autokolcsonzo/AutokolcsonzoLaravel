@@ -4,36 +4,32 @@ $(function () {
     const adminAutok = [];
     const felhasznalok = [];
 
-    let apiVegpont = "http://localhost:8000/api/adminAutok";
+    // let apiVegpont = "http://localhost:8000/api/adminAutok";
     /* let osszesFelhasznaloApi = "http://localhost:8000/api/osszesFelhasznalo"; */
 
     myAjax.getAdat(apiVegpont, adminAutok, autoFeltoltes);
     /* myAjax.getAdat(osszesFelhasznaloApi, felhasznalok, felhasznalokFeltoltes); */
 
     function autoFeltoltes(adminAutok) {
-        const szuloElem = $(".tablazat .szuloElem");
-        const sablonElem = $(".adminAuto");
+        $(".felhasznalokAdmin").append("<div class='felhFejlec'></div>");
+        $(".felhFejlec").append(
+            "<h2>Státusz</h2><h2>Rendszám</h2><h2>Megnevezés</h2><h2>Telephely</h2><h2></h2><h2></h2><h2></h2>"
+        );
+        const szuloElem = $(".felhasznalokAdmin");
+        const sablonElem = $(".felhasznalo");
         szuloElem.empty();
         sablonElem.show();
 
         adminAutok.forEach(function (elem) {
-            /* console.log(elem); */
             const ujElem = sablonElem.clone().appendTo(szuloElem);
             const ujTermek = new Auto(ujElem, elem);
         });
 
         UjAutoFelvetele();
         ModositMegjelenes();
-        ReszletekMegjelenes();
 
         sablonElem.hide();
     }
-
-    $(window).on("torles", (event) => {
-        console.log("törlés");
-        myAjax.deleteAdat(apiVegpont, event.detail.id);
-        /*   location.reload(); */
-    });
 
     function felhasznalokFeltoltes(felhasznalok) {
         console.log("felhasznalok feltoltes");
@@ -62,20 +58,26 @@ $(function () {
         }); */
 
     function ModositMegjelenes() {
-        $(".autoMod").on("click", () => {
-            $(".autoAdatokModositas").slideDown(500);
-        });
-    }
-
-    function ReszletekMegjelenes() {
-        $(".autoMod").on("click", () => {
-            $(".autoAdatokModositas").slideDown(500);
+        $(".fadatokMod").click(function () {
+            if ($(".fadatokMod").hasClass("clicked-once")) {
+                $(".autoAdatokModositas").slideUp(1000);
+                $(".fadatokMod").removeClass("clicked-once");
+            } else {
+                $(".fadatokMod").addClass("clicked-once");
+                $(".autoAdatokModositas").slideDown(1000);
+            }
         });
     }
 
     function UjAutoFelvetele() {
-        $(".ujAutoGomb").on("click", () => {
-            $(".autoAdatokModositas").slideDown(500);
+        $(".ujAutoGomb").click(function () {
+            if ($(".ujAutoGomb").hasClass("clicked-once")) {
+                $(".autoAdatokFeltoltes").slideUp(1000);
+                $(".ujAutoGomb").removeClass("clicked-once");
+            } else {
+                $(".ujAutoGomb").addClass("clicked-once");
+                $(".autoAdatokFeltoltes").slideDown(1000);
+            }
         });
     }
 
