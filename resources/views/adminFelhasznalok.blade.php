@@ -76,12 +76,15 @@
                 </div>
 
             </div>
+
             <h3 class="oldalNev">Felhasználók</h3>
-            <div class="values">
+            
+             <!-- 3 ablak adatokkal -->
+             <div class="values">
                 <div class="val-box">
                     <i class="fas fa-users"></i>
-                    <div>
-                        <h3>16</h3>
+                    <div class="felhasznalokSzamaSablon">
+                        <h3 class="felhasznalokSzama">{{$felhasznalok}}</h3>
                         <span>Összes felhasználó</span>
                     </div>
                 </div>
@@ -91,7 +94,7 @@
                 <div class="val-box">
                     <i class="fas fa-car"></i>
                     <div>
-                        <h3>194</h3>
+                        <h3>{{$foglalasok}}</h3>
                         <span>Összes foglalás</span>
                     </div>
                 </div>
@@ -101,7 +104,7 @@
                 <div class="val-box">
                     <i class="fas fa-money-check-alt"></i>
                     <div>
-                        <h3>1.320.456Ft</h3>
+                        <h3>{{$bevetel}}</h3>
                         <span>Bejövő összeg</span>
                     </div>
                 </div>

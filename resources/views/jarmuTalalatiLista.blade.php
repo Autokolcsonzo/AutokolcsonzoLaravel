@@ -94,6 +94,14 @@
                             <input id="foglalas-igD" name="foglalas-ig" type="date" required>
                             <select id="foglalas-igI" name="foglalas-ig" required></select>
                         </section>
+                        <section id="foglalas-felhasznaloi-adatok">
+                            <div id="személyes-adatok">
+                                <p>Teljes név : Ménesi Csaba</p>
+                                <p>Felhasználó név : Csa1999</p>
+                                <p>Email cim : menesi777@gmail.com</p>
+                                <p>telefon szám : +366501080482</p>
+                            </div>
+                        </section>
                         <button id="lefoglalas" class="" type="submit">Lefoglalás</button>
                     </form>
                     <div id="Felhasznaloi-feltetelek">

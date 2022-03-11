@@ -73,9 +73,18 @@
     "vja vja vja vja jar jar"
     "vja vja vja vja jar jar"
     "tbx tbx ibx ibx vjf vjf"
+    "ffa ffa ffa ffa vjf vjf"
     ;
     background-size: cover;
     max-width: 1920px;
+  }
+  #foglalas-felhasznaloi-adatok{
+    grid-area: ffa;
+    margin: 30px;
+  }
+  #személyes-adatok{
+    display: flex;
+    flex-direction: row;
   }
   #valasztott-jarmu-adatok {
     grid-area: vja;

@@ -54,4 +54,11 @@ class AdminFoglalasController extends Controller
         $foglalas=AdminFoglalasModel::with('felhasznalo')->get();
         return $foglalas;
     }
+
+    public function osszAdatok() {
+        $felhasznalok = DB::table('felhasznalo')->count();
+        $foglalasok = DB::table('foglalas')->count();
+        $bevetel = DB::table('foglalas')->select('kifizetendo_osszegeg')->count();
+        return view('adminFoglalas', compact('felhasznalok', 'foglalasok', 'bevetel'));
+    }
 }

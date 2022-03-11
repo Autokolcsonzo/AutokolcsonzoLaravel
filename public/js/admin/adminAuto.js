@@ -46,17 +46,3 @@ class Auto {
     }
 }
 
-class AdminAdatok {
-    constructor(elem, adat) {
-        this.elem = elem;
-        this.adat = adat;
-        this.felhasznalo_id = this.elem.find(".felhasznalokSzama");
-
-        this.setAdat(this.adat);
-    }
-
-    setAdat(adat) {
-        this.adat = adat;
-        this.felhasznalo_id.text(adat.felhasznalo_id);
-    }
-}

@@ -4,11 +4,9 @@ $(function () {
     const adminAutok = [];
     const felhasznalok = [];
 
-    // let apiVegpont = "http://localhost:8000/api/adminAutok";
-    /* let osszesFelhasznaloApi = "http://localhost:8000/api/osszesFelhasznalo"; */
-
+    let apiVegpont = "http://localhost:8000/api/adminAutok";
+    
     myAjax.getAdat(apiVegpont, adminAutok, autoFeltoltes);
-    /* myAjax.getAdat(osszesFelhasznaloApi, felhasznalok, felhasznalokFeltoltes); */
 
     function autoFeltoltes(adminAutok) {
         $(".felhasznalokAdmin").append("<div class='felhFejlec'></div>");
@@ -19,7 +17,7 @@ $(function () {
         const sablonElem = $(".felhasznalo");
         szuloElem.empty();
         sablonElem.show();
-
+        
         adminAutok.forEach(function (elem) {
             const ujElem = sablonElem.clone().appendTo(szuloElem);
             const ujTermek = new Auto(ujElem, elem);
@@ -31,40 +29,32 @@ $(function () {
         sablonElem.hide();
     }
 
-    function felhasznalokFeltoltes(felhasznalok) {
-        console.log("felhasznalok feltoltes");
-        const szuloElem = $(".values");
-        const sablonElem = $(".val-box");
-        szuloElem.empty();
-        sablonElem.show();
-        felhasznalok.forEach(function (elem) {
-            console.log(elem);
-            const ujElem = sablonElem.clone().appendTo(szuloElem);
-            const ujTermek = new Auto(ujElem, elem);
-        });
+    $(window).on("torles", (event) => {
+        console.log("törlés");
+        myAjax.deleteAdat(apiVegpont, event.detail.id);
+        /*   location.reload(); */
+    });
 
-        sablonElem.hide();
-    }
+        function ModositMegjelenes() {
+            $(".autoMod").click(function () {
+                if ($(".autoMod").hasClass("clicked-once")) {
+                    $(".autoAdatokModositas").slideUp(500);
+                    $(".autoMod").removeClass("clicked-once");
+                } else {
+                    $(".autoMod").addClass("clicked-once");
+                    $(".autoAdatokModositas").slideDown(500);
+                }
+            });
+        }
 
-    /* $(window).on("modositas", (event) => {
-            id = event.detail.id;
-            $("#nev").val(event.detail.title);
-            $("#leiras").val(event.detail.description);
-            $("#befdate").val(event.detail.end_date);
-            $("#felh").val(event.detail.userId);
-            $("#status").val(event.detail.status);
-            $("#submit").prop("disabled", true);
-            $("#form").show();
-        }); */
-
-    function ModositMegjelenes() {
-        $(".fadatokMod").click(function () {
-            if ($(".fadatokMod").hasClass("clicked-once")) {
-                $(".autoAdatokModositas").slideUp(1000);
-                $(".fadatokMod").removeClass("clicked-once");
+    function ReszletekMegjelenes() {
+        $(".autoReszletek").click(function () {
+            if ($(".autoReszletek").hasClass("clicked-once")) {
+                $(".autoAdatokFeltoltes").slideUp(500);
+                $(".autoReszletek").removeClass("clicked-once");
             } else {
-                $(".fadatokMod").addClass("clicked-once");
-                $(".autoAdatokModositas").slideDown(1000);
+                $(".autoReszletek").addClass("clicked-once");
+                $(".autoAdatokFeltoltes").slideDown(500);
             }
         });
     }
@@ -72,11 +62,11 @@ $(function () {
     function UjAutoFelvetele() {
         $(".ujAutoGomb").click(function () {
             if ($(".ujAutoGomb").hasClass("clicked-once")) {
-                $(".autoAdatokFeltoltes").slideUp(1000);
+                $(".autoAdatokFeltoltes").slideUp(500);
                 $(".ujAutoGomb").removeClass("clicked-once");
             } else {
                 $(".ujAutoGomb").addClass("clicked-once");
-                $(".autoAdatokFeltoltes").slideDown(1000);
+                $(".autoAdatokFeltoltes").slideDown(500);
             }
         });
     }

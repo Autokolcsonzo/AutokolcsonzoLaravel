@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\FelhasznaloModell;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FelhasznalokController extends Controller
 {
+
+
+
+    protected $felhasznalo;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +20,7 @@ class FelhasznalokController extends Controller
      */
     public function index()
     {
-        $felhasznalo = FelhasznaloModell::all(); 
+        $felhasznalo = FelhasznaloModell::all();
         return $felhasznalo;
     }
 
@@ -44,7 +49,6 @@ class FelhasznalokController extends Controller
         $felhasznalo->felhasznalonev = $request->felhasznalonev;
         $felhasznalo->jelszo = $request->jelszo;
         $felhasznalo->szul_ido = $request->szul_ido;
-        $felhasznalo->profilkep = $request->profilkep;
         $felhasznalo->varos = $request->varos;
         $felhasznalo->megye = $request->megye;
         $felhasznalo->ir_szam = $request->ir_szam;
@@ -52,10 +56,15 @@ class FelhasznalokController extends Controller
         $felhasznalo->hazszam = $request->hazszam;
         $felhasznalo->tel_szam = $request->tel_szam;
         $felhasznalo->e_mail = $request->e_mail;
-        $felhasznalo->reg_datum = $request->reg_datum;
-        $felhasznalo->jogkor = $request->jogkor;
-        $felhasznalo->telephely = $request->telephely;
+       
         $felhasznalo->save();
+
+        $felhasznalo_kepek = [
+          
+            'profilkep' => $request->kep
+        ];
+
+        DB::table('felhasznalo')->insert($felhasznalo_kepek);
     }
 
     /**
@@ -67,7 +76,7 @@ class FelhasznalokController extends Controller
     public function show($felhasznalo_id)
     {
         $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
-      
+
         return response()->json($felhasznalo);
     }
 
@@ -77,12 +86,11 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($felhasznalo_id)
+    public function edit(FelhasznaloModell $felhasznalo)
 
     {
-        /* $felhasznalo = FelhasznaloModell::findOrFail($felhasznalo_id); */
-
-     
+        return view('felhasznalo.edit')
+            ->with('felhasznalo', $felhasznalo);
     }
 
     /**
@@ -92,20 +100,18 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$felhasznalo_id)
+    public function update(Request $request, $felhasznalo_id, FelhasznaloModell $felhasznalo)
     {
+ dd('test');
 
-        
-    
-        $felhasznalo = FelhasznaloModell::findOrFail($felhasznalo_id);
-     
+
+        $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
+
         $felhasznalo->vezeteknev = $request->vezeteknev;
         $felhasznalo->keresztnev = $request->keresztnev;
         $felhasznalo->felhasznalonev = $request->felhasznalonev;
-        dd("helo");
         $felhasznalo->jelszo = $request->jelszo;
         $felhasznalo->szul_ido = $request->szul_ido;
-     
         $felhasznalo->varos = $request->varos;
         $felhasznalo->megye = $request->megye;
         $felhasznalo->ir_szam = $request->ir_szam;
@@ -115,9 +121,10 @@ class FelhasznalokController extends Controller
         $felhasznalo->e_mail = $request->e_mail;
      
         
-       $felhasznalo->update();
+       $felhasznalo->save();
+       return view('felhasznalo.update', compact('felhasznalo'));
       
-       return redirect()->route('felhasznalo.update', ['felhasznalo' => $felhasznalo_id]);
+      
       
     }
 
@@ -131,5 +138,12 @@ class FelhasznalokController extends Controller
     {
         $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
         $felhasznalo->delete();
+    }
+
+    public function osszAdatok() {
+        $felhasznalok = DB::table('felhasznalo')->count();
+        $foglalasok = DB::table('foglalas')->count();
+        $bevetel = DB::table('foglalas')->select('kifizetendo_osszegeg')->count();
+        return view('adminFelhasznalok', compact('felhasznalok', 'foglalasok', 'bevetel'));
     }
 }
