@@ -121,12 +121,13 @@
                 </div>
                 <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása" style="display:block" />
 
+                
 
                 <div class="felhasznaloiModositas">
-                <form method="POST" enctype="multipart/form-data"  action="" >
-                <input type="hidden" name="_method" value="PUT">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-  @csrf
+
+                    <form action="{{ route('felhasznalo.update', ['felhasznalo' => $felhasznalo_id] ) }}" method="POST" enctype="multipart/form-data">
+                    {{ method_field('PUT') }}
+                        @csrf
                         <div class="form-header">
                             <h3>Adatok módosítása</h3>
                         </div>
