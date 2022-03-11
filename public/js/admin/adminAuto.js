@@ -2,38 +2,47 @@ class Auto {
     constructor(elem, adat) {
         this.elem = elem;
         this.adat = adat;
+        this.statusz = this.elem.find(".statusz");
         this.rendszam = this.elem.find(".rendszam");
         this.megnevezes = this.elem.find(".megnevezes");
-        this.telephely = this.elem.find(".telephely");
+        this.telephely = this.elem.find(".varos");
 
-        this.modositGomb = this.elem.children(".autoMod");
-        this.torolGomb = this.elem.children(".autoTorles");
+        this.ir_szam = this.elem.find(".iranyitoszam");
+        this.megye = this.elem.find(".megye");
+        this.utca = this.elem.find(".utca");
+        this.szul_ido = this.elem.find(".szul_ido");
+        this.reszletekGomb = this.elem.find(".fReszletek");
+        this.zarva = true;
 
-        /*  this.modositGomb.on("click", () => {
-            this.kattintasTrigger();
-        }); */
-
-        this.torolGomb.on("click", () => {
-            console.log("törlés");
-            this.kattintasTrigger();
+        this.reszletekGomb.on("click", () => {
+            this.reszletekTrigger();
         });
 
         this.setAdat(this.adat);
     }
 
     setAdat(adat) {
+        $(".reszletek").css("display", "none");
         this.adat = adat;
-        /*         this.adat; */
+        this.statusz.text(adat.statusz);
         this.rendszam.text(adat.rendszam);
         this.megnevezes.text(adat.marka);
-        this.telephely.text(adat.telephely);
-       // this.felhasznalokSzamaSablon.text(adat.felhasznalokSzamaSablon);
+        this.telephely.text(adat.varos);
+        // this.felhasznalokSzamaSablon.text(adat.felhasznalokSzamaSablon);
+        this.ir_szam.text(adat.ir_szam);
+        this.megye.text(adat.megye);
+        this.utca.text(adat.utca);
+        this.szul_ido.text(adat.szul_ido);
     }
 
-    kattintasTrigger() {
-        let esemeny = new CustomEvent("torles", { detail: this.adat });
-        console.log("kattintás trigger");
-        window.dispatchEvent(esemeny);
+    reszletekTrigger() {
+        if (this.zarva) {
+            $(this.elem.children(".reszletek")).slideDown(500);
+            this.zarva = false;
+        } else if (!this.zarva) {
+            $(this.elem.children(".reszletek")).slideUp(500);
+            this.zarva = true;
+        }
     }
 }
 

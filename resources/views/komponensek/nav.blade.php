@@ -47,7 +47,9 @@
             <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
             <li><a href="{{ route('feltetelek') }}">Feltételek</a></li>
             <li>
-                <a href="{{ route('osszesAutoMenubol') }}">Járműveink<!--  <i class="fa fa-arrow-right"></i> --></a>
+                <a href="{{ route('osszesAutoMenubol') }}">Járműveink
+                    <!--  <i class="fa fa-arrow-right"></i> -->
+                </a>
                 <!-- <div class="autokMenu">
                     <ul>
                         <li><a href="{{ route('osszesAutoMenubol') }}">Összes</a></li>

@@ -9,20 +9,22 @@ $(function () {
     myAjax.getAdat(apiVegpont, adminAutok, autoFeltoltes);
 
     function autoFeltoltes(adminAutok) {
-        const szuloElem = $(".tablazat .szuloElem");
-        const sablonElem = $(".adminAuto");
+        $(".felhasznalokAdmin").append("<div class='felhFejlec'></div>");
+        $(".felhFejlec").append(
+            "<h2>Státusz</h2><h2>Rendszám</h2><h2>Megnevezés</h2><h2>Telephely</h2><h2></h2><h2></h2><h2></h2>"
+        );
+        const szuloElem = $(".felhasznalokAdmin");
+        const sablonElem = $(".felhasznalo");
         szuloElem.empty();
         sablonElem.show();
         
         adminAutok.forEach(function (elem) {
-            /* console.log(elem); */
             const ujElem = sablonElem.clone().appendTo(szuloElem);
             const ujTermek = new Auto(ujElem, elem);
         });
 
         UjAutoFelvetele();
         ModositMegjelenes();
-        ReszletekMegjelenes();
 
         sablonElem.hide();
     }

@@ -121,6 +121,7 @@
                 </div>
                 <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása" style="display:block" />
 
+                
 
                 <div class="felhasznaloiModositas">
                 <form method="post" enctype="multipart/form-data" action="{{ route('felhasznalo.update') }}">

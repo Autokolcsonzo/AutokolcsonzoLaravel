@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class FelhasznalokController extends Controller
 {
+
+
+
+    protected $felhasznalo;
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,7 @@ class FelhasznalokController extends Controller
      */
     public function index()
     {
-        $felhasznalo = FelhasznaloModell::all(); 
+        $felhasznalo = FelhasznaloModell::all();
         return $felhasznalo;
     }
 
@@ -57,7 +61,7 @@ class FelhasznalokController extends Controller
 
         $felhasznalo_kepek = [
           
-            'profilkep' => $req->kep
+            'profilkep' => $request->kep
         ];
 
         DB::table('felhasznalo')->insert($felhasznalo_kepek);
@@ -72,7 +76,7 @@ class FelhasznalokController extends Controller
     public function show($felhasznalo_id)
     {
         $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
-      
+
         return response()->json($felhasznalo);
     }
 
@@ -82,12 +86,11 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($felhasznalo_id)
+    public function edit(FelhasznaloModell $felhasznalo)
 
     {
-        /* $felhasznalo = FelhasznaloModell::findOrFail($felhasznalo_id); */
-
-     
+        return view('felhasznalo.edit')
+            ->with('felhasznalo', $felhasznalo);
     }
 
     /**
@@ -97,13 +100,13 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$felhasznalo_id)
+    public function update(Request $request, $felhasznalo_id, FelhasznaloModell $felhasznalo)
     {
+ dd('test');
 
-        
-    
-        $felhasznalo = FelhasznaloModell::findOrFail($felhasznalo_id);
-     
+
+        $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
+
         $felhasznalo->vezeteknev = $request->vezeteknev;
         $felhasznalo->keresztnev = $request->keresztnev;
         $felhasznalo->felhasznalonev = $request->felhasznalonev;

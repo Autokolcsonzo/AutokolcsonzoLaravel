@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Session;
 
 class AdminAutokController extends Controller
 {
-    
+
     public function adminIndex()
     {
         $results = DB::table('auto')
@@ -141,5 +141,4 @@ if($data)
         //   return redirect()->back();
         return redirect()->back()->with('status', 'adatok sikeresen feltöltve');
     }
-
 }
