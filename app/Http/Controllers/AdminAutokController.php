@@ -16,18 +16,12 @@ class AdminAutokController extends Controller
 
     public function adminIndex()
     {
-        $results1 = [1,2,34,5,6];
-        $results1 = "keCSKE";
         $results = DB::table('auto')
         ->join('modell', 'auto.modell', '=', 'modell.modell_id')
         ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
         ->select('auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
         ->get();
-        return array(
-            "eredmeny" => $results,
-            "asd" => $results1,
-            "ASD2" => $results1
-        );
+        return $results;
         //return view('adminAutok', compact('result'));
     }
     
