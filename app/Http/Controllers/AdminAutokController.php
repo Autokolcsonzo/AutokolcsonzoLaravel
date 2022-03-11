@@ -32,47 +32,60 @@ class AdminAutokController extends Controller
         return view('adminAutok', compact('felhasznalok', 'foglalasok', 'bevetel'));
     }
 
+    public function show($alvazSzam) {
+        $autok = Auto::find($alvazSzam);
+        return view('adminAutok', compact('autok'));
+    }
+
     public function create() {
         $autok = Auto::all();
         return view('adminAutok', compact('autok'));
     }
     
-    public function edit($auto) {
-        $auto = Auto::find($auto);
-        return view('adminAutok', compact('auto'));
+    public function edit($alvazSzam) {
+        $autok = Auto::find($alvazSzam);
+        return view('adminAutok', compact('autok'));
         /* return response()->json(auto::find($rendszam), 200); */
     }
     
-    public function delete($auto) {
-        Auto::find($auto)->delete();
-        return redirect()->back();
-        /* return response()->json(auto::find($rendszam), 200); */
+    public function delete($alvazSzam, Request $request) {
+        dd('ok');
+        $auto = Auto::where('alvazSzam', $alvazSzam)->first();
+        $auto->delete();
+      //  Auto::find($auto)->delete();
+      //  return redirect()->back();
+         return response()->json(Auto::find($rendszam), 200); 
     }
     
-    public function update(Request $req, $data) {
-        $input = $req->all();
+    public function update(Request $req, $alvazSzam) {
+  //      $input = $req->all();
 
-        $data = Auto::find($data);
-
-        $data->alvazSzam = $input['alvazSzam'];
-      //  $data->marka = $input['marka'];
-        $data->modell = $input['modell'];
+        $data = Auto::find($alvazSzam);
+if($data)
+{
+        $data->alvazSzam = $req->alvazSzam;
+      //  $data->marka = $input->marka;
+        $data->modell = $req->modell;
   /*       $data->tipus = $input['tipus'];
         $data->evjarat = $input['evjarat'];
         $data->kivitel = $input['kivitel'];
         $data->uzemanyag = $input['uzemanyag'];
         $data->teljesitmeny = $input['teljesitmeny']; */
-        $data->telephely = $input['telephely'];
-        $data->napiAr = $input['napiAr'];
+        $data->telephely = $req->telephely;
+        $data->napiAr = $req->napiAr;
        /*  $data->extra_megnevezese = $input['extra_megnevezese'];
         $data->kep = $input['kep']; */
-        $data->szin = $input['szin'];
-        $data->forgalmiSzam = $input['forgalmiSzam'];
-        $data->statusz = $input['statusz'];
-        $data->rendszam = $input['rendszam'];
-        $data->save();
+        $data->szin = $req->szin;
+        $data->forgalmiSzam = $req->forgalmiSzam;
+        $data->statusz = $req->statusz;
+        $data->rendszam = $req->rendszam;
+        $data->update();
 
-        return redirect('/adminAutok');
+        return response()->json(['message'=>'success'], 200);
+} else {
+    return response()->json(['message'=>'nooo'], 404);
+}
+     //   return redirect('/adminAutok');
     }
 
     public function store(Request $req)

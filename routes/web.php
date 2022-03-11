@@ -56,10 +56,10 @@ Route::get('/api/adminAutok', [AdminAutokController::class, 'adminIndex']);
 Route::post('/adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
 
 Route::get('adminAutok', [AdminAutokController::class, 'create']);
-Route::get('/adminAutok/{auto}', [AdminAutokController::class, 'edit']);
-Route::put('/adminAutok/{auto}', [AdminAutokController::class, 'update']);
+Route::get('/adminAutok/{alvazSzam}', [AdminAutokController::class, 'edit']);
+Route::put('/adminAutok/{alvazSzam}', [AdminAutokController::class, 'update']);
 
-Route::delete('/delete-adminAutok/{auto}', [AdminAutokController::class, 'delete']);
+Route::delete('/adminAutok/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
 Route::get('adminAutok', [AdminAutokController::class, 'osszAdatok']);
 
