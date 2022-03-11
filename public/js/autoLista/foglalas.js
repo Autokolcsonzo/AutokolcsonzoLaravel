@@ -333,19 +333,32 @@ class KedvezmenyAjax {
     }
     getAdat(apiVegpont) {
         console.log("kedvezmeny mentve");
+        console.log(apiVegpont);
         let kedvezmenyek = {};
         $.ajax({
             url: apiVegpont,
             type: "GET",
             success: function (result) {
-                result.forEach((value) => {
-                    kedvezmenyek = value;
+                let txt = "{"
+                result.forEach((value, index) => {
+                   index++;
+                    if(index == result.length){
+                        txt += '"'+value.naptol+'"'+":"+value.szazalek+"";
+                    }else{
+                        txt += '"'+value.naptol+'"'+":"+value.szazalek+",";
+                    }
+                   
                 });
+                txt+="}";
+                kedvezmenyek = JSON.parse(txt);
+                console.log(txt)
                 localStorage.setItem(
                     "kedvezmenyek",
                     JSON.stringify(kedvezmenyek)
                 );
             },
+            
         });
+        console.log(kedvezmenyek)
     }
 }

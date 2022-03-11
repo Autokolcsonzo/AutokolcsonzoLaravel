@@ -5,17 +5,15 @@ $(function () {
     const felhasznalok = [];
 
     let apiVegpont = "http://localhost:8000/api/adminAutok";
-    /* let osszesFelhasznaloApi = "http://localhost:8000/api/osszesFelhasznalo"; */
-
+    
     myAjax.getAdat(apiVegpont, adminAutok, autoFeltoltes);
-    /* myAjax.getAdat(osszesFelhasznaloApi, felhasznalok, felhasznalokFeltoltes); */
 
     function autoFeltoltes(adminAutok) {
         const szuloElem = $(".tablazat .szuloElem");
         const sablonElem = $(".adminAuto");
         szuloElem.empty();
         sablonElem.show();
-
+        
         adminAutok.forEach(function (elem) {
             /* console.log(elem); */
             const ujElem = sablonElem.clone().appendTo(szuloElem);
@@ -35,47 +33,39 @@ $(function () {
         /*   location.reload(); */
     });
 
-    function felhasznalokFeltoltes(felhasznalok) {
-        console.log("felhasznalok feltoltes");
-        const szuloElem = $(".values");
-        const sablonElem = $(".val-box");
-        szuloElem.empty();
-        sablonElem.show();
-        felhasznalok.forEach(function (elem) {
-            console.log(elem);
-            const ujElem = sablonElem.clone().appendTo(szuloElem);
-            const ujTermek = new Auto(ujElem, elem);
-        });
-
-        sablonElem.hide();
-    }
-
-    /* $(window).on("modositas", (event) => {
-            id = event.detail.id;
-            $("#nev").val(event.detail.title);
-            $("#leiras").val(event.detail.description);
-            $("#befdate").val(event.detail.end_date);
-            $("#felh").val(event.detail.userId);
-            $("#status").val(event.detail.status);
-            $("#submit").prop("disabled", true);
-            $("#form").show();
-        }); */
-
-    function ModositMegjelenes() {
-        $(".autoMod").on("click", () => {
-            $(".autoAdatokModositas").slideDown(500);
-        });
-    }
+        function ModositMegjelenes() {
+            $(".autoMod").click(function () {
+                if ($(".autoMod").hasClass("clicked-once")) {
+                    $(".autoAdatokModositas").slideUp(500);
+                    $(".autoMod").removeClass("clicked-once");
+                } else {
+                    $(".autoMod").addClass("clicked-once");
+                    $(".autoAdatokModositas").slideDown(500);
+                }
+            });
+        }
 
     function ReszletekMegjelenes() {
-        $(".autoMod").on("click", () => {
-            $(".autoAdatokModositas").slideDown(500);
+        $(".autoReszletek").click(function () {
+            if ($(".autoReszletek").hasClass("clicked-once")) {
+                $(".autoAdatokFeltoltes").slideUp(500);
+                $(".autoReszletek").removeClass("clicked-once");
+            } else {
+                $(".autoReszletek").addClass("clicked-once");
+                $(".autoAdatokFeltoltes").slideDown(500);
+            }
         });
     }
 
     function UjAutoFelvetele() {
-        $(".ujAutoGomb").on("click", () => {
-            $(".autoAdatokModositas").slideDown(500);
+        $(".ujAutoGomb").click(function () {
+            if ($(".ujAutoGomb").hasClass("clicked-once")) {
+                $(".autoAdatokFeltoltes").slideUp(500);
+                $(".ujAutoGomb").removeClass("clicked-once");
+            } else {
+                $(".ujAutoGomb").addClass("clicked-once");
+                $(".autoAdatokFeltoltes").slideDown(500);
+            }
         });
     }
 

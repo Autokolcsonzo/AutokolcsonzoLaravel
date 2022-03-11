@@ -16,39 +16,39 @@ class AdminAutokController extends Controller
     
     public function adminIndex()
     {
-        $result = DB::table('auto')
-            ->join('modell', 'auto.modell', '=', 'modell.modell_id')
-            ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
-            ->select('auto.rendszam', 'modell.marka', 'telephely.varos')
-            ->get();
-        return $result;
+        $results = DB::table('auto')
+        ->join('modell', 'auto.modell', '=', 'modell.modell_id')
+        ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
+        ->select('auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
+        ->get();
+        return $results;
+        //return view('adminAutok', compact('result'));
     }
-
-    public function adminOsszesFelhasznalok()
-    {
-        /*  $result = DB::table('felhasznalo')->get()->count(); */
-        /* dd('ok'); */
-        /* return view('adminAutok', compact('result')); */
-        /* $result = DB::table('felhasznalo')
-            ->select('felhasznalo_id', DB::raw('COUNT(felhasznalo_id)'))
-            ->groupBy('felhasznalo_id');
-        return $result; */
-
-        $count = DB::table('felhasznalo')->get()->count();
-        return view('adminAutok', compact('count'));
+    
+    public function osszAdatok() {
+        $felhasznalok = DB::table('felhasznalo')->count();
+        $foglalasok = DB::table('foglalas')->count();
+        $bevetel = DB::table('foglalas')->select('kifizetendo_osszegeg')->count();
+        return view('adminAutok', compact('felhasznalok', 'foglalasok', 'bevetel'));
     }
 
     public function create() {
         $autok = Auto::all();
         return view('adminAutok', compact('autok'));
     }
-
-     public function edit($auto) {
-         $auto = Auto::find($auto);
-         return view('adminAutok', compact('auto'));
+    
+    public function edit($auto) {
+        $auto = Auto::find($auto);
+        return view('adminAutok', compact('auto'));
         /* return response()->json(auto::find($rendszam), 200); */
     }
-
+    
+    public function delete($auto) {
+        Auto::find($auto)->delete();
+        return redirect()->back();
+        /* return response()->json(auto::find($rendszam), 200); */
+    }
+    
     public function update(Request $req, $data) {
         $input = $req->all();
 
