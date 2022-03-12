@@ -55,12 +55,10 @@
                 </div>
 
                 <div class="adminFeladatValasztas">
-                    <div>
-                        <select name="adminKategoriak" id="adminKategoriak">
-                            <option value="adminAutok">Autók</option>
-                            <option value="adminFelhasznalok">Felhasználók</option>
-                            <option value="adminFoglalasok">Foglalások</option>
-                        </select>
+                    <div id="adminKategoriak">
+                        <a href="{{ 'adminAutok' }}">Autók</a>
+                        <a href="#">Felhasználók</a>
+                        <a href="{{ 'adminFoglalas' }}">Foglalások</a>
                     </div>
                 </div>
 

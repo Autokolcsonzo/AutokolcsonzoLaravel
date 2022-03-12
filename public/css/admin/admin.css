@@ -28,8 +28,13 @@
     font-size: 14px;
 }
 
+#adminKategoriak a {
+  font-size: 16px;
+  padding: 10px;
+}
+
 .adminKereses .adminFeladatValasztas,
-.ujAutoFelvetele,.jogkorValasztas {
+.ujAutoFelvetele, .jogkorValasztas {
     display: flex;
     margin-left: 5%;
     /*  justify-content: flex-start; */
@@ -37,7 +42,6 @@
 }
 
 .adminKereses,
-.adminFeladatValasztas select,
 .ujAutoFelvetele,.jogkorValasztas select {
     padding: 10px;
     font-size: 14px;
@@ -391,45 +395,6 @@ table td {
   body {
     background-color: #e0e4e7;
   }
-  /* }
-
-@media only screen and (max-width: 800px) { */
-    /* .tablazat {
-    display: flex;
-    margin: auto;
-    width: 60%;
-  }
-
-  table thead th {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  table {
-    padding: 10px;
-  }
-
-  table tr {
-    display: block;
-  }
-
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    text-align: center;
-    font-size: 17px;
-  }
-
-  .values .val-box {
-    margin: 2px;
-  }
-
-  .values {
-    flex-direction: column;
-    margin-bottom: 20px;
-  } */
 }
 
 
@@ -497,46 +462,4 @@ table td {
 
 
 }
-/* .tablazat {
-  width: 96%;
-  margin: 30px 0 30px 30px;
-  overflow: auto;
-  background-color: rgb(255, 252, 252);
-  border-radius: 8px;
-}
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-tr {
-  border-bottom: 1px solid rgb(205, 205, 205);
-}
-
-thead,
-tbody {
-  border: 1px solid rgb(205, 205, 205);
-  border-radius: 8px;
-}
-
-thead th {
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 12px;
-}
-
-tbody tr td {
-  padding: 10px 15px;
-}
-
-.reszletekGomb a,
-.modositas a,
-.torles a {
-  padding: 4px 10px;
-  background-color: #97b9d246;
-  border: 1px solid #8283853e;
-  border-radius: 5px;
-  color: #2b2b2b;
-} */
