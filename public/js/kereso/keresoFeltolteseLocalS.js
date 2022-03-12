@@ -38,19 +38,19 @@ class KeresoFeltolteseLocalStorage {
             return
         } else {
             this.kulcsszo.val(keresOBJ.kulcsszo);
-            this.telephely.val(keresOBJ.telephely).change();
             this.telephely.val(keresOBJ.telephely);
-            this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
-            this.elvitelDatuma.attr("max", keresOBJ.visszavitelDatuma).change();
-            this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma).change();
-            this.marka.val(keresOBJ.marka).change();
-            this.modell.val(keresOBJ.modell).change();
-            this.kivitel.val(keresOBJ.kivitel).change();
-            this.uzemanyag.val(keresOBJ.uzemanyag).change();
+            this.telephely.val(keresOBJ.telephely);
+            this.elvitelDatuma.val(keresOBJ.elvitelDatuma);
+            this.elvitelDatuma.attr("max", keresOBJ.visszavitelDatuma);
+            this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma);
+            this.marka.val(keresOBJ.marka);
+            this.modell.val(keresOBJ.modell);
+            this.kivitel.val(keresOBJ.kivitel);
+            this.uzemanyag.val(keresOBJ.uzemanyag);
             this.evjaratTol.val(keresOBJ.evjaratTol);
             this.evjaratIg.val(keresOBJ.evjaratIg);
-            this.arTol.val(keresOBJ.arTol).change();
-            this.arIg.val(keresOBJ.arIg).change();
+            this.arTol.val(keresOBJ.arTol);
+            this.arIg.val(keresOBJ.arIg);
 
             let checkBoxokDOM = [];
             let checkboxLocalon = [];

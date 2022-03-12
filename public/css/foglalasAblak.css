@@ -64,7 +64,9 @@
     grid-area: ff;
     margin: 15px 0px;
   }
-
+  #valasztott-jarmu-helyszin{
+    text-align: start;
+  }
   form {
     display: grid;
     grid-template-columns:auto;
@@ -85,6 +87,10 @@
   #személyes-adatok{
     display: flex;
     flex-direction: row;
+  }
+  #személyes-adatok p{
+    text-align: start;
+    margin-right: 20px;
   }
   #valasztott-jarmu-adatok {
     grid-area: vja;
@@ -111,6 +117,7 @@
   }
   #lefoglalas {
     grid-area: vjf;
+    margin-bottom: auto;
   }
   #valasztott-jarmu-adatok-wrapp{
     display: flex;
@@ -136,6 +143,18 @@
   #valasztott-jarmu-kedvezmeny::before{
       content: 'Kedvezmény: ';
       color: green;
+  }
+  #teljesNev::before{
+    content: 'Teljes név : ';
+  }
+  #felhasznaloNev::before{
+    content: 'Felhasználó név : ';
+  }
+  #email::before{
+    content: 'Email cim : ';
+  }
+  #telefon::before{
+    content: 'telefon szám : ';
   }
   #valasztott-jarmu-kedvezmeny,#valasztott-jarmu-kedvezmeny::after{
     content: ' %';

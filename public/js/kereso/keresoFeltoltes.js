@@ -76,8 +76,8 @@ class KeresoFeltolo {
         if (keresoLocalSOBJ != null || 0) {
             const kfs = new KeresoFeltolteseLocalStorage();
             kfs.setHozottParameterek();
-            $("#idoEl").val(keresoLocalSOBJ.elvitelIdo).change();
-            $("#idoVissza").val(keresoLocalSOBJ.visszaIdo).change();
+            $("#idoEl").val(keresoLocalSOBJ.elvitelIdo);
+            $("#idoVissza").val(keresoLocalSOBJ.visszaIdo);
         }
     }
 
