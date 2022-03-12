@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+.reszletek, .reszlet {
+  display: none;
+}
+
 .adminKereses {
     display: flex;
     align-items: center;
@@ -113,7 +117,6 @@
 /* ADMIN AUTÓ MÓDOSÍTÁS */
 
 .autoAdatokModositas {
-    display: none;
     max-width: 700px;
 }
 

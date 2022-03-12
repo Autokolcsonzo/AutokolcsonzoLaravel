@@ -49,8 +49,13 @@
 <body>
     <main>
         <!-- TABLET, STB. NÉZET -->
+  <!--       @auth('felhasznalo')
+            @include('komponensek/felhasznaloNav')
+        @endauth
+        @guest
+            @include('komponensek/nav')
+        @endguest -->
         @include('komponensek/nav')
-
         <!-- HEADER -->
         @include('komponensek/header')
 
