@@ -1,78 +1,39 @@
 $(function () {
-    const token = $('meta[name="csrf-token"]').attr("content");
-    const myAjax = new MyAjax(token);
-    const adminAutok = [];
-    const felhasznalok = [];
+    UjAutoFelvetele();
+    ReszletMegjelenit();
+});
 
-    let apiVegpont = "http://localhost:8000/api/adminAutok";
-    
-    myAjax.getAdat(apiVegpont, adminAutok, autoFeltoltes);
-
-    function autoFeltoltes(adminAutok) {
-        $(".felhasznalokAdmin").append("<div class='felhFejlec'></div>");
-        $(".felhFejlec").append(
-            "<h2>Státusz</h2><h2>Rendszám</h2><h2>Megnevezés</h2><h2>Telephely</h2><h2></h2><h2></h2><h2></h2>"
-        );
-        const szuloElem = $(".felhasznalokAdmin");
-        const sablonElem = $(".felhasznalo");
-        szuloElem.empty();
-        sablonElem.show();
-        
-        adminAutok.forEach(function (elem) {
-            const ujElem = sablonElem.clone().appendTo(szuloElem);
-            const ujTermek = new Auto(ujElem, elem);
-        });
-
-        UjAutoFelvetele();
-        ModositMegjelenes();
-
-        sablonElem.hide();
-    }
-
-    $(window).on("torles", (event) => {
-        console.log("törlés");
-        myAjax.deleteAdat(apiVegpont, event.detail.id);
-        /*   location.reload(); */
-    });
-
-        function ModositMegjelenes() {
-            $(".autoMod").click(function () {
-                if ($(".autoMod").hasClass("clicked-once")) {
-                    $(".autoAdatokModositas").slideUp(500);
-                    $(".autoMod").removeClass("clicked-once");
-                } else {
-                    $(".autoMod").addClass("clicked-once");
-                    $(".autoAdatokModositas").slideDown(500);
-                }
-            });
+function ReszletMegjelenit() {
+    $(".fReszletek").click(function () {
+        if ($(".fReszletek").hasClass("clicked-once")) {
+            $(".reszlet").slideUp(500);
+            $(".felhasznalokAdmin").append("<div class='felhFejlec2'></div>");
+            $(".felhFejlec2").append("<div class='tunjel'><h2>Jogkör</h2><h2>Felhasználónev</h2><h2>E-mail</h2><h2>Reg. dátum</h2><h2></h2><h2></h2><h2></h2></div>");
+            $(".fReszletek").removeClass("clicked-once");
+        } else {
+            $(".fReszletek").addClass("clicked-once");
+            $(".reszlet").slideDown(500);
+            $(".felhasznalokAdmin").remove(".felhFejlec2");
+            $(".felhFejlec2").remove();
         }
+    });
+    
+}
 
-    function ReszletekMegjelenes() {
-        $(".autoReszletek").click(function () {
-            if ($(".autoReszletek").hasClass("clicked-once")) {
-                $(".autoAdatokFeltoltes").slideUp(500);
-                $(".autoReszletek").removeClass("clicked-once");
-            } else {
-                $(".autoReszletek").addClass("clicked-once");
-                $(".autoAdatokFeltoltes").slideDown(500);
-            }
-        });
-    }
+function UjAutoFelvetele() {
+    $(".ujAutoGomb").click(function () {
+        if ($(".ujAutoGomb").hasClass("clicked-once")) {
+            $(".autoAdatokFeltoltes").slideUp(500);
+            $(".ujAutoGomb").removeClass("clicked-once");
+        } else {
+            $(".ujAutoGomb").addClass("clicked-once");
+            $(".autoAdatokFeltoltes").slideDown(500);
+        }
+    });
+}
 
-    function UjAutoFelvetele() {
-        $(".ujAutoGomb").click(function () {
-            if ($(".ujAutoGomb").hasClass("clicked-once")) {
-                $(".autoAdatokFeltoltes").slideUp(500);
-                $(".ujAutoGomb").removeClass("clicked-once");
-            } else {
-                $(".ujAutoGomb").addClass("clicked-once");
-                $(".autoAdatokFeltoltes").slideDown(500);
-            }
-        });
-    }
-
-    //Sortok
-    /*     let keresomezo = $("#keresoMezo");
+//Sortok
+/*     let keresomezo = $("#keresoMezo");
     keresomezo.on("keyup", () => {
         autok.splice(0, autok.length);
         $("#jarmu-lista").empty();
@@ -95,4 +56,3 @@ $(function () {
             autoAjax.getAdat(apivegpont, autok, autoFeltoltes);
         }
     }); */
-});

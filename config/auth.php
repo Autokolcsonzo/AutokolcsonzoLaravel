@@ -42,7 +42,7 @@ return [
         ],
         'felhasznalo' => [
         'driver' => 'session',
-        'provider' => 'felhasznalo',
+        'provider' => 'felhasznalos',
     ],
     ],
 
@@ -68,9 +68,9 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'felhasznalo' => [
+        'felhasznalos' => [
         'driver' => 'eloquent',
-        'model' => App\Felhasznalo::class,
+        'model' => App\Models\Felhasznalo::class,
     ],
         // 'users' => [
         //     'driver' => 'database',
@@ -100,11 +100,6 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        'felhasznalo' => [
-        'provider' => 'felhasznalo',
-        'table' => 'password_resets',
-        'expire' => 60,
-    ],
     ],
 
     /*
