@@ -56,11 +56,11 @@ class FelhasznalokController extends Controller
         $felhasznalo->hazszam = $request->hazszam;
         $felhasznalo->tel_szam = $request->tel_szam;
         $felhasznalo->e_mail = $request->e_mail;
-       
+
         $felhasznalo->save();
 
         $felhasznalo_kepek = [
-          
+
             'profilkep' => $request->kep
         ];
 
@@ -86,11 +86,11 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(FelhasznaloModell $felhasznalo)
+    public function edit($felhasznalo)
 
     {
-        return view('felhasznalo.edit')
-            ->with('felhasznalo', $felhasznalo);
+        $felhasznalo = FelhasznaloModell::find($felhasznalo);
+        return view('felhasznaloiProfil', compact('felhasznalo'));
     }
 
     /**
@@ -100,32 +100,32 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $felhasznalo_id, FelhasznaloModell $felhasznalo)
+    public function update(Request $request, $felhasznalo)
     {
- dd('test');
+        $input = $request->all();
 
+        $felhasznalo = FelhasznaloModell::find($felhasznalo);
 
-        $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
+        $felhasznalo->felhasznalo_id = $input['felhasznalo_id'];
 
-        $felhasznalo->vezeteknev = $request->vezeteknev;
-        $felhasznalo->keresztnev = $request->keresztnev;
-        $felhasznalo->felhasznalonev = $request->felhasznalonev;
-        $felhasznalo->jelszo = $request->jelszo;
-        $felhasznalo->szul_ido = $request->szul_ido;
-        $felhasznalo->varos = $request->varos;
-        $felhasznalo->megye = $request->megye;
-        $felhasznalo->ir_szam = $request->ir_szam;
-        $felhasznalo->utca = $request->utca;
-        $felhasznalo->hazszam = $request->hazszam;
-        $felhasznalo->tel_szam = $request->tel_szam;
-        $felhasznalo->e_mail = $request->e_mail;
-     
-        
-       $felhasznalo->save();
-       return view('felhasznalo.update', compact('felhasznalo'));
-      
-      
-      
+        $felhasznalo->vezeteknev = $input['vezeteknev'];
+
+        $felhasznalo->keresztnev = $input['keresztnev'];
+
+        $felhasznalo->felhasznalonev = $input['felhasznalonev'];
+        $felhasznalo->jelszo = $input['jelszo'];
+        $felhasznalo->szul_ido = $input['szul_ido'];
+        $felhasznalo->ir_szam = $input['ir_szam'];
+        $felhasznalo->varos = $input['varos'];
+        $felhasznalo->megye = $input['megye'];
+        $felhasznalo->utca = $input['utca'];
+        $felhasznalo->hazszam = $input['hazszam'];
+        $felhasznalo->e_mail = $input['e_mail'];
+        $felhasznalo->tel_szam = $input['tel_szam'];
+
+        $felhasznalo->save();
+
+        return redirect('/felhasznaloiProfil');
     }
 
     /**
@@ -140,7 +140,8 @@ class FelhasznalokController extends Controller
         $felhasznalo->delete();
     }
 
-    public function osszAdatok() {
+    public function osszAdatok()
+    {
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('foglalas')->select('kifizetendo_osszegeg')->count();

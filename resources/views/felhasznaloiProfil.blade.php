@@ -124,10 +124,11 @@
                 
 
                 <div class="felhasznaloiModositas">
-                <form method="post" enctype="multipart/form-data" action="{{ route('felhasznalo.update') }}">
+                <form method="post" enctype="multipart/form-data" action="">
                
-                {{ csrf_field() }}
-<input type="hidden" name="_method" value="PUT">
+             @method('PUT')
+                    @csrf
+
                         <div class="form-header">
                             <h3>Adatok módosítása</h3>
                         </div>

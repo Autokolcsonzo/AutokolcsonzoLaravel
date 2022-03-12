@@ -61,8 +61,16 @@ Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
 //felhasznaloApi
 Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
-Route::get('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'show']);
-Route::post('/api/felhasznalo/{felhasznalo_id}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
+
+
+Route::get('/api/felhasznalo/{felhasznalo}', [FelhasznalokController::class, 'show']);
+
+Route::get('/felhasznaloiProfil/{felhasznalo}', [AdminAutokController::class, 'edit']);
+
+Route::put('/felhasznaloiProfil/{felhasznalo}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
+
+Route::get('adminFelhasznalok', [FelhasznalokController::class, 'osszAdatok']);
+
 
 
 
