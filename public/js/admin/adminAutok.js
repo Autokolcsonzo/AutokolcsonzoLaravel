@@ -3,21 +3,60 @@ $(function () {
     ReszletMegjelenit();
 });
 
-function ReszletMegjelenit() {
-    $(".fReszletek").click(function () {
+/*function ReszletMegjelenit() {
+    $(".fReszletek").addClass("clicked-once");
+    $(".fReszletek").on("click", ()=> {
         if ($(".fReszletek").hasClass("clicked-once")) {
-            $(".reszlet").slideUp(500);
-            $(".felhasznalokAdmin").append("<div class='felhFejlec2'></div>");
-            $(".felhFejlec2").append("<div class='tunjel'><h2>Jogkör</h2><h2>Felhasználónev</h2><h2>E-mail</h2><h2>Reg. dátum</h2><h2></h2><h2></h2><h2></h2></div>");
+            $(".reszlet").slideDown(500);
+            //$(".felhasznalokAdmin").append("<div class='felhFejlec2'></div>");
+            //$(".felhFejlec2").append("<div class='tunjel'><h2>Jogkör</h2><h2>Felhasználónev</h2><h2>E-mail</h2><h2>Reg. dátum</h2><h2></h2><h2></h2><h2></h2></div>");
+            //$(".fReszletek").removeClass("clicked-once");
             $(".fReszletek").removeClass("clicked-once");
         } else {
             $(".fReszletek").addClass("clicked-once");
-            $(".reszlet").slideDown(500);
-            $(".felhasznalokAdmin").remove(".felhFejlec2");
-            $(".felhFejlec2").remove();
+            $(".reszlet").slideUp(500);
+            //$(".felhasznalokAdmin").remove(".felhFejlec2");
+            //$(".felhFejlec2").remove();
         }
     });
     
+}*/
+
+function ReszletMegjelenit() {
+    let zarva = true
+    $( ".reszletek" ).css("display","none");
+    $(".fReszletek").click(function() {
+        let gombId = this.id;
+        $( ".reszletek" ).each(function( index ) {
+            let elem = this.id;
+            if("r"+gombId == elem){
+                console.log(gombId +':'+ elem);
+                if(zarva){
+                    $("#"+elem).slideDown(500);
+                    zarva = false;
+                    console.log(elem+" kinyitva");
+                }else{
+                    $("#"+elem).slideUp(500);
+                    zarva = true;
+                    console.log(elem+" bezárva");
+                }
+            }
+            //console.log( index + ": " + $( this ).text() );
+        });
+
+
+        //console.log(gombId);
+
+        /*if(zarva){
+            $(".reszlet").slideDown(500);
+            zarva = false;
+        }else{
+            $(".reszlet").slideUp(500);
+            zarva = true;
+        }*/
+        
+        
+    });
 }
 
 function UjAutoFelvetele() {
