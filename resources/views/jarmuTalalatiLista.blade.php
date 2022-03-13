@@ -49,6 +49,7 @@
 <body>
     <main>
         <!-- TABLET, STB. NÉZET -->
+        
   <!--       @auth('felhasznalo')
             @include('komponensek/felhasznaloNav')
         @endauth

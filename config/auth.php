@@ -70,7 +70,7 @@ return [
         ],
         'felhasznalos' => [
         'driver' => 'eloquent',
-        'model' => App\Models\Felhasznalo::class,
+        'model' => App\Models\felhasznalo::class,
     ],
         // 'users' => [
         //     'driver' => 'database',
