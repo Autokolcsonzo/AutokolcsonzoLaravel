@@ -68,7 +68,8 @@ class AutoFView extends Migration
                         auto.alvazSzam = auto_extra.alvazSzam AND 
                         auto.modell = modell.modell_id AND 
                         modell.modell_id = modell_tulajdonsag.modell_id AND 
-                        auto.telephely = telephely.telephely_id
+                        auto.telephely = telephely.telephely_id AND
+                        auto.statusz = 0
             SQL;
     }
    

@@ -45,7 +45,28 @@
         @include('komponensek/header')
 
         <div id="primary_content">
-
+        <!--<div id="admin-auto-reszletek-embed">
+        <div id="reszletek-header">
+            <h1>Részletek</h1>
+            <h1>X</h1>
+        </div>
+            <section id="admin-auto-reszletek-section">
+                <img src="kepek/232311_source.jpg" alt="asd123"/>
+                <section>
+                    <p id="admin-auto-reszletek-modell"><br>Mustang</p>
+                    <p id="admin-auto-reszletek-tipus"><br>Mustang123ASd</p>
+                    <p id="admin-auto-reszletek-extra"><br>Banános illatosító</p>
+                </section>
+                <section>
+                    <p id="admin-auto-reszletek-alvazszam"><br>0000000000000000</p>
+                    <p id="admin-auto-reszletek-napiAr"><br>4500</p>
+                    <p id="admin-auto-reszletek-forgalmi"><br>00000000000000000000000000000</p>
+                </section>
+                <p id="admin-auto-reszletek-felvetel"><br>2022-01-10</p>
+                
+            </section>
+        </div>-->
+        
             <!-- ADMIN TÁBLÁZAT, KERESÉS -->
             <div class="adminKereses">
                 <div class="n1">
@@ -121,12 +142,16 @@
                 <div class="felhasznalo">
 
                     @foreach($adat as $data)
-                    <div class="foadatok">
+                    @if($loop->iteration % 2 == 0)
+                        <div class="foadatok even">
+                    @else
+                        <div class="foadatok odd">
+                    @endif
                         <p class="statusz">{{$data->statusz}}</p>
                         <p class="rendszam">{{$data->rendszam}}</p>
                         <p class="megnevezes">{{$data->marka}}</p>
                         <p class="varos">{{$data->varos}}</p>
-                        <p><input type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
+                        <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
                         <p>
                             <a class="fadatokMod" href="{{url('/adminAutokEdit/'.$data->alvazSzam)}}">Módosítás</a>
                         </p>
@@ -136,11 +161,10 @@
                                 <button type="submit"class="torles" >Törlés</button>
                             </form>                 
                     </div>
-                    @endforeach
-
-                    <div class="reszletek">
-                        <div class="reszlet">
+                    <div id="r{{$loop->index}}" class="reszletek">
+                        <div  class="reszlet">
                             <div class="reszletFejlec">
+                                <h2>Jármű index:</h2>
                                 <h2>Irányítószám</h2>
                                 <h2>Megye</h2>
                                 <h2>Város</h2>
@@ -150,16 +174,20 @@
                                 <h2>Születési idő</h2>
                             </div>
                             <div class="reszletadatok">
-                                <p class="iranyitoszam">Irányítószám</p>
-                                <p class="megye">Megye</p>
-                                <p class="varos">Város</p>
-                                <p class="utca">Utca</p>
-                                <p class="hazszam">Házszám</p>
-                                <p class="telszam">Telefonszám</p>
-                                <p class="szul_ido">Születési idő</p>
+                                <p class="jarmu-index">{{$loop->index}}</p>
+                                <p class="iranyitoszam">2360</p>
+                                <p class="megye">Pest</p>
+                                <p class="varos">Gyál</p>
+                                <p class="utca">Rákóczi Ferenc utca</p>
+                                <p class="hazszam">79/1</p>
+                                <p class="telszam">+36300000000</p>
+                                <p class="szul_ido">1999-11-16</p>
                             </div>
                         </div>
                     </div>
+                    @endforeach
+
+                    
                 </div>
             </div>
 

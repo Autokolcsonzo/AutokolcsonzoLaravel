@@ -102,10 +102,10 @@
                         </section>
                         <section id="foglalas-felhasznaloi-adatok">
                             <div id="személyes-adatok">
-                                <p>Teljes név : Ménesi Csaba</p>
-                                <p>Felhasználó név : Csa1999</p>
-                                <p>Email cim : menesi777@gmail.com</p>
-                                <p>telefon szám : +366501080482</p>
+                                <p id="teljesNev"><br>Ménesi Csaba</p>
+                                <p id="felhasznaloNev"><br>Csa1999</p>
+                                <p id="email"><br>menesi777@gmail.com</p>
+                                <p id="telefon"><br>+366501080482</p>
                             </div>
                         </section>
                         <button id="lefoglalas" class="" type="submit">Lefoglalás</button>
