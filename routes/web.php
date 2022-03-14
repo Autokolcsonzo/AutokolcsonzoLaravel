@@ -14,6 +14,7 @@ use App\Http\Controllers\KeresoViewController;
 
 use App\Http\Controllers\AdminFoglalasController;
 use App\Http\Controllers\AdminAutokController;
+use App\Http\Controllers\FelhasznaloProfil;
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
 
@@ -63,17 +64,16 @@ Route::delete('/adminAutok/{alvazSzam}', [AdminAutokController::class, 'delete']
 
 Route::get('adminAutok', [AdminAutokController::class, 'osszAdatok']);
 
+
+
+
 //felhasznaloApi
 Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
 
+Route::get('/felhasznaloiProfil', [FelhasznaloProfil::class, 'bejelentkezett'])->middleware('isLoggedIn');
 
-Route::get('/api/felhasznalo/{felhasznalo}', [FelhasznalokController::class, 'show']);
+/* Route::put('/felhasznaloiProfil/{felhasznalo_id}', [FelhasznaloProfil::class, 'modositasproba'])->name("felhasznalomod"); */
 
-Route::get('/felhasznaloiProfil/{felhasznalo}', [AdminAutokController::class, 'edit']);
-
-Route::put('/felhasznaloiProfil/{felhasznalo}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
-
-Route::get('adminFelhasznalok', [FelhasznalokController::class, 'osszAdatok']);
 
 
 

@@ -100,33 +100,7 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $felhasznalo)
-    {
-        $input = $request->all();
-
-        $felhasznalo = FelhasznaloModell::find($felhasznalo);
-
-        $felhasznalo->felhasznalo_id = $input['felhasznalo_id'];
-
-        $felhasznalo->vezeteknev = $input['vezeteknev'];
-
-        $felhasznalo->keresztnev = $input['keresztnev'];
-
-        $felhasznalo->felhasznalonev = $input['felhasznalonev'];
-        $felhasznalo->jelszo = $input['jelszo'];
-        $felhasznalo->szul_ido = $input['szul_ido'];
-        $felhasznalo->ir_szam = $input['ir_szam'];
-        $felhasznalo->varos = $input['varos'];
-        $felhasznalo->megye = $input['megye'];
-        $felhasznalo->utca = $input['utca'];
-        $felhasznalo->hazszam = $input['hazszam'];
-        $felhasznalo->e_mail = $input['e_mail'];
-        $felhasznalo->tel_szam = $input['tel_szam'];
-
-        $felhasznalo->save();
-
-        return redirect('/felhasznaloiProfil');
-    }
+   
 
     /**
      * Remove the specified resource from storage.
