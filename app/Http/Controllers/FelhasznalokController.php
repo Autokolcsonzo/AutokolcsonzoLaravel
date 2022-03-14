@@ -2,44 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\FelhasznaloModell;
 use Illuminate\Http\Request;
+use App\Models\Felhasznalo;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class FelhasznalokController extends Controller
 {
 
+     public function adatokKiiratasa() {
+        $felhasznalok = DB::table('felhasznalo')->count();
+        $foglalasok = DB::table('foglalas')->count();
+        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 
-
-    protected $felhasznalo;
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $felhasznalo = FelhasznaloModell::all();
-        return $felhasznalo;
+        $adat = DB::table('felhasznalo')
+        ->select('jogkor', 'felhasznalonev', 'e_mail', 'reg_datum', 'ir_szam', 'megye', 'varos', 'utca', 'hazszam', 'tel_szam', 'szul_ido')
+        ->get();
+       // return $adatok;
+       return view('adminFelhasznalok', compact('adat','felhasznalok', 'foglalasok', 'bevetel'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $felhasznalo = new FelhasznaloModell();

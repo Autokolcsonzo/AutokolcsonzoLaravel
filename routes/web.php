@@ -60,22 +60,18 @@ Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
 Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
 //felhasznaloApi
-Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
-
-
 Route::get('/api/felhasznalo/{felhasznalo}', [FelhasznalokController::class, 'show']);
 
 Route::get('/felhasznaloiProfil/{felhasznalo}', [AdminAutokController::class, 'edit']);
 
 Route::put('/felhasznaloiProfil/{felhasznalo}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
 
-Route::get('adminFelhasznalok', [FelhasznalokController::class, 'osszAdatok']);
+Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratasa']);
 
 
 
 
 /* Foglalás API */
-
-Route::get('/api/foglalas', [AdminFoglalasController::class, 'index']);
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
 Route::get('/api/foglalas/expand={child}', [AdminFoglalasController::class, 'expand']);
+Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);

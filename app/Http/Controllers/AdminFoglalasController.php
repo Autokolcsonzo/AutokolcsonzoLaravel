@@ -2,22 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\AdminFoglalas;
-use App\Models\AdminFoglalasModel;
+use App\Models\Foglalas;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AdminFoglalasController extends Controller
 {
 
-    public function index()
-    {
-        $foglalas = AdminFoglalasModel::all(); 
-        return $foglalas;
+    public function adatokKiiratasa() {
+        $felhasznalok = DB::table('felhasznalo')->count();
+        $foglalasok = DB::table('foglalas')->count();
+        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
+
+        $adat = DB::table('foglalas')
+        ->select('fogl_azonosito', 'alvazSzam', 'felhasznalo', 'fogl_kelt', 'elvitel', 'visszahozatal', 'ervenyessegi_ido', 'kedvezmeny', 'allapot')
+        ->get();
+       // return $adatok;
+       return view('adminFoglalas', compact('adat','felhasznalok', 'foglalasok', 'bevetel'));
     }
-
-
 
     public function create()
     {
