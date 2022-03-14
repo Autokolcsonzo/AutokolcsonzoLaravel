@@ -17,7 +17,7 @@ class CreateAutoKepekTable extends Migration
             $table->increments('auto_kep_id');
             $table->char('alvazSzam');
             $table->foreign('alvazSzam')->references('alvazSzam')->on('auto');
-            $table->binary('kep');
+            $table->string('kep');
             $table->timestamp('kesz_datum')->useCurrent();
             $table->boolean('nyilvanose')->nullable();
             $table->timestamps();

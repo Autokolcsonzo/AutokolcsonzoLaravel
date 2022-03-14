@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+/*.reszletek, .reszlet {
+  display: none;
+}*/
+
 .adminKereses {
     display: flex;
     align-items: center;
@@ -113,7 +117,6 @@
 /* ADMIN AUTÓ MÓDOSÍTÁS */
 
 .autoAdatokModositas {
-    display: none;
     max-width: 700px;
 }
 
@@ -388,8 +391,69 @@ table td {
     text-decoration: none;
     transition-duration: 0.2s;
   }
-  
-  
+
+
+  #admin-auto-reszletek-embed{
+    position: fixed; 
+    left: 20%; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f8f8f8;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  }
+  #admin-auto-reszletek-section{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    align-content: center;
+    align-items: flex-start;
+  }
+  #admin-auto-reszletek-section img{
+    width: 15%;
+    overflow: hidden;
+  }
+  #admin-auto-reszletek-section p,h1{
+    color: black;
+    padding: 10px 20px;
+  }
+  #reszletek-header{
+    display: flex;
+    justify-content: space-between;
+  }
+  #admin-auto-reszletek-modell::before{
+    content: 'Modell : ';
+  }
+  #admin-auto-reszletek-tipus::before{
+    content: 'Tipus : ';
+  }
+  #admin-auto-reszletek-extra::before{
+    content: 'Extra : ';
+  }
+  #admin-auto-reszletek-alvazszam::before{
+    content: 'Alvazszam : ';
+  }
+  #admin-auto-reszletek-napiAr::before{
+    content: 'Napi ár : ';
+  }
+  #admin-auto-reszletek-napiAr::after{
+    content: ' Ft';
+  }
+  #admin-auto-reszletek-forgalmi::before{
+    content: 'Forgalmi : ';
+  }
+  #admin-auto-reszletek-felvetel::before{
+    content: 'Felvétel : ';
+  }
+  .even{
+    background-color: rgb(236, 235, 235);
+    font-size: large;
+  }
 
 @media only screen and (max-width: 1151px) {
   body {

@@ -121,6 +121,7 @@
     <div id="reszletesKeresoBtn-Box">
         <div id="doboz"></div>
         <a id="reszletesKeresoBtn">Részletes keresés <img id="dropdown_arrow" src="kepek/arrow-circle-outline.svg"></a>
+        @if(Request::is('jarmuTalalatiLista'))
         <section id="rendezes-box">
             <label for="rendezes">Rendezés</label>
             <select id="rendezes" name="rendezes">
@@ -129,5 +130,8 @@
                 <option value="csokkeno">árszerint csökkenő</option>
             </select>
         </section>
+        @else
+            <p></p>
+        @endif
     </div>
 </div>

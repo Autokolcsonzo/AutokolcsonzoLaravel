@@ -91,7 +91,7 @@ class KeresoViewController extends Controller
             'keresoview.tulajdonsag'
         )
         ->distinct()
-        //->where('keresoview.tulajdonsag','!=', 'NULL')
+        ->whereNotNull('keresoview.tulajdonsag')
         ->get();
 
         foreach ($checkboxokSQL as $key => $obj) {

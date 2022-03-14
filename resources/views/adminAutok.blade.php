@@ -10,21 +10,21 @@
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
-    <script src="../js/ajax.js"></script>
-    <script src="../js/admin/adminAuto.js"></script>
+
     <script src="../js/admin/adminAutok.js"></script>
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
     <style>
-        /* Betűtípusok */
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+    /* Betűtípusok */
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -45,7 +45,28 @@
         @include('komponensek/header')
 
         <div id="primary_content">
-
+        <!--<div id="admin-auto-reszletek-embed">
+        <div id="reszletek-header">
+            <h1>Részletek</h1>
+            <h1>X</h1>
+        </div>
+            <section id="admin-auto-reszletek-section">
+                <img src="kepek/232311_source.jpg" alt="asd123"/>
+                <section>
+                    <p id="admin-auto-reszletek-modell"><br>Mustang</p>
+                    <p id="admin-auto-reszletek-tipus"><br>Mustang123ASd</p>
+                    <p id="admin-auto-reszletek-extra"><br>Banános illatosító</p>
+                </section>
+                <section>
+                    <p id="admin-auto-reszletek-alvazszam"><br>0000000000000000</p>
+                    <p id="admin-auto-reszletek-napiAr"><br>4500</p>
+                    <p id="admin-auto-reszletek-forgalmi"><br>00000000000000000000000000000</p>
+                </section>
+                <p id="admin-auto-reszletek-felvetel"><br>2022-01-10</p>
+                
+            </section>
+        </div>-->
+        
             <!-- ADMIN TÁBLÁZAT, KERESÉS -->
             <div class="adminKereses">
                 <div class="n1">
@@ -72,353 +93,231 @@
             </div>
 
             <h3 class="oldalNev">Autók</h3>
-   <div>
+            <div>
 
-        </div>
-
-
-        <!-- 3 ablak adatokkal -->
-        <div class="values">
-            <div class="val-box">
-                <i class="fas fa-users"></i>
-                <div class="felhasznalokSzamaSablon">
-                    <h3 class="felhasznalokSzama">{{$felhasznalok}}</h3>
-                    <span>Összes felhasználó</span>
-                </div>
             </div>
-            <!--         </div> -->
 
-            <!--    <div class="values"> -->
-            <div class="val-box">
-                <i class="fas fa-car"></i>
-                <div>
-                    <h3>{{$foglalasok}}</h3>
-                    <span>Összes foglalás</span>
+
+            <!-- 3 ablak adatokkal -->
+            <div class="values">
+                <div class="val-box">
+                    <i class="fas fa-users"></i>
+                    <div class="felhasznalokSzamaSablon">
+                        <h3 class="felhasznalokSzama">{{$felhasznalok}}</h3>
+                        <span>Összes felhasználó</span>
+                    </div>
                 </div>
-            </div>
-            <!--   </div> -->
-            <!-- 
+                <!--         </div> -->
+
+                <!--    <div class="values"> -->
+                <div class="val-box">
+                    <i class="fas fa-car"></i>
+                    <div>
+                        <h3>{{$foglalasok}}</h3>
+                        <span>Összes foglalás</span>
+                    </div>
+                </div>
+                <!--   </div> -->
+                <!-- 
                                     <div class="values"> -->
-            <div class="val-box">
-                <i class="fas fa-money-check-alt"></i>
-                <div>
-                    <h3>{{$bevetel}}</h3>
-                    <span>Bejövő összeg</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="felhasznalokAdmin">
-            <div class="felhFejlec">
-                <h2>Státusz</h2>
-                <h2>Rendszám</h2>
-                <h2>Megnevezés</h2>
-                <h2>Telephely</h2>
-                <h2></h2>
-                <h2></h2>
-                <h2></h2>
-            </div>
-            <div class="felhasznalo">
-
-                <div class="foadatok">
-                    <p class="statusz">Státusz</p>
-                    <p class="rendszam">Rendszám</p>
-                    <p class="megnevezes">Megnevezés</p>
-                    <p class="varos">Telephely</p>
-                    <p><input type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
-                    <p><input type="button" name="fadatokMod" class="fadatokMod" value="Módosítás" /></p>
-                    <p><input type="button" name="torles" class="torles" value="Törlés" /></p>
-                </div>
-
-                <div class="reszletek">
-                    <div class="reszlet">
-                        <div class="reszletFejlec">
-                            <h2>Irányítószám</h2>
-                            <h2>Megye</h2>
-                            <h2>Város</h2>
-                            <h2>Utca</h2>
-                            <h2>Házszám</h2>
-                            <h2>Telefonszám</h2>
-                            <h2>Születési idő</h2>
-                        </div>
-                        <div class="reszletadatok">
-                            <p class="iranyitoszam">Irányítószám</p>
-                            <p class="megye">Megye</p>
-                            <p class="varos">Város</p>
-                            <p class="utca">Utca</p>
-                            <p class="hazszam">Házszám</p>
-                            <p class="telszam">Telefonszám</p>
-                            <p class="szul_ido">Születési idő</p>
-                        </div>
+                <div class="val-box">
+                    <i class="fas fa-money-check-alt"></i>
+                    <div>
+                        <h3>{{$bevetel}}</h3>
+                        <span>Bejövő összeg</span>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Autó adatainak módosítása -->
-        <div class="autoAdatokModositas">
+            <div class="felhasznalokAdmin">
+                <div class="felhFejlec">
+                    <h2>Státusz</h2>
+                    <h2>Rendszám</h2>
+                    <h2>Megnevezés</h2>
+                    <h2>Telephely</h2>
+                    <h2></h2>
+                    <h2></h2>
+                    <h2></h2>
+                </div>
+                <div class="felhasznalo">
 
-            @if (session('status'))
-            <h2 class="alert alert-success">{{ session('status') }}</h2>
-            @endif
+                    @foreach($adat as $data)
+                    @if($loop->iteration % 2 == 0)
+                        <div class="foadatok even">
+                    @else
+                        <div class="foadatok odd">
+                    @endif
+                        <p class="statusz">{{$data->statusz}}</p>
+                        <p class="rendszam">{{$data->rendszam}}</p>
+                        <p class="megnevezes">{{$data->marka}}</p>
+                        <p class="varos">{{$data->varos}}</p>
+                        <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
+                        <p>
+                            <a class="fadatokMod" href="{{url('/adminAutokEdit/'.$data->alvazSzam)}}">Módosítás</a>
+                        </p>
+                            <form action="{{url('/delete/'.$data->alvazSzam)}}" method="POST">
+                            @method('DELETE')    
+                            @csrf
+                                <button type="submit"class="torles" >Törlés</button>
+                            </form>                 
+                    </div>
+                    <div id="r{{$loop->index}}" class="reszletek">
+                        <div  class="reszlet">
+                            <div class="reszletFejlec">
+                                <h2>Jármű index:</h2>
+                                <h2>Irányítószám</h2>
+                                <h2>Megye</h2>
+                                <h2>Város</h2>
+                                <h2>Utca</h2>
+                                <h2>Házszám</h2>
+                                <h2>Telefonszám</h2>
+                                <h2>Születési idő</h2>
+                            </div>
+                            <div class="reszletadatok">
+                                <p class="jarmu-index">{{$loop->index}}</p>
+                                <p class="iranyitoszam">2360</p>
+                                <p class="megye">Pest</p>
+                                <p class="varos">Gyál</p>
+                                <p class="utca">Rákóczi Ferenc utca</p>
+                                <p class="hazszam">79/1</p>
+                                <p class="telszam">+36300000000</p>
+                                <p class="szul_ido">1999-11-16</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
 
-            <form action="" method="POST">
-                @method('PUT')
+                    
+                </div>
+            </div>
+
+            <!-- Új adatok feltöltése -->
+            <div class="autoAdatokFeltoltes">
+                <form action="adminAutok" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="form-header">
-                    <h3>Adatok módosítása</h3>
-                </div>
+                    <div class="form-header">
+                        <h3>Adatok módosítása</h3>
+                    </div>
 
-                <div class="sor">
-                    <div class="inputfield">
-                        <label for="alvazSzam">Alvázszám:</label>
-                        <br />
-                        <input type="text" name="alvazSzam" class="alvazSzam" />
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="alvazSzam">Alvázszám:</label>
+                            <br />
+                            <input type="text" name="alvazSzam" class="alvazSzam" />
+
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="modell">Modell:</label><br>
+
+                            <input type="text" name="modell" class="modell" />
+                        </div>
 
                     </div>
 
-                    <div class="inputfield">
-                        <label for="marka">Márka:</label><br>
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="telephely">Telephely:</label>
 
-                        <input type="text" name="marka" class="marka" />
+                            <br />
+                            <input type="text" name="telephely" class="telephely" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="napiAr">Napi ár:</label> <br />
+                            <input type="text" class="napiAr" name="napiAr" />
+                        </div>
                     </div>
 
-                </div>
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="szin">Szín:</label>
 
-                <div class="sor">
+                            <br />
+                            <input type="text" name="szin" class="szin" /><br />
+                        </div>
 
-                    <div class="inputfield">
-                        <label for="modell">Modell:</label><br>
-
-                        <input type="text" name="modell" class="modell" />
+                        <div class="inputfield">
+                            <label for="forgalmiSzam">Forgalmi száma:</label> <br />
+                            <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
+                        </div>
                     </div>
 
-                    <div class="inputfield">
-                        <label for="tipus">Típus:</label>
-                        <br />
-                        <input type="text" name="tipus" class="tipus" />
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="statusz">Státusz:</label>
 
+                            <br />
+                            <input type="text" name="statusz" class="statusz" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="rendszam">Rendszám:</label> <br />
+                            <input type="text" class="rendszam" name="rendszam" />
+                        </div>
                     </div>
 
-                </div>
-
-                <div class="sor">
+                    <div class="sor">                       
                     <div class="inputfield">
-                        <label for="evjarat">Évjárat:</label>
+                            <label for="marka">Márka:</label> <br />
+                            <input type="text" class="marka" name="marka" />
+                        </div>
 
-                        <br />
-                        <input type="text" name="evjarat" class="evjarat" /><br />
+                        <div class="inputfield">
+                            <label for="kep">Kép:</label>
+
+                            <br />
+                            <input type="file" name="kep" class="kep" /><br />
+                        </div>
                     </div>
 
-                    <div class="inputfield">
-                        <label for="kivitel">Kivitel:</label> <br />
-                        <input type="text" class="kivitel" name="kivitel" />
-                    </div>
-                </div>
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="tipus">Típus:</label>
 
-                <div class="sor">
-                    <div class="inputfield">
-                        <label for="uzemanyag">Üzemanyag:</label>
+                            <br />
+                            <input type="text" name="tipus" class="tipus" /><br />
+                        </div>
 
-                        <br />
-                        <input type="text" name="uzemanyag" class="uzemanyag" /><br />
-                    </div>
-
-                    <div class="inputfield">
-                        <label for="teljesitmeny">Teljesítmény:</label> <br />
-                        <input type="text" class="teljesitmeny" name="teljesitmeny" />
-                    </div>
-                </div>
-
-                <div class="sor">
-                    <div class="inputfield">
-                        <label for="telephely">Telephely (1-Budapest, 2-Székesfehérvár):</label>
-
-                        <br />
-                        <input type="text" name="telephely" class="telephely" /><br />
+                        <div class="inputfield">
+                            <label for="evjarat">Évjárat:</label> <br />
+                            <input type="text" class="evjarat" name="evjarat" />
+                        </div>
                     </div>
 
-                    <div class="inputfield">
-                        <label for="napiAr">Napi ár:</label> <br />
-                        <input type="text" class="napiAr" name="napiAr" />
-                    </div>
-                </div>
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="kivitel">Kivitel:</label>
 
-                <div class="sor">
-                    <div class="inputfield">
-                        <label for="extra_megnevezese">Autó extrái:</label>
+                            <br />
+                            <input type="text" name="kivitel" class="kivitel" /><br />
+                        </div>
 
-                        <br />
-                        <input type="text" name="extra_megnevezese" class="extra_megnevezese" /><br />
-                    </div>
-
-                    <div class="inputfield">
-                        <label for="kep">Kép:</label> <br />
-                        <input type="file" name="kep" class="kep">
-                    </div>
-                </div>
-
-                <div class="sor">
-                    <!--   <div class="inputfield">
-            <label for="tulajdonsag">Modell tulajdonság:</label>
-
-            <br />
-            <input type="text" name="tulajdonsag" class="tulajdonsag" /><br />
-        </div> -->
-
-                    <!-- <div class="inputfield">
-            <label for="forgalmiSzam">Forgalmi száma:</label> <br />
-            <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
-        </div> -->
-                </div>
-
-
-
-
-
-                <div class="sor">
-                    <div class="inputfield">
-                        <label for="szin">Szín:</label>
-
-                        <br />
-                        <input type="text" name="szin" class="szin" /><br />
+                        <div class="inputfield">
+                            <label for="uzemanyag">Üzemanyag:</label> <br />
+                            <input type="text" class="uzemanyag" name="uzemanyag" />
+                        </div>
                     </div>
 
-                    <div class="inputfield">
-                        <label for="forgalmiSzam">Forgalmi száma:</label> <br />
-                        <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
-                    </div>
-                </div>
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="teljesitmeny">Teljesítmény:</label>
 
-                <div class="sor">
-                    <div class="inputfield">
-                        <label for="statusz">Státusz:</label>
+                            <br />
+                            <input type="text" name="teljesitmeny" class="teljesitmeny" /><br />
+                        </div>
 
-                        <br />
-                        <input type="text" name="statusz" class="statusz" /><br />
-                    </div>
-
-                    <div class="inputfield">
-                        <label for="rendszam">Rendszám:</label> <br />
-                        <input type="text" class="rendszam" name="rendszam" />
-                    </div>
-                </div>
-
-                <input type="submit" value="Adatok mentése" id="adatotMent" />
-
-
-            </form>
-        </div>
-
-        <!-- Új adatok feltöltése -->
-        <div class="autoAdatokFeltoltes">
-            <form action="adminAutok">
-
-                <div class="form-header">
-                    <h3>Adatok módosítása</h3>
-                </div>
-
-                <div class="sor">
-                    <div class="inputfield">
-                        <label for="alvazSzam">Alvázszám:</label>
-                        <br />
-                        <input type="text" name="alvazSzam" class="alvazSzam" />
-
+                     <!--    <div class="inputfield">
+                            <label for="modell2">Modell2:</label> <br />
+                            <input type="text" class="modell2" name="modell2" />
+                        </div> -->
                     </div>
 
-                    <div class="inputfield">
-                        <label for="modell">Modell:</label><br>
 
-                        <input type="text" name="modell" class="modell" />
-                    </div>
+                    <input type="submit" value="Adatok mentése" id="adatotMent" />
 
-                </div>
-
-                <div class="sor">
-                    <div class="inputfield">
-                        <label for="telephely">Telephely:</label>
-
-                        <br />
-                        <input type="text" name="telephely" class="telephely" /><br />
-                    </div>
-
-                    <div class="inputfield">
-                        <label for="napiAr">Napi ár:</label> <br />
-                        <input type="text" class="napiAr" name="napiAr" />
-                    </div>
-                </div>
-
-                <div class="sor">
-                    <div class="inputfield">
-                        <label for="szin">Szín:</label>
-
-                        <br />
-                        <input type="text" name="telszinephely" class="szin" /><br />
-                    </div>
-
-                    <div class="inputfield">
-                        <label for="forgalmiSzam">Forgalmi száma:</label> <br />
-                        <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
-                    </div>
-                </div>
-
-                <div class="sor">
-                    <div class="inputfield">
-                        <label for="statusz">Státusz:</label>
-
-                        <br />
-                        <input type="text" name="statusz" class="statusz" /><br />
-                    </div>
-
-                    <div class="inputfield">
-                        <label for="rendszam">Rendszám:</label> <br />
-                        <input type="text" class="rendszam" name="rendszam" />
-                    </div>
-                </div>
-
-                <input type="submit" value="Adatok mentése" id="adatotMent" />
-
-
-            </form>
-        </div>
-
-
-        <!-- <table width="100%">
-                    <thead>
-                        <tr>
-                            <th scope="col">Státusz</th>
-                            <th scope="col">Rendszám</th>
-                            <th scope="col">Megnevezés</th>
-                            <th scope="col">Telephely</th>
-                        </tr>
-                    </thead>
-                    <tbody class="szuloELem">
-                        <tr class="adminAuto">
-                            <td class="tablazatStatusz">
-                                <input type="checkbox" id="statuszInput" name="statuszInput">
-                            </td>
-                            <td class="rendszam">
-                                <p>ABC-123</p>
-                            </td>
-                            <td class="megnevezes">
-                                <p>Audi A4</p>
-                            </td>
-                            <td class="telephely">
-                                <p>Budapest</p>
-                            </td>
-                            <td class="reszletekGomb">
-                                <a href="#">Részletek <i class="fas fa-long-arrow-right"></i></a>
-                            </td>
-                            <td class="modositas">
-                                <a href="#">Módosítás</a>
-                            </td>
-                            <td class="torles">
-                                <a href="#">Törlés</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> -->
-
+                </form>
+            </div>
 
         </div>
 

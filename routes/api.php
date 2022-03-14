@@ -26,7 +26,7 @@ Route::apiResource('auto_fill', AutokListazasaController::class);
 Route::apiResource('kedvezmeny', KedvezmenyekController::class);
 
 Route::get('auto_fill', [AutokListazasaController::class, 'index']);
-Route::get('kedvezmeny', [KedvezmenyekController::class, 'index']);
+Route::get('kedvezmeny', [KedvezmenyekController::class, 'kedvezmenyek']);
 //Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']); 
 
 Route::apiResource('keresoview', KeresoViewController::class);

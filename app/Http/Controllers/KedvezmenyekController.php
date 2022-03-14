@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class KedvezmenyekController extends Controller
 {
-    public function index()
+    public function kedvezmenyek()
     {
         $result = DB::table('kedvezmeny')
             ->select(
