@@ -14,6 +14,7 @@ use App\Http\Controllers\KeresoViewController;
 
 use App\Http\Controllers\AdminFoglalasController;
 use App\Http\Controllers\AdminAutokController;
+use App\Http\Controllers\FelhasznaloProfil;
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
 
@@ -60,16 +61,13 @@ Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
 Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
 //felhasznaloApi
-Route::get('/api/felhasznalo/{felhasznalo}', [FelhasznalokController::class, 'show']);
+Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
 
-Route::get('/felhasznaloiProfil/{felhasznalo}', [AdminAutokController::class, 'edit']);
+Route::get('/felhasznaloiProfil', [FelhasznaloProfil::class, 'bejelentkezett'])->middleware('isLoggedIn');
 
-Route::put('/felhasznaloiProfil/{felhasznalo}', [FelhasznalokController::class, 'update'])->name('felhasznalo.update');
+/* Route::put('/felhasznaloiProfil/{felhasznalo_id}', [FelhasznaloProfil::class, 'modositasproba'])->name("felhasznalomod"); */
 
 Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratasa']);
-
-
-
 
 /* Foglalás API */
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');

@@ -5,7 +5,7 @@ $(function () {
     let url = "http://localhost:8000/";
 
     let apiVegpont = url + "api" + "/" + "felhasznalo";
-    let apiVegpont2 = url + "api" + "/" + "felhasznalo/felhasznalo_id";
+    let apiVegpont2 = url + "felhasznalo";
 
     myAjax.getAdat(apiVegpont, felhasznalok, MegjelenitFelhasznalok);
 
@@ -56,7 +56,6 @@ $(function () {
 
     $("#adatotMent").on("click", () => {
         let felhasznalonev = $("#ifnev").val();
-        console.log("kattint");
         let vezeteknev = $("#ivnev").val();
         let keresztnev = $("#iknev").val();
         let jelszo = $("#ijelszo").val();
@@ -69,18 +68,18 @@ $(function () {
         let e_mail = $("#iemail").val();
         let tel_szam = $("#itelszam").val();
         let ujAdat = {
-            felhasznalonev: felhasznalonev,
-            vezeteknev: vezeteknev,
-            keresztnev: keresztnev,
-            jelszo: jelszo,
-            szul_ido: szul_ido,
-            ir_szam: ir_szam,
-            megye: megye,
-            varos: varos,
-            utca: utca,
-            hazszam: hazszam,
-            e_mail: e_mail,
-            tel_szam: tel_szam,
+            "felhasznalonev": felhasznalonev,
+            "vezeteknev": vezeteknev,
+            "keresztnev": keresztnev,
+            "jelszo": jelszo,
+            "szul_ido": szul_ido,
+            "ir_szam": ir_szam,
+            "megye": megye,
+            "varos": varos,
+            "utca": utca,
+            "hazszam": hazszam,
+            "e_mail": e_mail,
+            "tel_szam": tel_szam,
         };
         
         myAjax.putAdat(apiVegpont, id, ujAdat);

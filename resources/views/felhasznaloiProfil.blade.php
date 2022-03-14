@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/Ajax.js"></script>
-    <script src="../js/felhasznalo/FelhasznaloProfil.js"></script>
-    <script src="../js/felhasznalo/felhasznaloProfilJs.js"></script>
+   <!--  <script src="../js/felhasznalo/FelhasznaloProfil.js"></script>
+    <script src="../js/felhasznalo/felhasznaloProfilJs.js"></script> -->
 
     <script src="../js/hambiMenu.js"></script>
 
@@ -58,12 +58,15 @@
 
                 </div>
 
-                <div class="fadatok">
-                    <table class="fadatokTable">
+           
 
+                <div class="fadatok">
+             
+                    <table class="fadatokTable">
+                   
                         <tr>
                             <td>Felhasznalónév: </td>
-                            <td id="fnev"></td>
+                            <td id="fnev">{{$data->felhasznalonev}}</td>
                             <td>Jelszó: </td>
                             <td id="jelszo">********</td>
 
@@ -73,21 +76,21 @@
 
                         <tr>
                             <td>Vezetéknév: </td>
-                            <td id="vnev">Kovács</td>
+                            <td id="vnev">{{$data->vezeteknev}}</td>
                             <td>Keresztnév: </td>
-                            <td id="knev">Kati</td>
+                            <td id="knev">{{$data->keresztnev}}</td>
 
                         </tr>
                         <tr>
                             <td>Születési idő: </td>
-                            <td id="szido">1997.03.22.</td>
+                            <td id="szido">{{$data->szul_ido}}</td>
 
                         </tr>
                         <tr>
                             <td>Irányító szám: </td>
-                            <td id="irszam">2230</td>
+                            <td id="irszam">{{$data->ir_szam}}</td>
                             <td>Megye: </td>
-                            <td id="megye">Pest megye</td>
+                            <td id="megye">{{$data->megye}}</td>
 
 
                         </tr>
@@ -95,21 +98,22 @@
                         <tr>
                             <td>Város: </td>
                             <td id="varos">Gyömrő</td>
-                            <td>Utca: </td>
-                            <td id="utca">Valamilyen utca</td>
+                            <td>{{$data->varos}}</td>
+                            <td id="utca">{{$data->utca}}</td>
 
                         </tr>
 
                         <tr>
                             <td>Házszám: </td>
-                            <td id="hszam">22</td>
+                            <td id="hszam">{{$data->hazszam}}</td>
 
                         </tr>
                         <tr>
                             <td>E-mail cím: </td>
-                            <td id="email">valami@valami.com</td>
+                            <td id="email">{{$data->e_mail}}</td>
                             <td>Telefonszám: </td>
-                            <td id="tszam">06307777777</td>
+                            <td id="tszam">{{$data->tel_szam}}</td>
+                            
 
                         </tr>
                     </table>
@@ -121,13 +125,13 @@
                 </div>
                 <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása" style="display:block" />
 
-                
 
                 <div class="felhasznaloiModositas">
-                <form method="post" enctype="multipart/form-data" action="">
-               
-             @method('PUT')
-                    @csrf
+                    <form action="" method="POST">
+      
+
+
+
 
                         <div class="form-header">
                             <h3>Adatok módosítása</h3>
