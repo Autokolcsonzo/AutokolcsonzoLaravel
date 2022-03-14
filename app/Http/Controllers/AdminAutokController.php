@@ -75,14 +75,13 @@ class AdminAutokController extends Controller
         $modell = [
             'marka' => $req->marka,
             'tipus' => $req->tipus,
-            'modell' => $req->modell, // nem jó
+          /*   'modell' => $req->modell, */ // nem jó
             'evjarat' => $req->evjarat,
             'kivitel' => $req->kivitel,
             'uzemanyag' => $req->uzemanyag,
             'teljesitmeny' => $req->teljesitmeny,
             /* 'modell_id' => $modell_id */
         ];
-        /* return dd($saveRecord); */
 
         DB::table('modell')->insert($modell);
 
@@ -105,16 +104,17 @@ class AdminAutokController extends Controller
             'kep' => $req->kep
         ];
 
-        /* if ($req->hasFile('kep'))
+        $input = $req->all();
+
+        if ($req->hasFile('kep'))
        {
-           //$file = $request->file('image');
-           //$contents = $file->openFile()->fread($file->getSize());
-           $file = $req->file('kep');
-           $extension = $file->getClientOriginalExtension();
-           $filename = time().'.'.$extension;
-           $file->move('public/kepek/autok', $filename);
-           $auto->kep = $filename;
-       } */
+           $destinaion_path = 'public/images/autok';
+           $image = $req->file('kep');
+           $image_name = $image->getClientOriginalName();
+           $path = $req->file('kep')->storeAs($destinaion_path, $image_name);
+
+           $input['kep'] = $image_name;
+       }
 
         DB::table('auto_kepek')->insert($auto_kepek);
 

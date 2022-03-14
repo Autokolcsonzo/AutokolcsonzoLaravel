@@ -191,12 +191,10 @@
                 </div>
             </div>
 
-
-
             <!-- Új adatok feltöltése -->
             <div class="autoAdatokFeltoltes">
-                <form action="adminAutok">
-
+                <form action="adminAutok" method="post" enctype="multipart/form-data">
+                @csrf
                     <div class="form-header">
                         <h3>Adatok módosítása</h3>
                     </div>
@@ -236,7 +234,7 @@
                             <label for="szin">Szín:</label>
 
                             <br />
-                            <input type="text" name="telszinephely" class="szin" /><br />
+                            <input type="text" name="szin" class="szin" /><br />
                         </div>
 
                         <div class="inputfield">
@@ -259,49 +257,67 @@
                         </div>
                     </div>
 
-                    <input type="submit" value="Adatok mentése" id="adatotMent" />
+                    <div class="sor">                       
+                    <div class="inputfield">
+                            <label for="marka">Márka:</label> <br />
+                            <input type="text" class="marka" name="marka" />
+                        </div>
 
+                        <div class="inputfield">
+                            <label for="kep">Kép:</label>
+
+                            <br />
+                            <input type="file" name="kep" class="kep" /><br />
+                        </div>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="tipus">Típus:</label>
+
+                            <br />
+                            <input type="text" name="tipus" class="tipus" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="evjarat">Évjárat:</label> <br />
+                            <input type="text" class="evjarat" name="evjarat" />
+                        </div>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="kivitel">Kivitel:</label>
+
+                            <br />
+                            <input type="text" name="kivitel" class="kivitel" /><br />
+                        </div>
+
+                        <div class="inputfield">
+                            <label for="uzemanyag">Üzemanyag:</label> <br />
+                            <input type="text" class="uzemanyag" name="uzemanyag" />
+                        </div>
+                    </div>
+
+                    <div class="sor">
+                        <div class="inputfield">
+                            <label for="teljesitmeny">Teljesítmény:</label>
+
+                            <br />
+                            <input type="text" name="teljesitmeny" class="teljesitmeny" /><br />
+                        </div>
+
+                     <!--    <div class="inputfield">
+                            <label for="modell2">Modell2:</label> <br />
+                            <input type="text" class="modell2" name="modell2" />
+                        </div> -->
+                    </div>
+
+
+                    <input type="submit" value="Adatok mentése" id="adatotMent" />
 
                 </form>
             </div>
-
-
-            <!-- <table width="100%">
-                    <thead>
-                        <tr>
-                            <th scope="col">Státusz</th>
-                            <th scope="col">Rendszám</th>
-                            <th scope="col">Megnevezés</th>
-                            <th scope="col">Telephely</th>
-                        </tr>
-                    </thead>
-                    <tbody class="szuloELem">
-                        <tr class="adminAuto">
-                            <td class="tablazatStatusz">
-                                <input type="checkbox" id="statuszInput" name="statuszInput">
-                            </td>
-                            <td class="rendszam">
-                                <p>ABC-123</p>
-                            </td>
-                            <td class="megnevezes">
-                                <p>Audi A4</p>
-                            </td>
-                            <td class="telephely">
-                                <p>Budapest</p>
-                            </td>
-                            <td class="reszletekGomb">
-                                <a href="#">Részletek <i class="fas fa-long-arrow-right"></i></a>
-                            </td>
-                            <td class="modositas">
-                                <a href="#">Módosítás</a>
-                            </td>
-                            <td class="torles">
-                                <a href="#">Törlés</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> -->
-
 
         </div>
 
