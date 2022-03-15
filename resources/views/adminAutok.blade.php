@@ -129,6 +129,7 @@
 
             <div class="felhasznalokAdmin">
                 <div class="felhFejlec">
+                    <h2>Kép</h2>
                     <h2>Státusz</h2>
                     <h2>Rendszám</h2>
                     <h2>Megnevezés</h2>
@@ -145,6 +146,7 @@
                         @else
                         <div class="foadatok odd">
                             @endif
+                            <p class="statusz">{{$data->kep}}</p>
                             <p class="statusz">{{$data->statusz}}</p>
                             <p class="rendszam">{{$data->rendszam}}</p>
                             <p class="megnevezes">{{$data->marka}}</p>

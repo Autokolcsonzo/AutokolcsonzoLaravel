@@ -21,7 +21,8 @@ class AdminAutokController extends Controller
         $adat = DB::table('auto')
         ->join('modell', 'auto.modell', '=', 'modell.modell_id')
         ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
-        ->select('auto.alvazSzam', 'auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
+        ->join('auto_kepek', 'auto.alvazSzam', '=', 'auto_kepek.alvazSzam')
+        ->select('auto_kepek.kep', 'auto.alvazSzam', 'auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
         ->get();
        // return $adatok;
        return view('adminAutok', compact('adat','felhasznalok', 'foglalasok', 'bevetel'));

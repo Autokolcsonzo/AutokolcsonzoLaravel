@@ -14,24 +14,24 @@
     <script src="js/hambiMenu.js"></script>
     <script src="js/reszponzivDolgok.js"></script>
     <script src="js/kereso/dropDownKereso.js"></script>
-    <script src="js/kereso/keresesiOpciokAjax.js"></script>	
-    <script src="js/kereso/keresoFeltoltes.js"></script>	
-    <script src="js/kereso/keresesiOpciok.js"></script>	
-    <script src="js/kereso/idopont.js"></script>		
+    <script src="js/kereso/keresesiOpciokAjax.js"></script>
+    <script src="js/kereso/keresoFeltoltes.js"></script>
+    <script src="js/kereso/keresesiOpciok.js"></script>
+    <script src="js/kereso/idopont.js"></script>
     <script src="js/autoLista/autoAjax.js"></script>
     <script src="js/autoLista/auto.js"></script>
     <script src="js/autoLista/autok.js"></script>
     <script src="js/autoLista/foglalas.js"></script>
     <script src="js/kereso/keresoFeltolteseLocalS.js"></script>
-    
+
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
     <style>
-        /* Betűtípusok */
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+    /* Betűtípusok */
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -49,14 +49,10 @@
 <body>
     <main>
         <!-- TABLET, STB. NÉZET -->
-        
-  <!--       @auth('felhasznalo')
-            @include('komponensek/felhasznaloNav')
-        @endauth
-        @guest
-            @include('komponensek/nav')
-        @endguest -->
+
         @include('komponensek/nav')
+
+
         <!-- HEADER -->
         @include('komponensek/header')
 
@@ -65,7 +61,7 @@
 
         <!-- felhasználóknak segítség/információ a foglaláshoz -->
         <div id="primary_content">
-        <link rel="stylesheet" href="css/foglalasAblak.css" />
+            <link rel="stylesheet" href="css/foglalasAblak.css" />
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
@@ -111,9 +107,16 @@
                         <button id="lefoglalas" class="" type="submit">Lefoglalás</button>
                     </form>
                     <div id="Felhasznaloi-feltetelek">
-                        <p>Until recently, the prevailing view assumed lorem ipsum was born as a nonsense text. “It's not Latin, though it looks like it, and it actually says nothing,” Before & After magazine answered a curious reader, “Its ‘words’ loosely approximate the frequency with which letters occur in English, which is why at a glance it looks pretty real.”
-                            “Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.”
-                            McClintock's eye for detail certainly helped narrow the whereabouts of lorem ipsum's origin, however, the “how and when” still remain something of a mystery, with competing theories and timelines.</p>
+                        <p>Until recently, the prevailing view assumed lorem ipsum was born as a nonsense text. “It's
+                            not Latin, though it looks like it, and it actually says nothing,” Before & After magazine
+                            answered a curious reader, “Its ‘words’ loosely approximate the frequency with which letters
+                            occur in English, which is why at a glance it looks pretty real.”
+                            “Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is
+                            pain, but occasionally circumstances occur in which toil and pain can procure him some great
+                            pleasure.”
+                            McClintock's eye for detail certainly helped narrow the whereabouts of lorem ipsum's origin,
+                            however, the “how and when” still remain something of a mystery, with competing theories and
+                            timelines.</p>
                     </div>
                     <input type="button" id="Felhasznaloi-feltetelek-btn" value="Felhasználói feltételek">
                 </div>
