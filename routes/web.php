@@ -11,10 +11,10 @@ use App\Http\Controllers\MenuFeltetelekController;
 use App\Http\Controllers\FelhasznalokController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\KeresoViewController;
-
 use App\Http\Controllers\AdminFoglalasController;
 use App\Http\Controllers\AdminAutokController;
 use App\Http\Controllers\FelhasznaloProfil;
+use App\Http\Controllers\jarmuTalalatiListaController;
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
 
@@ -39,6 +39,8 @@ Route::get('felhasznaloiProfil', function () {
 Route::get('jarmuTalalatiLista', function () {
     return view('jarmuTalalatiLista');
 });
+
+Route::get('/jarmuTalalatiLista', [jarmuTalalatiListaController::class, 'dashboard'])->middleware('isLoggedIn');
 
 Route::get('adminAutok', function () {
     return view('adminAutok');
