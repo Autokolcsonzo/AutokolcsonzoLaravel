@@ -10,19 +10,18 @@
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <script src="../js/admin/AdminFoglalas.js"></script>
-    <script src="../js/Ajax.js"></script>
-    <script src="../js/admin/jsAdminFoglalas.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
+    <script src="../js/admin/adminAutok.js"></script>
     <style>
-        /* Betűtípusok */
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+    /* Betűtípusok */
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -61,9 +60,9 @@
                         <a href="#">Foglalások</a>
                     </div>
                 </div>
-</div>
+            </div>
 
-                <h3 class="oldalNev">Foglalások</h3>
+            <h3 class="oldalNev">Foglalások</h3>
 
             <!-- 3 ablak adatokkal -->
             <div class="values">
@@ -109,114 +108,122 @@
                 </div>
                 <div class="foglalas">
 
-                    <div class="foadatok">
-                        <p class="azonosito">Azonosító</p>
-                        <p class="alvazszam">Alvázszám</p>
-                        <p class="felhasznalo">Felhasználó</p>
-                        <p class="fogIdo">Foglalás ideje</p>
-                        <p><input type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
-                        <p><input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" /></p>
-                        <p><input type="button" name="torles" class="torles" value="Törlés" /></p>
-                    </div>
-
-                    <div class="reszletek">
-                        <div class="reszlet">
-                            <div class="reszletFejlec">
-                                <h2>Elvitel</h2>
-                                <h2>Visszahozatal</h2>
-                                <h2>Érvényesség</h2>
-                                <h2>Kedvezmény</h2>
-                                <h2>Állapot</h2>
-                                <h2>Telephely</h2>
-                                <h2></h2>
-                            </div>
-                            <div class="reszletadatok">
-                                <p class="elvitel">Elvitel</p>
-                                <p class="visszahozatal">Visszahozatal</p>
-                                <p class="ervenyesseg">Érvényesség</p>
-                                <p class="kedvezmeny">Kedvezmény</p>
-                                <p class="allapot">Állapot</p>
-                                <p class="telephely">Telephely</p>
-                                <p class></p>
-
-
-                            </div>
+                    @foreach($adat as $data)
+                    @if($loop->iteration % 2 == 0)
+                    <div class="foadatok even">
+                        @else
+                        <div class="foadatok odd">
+                            @endif
+                            <p class="azonosito">{{$data->fogl_azonosito}}</p>
+                            <p class="alvazszam">{{$data->alvazSzam}}</p>
+                            <p class="felhasznalo">{{$data->felhasznalo}}</p>
+                            <p class="fogIdo">{{$data->fogl_kelt}}</p>
+                            <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek"
+                                    value="Részletek" /></p>
+                            <p>
+                                <a class="fadatokMod" href="#">Módosítás</a>
+                            </p>
+                            <form action="#" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="torles">Törlés</button>
+                            </form>
                         </div>
 
+                        <div id="r{{$loop->index}}" class="reszletek">
+                            <div class="reszlet">
+                                <div class="reszletFejlec">
+                                    <h2>Elvitel</h2>
+                                    <h2>Visszahozatal</h2>
+                                    <h2>Érvényesség</h2>
+                                    <h2>Kedvezmény</h2>
+                                    <h2>Állapot</h2>
+                                </div>
+                                <div class="reszletadatok">
+                                    <p class="elvitel">{{$data->elvitel}}</p>
+                                    <p class="visszahozatal">{{$data->visszahozatal}}</p>
+                                    <p class="ervenyesseg">{{$data->ervenyessegi_ido}}</p>
+                                    <p class="kedvezmeny">{{$data->kedvezmeny}}</p>
+                                    <p class="allapot">{{$data->allapot}}</p>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        @endforeach
+
                     </div>
 
+                </div>
 
+
+
+
+
+
+                <div class="formcontainer">
+                    <div class="foglalasModositas">
+                        <form method="POST">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-header">
+                                <h3>Adatok módosítása</h3>
+                            </div>
+                            <div class="sor">
+                                <div class="inputfield">
+                                    <label for="elvitelDate">Elvitel dátuma:</label>
+                                    <br />
+                                    <input type="date" name="elvitelDate" id="elvitelDate" />
+
+                                </div>
+
+                                <div class="inputfield">
+                                    <label for="visszahozDate">Visszahozatal dátuma:</label>
+                                    <br />
+                                    <input type="date" name="visszahozDate" id="visszahozDate" />
+                                </div>
+
+                            </div>
+                            <div class="sor">
+                                <div class="inputfield">
+                                    <label for="elvitelTime">Elvitel ideje:</label>
+                                    <br />
+                                    <select type="time" id="elvitelTime" name="elvitelTime">
+
+                                    </select>
+                                </div>
+
+                                <div class="inputfield">
+                                    <label for="visszahozTime">Visszahozatal ideje:</label>
+                                    <br />
+                                    <select type="time" id="visszahozTime" name="visszahozTime">
+
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+                            <input type="submit" value="Adatok mentése" id="adatotMent" />
+
+
+                        </form>
+                    </div>
                 </div>
 
             </div>
 
-
-
-
-
-
-            <div class="formcontainer">
-                <div class="foglalasModositas">
-                    <form method="POST">
-                        @csrf
-                        @method('PUT')
-                        <div class="form-header">
-                            <h3>Adatok módosítása</h3>
-                        </div>
-                        <div class="sor">
-                            <div class="inputfield">
-                                <label for="elvitelDate">Elvitel dátuma:</label>
-                                <br />
-                                <input type="date" name="elvitelDate" id="elvitelDate" />
-
-                            </div>
-
-                            <div class="inputfield">
-                                <label for="visszahozDate">Visszahozatal dátuma:</label>
-                                <br />
-                                <input type="date" name="visszahozDate" id="visszahozDate" />
-                            </div>
-
-                        </div>
-                        <div class="sor">
-                            <div class="inputfield">
-                                <label for="elvitelTime">Elvitel ideje:</label>
-                                <br />
-                                <select type="time" id="elvitelTime" name="elvitelTime">
-
-                                </select>
-                            </div>
-
-                            <div class="inputfield">
-                                <label for="visszahozTime">Visszahozatal ideje:</label>
-                                <br />
-                                <select type="time" id="visszahozTime" name="visszahozTime">
-
-                                </select>
-                            </div>
-
-                        </div>
-
-
-
-
-
-
-
-
-
-
-                        <input type="submit" value="Adatok mentése" id="adatotMent" />
-
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Footer -->
-        @include('komponensek/footer')
+            <!-- Footer -->
+            @include('komponensek/footer')
     </main>
 </body>
 

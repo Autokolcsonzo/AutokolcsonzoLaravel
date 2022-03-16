@@ -14,25 +14,15 @@ use Illuminate\Support\Facades\Session;
 class AdminAutokController extends Controller
 {
 
-    public function adminIndex()
-    {
-        $results = DB::table('auto')
-        ->join('modell', 'auto.modell', '=', 'modell.modell_id')
-        ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
-        ->select('auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
-        ->get();
-        return $results;
-        //return view('adminAutok', compact('result'));
-    }
-
     public function adatokKiiratasa() {
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('foglalas')->select('kifizetendo_osszegeg')->count();
+        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
         $adat = DB::table('auto')
         ->join('modell', 'auto.modell', '=', 'modell.modell_id')
         ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
-        ->select('auto.alvazSzam', 'auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
+        ->join('auto_kepek', 'auto.alvazSzam', '=', 'auto_kepek.alvazSzam')
+        ->select('auto_kepek.kep', 'auto.alvazSzam', 'auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
         ->get();
        // return $adatok;
        return view('adminAutok', compact('adat','felhasznalok', 'foglalasok', 'bevetel'));

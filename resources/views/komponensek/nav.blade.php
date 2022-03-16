@@ -57,8 +57,8 @@
                         <li><a href="#">Furgonok</a></li>
                         <li><a href="#">Pickupok</a></li>
                     </ul>
-                </div>
-            </li> -->
+                -->
+            </li>
         </ul>
     </div>
     <!-- HAMBI MENÜ GOMB -->
