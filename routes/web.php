@@ -52,6 +52,8 @@ Route::get('adminFoglalas', function () {
     return view('adminFoglalas');
 });
 
+
+
 /* Admin API */
 
 Route::get('/adminAutok', [AdminAutokController::class, 'adatokKiiratasa']);
@@ -63,12 +65,16 @@ Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
 
 
-//felhasznaloApi
+//felhasznaloProfilApi
 Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
 
 Route::get('/felhasznaloiProfil', [FelhasznaloProfil::class, 'bejelentkezett'])->middleware('isLoggedIn');
 
-/* Route::put('/felhasznaloiProfil/{felhasznalo_id}', [FelhasznaloProfil::class, 'modositasproba'])->name("felhasznalomod"); */
+Route::put('/update',[FelhasznaloProfil::class, 'update'])->name('felhasznalok.update');
+
+
+
+
 
 
 

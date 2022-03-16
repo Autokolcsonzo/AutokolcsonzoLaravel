@@ -16,9 +16,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
-    <script src="../js/Ajax.js"></script>
-   <!--  <script src="../js/felhasznalo/FelhasznaloProfil.js"></script>
-    <script src="../js/felhasznalo/felhasznaloProfilJs.js"></script> -->
+    <!-- <script src="../js/Ajax.js"></script>
+    <script src="../js/felhasznalo/FelhasznaloProfil.js"></script> -->
+    <script src="../js/felhasznalo/felhasznaloProfilJs.js"></script>
 
     <script src="../js/hambiMenu.js"></script>
 
@@ -58,17 +58,17 @@
 
                 </div>
 
-           
+
 
                 <div class="fadatok">
-             
+
                     <table class="fadatokTable">
-                   
+
                         <tr>
                             <td>Felhasznalónév: </td>
                             <td id="fnev">{{$data->felhasznalonev}}</td>
                             <td>Jelszó: </td>
-                            <td id="jelszo">********</td>
+                            <td id="jelszo">*******</td>
 
 
                         </tr>
@@ -113,7 +113,7 @@
                             <td id="email">{{$data->e_mail}}</td>
                             <td>Telefonszám: </td>
                             <td id="tszam">{{$data->tel_szam}}</td>
-                            
+
 
                         </tr>
                     </table>
@@ -123,12 +123,33 @@
                     </table>
 
                 </div>
+
                 <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása" style="display:block" />
+
+                @if($errors->any())
+
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li class="hiba">
+                        {{$error}}
+                    </li>
+                    @endforeach
+                </ul>
+
+                @endif
 
 
                 <div class="felhasznaloiModositas">
-                    <form action="" method="POST">
-      
+
+
+
+
+
+                    <form action="{{route('felhasznalok.update')}}" method="POST">
+                        @method('PUT')
+                        @csrf
+
+                        <input type="hidden" value="{{$data->felhasznalo_id}}" name="felhasznalo_id">
 
 
 
@@ -140,14 +161,14 @@
                             <div class="inputfield">
                                 <label for="vezeteknev">Vezetéknév:</label>
                                 <br />
-                                <input type="text" name="vezeteknev" id="ivnev" placeholder="Kovács" />
+                                <input type="text" name="vezeteknev" id="ivnev" value="{{ old('vezeteknev') ?? $data->vezeteknev }}" />
 
                             </div>
 
                             <div class="inputfield">
                                 <label for="keresztnev">Keresztnév:</label><br>
 
-                                <input type="text" name="keresztnev" id="iknev" placeholder="Kati" />
+                                <input type="text" name="keresztnev" id="iknev" value="{{ old('keresztnev') ?? $data->keresztnev }}" />
                             </div>
 
                         </div>
@@ -161,12 +182,12 @@
                                 <label for="felhasznalonev">Felhasználónév:</label>
 
                                 <br />
-                                <input type="text" name="felhasznalonev" id="ifnev" placeholder="valaki97" /><br />
+                                <input type="text" name="felhasznalonev" id="ifnev" value="{{ old('felhasznalonev') ?? $data->felhasznalonev }}" /><br />
                             </div>
 
                             <div class="inputfield">
                                 <label for="e_mail">E-mail cím:</label> <br />
-                                <input type="email" id="iemail" name="e_mail" placeholder="valami@gmail.com" />
+                                <input type="email" id="iemail" name="e_mail" value="{{ old('e_mail') ?? $data->e_mail }}" />
                             </div>
                         </div>
 
@@ -174,7 +195,7 @@
                             <div class="inputfield">
                                 <label for="jelszo">Jelszó:</label>
                                 <br>
-                                <input type="text" id="ijelszo" name="jelszo" placeholder="****" />
+                                <input type="text" id="ijelszo" name="jelszo" value="" />
                             </div>
 
 
@@ -183,13 +204,13 @@
 
                         <div class="sor">
                             <div class="inputfield">
-                                <label for="szul_datum">Születési dátum:</label><br>
-                                <input type="date" name="szul_datum" id="iszdatum" /><br>
+                                <label for="szul_ido">Születési dátum:</label><br>
+                                <input type="date" name="szul_ido" id="iszdatum" value="{{ old('szul_ido') ?? $data->szul_ido}}" /><br>
                             </div>
 
                             <div class="inputfield">
                                 <label for="tel_szam">Telefonszám:</label><br>
-                                <input type="text" name="tel_szam" id="itelszam" placeholder="+36-20-345-6789" />
+                                <input type="text" name="tel_szam" id="itelszam" placeholder="+36-20-345-6789" value="{{ old('tel_szam') ?? $data->tel_szam }}" />
                             </div>
 
                         </div>
@@ -201,7 +222,7 @@
                             <div class="inputfield">
                                 <label>Cím:</label>
                                 <br />
-                                <input type="text" name="ir_szam" id="iiranyitoszam" placeholder="Irányítószám" />
+                                <input type="text" name="ir_szam" id="iiranyitoszam" value="{{ old('ir_szam') ?? $data->ir_szam }}" />
 
                             </div>
 
@@ -210,11 +231,11 @@
                         <div class="sor">
                             <label for="megye"></label>
                             <div class="inputfield">
-                                <input type="text" name="megye" id="imegye" placeholder="Megye" />
+                                <input type="text" name="megye" id="imegye" value="{{ old('megye') ?? $data->megye}}" />
                             </div>
                             <label for="varos"></label>
                             <div class="inputfield">
-                                <input type="text" name="varos" id="ivaros" placeholder="Város" />
+                                <input type="text" name="varos" id="ivaros" value="{{ old('varos') ?? $data->varos}}" />
                             </div>
 
 
@@ -229,13 +250,13 @@
                         <div class="sor">
                             <label for="utca"></label>
                             <div class="inputfield">
-                                <input type="text" name="utca" id="iutca" placeholder="Utca" />
+                                <input type="text" name="utca" id="iutca" value="{{ old('utca') ?? $data->utca}}" />
 
                             </div>
                             <label for="hazszam"></label>
                             <div class="inputfield">
 
-                                <input type="text" name="hazszam" id="ihazszam" placeholder="Házszám" />
+                                <input type="text" name="hazszam" id="ihazszam" value="{{ old('hazszam') ?? $data->hazszam}}" />
                             </div>
 
 
@@ -250,13 +271,15 @@
 
                     </form>
                 </div>
+
+
             </div>
 
 
         </div>
 
         <!-- Footer -->
-        @include('komponensek/footer')
+        @yinclude('komponensek/footer')
     </main>
 </body>
 
