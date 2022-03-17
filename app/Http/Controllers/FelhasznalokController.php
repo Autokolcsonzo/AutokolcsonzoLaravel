@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Felhasznalo;
+use App\Models\FelhasznaloModell;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -11,16 +12,17 @@ use Illuminate\Support\Facades\Session;
 class FelhasznalokController extends Controller
 {
 
-     public function adatokKiiratasa() {
+    public function adatokKiiratasa()
+    {
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 
         $adat = DB::table('felhasznalo')
-        ->select('jogkor', 'felhasznalonev', 'e_mail', 'reg_datum', 'ir_szam', 'megye', 'varos', 'utca', 'hazszam', 'tel_szam', 'szul_ido')
-        ->get();
-       // return $adatok;
-       return view('adminFelhasznalok', compact('adat','felhasznalok', 'foglalasok', 'bevetel'));
+            ->select('jogkor', 'felhasznalonev', 'e_mail', 'reg_datum', 'ir_szam', 'megye', 'varos', 'utca', 'hazszam', 'tel_szam', 'szul_ido')
+            ->get();
+        // return $adatok;
+        return view('adminFelhasznalok', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel'));
     }
 
     public function store(Request $request)
@@ -83,7 +85,7 @@ class FelhasznalokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   
+
 
     /**
      * Remove the specified resource from storage.
@@ -95,13 +97,5 @@ class FelhasznalokController extends Controller
     {
         $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
         $felhasznalo->delete();
-    }
-
-    public function osszAdatok()
-    {
-        $felhasznalok = DB::table('felhasznalo')->count();
-        $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('foglalas')->select('kifizetendo_osszegeg')->count();
-        return view('adminFelhasznalok', compact('felhasznalok', 'foglalasok', 'bevetel'));
     }
 }
