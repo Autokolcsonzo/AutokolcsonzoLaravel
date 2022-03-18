@@ -74,6 +74,8 @@ Route::get('/felhasznaloiProfil', [FelhasznaloProfil::class, 'bejelentkezett'])-
 
 Route::put('/update',[FelhasznaloProfil::class, 'update'])->name('felhasznalok.update');
 
+Route::put('/updatekep',[FelhasznaloProfil::class, 'profkepUpdate'])->name('felhasznalok.profkepUpdate');
+
 
 
 
