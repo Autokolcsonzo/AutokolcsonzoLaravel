@@ -101,9 +101,13 @@ class AdminAutokController extends Controller
            $destinaion_path = 'public/images/autok';
            $image = $req->file('kep');
            $image_name = $image->getClientOriginalName();
-           $path = $req->file('kep')->storeAs($destinaion_path, $image_name);
-
+           $path = $req->file('kep')->storeAs($destinaion_path, $image_name); 
            $input['kep'] = $image_name;
+           /* $file = $req->file('kep');
+           $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('kepek/autok/'.$filename); */
+            
        }
 
         DB::table('auto_kepek')->insert($auto_kepek);

@@ -146,7 +146,9 @@
                         @else
                         <div class="foadatok odd">
                             @endif
-                            <p class="statusz">{{$data->kep}}</p>
+                            <p class="statusz">
+                                <img src="{{ asset('storage/images/autok/'.$data->kep) }}" width="40%" alt="ez lenne a kép">
+                            </p>
                             <p class="statusz">{{$data->statusz}}</p>
                             <p class="rendszam">{{$data->rendszam}}</p>
                             <p class="megnevezes">{{$data->marka}}</p>
@@ -165,7 +167,6 @@
                         <div id="r{{$loop->index}}" class="reszletek">
                             <div class="reszlet">
                                 <div class="reszletFejlec">
-                                    <h2>Jármű index:</h2>
                                     <h2>Irányítószám</h2>
                                     <h2>Megye</h2>
                                     <h2>Város</h2>
@@ -175,7 +176,6 @@
                                     <h2>Születési idő</h2>
                                 </div>
                                 <div class="reszletadatok">
-                                    <p class="jarmu-index">{{$loop->index}}</p>
                                     <p class="iranyitoszam">2360</p>
                                     <p class="megye">Pest</p>
                                     <p class="varos">Gyál</p>
