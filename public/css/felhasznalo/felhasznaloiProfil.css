@@ -90,7 +90,7 @@ tr :nth-child(4) {
 }
 
 #profkepFel{
-  display: none;
+ 
   margin: 10px;
 
 }
@@ -193,6 +193,12 @@ max-width: 700px;
   background-color: #b1c5ee;
   text-decoration: none;
   transition-duration: 0.2s;
+}
+
+.hiba{
+  color:darkred;
+  font-weight: bolder;
+  padding:10px;
 }
 
 

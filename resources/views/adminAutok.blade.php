@@ -10,19 +10,18 @@
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <script src="../js/admin/adminAutok.js"></script>
 
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -129,7 +128,7 @@
 
             <div class="felhasznalokAdmin">
                 <div class="felhFejlec">
-                    <h2>Kép</h2>
+                    <h2>Alvázszám</h2>
                     <h2>Státusz</h2>
                     <h2>Rendszám</h2>
                     <h2>Megnevezés</h2>
@@ -149,12 +148,12 @@
                             <p class="statusz">
                                 <img src="{{ asset('storage/images/autok/'.$data->kep) }}" width="40%" alt="ez lenne a kép">
                             </p>
+                            <p class="statusz">{{$data->alvazSzam}}</p>
                             <p class="statusz">{{$data->statusz}}</p>
                             <p class="rendszam">{{$data->rendszam}}</p>
                             <p class="megnevezes">{{$data->marka}}</p>
                             <p class="varos">{{$data->varos}}</p>
-                            <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek"
-                                    value="Részletek" /></p>
+                            <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
                             <p>
                                 <a class="fadatokMod" href="{{url('/adminAutokEdit/'.$data->alvazSzam)}}">Módosítás</a>
                             </p>
@@ -167,22 +166,22 @@
                         <div id="r{{$loop->index}}" class="reszletek">
                             <div class="reszlet">
                                 <div class="reszletFejlec">
-                                    <h2>Irányítószám</h2>
-                                    <h2>Megye</h2>
-                                    <h2>Város</h2>
-                                    <h2>Utca</h2>
-                                    <h2>Házszám</h2>
-                                    <h2>Telefonszám</h2>
-                                    <h2>Születési idő</h2>
+                                    <h2>Forgalmi száma</h2>
+                                    <h2>Szín</h2>
+                                    <h2>Napi ár</h2>
+                                    <h2>Évjárat</h2>
+                                    <h2>Típus</h2>
+                                    <h2>Üzemanyag</h2>
+                                    <h2>Teljesítmény</h2>
                                 </div>
                                 <div class="reszletadatok">
-                                    <p class="iranyitoszam">2360</p>
-                                    <p class="megye">Pest</p>
-                                    <p class="varos">Gyál</p>
-                                    <p class="utca">Rákóczi Ferenc utca</p>
-                                    <p class="hazszam">79/1</p>
-                                    <p class="telszam">+36300000000</p>
-                                    <p class="szul_ido">1999-11-16</p>
+                                    <p class="iranyitoszam">{{$data->forgalmiSzam}}</p>
+                                    <p class="megye">{{$data->szin}}</p>
+                                    <p class="varos">{{$data->napiAr}}</p>
+                                    <p class="utca">{{$data->evjarat}}</p>
+                                    <p class="hazszam">{{$data->tipus}}</p>
+                                    <p class="telszam">{{$data->uzemanyag}}</p>
+                                    <p class="szul_ido">{{$data->teljesitmeny}}</p>
                                 </div>
                             </div>
                         </div>

@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\auto;
-use App\Models\autoKepek;
-use App\Models\modell;
-use App\Models\Felhasznalo;
+use App\Models\autoExtra;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -14,32 +12,40 @@ use Illuminate\Support\Facades\Session;
 class AdminAutokController extends Controller
 {
 
-    public function adatokKiiratasa() {
+    public function adatokKiiratasa()
+    {
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
         $adat = DB::table('auto')
-        ->join('modell', 'auto.modell', '=', 'modell.modell_id')
-        ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
-        ->join('auto_kepek', 'auto.alvazSzam', '=', 'auto_kepek.alvazSzam')
-        ->select('auto_kepek.kep', 'auto.alvazSzam', 'auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
-        ->get();
-       // return $adatok;
-       return view('adminAutok', compact('adat','felhasznalok', 'foglalasok', 'bevetel'));
+            ->join('modell', 'auto.modell', '=', 'modell.modell_id')
+            ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
+            ->join('auto_kepek', 'auto.alvazSzam', '=', 'auto_kepek.alvazSzam')
+            ->select('modell.tipus', 'modell.uzemanyag', 'modell.teljesitmeny', 'modell.evjarat', 'auto.napiAr', 'auto.szin', 'auto.forgalmiSzam', 'auto.alvazSzam', 'auto.alvazSzam', 'auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
+            ->get();
+        // return $adatok;
+        return view('adminAutok', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel'));
     }
-    
-    public function edit($alvazSzam) {       
+
+    public function edit($alvazSzam)
+    {
         $autok = Auto::find($alvazSzam);
         return view('adminAutokEdit', compact('autok'));
         /* return response()->json(auto::find($rendszam), 200); */
     }
-    
-    public function delete($alvazSzam) {
-        Auto::find($alvazSzam)->delete();
+
+    public function delete($alvazSzam)
+    {
+        $torles = DB::table('auto')
+            ->leftJoin('auto_kepek', 'auto.alvazSzam', '=', 'auto_kepek.alvazSzam')
+            ->where('auto.alvazSzam', $alvazSzam);
+        DB::table('auto_kepek')->where('alvazSzam', $alvazSzam)->delete();
+        $torles->delete();
         return redirect()->back();
     }
-    
-    public function update(Request $req, $alvazSzam) {
+
+    public function update(Request $req, $alvazSzam)
+    {
         $input = $req->all();
 
         $data = Auto::find($alvazSzam);
@@ -47,13 +53,13 @@ class AdminAutokController extends Controller
         $data->alvazSzam = $input['alvazSzam'];
         $data->telephely = $input['telephely'];
         $data->napiAr = $input['napiAr'];
-        $data->szin =$input['szin'];
+        $data->szin = $input['szin'];
         $data->forgalmiSzam = $input['forgalmiSzam'];
         $data->statusz = $input['statusz'];
         $data->rendszam = $input['rendszam'];
         $data->save();
 
-/*         return response()->json(['message'=>'success'], 200); */
+        /*         return response()->json(['message'=>'success'], 200); */
 
         return redirect('/adminAutok');
     }
@@ -65,7 +71,7 @@ class AdminAutokController extends Controller
         $modell = [
             'marka' => $req->marka,
             'tipus' => $req->tipus,
-          /*   'modell' => $req->modell, */ // nem jó
+            /*   'modell' => $req->modell, */ // nem jó
             'evjarat' => $req->evjarat,
             'kivitel' => $req->kivitel,
             'uzemanyag' => $req->uzemanyag,
@@ -109,6 +115,14 @@ class AdminAutokController extends Controller
             $file->move('kepek/autok/'.$filename); */
             
        }
+      /*   if ($req->hasFile('kep')) {
+            $destinaion_path = 'public/images/autok';
+            $image = $req->file('kep');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('kep')->storeAs($destinaion_path, $image_name);
+
+            $input['kep'] = $image_name;
+        } */
 
         DB::table('auto_kepek')->insert($auto_kepek);
 

@@ -1,4 +1,4 @@
-class FelhasznaloProfil {
+/* class FelhasznaloProfil {
     constructor(elem, adat) {
         this.adat = adat;
         this.elem = elem;
@@ -29,7 +29,7 @@ class FelhasznaloProfil {
     }
 
     setAdat(adat) {
-        //console.log(adat);
+      
         this.fnev.text(adat.felhasznalonev);
         this.jelszo.text(adat.jelszo);
         this.vnev.text(adat.vezeteknev);
@@ -61,3 +61,4 @@ class FelhasznaloProfil {
         console.log("TEST");
     }
 }
+ */
