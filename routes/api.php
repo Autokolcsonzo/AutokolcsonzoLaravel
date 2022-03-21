@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutokListazasaController;
 use App\Http\Controllers\KedvezmenyekController;
 use App\Http\Controllers\KeresoViewController;
+use App\Http\Controllers\FelhasznaloAdmin;
 /* use App\Http\Controllers\AdminAutokController; */
 
 /*
@@ -22,12 +23,26 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('auto_fill', AutokListazasaController::class);
+//Route::apiResource('auto_fill', AutokListazasaController::class);
 Route::apiResource('kedvezmeny', KedvezmenyekController::class);
 
-Route::get('auto_fill', [AutokListazasaController::class, 'index']);
+Route::get('auto_fill/{mezo}/{helyszin}/{elvitel}/{visszahoz}/{marka}/{modell}/{kivitel}/{uzemanyag}/{evTol}/{evIg}/{arTol}/{arIg}/{checkboxok}', [AutokListazasaController::class, 'keresesParameteresen']);
 Route::get('kedvezmeny', [KedvezmenyekController::class, 'kedvezmenyek']);
-//Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']); 
+//Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']);
+
+
 
 Route::apiResource('keresoview', KeresoViewController::class);
 Route::get('keresoview', [KeresoViewController::class, 'index']);
+
+
+/* Route::apiResource('felhasznaloadmin',FelhasznaloAdmin::class)->parameters([
+    'felhasznaloadmin' => 'felhasznalo_id'
+]);; */
+
+
+Route::get('felhasznaloadmin', [FelhasznaloAdmin::class, 'index']);
+/* Route::post('felhasznaloadmin/store', [FelhasznaloAdmin::class, 'store']); */
+Route::get('felhasznaloadmin/{felhasznalo}/edit', [FelhasznaloAdmin::class, 'edit']);
+Route::put('felhasznaloadmin/{felhasznalo}', [FelhasznaloAdmin::class, 'update'])->name('updateadmin.felhasznalo');
+Route::delete('felhasznaloadmin/{felhasznalo}', [FelhasznaloAdmin::class, 'destroy'])->name('delete.felhasznalo');

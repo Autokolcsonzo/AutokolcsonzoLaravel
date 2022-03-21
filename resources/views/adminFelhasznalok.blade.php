@@ -7,21 +7,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+
 
     <!-- Scriptek -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+
+    </script>
+    </script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="../js/admin/Felhasznalo.js"></script>
+    <script src="../js/Ajax.js"></script>
+    <script src="../js/admin/jsFelhasznalok.js"></script>
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <script src="../js/admin/adminAutok.js"></script>
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -29,7 +37,6 @@
     <link rel="stylesheet" href="../css/szerkezet.css" />
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
-    <!--   <link rel="stylesheet" href="css/fooldal.css" /> -->
     <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/admin/admin.css" />
 </head>
@@ -62,9 +69,16 @@
                 </div>
 
 
+                <!-- Szűrés jogkörönként -->
+
+
+
+
                 <div class="jogkorValasztas">
                     <div>
                         <select name="jogkorKategoriak" id="jogkorKategoriak">
+
+                            <option value="osszes">Összes</option>
                             <option value="felhasznaloJog">Felhasználók</option>
 
                             <option value="adminJog">Adminok</option>
@@ -120,174 +134,193 @@
                 </div>
                 <div class="felhasznalo">
 
-                    @foreach($adat as $data)
-                    @if($loop->iteration % 2 == 0)
-                    <div class="foadatok even">
-                        @else
-                        <div class="foadatok odd">
-                            @endif
-                            <p class="jogkor">{{$data->jogkor}}</p>
-                            <p class="felhnev">{{$data->felhasznalonev}}</p>
-                            <p class="email">{{$data->e_mail}}</p>
-                            <p class="regDatum">{{$data->reg_datum}}</p>
-                            <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek"
-                                    value="Részletek" /></p>
-                            <p>
-                                <a class="fadatokMod" href="#">Módosítás</a>
-                            </p>
-                            <form action="#" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button type="submit" class="torles">Törlés</button>
-                            </form>
-                        </div>
+                  
+                    
+                    
+             
 
-                        <div id="r{{$loop->index}}" class="reszletek">
-                            <div class="reszlet">
-                                <div class="reszletFejlec">
-                                    <h2>Irányítószám</h2>
-                                    <h2>Megye</h2>
-                                    <h2>Város</h2>
-                                    <h2>Utca</h2>
-                                    <h2>Házszám</h2>
-                                    <h2>Telefonszám</h2>
-                                    <h2>Születési idő</h2>
-                                </div>
-                                <div class="reszletadatok">
-                                    <p class="iranyitoszam">{{$data->ir_szam}}</p>
-                                    <p class="megye">{{$data->megye}}</p>
-                                    <p class="varos">{{$data->varos}}</p>
-                                    <p class="utca">{{$data->utca}}</p>
-                                    <p class="hazszam">{{$data->hazszam}}</p>
-                                    <p class="telszam">{{$data->tel_szam}}</p>
-                                    <p class="szul_ido">{{$data->szul_ido}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
+                    <div class="foadatok">
 
-                </div>
-
-                <div class="formcontainer">
-                    <div class="felhasznaloiModositas">
-                        <form method="POST">
+                        <p class="jogkor"></p>
+                        <p class="felhnev"></p>
+                        <p class="email"></p>
+                        <p class="regDatum"></p>
+                        <p><input type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
+                        <p><input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" /></p>
+                        @foreach($felhasznalo as $f)
+                        <form action='{{route("delete.felhasznalo",$f->felhasznalo_id)}}' id="torlesform" method="POST">
+                      @endforeach
+                            @method('DELETE')
                             @csrf
-                            @method('PUT')
-                            <div class="form-header">
-                                <h3>Adatok módosítása</h3>
-                            </div>
-                            <div class="sor">
-                                <div class="inputfield">
-                                    <label for="nev">Vezetéknév:</label>
-                                    <br />
-                                    <input type="text" name="vnev" id="ivnev" placeholder="Kovács" />
-
-                                </div>
-
-                                <div class="inputfield">
-                                    <label for="nev">Keresztnév:</label><br>
-
-                                    <input type="text" name="knev" id="iknev" placeholder="Kati" />
-                                </div>
-
-                            </div>
 
 
-
-
-
-                            <div class="sor">
-                                <div class="inputfield">
-                                    <label for="fnev">Felhasználónév:</label>
-
-                                    <br />
-                                    <input type="text" name="fnev" id="ifnev" placeholder="valaki97" /><br />
-                                </div>
-
-                                <div class="inputfield">
-                                    <label for="email">E-mail cím:</label> <br />
-                                    <input type="email" id="iemail" name="email" placeholder="valami@gmail.com" />
-                                </div>
-                            </div>
-
-
-
-                            <div class="sor">
-                                <div class="inputfield">
-                                    <label for="szdatum">Születési dátum:</label><br>
-                                    <input type="date" name="szdatum" id="iszdatum" /><br>
-                                </div>
-
-                                <div class="inputfield">
-                                    <label for="telszam">Telefonszám:</label><br>
-                                    <input type="text" id="itelszam" placeholder="+36-20-345-6789" />
-                                </div>
-
-                            </div>
-
-
-                            <div class="sor">
-
-
-                                <div class="inputfield">
-                                    <label>Cím:</label>
-                                    <br />
-                                    <input type="text" id="iiranyitoszam" placeholder="Irányítószám" />
-
-                                </div>
-
-                            </div>
-
-                            <div class="sor">
-
-                                <div class="inputfield">
-                                    <input type="text" id="imegye" placeholder="Megye" />
-                                </div>
-
-                                <div class="inputfield">
-                                    <input type="text" id="ivaros" placeholder="Város" />
-                                </div>
-
-
-
-
-
-
-
-                            </div>
-
-
-                            <div class="sor">
-
-                                <div class="inputfield">
-                                    <input type="text" id="iutca" placeholder="Utca" />
-
-                                </div>
-
-                                <div class="inputfield">
-
-                                    <input type="text" id="ihazszam" placeholder="Házszám" />
-                                </div>
-
-
-
-
-                            </div>
-
-
-
-                            <input type="submit" value="Adatok mentése" id="adatotMent" />
-
-
+                            <button type="submit" class="torles">Törlés</button>
                         </form>
                     </div>
+              
+
+                    <div class="reszletek">
+                        <div class="reszlet">
+                            <div class="reszletFejlec">
+                                <h2>Irányítószám</h2>
+                                <h2>Megye</h2>
+                                <h2>Város</h2>
+                                <h2>Utca</h2>
+                                <h2>Házszám</h2>
+                                <h2>Telefonszám</h2>
+                                <h2>Születési idő</h2>
+                            </div>
+                            <div class="reszletadatok">
+                                <p class="iranyitoszam"></p>
+                                <p class="megye"></p>
+                                <p class="varos"></p>
+                                <p class="utca"></p>
+                                <p class="hazszam"></p>
+                                <p class="telszam"></p>
+                                <p class="szul_ido"></p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
 
-            <!-- Footer -->
-            @include('komponensek/footer')
+
+            <div class="formcontainer">
+            <div class="felhasznaloiModositas">
+
+
+
+
+
+            @foreach($felhasznalo as $f)
+                        <form action='{{route("updateadmin.felhasznalo",$f->felhasznalo_id)}}' id="updateform" method="POST">
+                      @endforeach
+
+                      @method('PUT')
+                            @csrf
+
+
+
+
+
+    <div class="form-header">
+        <h3>Adatok módosítása</h3>
+    </div>
+    <div class="sor">
+        <div class="inputfield">
+            <label for="vezeteknev">Vezetéknév:</label>
+            <br />
+            <input type="text" name="vezeteknev" id="ivnev" value="" />
+
+        </div>
+
+        <div class="inputfield">
+            <label for="keresztnev">Keresztnév:</label><br>
+
+            <input type="text" name="keresztnev" id="iknev" value="" />
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="sor">
+        <div class="inputfield">
+            <label for="felhasznalonev">Felhasználónév:</label>
+
+            <br />
+            <input type="text" name="felhasznalonev" id="ifnev" value="" /><br />
+        </div>
+
+        <div class="inputfield">
+            <label for="e_mail">E-mail cím:</label> <br />
+            <input type="email" id="iemail" name="e_mail" value="" />
+        </div>
+    </div>
+
+
+    <div class="sor">
+        <div class="inputfield">
+            <label for="szul_ido">Születési dátum:</label><br>
+            <input type="date" name="szul_ido" id="iszdatum" value="" /><br>
+        </div>
+
+        <div class="inputfield">
+            <label for="tel_szam">Telefonszám:</label><br>
+            <input type="text" name="tel_szam" id="itelszam" placeholder="+36-20-345-6789" value="" />
+        </div>
+
+    </div>
+
+
+    <div class="sor">
+
+        <label for="ir_szam"></label>
+        <div class="inputfield">
+            <label>Cím:</label>
+            <br />
+            <input type="text" name="ir_szam" id="iiranyitoszam" value="" />
+
+        </div>
+
+    </div>
+
+    <div class="sor">
+        <label for="megye"></label>
+        <div class="inputfield">
+            <input type="text" name="megye" id="imegye" value="" />
+        </div>
+        <label for="varos"></label>
+        <div class="inputfield">
+            <input type="text" name="varos" id="ivaros" value="" />
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="sor">
+        <label for="utca"></label>
+        <div class="inputfield">
+            <input type="text" name="utca" id="iutca" value="" />
+
+        </div>
+        <label for="hazszam"></label>
+        <div class="inputfield">
+
+            <input type="text" name="hazszam" id="ihazszam" value="" />
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <input type="submit" value="Adatok mentése" class="adatotMent" />
+
+
+</form>
+</div>
+
+
+</div>
+           
+
+        </div>
+
+        <!-- Footer -->
+        @include('komponensek/footer')
     </main>
 </body>
 

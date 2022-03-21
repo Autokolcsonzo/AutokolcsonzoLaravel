@@ -52,10 +52,16 @@
         <div id="primary_content">
             <div class="fprofil">
                 <div class="profilkep">
-                    <img src="../kepek/profilkep.png" id="profKep" alt="" /><br>
+              
+                <form action="{{route('felhasznalok.profkepUpdate')}}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" value="{{$data->felhasznalo_id}}" name="felhasznalo_id">
+                @method('PUT')
+                        @csrf
+                    <img src="{{$data->profilkep}}" name="kep" id="profKep" alt="" /><br>
+                    
+                    <input type="file" id="profkepFel" name="profilkep"><br>
                     <input type="submit" name="fkepMod" id="fkepMod" value="Profilkép feltöltése" />
-                    <input type="file" id="profkepFel" name="profilkep" accept="image/png, image/jpeg">
-
+                </form>
                 </div>
 
 
@@ -97,8 +103,8 @@
 
                         <tr>
                             <td>Város: </td>
-                            <td id="varos">Gyömrő</td>
-                            <td>{{$data->varos}}</td>
+                            <td id="varos">{{$data->varos}}</td>
+                            <td>Utca: </td>
                             <td id="utca">{{$data->utca}}</td>
 
                         </tr>

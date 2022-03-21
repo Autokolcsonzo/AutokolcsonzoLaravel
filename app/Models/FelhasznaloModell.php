@@ -10,7 +10,9 @@ class FelhasznaloModell extends Model
     protected $table = 'felhasznalo';
     protected $primaryKey = 'felhasznalo_id';
     protected $fillable = [
-       
+
+        'felhasznalo_id',
+       'profilkep',
         'vezeteknev',
         'keresztnev',
         'felhasznalonev',

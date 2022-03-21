@@ -9,20 +9,28 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
+
 class FelhasznalokController extends Controller
 {
 
+
+
     public function adatokKiiratasa()
     {
+        
+    
+      
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
+        $felhasznalo=FelhasznaloModell::orderBy('felhasznalo_id','DESC')->get();
 
-        $adat = DB::table('felhasznalo')
-            ->select('jogkor', 'felhasznalonev', 'e_mail', 'reg_datum', 'ir_szam', 'megye', 'varos', 'utca', 'hazszam', 'tel_szam', 'szul_ido')
-            ->get();
+     
+       
+
+     
         // return $adatok;
-        return view('adminFelhasznalok', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel'));
+        return view('adminFelhasznalok', compact('felhasznalo', 'felhasznalok', 'foglalasok', 'bevetel'));
     }
 
     public function store(Request $request)
