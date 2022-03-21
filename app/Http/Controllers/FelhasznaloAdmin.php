@@ -56,10 +56,7 @@ class FelhasznaloAdmin extends Controller
       $data = $request->all();
       $felhasznalo->update($data);
 
-      return response()->json([
-         'success' => true,
-         'message' => 'Success',
-      ]);
+      return redirect()->back();
    }
 
 

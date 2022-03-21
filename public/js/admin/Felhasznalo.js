@@ -17,6 +17,8 @@ class Felhasznalo {
     this.szul_ido=this.elem.find(".szul_ido");
     this.reszletekGomb=this.elem.find(".fReszletek");
     this.torolGomb=this.elem.find(".torles");
+    this.felhasznaloModosit = $(".fadatokMod");
+    this.adatotMentGomb=this.elem.find(".adatotMent");
     this.zarva=true;
 
     this.reszletekGomb.on("click", () => {
@@ -24,9 +26,21 @@ class Felhasznalo {
     
   });
 
+  this.felhasznaloModosit.on("click", () => {
+    this.kattintasTrigger("modosit");
+   
+ });
+
+  this.adatotMentGomb.on("click", () => {
+    this.kattintasTrigger("adatmentes");
+   
+ });
+
   this.torolGomb.on("click",()=>{
     this.kattintasTrigger("torol");
 });
+
+
 
    
 
@@ -71,6 +85,7 @@ kattintasTrigger(gomb) {
   let esemeny = new CustomEvent(gomb, {
       detail: this.adat
   });
+  localStorage.setItem('felhasznaloiAdatok', JSON.stringify(esemeny.detail));
   window.dispatchEvent(esemeny);
 }
 

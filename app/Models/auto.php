@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Auto extends Model
 {
-    /* protected $table = 'auto'; */
     use HasFactory;
 
     protected $table = 'auto';
@@ -16,24 +15,14 @@ class Auto extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        /* 'alvazSzam',
+        'alvazSzam',
         'modell',
         'telephely',
         'napiAr',
         'szin',
         'forgalmiSzam',
         'statusz',
-        'rendszam',
-        'kep' */
-        'alvazSzam',
-        'modell',
-            'telephely',
-            'napiAr',
-            'kep',
-            'telephely',
-            'forgalmiSzam',
-            'statusz',
-            'rendszam'
+        'rendszam'
     ];
 
     /**

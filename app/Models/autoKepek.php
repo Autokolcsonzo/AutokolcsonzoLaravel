@@ -9,6 +9,8 @@ class autoKepek extends Model
 {
     use HasFactory;
 
+    protected $table = 'auto_kepek';
+
     protected $fillable = [
         'kep'
     ];

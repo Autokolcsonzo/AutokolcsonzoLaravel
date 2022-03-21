@@ -61,7 +61,9 @@ Route::get('adminFoglalas', function () {
 /* Admin API */
 
 Route::get('/adminAutok', [AdminAutokController::class, 'adatokKiiratasa']);
-Route::post('/adminAutok', [AdminAutokController::class, 'store'])->name('adminAutok');
+Route::post('/adminAutok', [AdminAutokController::class, 'ujAuto'])->name('adminAutok');
+Route::post('/adminAutok', [AdminAutokController::class, 'ujModell'])->name('adminAutok');
+Route::post('/adminAutok', [AdminAutokController::class, 'ujKep'])->name('adminAutok');
 Route::get('/adminAutokEdit/{autok}', [AdminAutokController::class, 'edit']);
 Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
 Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
@@ -74,7 +76,7 @@ Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
 Route::get('/felhasznaloiProfil', [FelhasznaloProfil::class, 'bejelentkezett'])->middleware('isLoggedIn');
 
-Route::put('/update',[FelhasznaloProfil::class, 'update'])->name('felhasznalok.update');
+Route::put('/update', [FelhasznaloProfil::class, 'update'])->name('felhasznalok.update');
 
 Route::put('/updatekep',[FelhasznaloProfil::class, 'profkepUpdate'])->name('felhasznalok.profkepUpdate');
 
@@ -88,8 +90,3 @@ Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratas
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
 Route::get('/api/foglalas/expand={child}', [AdminFoglalasController::class, 'expand']);
 Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);
-
-
-
-
-

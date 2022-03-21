@@ -92,29 +92,28 @@ class FelhasznaloProfil extends Controller
     public function profkepUpdate(Request $request)
     {
 
+        $data = $request->all();
+
         $felhasznalo_id = $request->input('felhasznalo_id');
 
 
-        $image = FelhasznaloModell::find($felhasznalo_id);
-
-        $felhasznalo = [
-            'profilkep' => $request->profilkep
-        ];
+        $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
 
 
-        $input = $request->all();
+
+
 
         if ($request->hasFile('profilkep')) {
            
             $image = $request->file('profilkep');
-            $image_Name = time().'.'.request()->profilkep->getClientOriginalExtension();
+            $image_Name = $image->getClientOriginalName();
             $image_path = '/public/kepek/profilkepek/'.$image_Name;
             request()->file("profilkep")->move(public_path('public/kepek/profilkepek/'), $image_Name);
-            $input['profilkep'] = $image_path;
+            $data['profilkep']=$image_path;
           
         }
 
-        DB::table('felhasznalo')->update($felhasznalo);
+        $felhasznalo->update($data);
 
 
 

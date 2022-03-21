@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\auto;
-use App\Models\autoExtra;
+use App\Models\modell;
+use App\Models\autoKepek;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -64,29 +65,13 @@ class AdminAutokController extends Controller
         return redirect('/adminAutok');
     }
 
-    public function store(Request $req)
+    public function ujAuto(Request $req)
     {
-        /*   $modell_id = 'modell_id'; */
-
-        $modell = [
-            'marka' => $req->marka,
-            'tipus' => $req->tipus,
-            /*   'modell' => $req->modell, */ // nem jó
-            'evjarat' => $req->evjarat,
-            'kivitel' => $req->kivitel,
-            'uzemanyag' => $req->uzemanyag,
-            'teljesitmeny' => $req->teljesitmeny,
-            /* 'modell_id' => $modell_id */
-        ];
-
-        DB::table('modell')->insert($modell);
-
         $auto = [
             'alvazSzam' => $req->alvazSzam,
-            'modell' => $req->modell, //$modell->modell_id, nem jó
+            'modell' => $req->modell,
             'telephely' => $req->telephely,
             'napiAr' => $req->napiAr,
-            /* 'tulajdonsag' => $req->tulajdonsag, EZ MAJD A MODELLBŐL JÖN és az extra is*/
             'szin' => $req->szin,
             'forgalmiSzam' => $req->forgalmiSzam,
             'statusz' => $req->statusz,
@@ -95,6 +80,30 @@ class AdminAutokController extends Controller
 
         DB::table('auto')->insert($auto);
 
+        //   return redirect()->back();
+        return redirect()->back()->with('status', 'adatok sikeresen feltöltve');
+    }
+
+    public function ujModell(Request $req)
+    {
+        $modell = [
+            'marka' => $req->marka,
+            'tipus' => $req->tipus,
+            'modell' => $req->modell,
+            'evjarat' => $req->evjarat,
+            'kivitel' => $req->kivitel,
+            'uzemanyag' => $req->uzemanyag,
+            'teljesitmeny' => $req->teljesitmeny,
+        ];
+
+        DB::table('modell')->insert($modell);
+
+        //   return redirect()->back();
+        return redirect()->back()->with('status', 'adatok sikeresen feltöltve');
+    }
+
+    public function ujKep(Request $req)
+    {
         $auto_kepek = [
             //alváz szám, migrációba is vissza
             'kep' => $req->kep
@@ -102,29 +111,16 @@ class AdminAutokController extends Controller
 
         $input = $req->all();
 
-        if ($req->hasFile('kep'))
-       {
-           $destinaion_path = 'public/images/autok';
-           $image = $req->file('kep');
-           $image_name = $image->getClientOriginalName();
-           $path = $req->file('kep')->storeAs($destinaion_path, $image_name); 
-           $input['kep'] = $image_name;
-           /* $file = $req->file('kep');
-           $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('kepek/autok/'.$filename); */
-            
-       }
-      /*   if ($req->hasFile('kep')) {
-            $destinaion_path = 'public/images/autok';
+        if ($req->hasFile('kep')) {
             $image = $req->file('kep');
             $image_name = $image->getClientOriginalName();
-            $path = $req->file('kep')->storeAs($destinaion_path, $image_name);
+            $destinaion_path = '/public/kepek/autok/' . $image_name;
+            request()->file('kep')->move(public_path('public/kepek/autok/'), $image_name);
 
-            $input['kep'] = $image_name;
-        } */
-
+            $input['kep'] = $destinaion_path;
+        }
         DB::table('auto_kepek')->insert($auto_kepek);
+
 
         //   return redirect()->back();
         return redirect()->back()->with('status', 'adatok sikeresen feltöltve');

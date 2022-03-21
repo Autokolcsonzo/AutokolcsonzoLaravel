@@ -12,11 +12,10 @@ class FelhasznaloModell extends Model
     protected $fillable = [
 
         'felhasznalo_id',
-       
+       'profilkep',
         'vezeteknev',
         'keresztnev',
         'felhasznalonev',
-        'profilkep',
         'jelszo',
         'szul_ido',
         'varos',
