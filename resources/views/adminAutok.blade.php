@@ -145,6 +145,9 @@
                         @else
                         <div class="foadatok odd">
                             @endif
+                            <p class="statusz">
+                                <img src="{{ asset('storage/images/autok/'.$data->kep) }}" width="40%" alt="ez lenne a kép">
+                            </p>
                             <p class="statusz">{{$data->alvazSzam}}</p>
                             <p class="statusz">{{$data->statusz}}</p>
                             <p class="rendszam">{{$data->rendszam}}</p>

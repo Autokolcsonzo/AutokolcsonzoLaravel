@@ -6,6 +6,7 @@ use App\Models\FelhasznaloModell;
 use App\Models\Felhasznalo;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -44,19 +45,19 @@ class FelhasznaloProfil extends Controller
             'keresztnev' => 'min:3|max:15|regex:/^([^0-9]*)$/',
             'vezeteknev' => 'min:3|max:15|regex:/^([^0-9]*)$/',
             'e_mail' => 'unique:felhasznalo,e_mail',
-            'jelszo'=> 'min:5|max:10'
+            'jelszo' => 'min:5|max:10'
         ];
-    
+
         $customMessages = [
             'felhasznalonev.min' => 'A módosítás sikertelen. A felhasználónévnek legalabb :min karakternek kell lennie!',
             'felhasznalonev.max' => 'A módosítás sikertelen. A felhasználónévnek maximum :max karakternek kell lennie!',
-            'jelszo.min'=>'A módosítás sikertelen. A jelszónak legalabb :min karakternek kell lennie!',
+            'jelszo.min' => 'A módosítás sikertelen. A jelszónak legalabb :min karakternek kell lennie!',
             'jelszo.max' => 'A módosítás sikertelen. A jelszónak maximum :max karakternek kell lennie!',
-            'e_mail.unique'=> 'A módosítás sikertelen. Az e-mail már létezik.',
-            'regex'=>' A módosítás sikertelen. Nem használhatsz számokat a nevekben.'
+            'e_mail.unique' => 'A módosítás sikertelen. Az e-mail már létezik.',
+            'regex' => ' A módosítás sikertelen. Nem használhatsz számokat a nevekben.'
 
         ];
-    
+
         $this->validate($request, $rules, $customMessages);
 
 
@@ -64,14 +65,14 @@ class FelhasznaloProfil extends Controller
         $input = $request->all();
 
 
-        
+
 
         $data = FelhasznaloModell::find($felhasznalo_id);
 
         $data->keresztnev = $input['keresztnev'];
         $data->felhasznalonev = $input['felhasznalonev'];
         $data->vezeteknev = $input['vezeteknev'];
-        $data->jelszo=$input['jelszo'];
+        $data->jelszo = $input['jelszo'];
         $data->e_mail = $input['e_mail'];
         $data->szul_ido = $input['szul_ido'];
         $data->tel_szam = $input['tel_szam'];
@@ -81,9 +82,42 @@ class FelhasznaloProfil extends Controller
         $data->utca = $input['utca'];
         $data->hazszam = $input['hazszam'];
 
-        
+
 
         $data->update();
         return  redirect('felhasznaloiProfil');
+    }
+
+
+    public function profkepUpdate(Request $request)
+    {
+
+        $felhasznalo_id = $request->input('felhasznalo_id');
+
+
+        $image = FelhasznaloModell::find($felhasznalo_id);
+
+        $felhasznalo = [
+            'profilkep' => $request->profilkep
+        ];
+
+
+        $input = $request->all();
+
+        if ($request->hasFile('profilkep')) {
+           
+            $image = $request->file('profilkep');
+            $image_Name = time().'.'.request()->profilkep->getClientOriginalExtension();
+            $image_path = '/public/kepek/profilkepek/'.$image_Name;
+            request()->file("profilkep")->move(public_path('public/kepek/profilkepek/'), $image_Name);
+            $input['profilkep'] = $image_path;
+          
+        }
+
+        DB::table('felhasznalo')->update($felhasznalo);
+
+
+
+        return redirect()->back()->with('status', 'adatok sikeresen feltöltve');
     }
 }
