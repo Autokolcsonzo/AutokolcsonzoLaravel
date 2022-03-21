@@ -18,9 +18,21 @@ class AutokListazasaController extends Controller
 
     //TÖBB TÁBLÁS LEKÉRDEZÉS
     //https://www.educative.io/edpresso/how-to-perform-inner-join-of-two-tables-in-laravel-query?fbclid=IwAR28h_m-5DCNlVJeM3Y9EJ9GW04dYY4vA5fzYPKPQO3XxFIM-E03gxoVX3c
-
-    public function index()
+    //auto_fill/{mezo}/{helyszin}/{elvitel}/{visszahoz}/{marka}/{modell}/{kivitel}/{uzemanyag}/{evTol}/{evIg}/{arTol}/{arIg}
+    //http://127.0.0.1:8000/api/auto_fill/k%C3%A9k/Budapest/2022-03-17/2022-03-17/BMW/X5/kombi/benzin/2014/2016/3000/5000
+    public function keresesParameteresen(
+                    $mezo, 
+                    $helyszin, 
+                    $elvitel, $visszahoz, //dátumot validálni kell.
+                    //$checkboxok, //csekbxok összefűzése szükséges.
+                    $marka, 
+                    $modell, 
+                    $kivitel, 
+                    $uzemanyag, 
+                    $evTol, $evIg, 
+                    $arTol, $arIg)
     {
+        //dd($marka);
         $result = DB::table('auto_fill')
             ->select(
                 'auto_fill.alvazSzam',
@@ -42,7 +54,26 @@ class AutokListazasaController extends Controller
                 'auto_fill.utca',
                 'auto_fill.hazszam'
             )
+            ->where('auto_fill.varos','=', $helyszin)
+            ->where('auto_fill.marka','=', $marka)
+            ->where('auto_fill.modell','=', $modell)
+            ->where('auto_fill.kivitel','=', $kivitel)
+            ->where('auto_fill.uzemanyag','=', $uzemanyag)
+            //->where('auto_fill.tulajdonsag','=', $tulajdonsag)
+            ->where('auto_fill.napiAr','<=', $arIg)
+            ->where('auto_fill.napiAr','>=', $arTol)
+            ->where('auto_fill.evjarat','>=', $evTol)
+            ->where('auto_fill.evjarat','<=', $evIg)
+            ->where('auto_fill.szin', 'LIKE' , "%{$mezo}%")
+            ->orWhere('auto_fill.marka', 'LIKE' , "%{$mezo}%")
+            ->orWhere('auto_fill.tipus', 'LIKE' , "%{$mezo}%")
+            ->orWhere('auto_fill.modell', 'LIKE' , "%{$mezo}%")
+            ->orWhere('auto_fill.kivitel', 'LIKE' , "%{$mezo}%")
+            ->orWhere('auto_fill.uzemanyag', 'LIKE' , "%{$mezo}%")
+            ->orWhere('auto_fill.tulajdonsag', 'LIKE' , "%{$mezo}%")
+            ->orWhere('auto_fill.extra_megnevezese', 'LIKE' , "%{$mezo}%")
             ->get();
+            
         return $result;
     }
 
