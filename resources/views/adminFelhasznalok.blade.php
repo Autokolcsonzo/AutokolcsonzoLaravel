@@ -198,6 +198,9 @@
                         <form action='{{route("updateadmin.felhasznalo",$f->felhasznalo_id)}}' id="updateform" method="POST">
                       @endforeach
 
+                      @method('PUT')
+                            @csrf
+
 
 
 
@@ -304,7 +307,7 @@
 
 
 
-    <input type="submit" value="Adatok mentése" id="adatotMent" />
+    <input type="submit" value="Adatok mentése" class="adatotMent" />
 
 
 </form>
