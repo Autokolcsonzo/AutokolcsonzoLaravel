@@ -16,12 +16,21 @@ class Felhasznalo {
     this.utca=this.elem.find(".utca");
     this.szul_ido=this.elem.find(".szul_ido");
     this.reszletekGomb=this.elem.find(".fReszletek");
+    this.torolGomb=this.elem.find(".torles");
     this.zarva=true;
 
     this.reszletekGomb.on("click", () => {
      this.reszletekTrigger();
     
   });
+
+  this.torolGomb.on("click",()=>{
+    this.kattintasTrigger("torol");
+});
+
+   
+
+
     
 
 
@@ -42,6 +51,7 @@ class Felhasznalo {
     this.varos.text(adat.varos);
     this.utca.text(adat.utca);
     this.szul_ido.text(adat.szul_ido);
+    this.torolGomb.attr("data",adat.felhasznalo_id);
   
   }
 
@@ -54,6 +64,14 @@ class Felhasznalo {
         $(this.elem.children(".reszletek")).slideUp(500);
         this.zarva = true;
     }
+}
+
+
+kattintasTrigger(gomb) {
+  let esemeny = new CustomEvent(gomb, {
+      detail: this.adat
+  });
+  window.dispatchEvent(esemeny);
 }
 
 

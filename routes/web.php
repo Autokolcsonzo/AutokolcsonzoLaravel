@@ -13,8 +13,10 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\KeresoViewController;
 use App\Http\Controllers\AdminFoglalasController;
 use App\Http\Controllers\AdminAutokController;
+use App\Http\Controllers\AdminFelhasznalo;
 use App\Http\Controllers\FelhasznaloProfil;
 use App\Http\Controllers\jarmuTalalatiListaController;
+
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
 
@@ -68,7 +70,7 @@ Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
 
 //felhasznaloProfilApi
-Route::get('/api/felhasznalo', [FelhasznalokController::class, 'index']);
+
 
 Route::get('/felhasznaloiProfil', [FelhasznaloProfil::class, 'bejelentkezett'])->middleware('isLoggedIn');
 
@@ -86,3 +88,8 @@ Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratas
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
 Route::get('/api/foglalas/expand={child}', [AdminFoglalasController::class, 'expand']);
 Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);
+
+
+
+
+
