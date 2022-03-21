@@ -48,6 +48,7 @@ class CustomAuthController extends Controller
         $felhasznalo->hazszam = $request->hazszam;
         $felhasznalo->tel_szam = $request->tel_szam;
         $felhasznalo->e_mail = $request->e_mail;
+        $felhasznalo->jogkor=1;
         $res = $felhasznalo->save();
         if ($res) {
             return back()->with('success', 'regisztráltál');
