@@ -42,5 +42,5 @@ Route::get('keresoview', [KeresoViewController::class, 'index']);
 Route::get('felhasznaloadmin', [FelhasznaloAdmin::class, 'index']);
 /* Route::post('felhasznaloadmin/store', [FelhasznaloAdmin::class, 'store']); */
 Route::get('felhasznaloadmin/{felhasznalo}/edit', [AdminAutokController::class, 'edit']);
-Route::put('felhasznaloadmin/{felhasznalo}/update', [AdminAutokController::class, 'update']);
+Route::put('felhasznaloadmin/{felhasznalo}/update', [AdminAutokController::class, 'update'])->name('updateadmin.felhasznalo');
 Route::delete('felhasznaloadmin/{felhasznalo}', [FelhasznaloAdmin::class, 'destroy'])->name('delete.felhasznalo');
