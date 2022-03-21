@@ -33,12 +33,13 @@
 }
 
 #adminKategoriak a {
-  font-size: 16px;
-  padding: 10px;
+    font-size: 16px;
+    padding: 10px;
 }
 
 .adminKereses .adminFeladatValasztas,
-.ujAutoFelvetele, .jogkorValasztas {
+.ujAutoFelvetele,
+.jogkorValasztas {
     display: flex;
     margin-left: 5%;
     /*  justify-content: flex-start; */
@@ -46,12 +47,15 @@
 }
 
 .adminKereses,
-.ujAutoFelvetele,.jogkorValasztas select {
+.ujAutoFelvetele,
+.jogkorValasztas select {
     padding: 10px;
     font-size: 14px;
 }
 
-.ujAutoGomb {
+.ujAutoGomb,
+.ujModellGomb,
+.ujKepGomb {
     padding: 10px;
 }
 
@@ -122,135 +126,110 @@
 
 /* ADMIN AUTÓ FELTÖLTÉS */
 
-.autoAdatokFeltoltes {
+.autoAdatokFeltoltes,
+.modellAdatokFeltoltes,
+.kepAdatokFeltoltes {
     display: none;
     max-width: 700px;
 }
 
 /*felhasználói adatok adatok*/
 
-.felhasznalokAdmin{
-  background-color: white;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  width:100%;
-  margin-bottom:10px;
+.felhasznalokAdmin {
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-
-.felhFejlec{
-  display: flex;
-  background-color:#ddd;
-  align-items: center;
-  padding:5px;
- 
-
-
+.felhFejlec {
+    display: flex;
+    background-color: #ddd;
+    align-items: center;
+    padding: 5px;
 }
 
-.felhFejlec h2{
- flex:1;
- font-size:1rem;
- 
-
-
+.felhFejlec h2 {
+    flex: 1;
+    font-size: 1rem;
 }
 
-.foadatok{
-  display: flex;
-  align-items: center;
-  padding:5px;
-  border-bottom:1px solid gray;
-
+.foadatok {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid gray;
 }
 
-.foadatok p{
- 
-  flex:1;
-  font-size:1rem;
-  
-
+.foadatok p {
+    flex: 1;
+    font-size: 1rem;
 }
-
 
 /*részletek lenyíló*/
-.reszletek{
-  display: flex;
-  align-items: center;
-  padding:5px;
-  border-bottom:1px solid gray;
-  
- 
+.reszletek {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid gray;
 }
 
-.reszlet{
-  width:100%;
+.reszlet {
+    width: 100%;
 }
 
-.reszletek p{
-  flex:1;
-  font-size:1rem;
+.reszletek p {
+    flex: 1;
+    font-size: 1rem;
 }
 
-.reszletFejlec{
-  display: flex;
-  background-color:#ddd;
-  align-items: center;
-  padding:5px;
- 
-
-
+.reszletFejlec {
+    display: flex;
+    background-color: #ddd;
+    align-items: center;
+    padding: 5px;
 }
 
-.reszletFejlec h2{
- flex:1;
- font-size:1rem;
- 
-
-
+.reszletFejlec h2 {
+    flex: 1;
+    font-size: 1rem;
 }
 
-.reszletadatok{
-  display: flex;
-  align-items: center;
-  padding:5px;
-  border-bottom:1px solid gray;
-
+.reszletadatok {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid gray;
 }
 
-.reszletadatok p{
- 
-  flex:1;
-  font-size:1rem;
-  
-
+.reszletadatok p {
+    flex: 1;
+    font-size: 1rem;
 }
 /*foglalási adatok*/
 
-.foglalasAdmin{
-  background-color: white;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  width:100%;
-  margin-bottom:10px;
+.foglalasAdmin {
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-.fogFejlec{
-  display: flex;
-  background-color:#ddd;
-  align-items: center;
-  padding:5px;
- }
+.fogFejlec {
+    display: flex;
+    background-color: #ddd;
+    align-items: center;
+    padding: 5px;
+}
 
- .fogFejlec h2{
-  flex:1;
-  font-size:1rem;
-  
- 
- 
- }
+.fogFejlec h2 {
+    flex: 1;
+    font-size: 1rem;
+}
 /* TÁBLÁZAT */
 
 table {
@@ -274,194 +253,178 @@ table td {
     text-align: center;
 }
 
-
-
-.torles{
-  padding: 4px 10px;
-  background-color: #97b9d246;
-  border: 1px solid #8283853e;
-  border-radius: 5px;
-  color: #2b2b2b;
+.torles {
+    padding: 4px 10px;
+    background-color: #97b9d246;
+    border: 1px solid #8283853e;
+    border-radius: 5px;
+    color: #2b2b2b;
 }
 
-.formcontainer{
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
+.formcontainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
-.fadatokMod{
-  padding: 4px 10px;
-  background-color: #97b9d246;
-  border: 1px solid #8283853e;
-  border-radius: 5px;
-  color: #2b2b2b;
+.fadatokMod {
+    padding: 4px 10px;
+    background-color: #97b9d246;
+    border: 1px solid #8283853e;
+    border-radius: 5px;
+    color: #2b2b2b;
 }
 
-
-.fReszletek{
-  padding: 4px 10px;
-  background-color: #97b9d246;
-  border: 1px solid #8283853e;
-  border-radius: 5px;
-  color: #2b2b2b;
-
+.fReszletek {
+    padding: 4px 10px;
+    background-color: #97b9d246;
+    border: 1px solid #8283853e;
+    border-radius: 5px;
+    color: #2b2b2b;
 }
 
-
-
-.felhasznaloiModositas{
-  display:none;
-  max-width: 700px;
-  }
-  
-
-
-  .foglalasModositas{
-    display:none; 
+.felhasznaloiModositas {
+    display: none;
     max-width: 700px;
-    }
+}
 
-  .sor{
-    display:flex;
-      flex-direction:row;
-  }
-  
-  
-  .inputfield{
-    flex:1;
-    margin:10px;
-  
-  }
-  
-  .inputfield label{
-  
+.foglalasModositas {
+    display: none;
+    max-width: 700px;
+}
+
+.sor {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputfield {
+    flex: 1;
+    margin: 10px;
+}
+
+.inputfield label {
     color: #17446b;
     font-weight: bolder;
-  
-  }
-  
-  .inputfield input{
+}
+
+.inputfield input {
     padding: 10px;
     background: white;
     height: 40px;
-    border:none;
-    outline:0;
+    border: none;
+    outline: 0;
     border-radius: 5px;
-  }
-  
-  .form-header {
-    padding:15px 0;
-    border-bottom:1px solid #17446b;
+}
+
+.form-header {
+    padding: 15px 0;
+    border-bottom: 1px solid #17446b;
     font-family: "Teko", sans-serif;
-  }
-  
-  .inputfield input::placeholder{
-    color:#17446b;
-  }
-  
-  
-  
-  .form-header h3 {
+}
+
+.inputfield input::placeholder {
+    color: #17446b;
+}
+
+.form-header h3 {
     font-size: 40px;
-    text-align:center;
-    color:#17446b;
-  }
-  
-  #adatotMent{
+    text-align: center;
+    color: #17446b;
+}
+
+#adatotMent {
     margin: 10px;
     background-color: #e0e4e7;
     border: 1px solid rgba(27, 31, 35, 0.15);
     border-radius: 2px;
     box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
-      rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+        rgba(255, 255, 255, 0.25) 0 1px 0 inset;
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
     padding: 6px 16px;
     width: 200px;
     border-radius: 5px;
-  
-  }
-  
-  #adatotMent:hover{
+}
+
+#adatotMent:hover {
     background-color: #b1c5ee;
     text-decoration: none;
     transition-duration: 0.2s;
-  }
+}
 
-
-  #admin-auto-reszletek-embed{
-    position: fixed; 
-    left: 20%; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
+#admin-auto-reszletek-embed {
+    position: fixed;
+    left: 20%;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 70%;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: #f8f8f8;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  }
-  #admin-auto-reszletek-section{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+#admin-auto-reszletek-section {
     display: flex;
     flex-direction: row;
     margin: 20px;
     align-content: center;
     align-items: flex-start;
-  }
-  #admin-auto-reszletek-section img{
+}
+#admin-auto-reszletek-section img {
     width: 15%;
     overflow: hidden;
-  }
-  #admin-auto-reszletek-section p,h1{
+}
+#admin-auto-reszletek-section p,
+h1 {
     color: black;
     padding: 10px 20px;
-  }
-  #reszletek-header{
+}
+#reszletek-header {
     display: flex;
     justify-content: space-between;
-  }
-  #admin-auto-reszletek-modell::before{
-    content: 'Modell : ';
-  }
-  #admin-auto-reszletek-tipus::before{
-    content: 'Tipus : ';
-  }
-  #admin-auto-reszletek-extra::before{
-    content: 'Extra : ';
-  }
-  #admin-auto-reszletek-alvazszam::before{
-    content: 'Alvazszam : ';
-  }
-  #admin-auto-reszletek-napiAr::before{
-    content: 'Napi ár : ';
-  }
-  #admin-auto-reszletek-napiAr::after{
-    content: ' Ft';
-  }
-  #admin-auto-reszletek-forgalmi::before{
-    content: 'Forgalmi : ';
-  }
-  #admin-auto-reszletek-felvetel::before{
-    content: 'Felvétel : ';
-  }
-  .even{
+}
+#admin-auto-reszletek-modell::before {
+    content: "Modell : ";
+}
+#admin-auto-reszletek-tipus::before {
+    content: "Tipus : ";
+}
+#admin-auto-reszletek-extra::before {
+    content: "Extra : ";
+}
+#admin-auto-reszletek-alvazszam::before {
+    content: "Alvazszam : ";
+}
+#admin-auto-reszletek-napiAr::before {
+    content: "Napi ár : ";
+}
+#admin-auto-reszletek-napiAr::after {
+    content: " Ft";
+}
+#admin-auto-reszletek-forgalmi::before {
+    content: "Forgalmi : ";
+}
+#admin-auto-reszletek-felvetel::before {
+    content: "Felvétel : ";
+}
+.even {
     background-color: rgb(236, 235, 235);
     font-size: large;
-  }
-
-@media only screen and (max-width: 1151px) {
-  body {
-    background-color: #e0e4e7;
-  }
 }
 
-
+@media only screen and (max-width: 1151px) {
+    body {
+        background-color: #e0e4e7;
+    }
+}
 
 @media screen and (max-width: 800px) {
     table {
@@ -509,21 +472,13 @@ table td {
 }
 
 @media only screen and (max-width: 700px) {
-  .sor{
-    flex-direction:column; 
-  }
-
-
-
-
+    .sor {
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width: 550px) {
-  .sor{
-    flex-direction:column; 
-  }
-
-
-
+    .sor {
+        flex-direction: column;
+    }
 }
-

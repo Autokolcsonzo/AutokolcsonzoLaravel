@@ -42,36 +42,15 @@
         @include('komponensek/header')
 
         <div id="primary_content">
-            <!--<div id="admin-auto-reszletek-embed">
-        <div id="reszletek-header">
-            <h1>Részletek</h1>
-            <h1>X</h1>
-        </div>
-            <section id="admin-auto-reszletek-section">
-                <img src="kepek/232311_source.jpg" alt="asd123"/>
-                <section>
-                    <p id="admin-auto-reszletek-modell"><br>Mustang</p>
-                    <p id="admin-auto-reszletek-tipus"><br>Mustang123ASd</p>
-                    <p id="admin-auto-reszletek-extra"><br>Banános illatosító</p>
-                </section>
-                <section>
-                    <p id="admin-auto-reszletek-alvazszam"><br>0000000000000000</p>
-                    <p id="admin-auto-reszletek-napiAr"><br>4500</p>
-                    <p id="admin-auto-reszletek-forgalmi"><br>00000000000000000000000000000</p>
-                </section>
-                <p id="admin-auto-reszletek-felvetel"><br>2022-01-10</p>
-                
-            </section>
-        </div>-->
 
             <!-- ADMIN TÁBLÁZAT, KERESÉS -->
             <div class="adminKereses">
-                <div class="n1">
+                <!--  <div class="n1">
                     <div class="kereses">
                         <i class="far fa-search"></i>
-                        <input type="text" placeholder="Search">
+                        <input type="text" placeholder="Search" name="autokKereses">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="adminFeladatValasztas">
                     <div id="adminKategoriak">
@@ -83,7 +62,15 @@
 
                 <div class="ujAutoFelvetele">
                     <div>
-                        <input type="button" name="ujAutoGomb" class="ujAutoGomb" value="Új autó felvétele">
+                        <a href="#autoAdatokFeltoltes"><input type="button" name="ujAutoGomb" class="ujAutoGomb" value="Új autó felvétele"></a>
+                    </div>
+
+                    <div>
+                        <a href="#modellAdatokFeltoltes"><input type="button" name="ujModellGomb" class="ujModellGomb" value="Új modell felvétele"></a>
+                    </div>
+
+                    <div>
+                        <a href="#kepAdatokFeltoltes"><input type="button" name="ujKepGomb" class="ujKepGomb" value="Új kép felvétele"></a>
                     </div>
                 </div>
 
@@ -187,8 +174,8 @@
                     </div>
                 </div>
 
-                <!-- Új adatok feltöltése -->
-                <div class="autoAdatokFeltoltes">
+                <!-- Új autó adatok feltöltése -->
+                <div id="autoAdatokFeltoltes" class="autoAdatokFeltoltes">
                     <form action="adminAutok" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-header">
@@ -206,17 +193,25 @@
                             <div class="inputfield">
                                 <label for="modell">Modell:</label><br>
 
-                                <input type="text" name="modell" class="modell" />
+                                <select class="modell" name="modell">
+                                    @foreach($adat as $adatok)
+                                    <option value="">{{$adatok->marka}}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                         </div>
 
                         <div class="sor">
                             <div class="inputfield">
-                                <label for="telephely">Telephely:</label>
+                                <label for="telephely">Telephely:</label><br />
 
+                                <select class="telephely" name="telephely">
+                                    @foreach($adat as $adatok)
+                                    <option value="">{{$adatok->varos}}</option>
+                                    @endforeach
+                                </select>
                                 <br />
-                                <input type="text" name="telephely" class="telephely" /><br />
                             </div>
 
                             <div class="inputfield">
@@ -253,19 +248,34 @@
                             </div>
                         </div>
 
+                        <input type="submit" value="Adatok mentése" id="adatotMent" />
+                    </form>
+                </div>
+
+
+
+                <!-- Új modell adatok feltöltése -->
+                <div id="modellAdatokFeltoltes" class="modellAdatokFeltoltes">
+                    <form action="adminAutok" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-header">
+                            <h3>Adatok módosítása</h3>
+                        </div>
+
                         <div class="sor">
+                            <div class="inputfield">
+                                <label for="modell">Modell név:</label>
+                                <br />
+                                <input type="text" name="modell" class="modell" />
+                            </div>
+
                             <div class="inputfield">
                                 <label for="marka">Márka:</label> <br />
                                 <input type="text" class="marka" name="marka" />
                             </div>
 
-                            <div class="inputfield">
-                                <label for="kep">Kép:</label>
-
-                                <br />
-                                <input type="file" name="kep" class="kep" /><br />
-                            </div>
                         </div>
+
 
                         <div class="sor">
                             <div class="inputfield">
@@ -302,23 +312,34 @@
                                 <br />
                                 <input type="text" name="teljesitmeny" class="teljesitmeny" /><br />
                             </div>
-
-                            <!--    <div class="inputfield">
-                            <label for="modell2">Modell2:</label> <br />
-                            <input type="text" class="modell2" name="modell2" />
-                        </div> -->
                         </div>
-
 
                         <input type="submit" value="Adatok mentése" id="adatotMent" />
 
                     </form>
                 </div>
 
-            </div>
+                <!-- Új kép adatok feltöltése -->
+                <div id="kepAdatokFeltoltes" class="kepAdatokFeltoltes">
+                    <form action="adminAutok" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-header">
+                            <h3>Adatok módosítása</h3>
+                        </div>
 
-            <!-- Footer -->
-            @include('komponensek/footer')
+                        <div class="sor">
+                            <div class="inputfield">
+                                <label for="kep">Kép:</label>
+
+                                <br />
+                                <input type="file" name="kep" class="kep" /><br />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Footer -->
+                @include('komponensek/footer')
     </main>
 </body>
 

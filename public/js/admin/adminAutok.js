@@ -1,5 +1,7 @@
 $(function () {
     UjAutoFelvetele();
+    UjModellFelvetele();
+    UjKepFelvetele();
     ReszletMegjelenit();
 });
 
@@ -11,15 +13,12 @@ function ReszletMegjelenit() {
         $(".reszletek").each(function (index) {
             let elem = this.id;
             if ("r" + gombId == elem) {
-                console.log(gombId + ":" + elem);
                 if (zarva) {
                     $("#" + elem).slideDown(500);
                     zarva = false;
-                    console.log(elem + " kinyitva");
                 } else {
                     $("#" + elem).slideUp(500);
                     zarva = true;
-                    console.log(elem + " bezárva");
                 }
             }
             //console.log( index + ": " + $( this ).text() );
@@ -45,6 +44,30 @@ function UjAutoFelvetele() {
         } else {
             $(".ujAutoGomb").addClass("clicked-once");
             $(".autoAdatokFeltoltes").slideDown(500);
+        }
+    });
+}
+
+function UjModellFelvetele() {
+    $(".ujModellGomb").click(function () {
+        if ($(".ujModellGomb").hasClass("clicked-once")) {
+            $(".modellAdatokFeltoltes").slideUp(500);
+            $(".ujAutoGomb").removeClass("clicked-once");
+        } else {
+            $(".ujModellGomb").addClass("clicked-once");
+            $(".modellAdatokFeltoltes").slideDown(500);
+        }
+    });
+}
+
+function UjKepFelvetele() {
+    $(".ujKepGomb").click(function () {
+        if ($(".ujKepGomb").hasClass("clicked-once")) {
+            $(".kepAdatokFeltoltes").slideUp(500);
+            $(".ujKepGomb").removeClass("clicked-once");
+        } else {
+            $(".ujKepGomb").addClass("clicked-once");
+            $(".kepAdatokFeltoltes").slideDown(500);
         }
     });
 }
