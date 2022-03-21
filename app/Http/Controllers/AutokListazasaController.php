@@ -35,33 +35,9 @@ class AutokListazasaController extends Controller
         $arTol, $arIg,
         $checkboxok)
     {
-        //$mezoArray = explode("+", $mezo);
+        $mezoArray = explode("+", $mezo);
         $checkboxArray = explode("+", $checkboxok);
-        /*->orWhere('auto_fill.marka', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.tipus', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.modell', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.kivitel', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.uzemanyag', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.tulajdonsag', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.extra_megnevezese', 'LIKE' , $mezo)*/
-        /*if($mezoArray[0] == 'null'){    -----------------------------------------Folyatatni
-            $mezoString = 'auto_fill.marka LIKE "%" AND
-                     auto_fill.tipus LIKE "%" AND
-                     auto_fill.modell LIKE "%" AND
-                     auto_fill.kivitel LIKE "%" AND
-                     auto_fill.uzemanyag LIKE "%" AND
-                     auto_fill.tulajdonsag LIKE "%" AND
-                     auto_fill.extra_megnevezese "%"';
-        }else{
-            $checkboxString = 'auto_fill.tulajdonsag LIKE';
-            for ($i=0; $i < count($checkboxArray); $i++) {
-                if($i == count($checkboxArray)-1){
-                    $checkboxString .= ' "%'.$checkboxArray[$i].'%"';
-                }else{
-                    $checkboxString .= ' "%'.$checkboxArray[$i].'%" AND auto_fill.tulajdonsag LIKE';
-                }
-            }
-        }*/
+
         if($helyszin == 'null'){
             $helyszin = '%';
         }
@@ -110,8 +86,42 @@ class AutokListazasaController extends Controller
                 }
             }
         }
+        if($mezoArray[0] == 'null'){
+            $mezoString = 'auto_fill.marka LIKE "%" OR
+            auto_fill.szin LIKE "%" OR
+            auto_fill.tipus LIKE "%" OR
+            auto_fill.modell LIKE "%" OR
+            auto_fill.kivitel LIKE "%" OR
+            auto_fill.uzemanyag LIKE "%" OR
+            auto_fill.tulajdonsag LIKE "%" OR
+            auto_fill.extra_megnevezese LIKE "%"';
+        }else{
+            $mezoString = '';
+            for ($i=0; $i < count($mezoArray); $i++) {
+                if($i == count($mezoArray)-1){
+                    $mezoString .= ' auto_fill.marka LIKE "%'.$mezoArray[$i].'%" OR
+                    auto_fill.szin LIKE "%'.$mezoArray[$i].'%" OR
+                     auto_fill.tipus LIKE "%'.$mezoArray[$i].'%" OR 
+                     auto_fill.modell LIKE "%'.$mezoArray[$i].'%" OR 
+                     auto_fill.kivitel LIKE "%'.$mezoArray[$i].'%" OR 
+                     auto_fill.uzemanyag LIKE "%'.$mezoArray[$i].'%" OR 
+                     auto_fill.tulajdonsag LIKE "%'.$mezoArray[$i].'%" OR 
+                     auto_fill.extra_megnevezese LIKE "%'.$mezoArray[$i].'%" ';
+                }else{
+                    $mezoString .= ' auto_fill.marka LIKE "%'.$mezoArray[$i].'%" OR 
+                      auto_fill.szin LIKE "%'.$mezoArray[$i].'%" OR
+                      auto_fill.tipus LIKE "%'.$mezoArray[$i].'%" OR 
+                      auto_fill.modell LIKE "%'.$mezoArray[$i].'%" OR 
+                      auto_fill.kivitel LIKE "%'.$mezoArray[$i].'%" OR 
+                      auto_fill.uzemanyag LIKE "%'.$mezoArray[$i].'%" OR 
+                      auto_fill.tulajdonsag LIKE "%'.$mezoArray[$i].'%" OR 
+                      auto_fill.extra_megnevezese LIKE "%'.$mezoArray[$i].'%" OR ';
+                }
+                //echo($i."   ".$mezoArray[$i]);
+            }
+            //dd($mezoString);
+        }
         //WHERE interests LIKE '%sports%' OR interests LIKE '%pub%'
-        
         
         
         //echo($checkboxString);
@@ -143,21 +153,12 @@ class AutokListazasaController extends Controller
             ->where('auto_fill.modell','LIKE', $modell)
             ->where('auto_fill.kivitel','LIKE', $kivitel)
             ->where('auto_fill.uzemanyag','LIKE', $uzemanyag)
-            //->whereIn('auto_fill.tulajdonsag', $checkboxArray)
-            
             ->whereRaw($checkboxString)
+            ->whereRaw($mezoString)
             ->where('auto_fill.napiAr','<=', $arIg)
             ->where('auto_fill.napiAr','>=', $arTol)
             ->where('auto_fill.evjarat','>=', $evTol)
             ->where('auto_fill.evjarat','<=', $evIg)
-            ->where('auto_fill.szin', 'LIKE' , $mezo)
-            /*->orWhere('auto_fill.marka', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.tipus', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.modell', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.kivitel', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.uzemanyag', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.tulajdonsag', 'LIKE' , $mezo)
-            ->orWhere('auto_fill.extra_megnevezese', 'LIKE' , $mezo)*/
             ->get();
             //dd($checkboxArray);
         /*dd($mezo, 
@@ -170,8 +171,9 @@ class AutokListazasaController extends Controller
         $uzemanyag, 
         $evTol, $evIg, 
         $arTol, $arIg,
-        $checkboxString);*/
-
+        $checkboxString,
+        $mezoString)*/;
+        
         return $result;
     }
 
