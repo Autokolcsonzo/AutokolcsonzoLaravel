@@ -18,12 +18,6 @@ class KeresoFeltolteseLocalStorage {
         this.evjaratIg = $("#eig");
         this.arTol = $("#min");
         this.arIg = $("#max");
-        
-        
-        
-        $(this.keresoBtn).on("click", () => {
-            console.log("Jelenleg még nem tudsz keresni."); // ide egy új api végpontnak kell eljutnia vagy másik helyre kell tenni ezt a kód részt.
-        });
 
     }
     
@@ -39,10 +33,9 @@ class KeresoFeltolteseLocalStorage {
         } else {
             this.kulcsszo.val(keresOBJ.kulcsszo);
             this.telephely.val(keresOBJ.telephely);
-            this.telephely.val(keresOBJ.telephely);
-            this.elvitelDatuma.val(keresOBJ.elvitelDatuma);
-            this.elvitelDatuma.attr("max", keresOBJ.visszavitelDatuma);
-            this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma);
+            this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
+            this.elvitelDatuma.attr("max", keresOBJ.visszavitelDatuma).change();
+            this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma).change();
             this.marka.val(keresOBJ.marka);
             this.modell.val(keresOBJ.modell);
             this.kivitel.val(keresOBJ.kivitel);

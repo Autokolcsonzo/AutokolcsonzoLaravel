@@ -75,7 +75,7 @@ class AutokListazasaController extends Controller
             $arIg = 10000000000;
         }
         if($checkboxArray[0] == 'null'){
-            $checkboxString = 'auto_fill.tulajdonsag LIKE "%"';
+            $checkboxString = 'auto_fill.tulajdonsag LIKE "%" OR ( auto_fill.tulajdonsag IS NULL) ';
         }else{
             $checkboxString = 'auto_fill.tulajdonsag LIKE';
             for ($i=0; $i < count($checkboxArray); $i++) {
@@ -96,7 +96,7 @@ class AutokListazasaController extends Controller
             auto_fill.tulajdonsag LIKE "%" OR
             auto_fill.extra_megnevezese LIKE "%"';
         }else{
-            $mezoString = '';
+            $mezoString = '( ';
             for ($i=0; $i < count($mezoArray); $i++) {
                 if($i == count($mezoArray)-1){
                     $mezoString .= ' auto_fill.marka LIKE "%'.$mezoArray[$i].'%" OR
@@ -120,6 +120,7 @@ class AutokListazasaController extends Controller
                 //echo($i."   ".$mezoArray[$i]);
             }
             //dd($mezoString);
+            $mezoString .= ' )';
         }
         //WHERE interests LIKE '%sports%' OR interests LIKE '%pub%'
         
@@ -148,18 +149,19 @@ class AutokListazasaController extends Controller
             'auto_fill.utca',
             'auto_fill.hazszam'
             )
-            ->where('auto_fill.varos','LIKE', $helyszin)
-            ->where('auto_fill.marka','LIKE', $marka)
-            ->where('auto_fill.modell','LIKE', $modell)
-            ->where('auto_fill.kivitel','LIKE', $kivitel)
-            ->where('auto_fill.uzemanyag','LIKE', $uzemanyag)
-            ->whereRaw($checkboxString)
-            ->whereRaw($mezoString)
+            ->whereRaw('( auto_fill.varos LIKE "%'.$helyszin.'%"')
+            ->whereRaw('auto_fill.marka LIKE "%'.$marka.'%"')
+            ->whereRaw('auto_fill.modell LIKE "%'.$modell.'%"')
+            ->whereRaw('auto_fill.kivitel LIKE "%'.$kivitel.'%"')
+            ->whereRaw('auto_fill.uzemanyag LIKE "%'.$uzemanyag.'%" )')
+            ->whereRaw('('.$checkboxString.')')
+            ->whereRaw('('.$mezoString.')')
             ->where('auto_fill.napiAr','<=', $arIg)
             ->where('auto_fill.napiAr','>=', $arTol)
             ->where('auto_fill.evjarat','>=', $evTol)
             ->where('auto_fill.evjarat','<=', $evIg)
             ->get();
+            
             //dd($checkboxArray);
         /*dd($mezo, 
         $helyszin, 
@@ -173,7 +175,8 @@ class AutokListazasaController extends Controller
         $arTol, $arIg,
         $checkboxString,
         $mezoString)*/;
-        
+        //dd($result);
+
         return $result;
     }
 

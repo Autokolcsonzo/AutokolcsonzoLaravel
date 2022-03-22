@@ -7,12 +7,18 @@ class AutoAjax {
         $.ajax({
             url: apiVegpont,
             type: "GET",
+            beforeSend: function () {
+                $('#toltes-embed, #load').css('display', 'block');
+            },
             success: function (result) {
                 tomb.splice(0, tomb.length);
                 result.forEach((value) => {
                     tomb.push(value);
                 });
                 myCallback(tomb);
+            },
+            complete: function () {
+                $('#toltes-embed, #load').css('display', 'none');
             },
         });
     }
