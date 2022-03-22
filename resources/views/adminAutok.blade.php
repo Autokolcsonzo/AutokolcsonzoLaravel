@@ -9,19 +9,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Scriptek -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <script src="../js/admin/adminAutok.js"></script>
 
     <style>
-        /* Betűtípusok */
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+    /* Betűtípusok */
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -31,6 +40,7 @@
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/admin/admin.css" />
+    <link rel="stylesheet" href="../css/admin/modal.css" />
 </head>
 
 <body>
@@ -60,26 +70,37 @@
                     </div>
                 </div>
 
-                <div class="ujAutoFelvetele">
+                <div class="ujAdatokFelvetele">
                     <div>
-                        <a href="#autoAdatokFeltoltes"><input type="button" name="ujAutoGomb" class="ujAutoGomb" value="Új autó felvétele"></a>
+                        <!-- <a href="#autoAdatokFeltoltes"><input type="button" name="ujAutoGomb" class="ujAutoGomb"
+                                value="Új autó felvétele"></a> -->
+                        <button type="button" id="buttonAuto" data-toggle="modal" data-target="#ujAutoModal">
+                            Új autó felvétele
+                        </button>
+
                     </div>
 
                     <div>
-                        <a href="#modellAdatokFeltoltes"><input type="button" name="ujModellGomb" class="ujModellGomb" value="Új modell felvétele"></a>
+                        <!-- <a href="#modellAdatokFeltoltes"><input type="button" name="ujModellGomb" class="ujModellGomb"
+                                value="Új modell felvétele"></a> -->
+                                <button type="button" id="buttonModell" data-toggle="modal" data-target="#ujModellModal">
+                            Új modell felvétele
+                        </button>
                     </div>
 
                     <div>
-                        <a href="#kepAdatokFeltoltes"><input type="button" name="ujKepGomb" class="ujKepGomb" value="Új kép felvétele"></a>
+                        <!-- <a href="#kepAdatokFeltoltes"><input type="button" name="ujKepGomb" class="ujKepGomb"
+                                value="Új kép felvétele"></a> -->
+                                <button type="button" id="buttonKep" data-toggle="modal" data-target="#ujKepModal">
+                            Új kép felvétele
+                        </button>
                     </div>
                 </div>
 
             </div>
 
             <h3 class="oldalNev">Autók</h3>
-            <div>
 
-            </div>
 
 
             <!-- 3 ablak adatokkal -->
@@ -132,15 +153,13 @@
                         @else
                         <div class="foadatok odd">
                             @endif
-                            <p class="statusz">
-                                <img src="{{ asset('storage/images/autok/'.$data->kep) }}" width="40%" alt="ez lenne a kép">
-                            </p>
                             <p class="statusz">{{$data->alvazSzam}}</p>
                             <p class="statusz">{{$data->statusz}}</p>
                             <p class="rendszam">{{$data->rendszam}}</p>
                             <p class="megnevezes">{{$data->marka}}</p>
                             <p class="varos">{{$data->varos}}</p>
-                            <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
+                            <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek"
+                                    value="Részletek" /></p>
                             <p>
                                 <a class="fadatokMod" href="{{url('/adminAutokEdit/'.$data->alvazSzam)}}">Módosítás</a>
                             </p>
@@ -177,8 +196,93 @@
                     </div>
                 </div>
 
+                <!-- Új autó Modal -->
+                <div class="modal-container" id="ujAutoModal">
+                    <div class="modal">
+
+                        <div id="autoAdatokFeltoltes" class="autoAdatokFeltoltes">
+                            <form id="addform" action="{{ route('admin_autok') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-header">
+                                    <h3>Adatok módosítása</h3>
+                                </div>
+
+                                <div class="sor">
+                                    <div class="inputfield2">
+                                        <label for="alvazSzam">Alvázszám:</label>
+                                        <br />
+                                        <input type="text" name="alvazSzam" class="alvazSzam" />
+
+                                    </div>
+
+                                    <div class="inputfield2">
+                                        <label for="modell">Modell:</label><br>
+
+                                        <select class="modell" name="modell">
+                                            @foreach($modell as $m)
+                                            <option value="{{$m->modell_id}}">{{$m->marka}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="sor">
+                                    <div class="inputfield2">
+                                        <label for="telephely">Telephely:</label><br />
+
+                                        <select class="telephely" name="telephely">
+                                            @foreach($telephely as $t)
+                                            <option value="{{$t->telephely_id}}">{{$t->varos}}</option>
+                                            @endforeach
+                                        </select>
+                                        <br />
+                                    </div>
+
+                                    <div class="inputfield2">
+                                        <label for="napiAr">Napi ár:</label> <br />
+                                        <input type="text" class="napiAr" name="napiAr" />
+                                    </div>
+                                </div>
+
+                                <div class="sor">
+                                    <div class="inputfield2">
+                                        <label for="szin">Szín:</label>
+
+                                        <br />
+                                        <input type="text" name="szin" class="szin" /><br />
+                                    </div>
+
+                                    <div class="inputfield2">
+                                        <label for="forgalmiSzam">Forgalmi száma:</label> <br />
+                                        <input type="text" class="forgalmiSzam" name="forgalmiSzam" />
+                                    </div>
+                                </div>
+
+                                <div class="sor">
+                                    <div class="inputfield2">
+                                        <label for="statusz">Státusz:</label>
+
+                                        <br />
+                                        <input type="text" name="statusz" class="statusz" /><br />
+                                    </div>
+
+                                    <div class="inputfield2">
+                                        <label for="rendszam">Rendszám:</label> <br />
+                                        <input type="text" class="rendszam" name="rendszam" />
+                                    </div>
+                                </div>
+
+                                <input type="submit" value="Adatok mentése" id="adatotMent" />
+                            </form>
+                            <!-- <button type="submit" id="mentes">Adatok mentése</button> -->
+                            <button type="button" id="bezaras">Bezárás</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Új autó adatok feltöltése -->
-                <div id="autoAdatokFeltoltes" class="autoAdatokFeltoltes">
+                <!--     <div id="autoAdatokFeltoltes" class="autoAdatokFeltoltes">
                     <form action="adminAutok" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-header">
@@ -253,7 +357,7 @@
 
                         <input type="submit" value="Adatok mentése" id="adatotMent" />
                     </form>
-                </div>
+                </div> -->
 
 
 

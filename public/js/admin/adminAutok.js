@@ -3,6 +3,8 @@ $(function () {
     UjModellFelvetele();
     UjKepFelvetele();
     ReszletMegjelenit();
+    modal();
+    ujAutoFelvitele();
 });
 
 function ReszletMegjelenit() {
@@ -72,6 +74,40 @@ function UjKepFelvetele() {
     });
 }
 
+function modal() {
+    const open = document.getElementById('buttonAuto');
+    const modal_container = document.getElementById('ujAutoModal');
+    const close = document.getElementById('bezaras');
+
+    open.addEventListener('click', () => {
+        modal_container.classList.add('show');   
+    });
+
+    close.addEventListener('click', () => {
+        modal_container.classList.remove('show');   
+    });
+}
+
+function ujAutoFelvitele() {
+    jQuery('#addform').on('submit', function(e) {
+        e.preventDefault();
+
+        jQuery.ajax({
+            type: "POST",
+            url: "admin_autok",
+            data: jQuery('#addform').serialize(),
+            success: function (result) {
+             //   console.log(result);
+            //    $('#ujAutoModal').remove();
+                alert("Adatok elmentve.");
+            },
+            error: function(error) {
+              //  console.log(error);
+                alert("Adatok nem lettek elmentve.");
+            }
+        });
+    });
+}
 //Sortok
 /*     let keresomezo = $("#keresoMezo");
     keresomezo.on("keyup", () => {

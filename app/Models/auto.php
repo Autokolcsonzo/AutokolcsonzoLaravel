@@ -10,9 +10,8 @@ class Auto extends Model
     use HasFactory;
 
     protected $table = 'auto';
+/*     protected $guarded = [ ]; */
     protected $primaryKey = 'alvazSzam';
-    public $incrementing = false;
-    public $timestamps = false;
 
     protected $fillable = [
         'alvazSzam',

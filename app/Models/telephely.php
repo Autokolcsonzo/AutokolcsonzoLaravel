@@ -9,6 +9,7 @@ class Telephely extends Model
 {
     use HasFactory;
 
+    protected $table = "telephely";
     protected $fillable = [
         'megye',
             'ir_szam',

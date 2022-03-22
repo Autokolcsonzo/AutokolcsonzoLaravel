@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+/* .autoModal {
+    background-color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    margin: 0;
+} */
+
+#buttonAuto, #buttonModell, #buttonKep {
+    background-color: #afd2f7;
+    border-radius: 5px;
+    padding: 10px 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+}
+
+.modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.583);
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 15%;
+    left: 40%;
+    height: auto;
+    width: 50vh;
+    transition: opacity 0.3s ease;
+}
+
+.modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal {
+    background-color: rgba(255, 255, 255, 0.583);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px;
+/*     width: 600px; */
+    max-width: 100%;
+    text-align: center;
+}
