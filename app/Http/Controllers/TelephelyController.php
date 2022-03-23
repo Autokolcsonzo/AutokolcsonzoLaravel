@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\TelephelyModel;
 
+use App\Models\Telephely;
 use Illuminate\Http\Request;
 
 class TelephelyController extends Controller
@@ -14,6 +14,11 @@ class TelephelyController extends Controller
      */
     public function index()
     {
+
+        
+      $telephely = Telephely::all();
+
+     return $telephely;
     }
 
     /**

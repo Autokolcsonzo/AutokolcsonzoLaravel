@@ -6,6 +6,9 @@ use App\Http\Controllers\AutokListazasaController;
 use App\Http\Controllers\KedvezmenyekController;
 use App\Http\Controllers\KeresoViewController;
 use App\Http\Controllers\FelhasznaloAdmin;
+use App\Http\Controllers\TelephelyController;
+use App\Models\Telephely;
+
 /* use App\Http\Controllers\AdminAutokController; */
 
 /*
@@ -42,7 +45,12 @@ Route::get('keresoview', [KeresoViewController::class, 'index']);
 
 
 Route::get('felhasznaloadmin', [FelhasznaloAdmin::class, 'index']);
-/* Route::post('felhasznaloadmin/store', [FelhasznaloAdmin::class, 'store']); */
+Route::post('felhasznaloadmin', [FelhasznaloAdmin::class, 'store'])->name('uj.felhasznaloadmin');
 Route::get('felhasznaloadmin/{felhasznalo}/edit', [FelhasznaloAdmin::class, 'edit']);
 Route::put('felhasznaloadmin/{felhasznalo}', [FelhasznaloAdmin::class, 'update'])->name('updateadmin.felhasznalo');
 Route::delete('felhasznaloadmin/{felhasznalo}', [FelhasznaloAdmin::class, 'destroy'])->name('delete.felhasznalo');
+Route::get('felhasznaloadmin/expand={child}', [FelhasznaloAdmin::class, 'expandTelephely']);
+Route::get('felhasznaloadmin/keres', [FelhasznaloAdmin::class, 'keres']);
+
+
+Route::get('telephely', [TelephelyController::class, 'index']);

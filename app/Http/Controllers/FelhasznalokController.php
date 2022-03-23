@@ -26,7 +26,7 @@ class FelhasznalokController extends Controller
         $felhasznalo=FelhasznaloModell::orderBy('felhasznalo_id','DESC')->get();
 
      
-       
+    
 
      
         // return $adatok;

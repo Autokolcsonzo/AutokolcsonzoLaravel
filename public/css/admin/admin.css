@@ -261,6 +261,18 @@ table td {
     color: #2b2b2b;
 }
 
+
+
+.ujAdmin{
+    margin-left:10px;
+    padding: 10px;
+    background-color: #97b9d246;
+    border: 1px solid #8283853e;
+    border-radius: 5px;
+    color: #2b2b2b;
+  
+}
+
 .formcontainer {
     display: flex;
     flex-direction: column;
@@ -283,6 +295,11 @@ table td {
     border: 1px solid #8283853e;
     border-radius: 5px;
     color: #2b2b2b;
+}
+
+.ujAdminForm{
+    display: none;
+    max-width: 700px;  
 }
 
 .felhasznaloiModositas {
@@ -319,6 +336,15 @@ table td {
     border-radius: 5px;
 }
 
+#atelephely{
+    padding: 10px;
+    background: white;
+    height: 40px;
+    border: none;
+    outline: 0;
+    border-radius: 5px;
+}
+
 .form-header {
     padding: 15px 0;
     border-bottom: 1px solid #17446b;
@@ -335,7 +361,7 @@ table td {
     color: #17446b;
 }
 
-#adatotMent {
+.adatotMent {
     margin: 10px;
     background-color: #e0e4e7;
     border: 1px solid rgba(27, 31, 35, 0.15);
@@ -350,7 +376,29 @@ table td {
     border-radius: 5px;
 }
 
-#adatotMent:hover {
+.adatotMent:hover {
+    background-color: #b1c5ee;
+    text-decoration: none;
+    transition-duration: 0.2s;
+}
+
+.ujAdminFelvetel{
+    margin: 10px;
+    background-color: #e0e4e7;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 2px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+        rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 16px;
+    width: 200px;
+    border-radius: 5px;
+
+}
+
+.ujAdminFelvetel:hover{
     background-color: #b1c5ee;
     text-decoration: none;
     transition-duration: 0.2s;
@@ -423,51 +471,6 @@ h1 {
 @media only screen and (max-width: 1151px) {
     body {
         background-color: #e0e4e7;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    table {
-        border: 0;
-    }
-
-    table thead {
-        border: none;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-    }
-
-    table tr {
-        border-bottom: 3px solid #ddd;
-        display: block;
-        margin-bottom: 0.625em;
-    }
-
-    table td {
-        border-bottom: 1px solid #ddd;
-        display: block;
-        font-size: 0.8em;
-        text-align: right;
-    }
-
-    table td::before {
-        /*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
-    */
-        content: attr(data-label);
-        float: left;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    table td:last-child {
-        border-bottom: 0;
     }
 }
 

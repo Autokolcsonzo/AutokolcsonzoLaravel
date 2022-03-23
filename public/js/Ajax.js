@@ -36,7 +36,7 @@ class MyAjax {
             headers: { "X-CSRF-TOKEN": this.token },
             url: apiVegpont + "/" + id,
             type: "DELETE",
-           
+
             success: function (result) {
                 console.log(result);
                 console.log(apiVegpont);

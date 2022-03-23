@@ -38,13 +38,12 @@ class FelhasznaloProfil extends Controller
 
     {
 
-        $input['jelszo'] = Hash::make($request['jelszo']);
+        Hash::make($request->input['jelszo']);
 
         $rules = [
             'felhasznalonev' => 'min:4|max:10',
             'keresztnev' => 'min:3|max:15|regex:/^([^0-9]*)$/',
             'vezeteknev' => 'min:3|max:15|regex:/^([^0-9]*)$/',
-            'e_mail' => 'unique:felhasznalo,e_mail',
             'jelszo' => 'min:5|max:10'
         ];
 
@@ -53,7 +52,6 @@ class FelhasznaloProfil extends Controller
             'felhasznalonev.max' => 'A módosítás sikertelen. A felhasználónévnek maximum :max karakternek kell lennie!',
             'jelszo.min' => 'A módosítás sikertelen. A jelszónak legalabb :min karakternek kell lennie!',
             'jelszo.max' => 'A módosítás sikertelen. A jelszónak maximum :max karakternek kell lennie!',
-            'e_mail.unique' => 'A módosítás sikertelen. Az e-mail már létezik.',
             'regex' => ' A módosítás sikertelen. Nem használhatsz számokat a nevekben.'
 
         ];
@@ -99,18 +97,29 @@ class FelhasznaloProfil extends Controller
 
         $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
 
+        $rules = [
+            'profilkep' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000'
+        ];
 
+        $customMessages = [
+            'profilkep.mimes' => 'Csak jpg, png, jpeg, gif és svg formátumú kép tölthető fel.',
+            'profilkep.image' => 'Csak kép tölthető fel.',
+            'profilkep.max' => 'Túl nagy képet próbálsz feltölteni.'
+
+
+        ];
+
+        $this->validate($request, $rules, $customMessages);
 
 
 
         if ($request->hasFile('profilkep')) {
-           
+
             $image = $request->file('profilkep');
             $image_Name = $image->getClientOriginalName();
-            $image_path = '/public/kepek/profilkepek/'.$image_Name;
+            $image_path = '/public/kepek/profilkepek/' . $image_Name;
             request()->file("profilkep")->move(public_path('public/kepek/profilkepek/'), $image_Name);
-            $data['profilkep']=$image_path;
-          
+            $data['profilkep'] = $image_path;
         }
 
         $felhasznalo->update($data);

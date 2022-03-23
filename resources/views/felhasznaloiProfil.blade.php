@@ -201,7 +201,7 @@
                             <div class="inputfield">
                                 <label for="jelszo">Jelszó:</label>
                                 <br>
-                                <input type="text" id="ijelszo" name="jelszo" value="" />
+                                <input type="text" id="ijelszo" name="jelszo" value="{{ old('jelszo') ?? $data->jelszo}}" />
                             </div>
 
 

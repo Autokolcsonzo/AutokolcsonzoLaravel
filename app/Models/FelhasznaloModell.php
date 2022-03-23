@@ -25,7 +25,12 @@ class FelhasznaloModell extends Model
         'hazszam',
         'tel_szam',
         'e_mail',
+        'telephely'
     ];
+
+    public function telephely(){
+        return $this->hasOne(Telephely::class, 'telephely_id', 'telephely');
+    }
     
     use HasFactory;
 }

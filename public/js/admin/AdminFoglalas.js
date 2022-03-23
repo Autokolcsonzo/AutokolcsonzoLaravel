@@ -14,6 +14,8 @@ class AdminFoglalas {
         this.allapot = this.elem.find(".allapot");
         this.reszletekGomb = this.elem.find(".fReszletek");
         this.zarva = true;
+       
+
 
         this.reszletekGomb.on("click", () => {
             $(".reszletek").css("display", "none");
@@ -30,6 +32,7 @@ class AdminFoglalas {
         this.alvazszam.text(adat.alvazSzam);
         this.felhasznalo.text(adat.felhasznalo.felhasznalonev);
         this.fogIdo.text(adat.fogl_kelt);
+        
         this.elvitel.text(adat.elvitel);
         this.visszahozatal.text(adat.visszahozatal);
         this.ervenyesseg.text(adat.ervenyessegi_ido);
