@@ -12,6 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+        <script src="../js/felhasznalo/Foglalas.js"></script>
+        <script src="../js/felhasznalo/felhasznaloiFoglalas.js"></script>
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <style>
@@ -29,7 +31,7 @@
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/nav.css" />
-    <link rel="stylesheet" href="css/felhaszFoglalas.css" />
+    <link rel="stylesheet" href="{{ asset('css/felhasznalo/felhaszFoglalas.css') }}" />
 </head>
 
 <body>
@@ -44,12 +46,15 @@
 
             <!-- fő container -->
             <div class="fFoglalasok">
-
+            @foreach($data as $d)
+                    @if($loop->iteration % 2 == 0)
 
                 <!-- foglalás kártyák -->
-                <div class="fFoglalas">
+                <div class="fFoglalas even">
+                @else
                     <!-- foglalás adatok -->
-                    <div class="fogAdatok">
+                    <div class="fFoglalas odd">
+                    @endif
                         <!-- kép az autóról -->
                         <img src="../kepek/probaauto.jpg" alt="" id="foglalasKep" />
                         <!-- Autó megnevezése-->
@@ -58,393 +63,95 @@
                         <!-- dátumok div-je -->
                         <div class="datum">
 
-                            <div id="elvitel">
+                            <div class="elvitel">
                                 <h4>
                                     Elvitel:
                                 </h4>
-                                <p id="elvit">2022.01.02. </p>
+                                <p class="elvit">2022.01.02. </p>
                             </div>
 
 
 
-                            <div id="visszahozatal">
+                            <div class="visszahozatal">
                                 <h4>Visszahozatal:</h4>
-                                <p id="visszahoz">2022.01.13. </p>
+                                <p class="visszahoz">2022.01.13. </p>
 
                             </div>
                         </div>
                         <!-- gombok -->
 
-                        <button type="submit" id="fogMod">Foglalás módosítása</button>
-                        <button type="submit" id="fogLemond">Foglalás lemondása</button>
+                     
+                        <p><input id="{{$loop->index}}" type="button" name="reszletGomb" class="reszletGomb"
+                                    value="Részletek" /></p>
+                            <p>
+                        <button type="submit" class="fogLemond">Foglalás lemondása</button></p>
+
+                        <div id="r{{$loop->index}}" class="reszlet">
+                                <table class="reszAdatokTable">
+
+                                    <tr>
+                                        <td>Foglalás összege: </td>
+                                        <td id="osszeg">125 000 Ft</td>
+
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Befizettet összeg: </td>
+                                        <td id="befizetett">50 000 Ft</td>
+
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Fizetendő összeg: </td>
+                                        <td id="hatralek">75 000 Ft</td>
+
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Átvevő pont: </td>
+                                        <td id="telephely">Pécs</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Modell: </td>
+                                        <td id="modell">Modell megnevezése</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Kivitel: </td>
+                                        <td id="kivitel">Kivitel megnevezése</td>
+
+
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Üzemanyag típusa: </td>
+                                        <td id="uzemanyag">Benzin</td>
+
+                                    </tr>
+
+
+                                </table>
+                            </div>
                     </div>
 
                     <!-- lenyíló részletek -->
-                    <details>
-                        <summary>
-                            <div class="reszletTrigger">
-                                <ul>
-                                    <li>Részletek <i class="fa fa-angle-double-right" aria-hidden="true"></i></li>
-                                </ul>
-                            </div>
-                        </summary>
+               
 
-                        <div class="reszlet">
-                            <div class="reszletAdatok">
-                                <table class="reszAdatokTable">
-
-                                    <tr>
-                                        <td>Foglalás összege: </td>
-                                        <td id="osszeg">125 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Befizettet összeg: </td>
-                                        <td id="befizetett">50 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Fizetendő összeg: </td>
-                                        <td id="hatralek">75 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Átvevő pont: </td>
-                                        <td id="telephely">Pécs</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Modell: </td>
-                                        <td id="modell">Modell megnevezése</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Kivitel: </td>
-                                        <td id="kivitel">Kivitel megnevezése</td>
-
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Üzemanyag típusa: </td>
-                                        <td id="uzemanyag">Benzin</td>
-
-                                    </tr>
-
-
-                                </table>
-                            </div>
-                    </details>
-
+                        
+          
+                            @endforeach
 
 
 
 
                 </div>
 
-                <div class="fFoglalas">
-                    <div class="fogAdatok">
-
-                        <img src="../kepek/probaauto.jpg" alt="" id="foglalasKep" />
-
-
-                        <h3 class="termeknev">Opel Astra</h3>
-
-                        <div class="datum">
-
-                            <div id="elvitel">
-                                <h4>
-                                    Elvitel:
-                                </h4>
-                                2022.01.02.
-                            </div>
-
-
-
-                            <div id="visszahozatal">
-                                <h4>Visszahozatal:</h4>
-                                2022.01.13.
-                            </div>
-                        </div>
-
-                        <button type="submit" id="fogMod">Foglalás módosítása</button>
-                        <button type="submit" id="fogLemond">Foglalás lemondása</button>
-                    </div>
-
-                    <details>
-                        <summary>
-                            <div class="reszletTrigger">
-                                <ul>
-                                    <li>Részletek <i class="fa fa-angle-double-right" aria-hidden="true"></i></li>
-                                </ul>
-                            </div>
-                        </summary>
-
-                        <div class="reszlet">
-                            <div class="reszletAdatok">
-                                <table class="reszAdatokTable">
-
-                                    <tr>
-                                        <td>Foglalás összege: </td>
-                                        <td id="osszeg">125 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Befizettet összeg: </td>
-                                        <td id="befizetett">50 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Fizetendő összeg: </td>
-                                        <td id="hatralek">75 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Átvevő pont: </td>
-                                        <td id="telephely">Pécs</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Modell: </td>
-                                        <td id="modell">Modell megnevezése</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Kivitel: </td>
-                                        <td id="kivitel">Kivitel megnevezése</td>
-
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Üzemanyag típusa: </td>
-                                        <td id="uzemanyag">Benzin</td>
-
-                                    </tr>
-
-
-                                </table>
-                            </div>
-                    </details>
-
-
-
-
-
-                </div>
-                <div class="fFoglalas">
-                    <div class="fogAdatok">
-
-                        <img src="../kepek/probaauto.jpg" alt="" id="foglalasKep" />
-
-
-                        <h3 class="termeknev">Opel Astra</h3>
-
-                        <div class="datum">
-
-                            <div id="elvitel">
-                                <h4>
-                                    Elvitel:
-                                </h4>
-                                2022.01.02.
-                            </div>
-
-
-
-                            <div id="visszahozatal">
-                                <h4>Visszahozatal:</h4>
-                                2022.01.13.
-                            </div>
-                        </div>
-
-                        <button type="submit" id="fogMod">Foglalás módosítása</button>
-                        <button type="submit" id="fogLemond">Foglalás lemondása</button>
-                    </div>
-
-                    <details>
-                        <summary>
-                            <div class="reszletTrigger">
-                                <ul>
-                                    <li>Részletek <i class="fa fa-angle-double-right" aria-hidden="true"></i></li>
-                                </ul>
-                            </div>
-                        </summary>
-
-                        <div class="reszlet">
-                            <div class="reszletAdatok">
-                                <table class="reszAdatokTable">
-
-                                    <tr>
-                                        <td>Foglalás összege: </td>
-                                        <td id="osszeg">125 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Befizettet összeg: </td>
-                                        <td id="befizetett">50 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Fizetendő összeg: </td>
-                                        <td id="hatralek">75 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Átvevő pont: </td>
-                                        <td id="telephely">Pécs</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Modell: </td>
-                                        <td id="modell">Modell megnevezése</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Kivitel: </td>
-                                        <td id="kivitel">Kivitel megnevezése</td>
-
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Üzemanyag típusa: </td>
-                                        <td id="uzemanyag">Benzin</td>
-
-                                    </tr>
-
-
-                                </table>
-                            </div>
-                    </details>
-
-
-
-
-
-                </div>
-                <div class="fFoglalas">
-                    <div class="fogAdatok">
-
-                        <img src="../kepek/probaauto.jpg" alt="" id="foglalasKep" />
-
-
-                        <h3 class="termeknev">Opel Astra</h3>
-
-                        <div class="datum">
-
-                            <div id="elvitel">
-                                <h4>
-                                    Elvitel:
-                                </h4>
-                                2022.01.02.
-                            </div>
-
-
-
-                            <div id="visszahozatal">
-                                <h4>Visszahozatal:</h4>
-                                2022.01.13.
-                            </div>
-                        </div>
-
-                        <button type="submit" id="fogMod">Foglalás módosítása</button>
-                        <button type="submit" id="fogLemond">Foglalás lemondása</button>
-                    </div>
-
-                    <details>
-                        <summary>
-                            <div class="reszletTrigger">
-                                <ul>
-                                    <li>Részletek <i class="fa fa-angle-double-right" aria-hidden="true"></i></li>
-                                </ul>
-                            </div>
-                        </summary>
-
-                        <div class="reszlet">
-                            <div class="reszletAdatok">
-                                <table class="reszAdatokTable">
-
-                                    <tr>
-                                        <td>Foglalás összege: </td>
-                                        <td id="osszeg">125 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Befizettet összeg: </td>
-                                        <td id="befizetett">50 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Fizetendő összeg: </td>
-                                        <td id="hatralek">75 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Átvevő pont: </td>
-                                        <td id="telephely">Pécs</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Modell: </td>
-                                        <td id="modell">Modell megnevezése</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Kivitel: </td>
-                                        <td id="kivitel">Kivitel megnevezése</td>
-
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Üzemanyag típusa: </td>
-                                        <td id="uzemanyag">Benzin</td>
-
-                                    </tr>
-
-
-                                </table>
-                            </div>
-                    </details>
-
-
-
-
-
-                </div>
-
-
-
-            </div>
-
+              
 
 
         </div>

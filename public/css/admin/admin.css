@@ -225,7 +225,7 @@
 }
 /* TÁBLÁZAT */
 
-table {
+/* table {
     border: 1px solid #ccc;
     border-collapse: collapse;
     margin: 0;
@@ -244,7 +244,7 @@ table th,
 table td {
     padding: 0.625em;
     text-align: center;
-}
+} */
 
 .torles {
     padding: 4px 10px;

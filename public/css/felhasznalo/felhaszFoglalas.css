@@ -36,7 +36,7 @@
 
 .datum {
   display: flex;
-  flex-direction: row;
+  flex-direction:row;
   align-content: center;
   justify-content: space-between;
   align-items: center;
@@ -44,11 +44,19 @@
   font-size: 1em;
 }
 
+.elvitel{
+  margin:5px;
+}
+
+.visszahozatal{
+  margin:5px;
+}
+
 #foglalasKep {
   max-width: 100%;
 }
 
-#fogMod {
+.reszletGomb {
   background-color: #e0e4e7;
   border: none;
   border-radius: 2px;
@@ -62,13 +70,13 @@
   margin: 2px;
 }
 
-#fogMod:hover {
+.reszletGomb:hover {
   background-color: #b1c5ee;
   text-decoration: none;
   transition-duration: 0.2s;
 }
 
-#fogLemond {
+.fogLemond {
   background-color: #e0e4e7;
   border: none;
   border-radius: 2px;
@@ -82,27 +90,17 @@
   margin: 2px;
 }
 
-#fogLemond:hover {
+.fogLemond:hover {
   background-color: #b1c5ee;
   text-decoration: none;
   transition-duration: 0.2s;
 }
 
-.reszletTrigger li {
-  background-color: #e0e4e7;
-  border-radius: 2px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
-    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-  cursor: pointer;
-  font-size: 1em;
-  padding: 2px;
-  margin: 10px;
-}
 
-.reszletTrigger li:hover {
-  background-color: #b1c5ee;
-  text-decoration: none;
-  transition-duration: 0.2s;
+
+.even {
+  background-color: rgb(236, 235, 235);
+  font-size: large;
 }
 
 @media (hover: none) and (pointer: coarse) {

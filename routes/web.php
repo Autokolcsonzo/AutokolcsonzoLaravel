@@ -14,6 +14,7 @@ use App\Http\Controllers\KeresoViewController;
 use App\Http\Controllers\AdminFoglalasController;
 use App\Http\Controllers\AdminAutokController;
 use App\Http\Controllers\AdminFelhasznalo;
+use App\Http\Controllers\FelhasznaloFoglalas;
 use App\Http\Controllers\FelhasznaloProfil;
 use App\Http\Controllers\jarmuTalalatiListaController;
 
@@ -94,3 +95,6 @@ Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratas
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
 Route::get('/api/foglalas/expand={child}', [AdminFoglalasController::class, 'expand']);
 Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);
+
+
+Route::get('/felhasznaloiFoglalasok', [FelhasznaloFoglalas::class, 'index']);
