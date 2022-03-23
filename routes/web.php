@@ -37,6 +37,9 @@ Route::get('feltetelek', [MenuFeltetelekController::class, 'index'])->name('felt
 Route::get('felhasznaloiProfil', function () {
     return view('felhasznaloiProfil');
 });
+Route::get('felhasznaloiFoglalasok', function () {
+    return view('felhasznaloiFoglalasok');
+});
 
 Route::get('jarmuTalalatiLista', function () {
     return view('jarmuTalalatiLista');

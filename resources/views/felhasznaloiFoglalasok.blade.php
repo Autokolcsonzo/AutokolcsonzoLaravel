@@ -35,7 +35,7 @@
 <body>
     <main>
         <!-- TABLET, STB. NÉZET -->
-        @include('komponensek/nav')
+        @include('komponensek/felhasznaloNav')
 
         <!--   Fejléc -->
         @include('komponensek/header')

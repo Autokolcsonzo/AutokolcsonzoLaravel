@@ -42,7 +42,8 @@
             <div class="logo">
                 <img src="kepek/logo.png" alt="logo" />
             </div>
-            <li class="profilNavGomb"><a href="#">Profilom</a></li>
+            <li class="profilNavGomb"><a href="{{ asset('felhasznaloiProfil') }}">Profilom</a></li>
+            <li class="foglalasNavGomb"><a href="{{ asset('felhasznaloiFoglalasok') }}">Foglalásaim</a></li>
             <li><a href="{{ route('welcome') }}">Kezdőlap</a></li>
             <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
             <li><a href="{{ route('feltetelek') }}">Feltételek</a></li>
