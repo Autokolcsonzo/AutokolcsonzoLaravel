@@ -61,12 +61,13 @@ Route::get('adminFoglalas', function () {
 /* Admin API */
 
 Route::get('/adminAutok', [AdminAutokController::class, 'adatokKiiratasa']);
-Route::post('/adminAutok', [AdminAutokController::class, 'ujAuto'])->name('adminAutok');
-Route::post('/adminAutok', [AdminAutokController::class, 'ujModell'])->name('adminAutok');
-Route::post('/adminAutok', [AdminAutokController::class, 'ujKep'])->name('adminAutok');
 Route::get('/adminAutokEdit/{autok}', [AdminAutokController::class, 'edit']);
 Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
 Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
+
+Route::post('/admin_autok', [AdminAutokController::class, 'ujAuto'])->name('admin_autok');
+Route::post('/admin_autok', [AdminAutokController::class, 'ujModell'])->name('admin_autok');
+Route::post('/admin_autok', [AdminAutokController::class, 'ujKep'])->name('admin_autok');
 
 
 

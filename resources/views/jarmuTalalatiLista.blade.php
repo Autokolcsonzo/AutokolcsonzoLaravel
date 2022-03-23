@@ -44,10 +44,12 @@
     <link rel="stylesheet" href="css/kereso.css" />
     <link rel="stylesheet" href="css/autoCard.css" />
     <link rel="stylesheet" href="css/jarmuTalalatiLista.css" />
+    <link rel="stylesheet" href="css/toltes.css" />
 </head>
 
 <body>
     <main>
+        @include('komponensek/toltes')
         <!-- TABLET, STB. NÉZET -->
         @if(Auth('felhasznalo'))
             @include('komponensek/felhasznaloNav')

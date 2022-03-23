@@ -6,21 +6,22 @@ $(function () {
     let apiVegpont = "http://localhost:8000/api/keresoview";
     myAjax.getAdat(apiVegpont, opciok, keresoF.opcioFeltoltes);
     let optionDOM = `
-              #Khelyszinek option,
-              #marka option, 
-              #modell option,
-              #kivitel option, 
-              #uzemanyag option, 
-              #valto option,
-              #etol option,
-              #eig option`;
+            #Khelyszinek option,
+            #marka option, 
+            #modell option,
+            #kivitel option, 
+            #uzemanyag option, 
+            #valto option,
+            #etol option,
+            #eig option`;
 
-    $("#marka").change(function () {
+    $("#marka").on('change', ()=> {
         let valasztottMarka = $("#marka").val();
-        if (valasztottMarka == "marka") {
-            $(optionDOM).remove();
-            $("#check_wrapper-1").empty();
-            keresoF.opcioFeltoltes(opciok);
+        //console.log(typeof valasztottMarka);
+        if (valasztottMarka == '') {
+            $('#modell').empty();
+            //$("#check_wrapper-1").empty();
+            keresoF.markaRegen(opciok);
         } else {
             $("#modell").empty();
             keresoF.markaModellKapcsolat(valasztottMarka, opciok);

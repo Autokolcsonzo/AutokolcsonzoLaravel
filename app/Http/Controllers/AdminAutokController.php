@@ -25,7 +25,10 @@ class AdminAutokController extends Controller
             ->select('modell.tipus', 'modell.uzemanyag', 'modell.teljesitmeny', 'modell.evjarat', 'auto.napiAr', 'auto.szin', 'auto.forgalmiSzam', 'auto.alvazSzam', 'auto.alvazSzam', 'auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
             ->get();
         // return $adatok;
-        return view('adminAutok', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel'));
+        $modell = DB::table('modell')->get();
+        $telephely = DB::table('telephely')->get();
+
+        return view('adminAutok', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel', 'telephely', 'modell'));
     }
 
     public function edit($alvazSzam)
@@ -67,7 +70,47 @@ class AdminAutokController extends Controller
 
     public function ujAuto(Request $req)
     {
-        $auto = [
+
+   /*      $auto = [
+            'alvazSzam' => $req->alvazSzam,
+            'modell' => $req->modell, 
+            'telephely' => $req->telephely,
+            'napiAr' => $req->napiAr,
+            'szin' => $req->szin,
+            'forgalmiSzam' => $req->forgalmiSzam,
+            'statusz' => $req->statusz,
+            'rendszam' => $req->rendszam
+        ];
+
+        DB::table('auto')->insert($auto);
+        return redirect()->back()->with('status', 'adatok sikeresen feltöltve'); */
+
+        /* $auto = new Auto([
+        'alvazSzam' => $req->get('alvazSzam'),
+        'modell' => $req->get('modell'),
+        'telephely' => $req->get('telephely'),
+        'napiAr' => $req->get('napiAr'),
+        'szin' => $req->get('szin'),
+        'forgalmiSzam' => $req->get('forgalmiSzam'),
+        'statusz' => $req->get('statusz'),
+        'rendszam' => $req->get('rendszam'),
+    ]);
+    $auto->save();
+    return redirect('adminAutok'); */
+        $auto = new Auto;
+
+        $auto->alvazSzam = $req->input('alvazSzam');
+        $auto->modell = $req->input('modell');
+        $auto->telephely = $req->input('telephely');
+        $auto->napiAr = $req->input('napiAr');
+        $auto->szin = $req->input('szin');
+        $auto->forgalmiSzam = $req->input('forgalmiSzam');
+        $auto->statusz = $req->input('statusz');
+        $auto->rendszam = $req->input('rendszam');
+        $auto->save();
+        return redirect('/adminAutok');
+
+        /* $auto = [
             'alvazSzam' => $req->alvazSzam,
             'modell' => $req->modell,
             'telephely' => $req->telephely,
@@ -81,7 +124,7 @@ class AdminAutokController extends Controller
         DB::table('auto')->insert($auto);
 
         //   return redirect()->back();
-        return redirect()->back()->with('status', 'adatok sikeresen feltöltve');
+        return redirect()->back()->with('status', 'adatok sikeresen feltöltve'); */
     }
 
     public function ujModell(Request $req)
