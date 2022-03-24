@@ -20,12 +20,12 @@ $(function () {
     //keresesParameteresen( {mezo}/{helyszin}/{elvitel}/{visszahoz}/{marka}/{modell}/{kivitel}/{uzemanyag}/{evTol}/{evIg}/{arTol}/{arIg}/{checkboxok})
     //http://127.0.0.1:8000/api/auto_fill/kék/Budapest/2022-03-25/2022-03-26/BMW/X5/Kombi/Benzin/2013/2022/2000/6000/GPS
     $('#keresesBtn').on('click', function() {
-        const kedvezmeny = new Auto();
-        kedvezmeny.setKedvezmenyek();
+        /*const kedvezmeny = new Auto();
+        kedvezmeny.setKedvezmenyek();*/
         let szurtVegpont = '';
         let autok = [];
         
-        let keresoMezo = $("#keresoMezo").val();
+        let keresoMezo = keresoMezoBeolvasasa($("#keresoMezo").val());
         let Khelyszinek = $("#Khelyszinek").val();
         let elvitel = $("#elvitel").val();
         let visszavitel = $("#visszavitel").val();
@@ -38,7 +38,10 @@ $(function () {
         let eig = $('#eig').val();
         let min = $("#min").val();
         let max = $("#max").val();
-        
+        let oszlop = $("#rendezes").val();
+        let sorrend = $("#rendezes option").data();
+        console.log(oszlop , sorrend);
+
         if(keresoMezo == null || 0 || '' || (keresoMezo.length < 1)){
             keresoMezo = 'null';
         }
@@ -97,8 +100,8 @@ $(function () {
             min, '\n',
             max, '\n'
         );
-        szurtVegpont = 'http://127.0.0.1:8000/api/auto_fill/'+keresoMezo+'/'+Khelyszinek+'/'+elvitel+'/'+visszavitel+'/'+marka+'/'+modell+'/'+kivitel+'/'+uzemanyag+'/'+etol+'/'+eig+'/'+min+'/'+max+'/'+kersoCheckbox;
-        myAjax.getAdat(szurtVegpont, autok, autoFeltoltes);
+        szurtVegpont = 'http://127.0.0.1:8000/api/auto_fill/'+keresoMezo+'/'+Khelyszinek+'/'+elvitel+'/'+visszavitel+'/'+marka+'/'+modell+'/'+kivitel+'/'+uzemanyag+'/'+etol+'/'+eig+'/'+min+'/'+max+'/'+kersoCheckbox+'/'+oszlop+'/'+sorrend;
+        myAjax.getAdat(szurtVegpont, autok, autoFeltoltes); // asyncron módon hívódik
         console.log(szurtVegpont);
         console.log(autok);
     });
@@ -107,7 +110,7 @@ $(function () {
         sablonElem.show();
         autok.forEach(function (auto) {
             const ujElem = sablonElem.clone().appendTo(szuloElem);
-            const ujTermek = new Auto(ujElem, auto);
+            const ujAuto = new Auto(ujElem, auto);
         });
         sablonElem.hide();
     }
@@ -149,6 +152,13 @@ $(function () {
         });
         checkedCheckboxs = checkedCheckboxs.slice(0, -1);
         return checkedCheckboxs;
+    }
+
+
+    function keresoMezoBeolvasasa(keresoMezo){
+        let urlKompatibilis = "";
+        urlKompatibilis = keresoMezo.replace(" ", "+");
+        return urlKompatibilis;
     }
 
 });

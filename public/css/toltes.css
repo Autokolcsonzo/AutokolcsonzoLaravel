@@ -9,6 +9,7 @@
   .loader{
     z-index: 2004;
     position: absolute;
+    overflow: hidden;
     background:rgb(216, 247, 255);
   }
   #load {
