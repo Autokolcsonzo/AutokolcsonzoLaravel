@@ -5,6 +5,7 @@ class Auto {
         }else{
         this.elem = elem;
         this.adat = adat;
+        console.log(adat);
         this.autoId = this.elem.find(".jarmu-card-foglalas");
         this.kep = this.elem.find(".jarmu-card-kep");
         this.marka = this.elem.find(".jarmu-card-marka");
@@ -54,6 +55,7 @@ class Auto {
         this.adat = adat;
         this.autoId.attr("id", adat.alvazSzam);
         this.kep.attr("src", adat.kep);
+        console.log(adat)
         this.marka.text(adat.marka);
         this.modell.text(adat.modell);
         this.kivitel.text(adat.kivitel);

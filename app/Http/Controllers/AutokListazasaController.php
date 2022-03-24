@@ -33,7 +33,9 @@ class AutokListazasaController extends Controller
         $uzemanyag, 
         $evTol, $evIg, 
         $arTol, $arIg,
-        $checkboxok)
+        $checkboxok,
+        $oszlop,
+        $sorrend)
     {
         $mezoArray = explode("+", $mezo);
         $checkboxArray = explode("+", $checkboxok);
@@ -134,6 +136,7 @@ class AutokListazasaController extends Controller
             'auto_fill.statusz',
             'auto_fill.napiAr',
             'auto_fill.szin',
+            'auto_fill.kep',
             'auto_fill.marka',
             'auto_fill.tipus',
             'auto_fill.modell',
@@ -160,6 +163,9 @@ class AutokListazasaController extends Controller
             ->where('auto_fill.napiAr','>=', $arTol)
             ->where('auto_fill.evjarat','>=', $evTol)
             ->where('auto_fill.evjarat','<=', $evIg)
+            ->orderBy($oszlop, $sorrend)
+            //  elágazást kell írni hogy beálítsa az oszlop nevet a linkből és a rendezési sorrendet.
+            //->orderBy($id_v_napiAr, $asc_v_desc)
             ->get();
             
             //dd($checkboxArray);
