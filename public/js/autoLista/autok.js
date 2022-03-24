@@ -38,9 +38,9 @@ $(function () {
         let eig = $('#eig').val();
         let min = $("#min").val();
         let max = $("#max").val();
-        let oszlop = $("#rendezes").val();
-        let sorrend = $("#rendezes option").data();
-        console.log(oszlop , sorrend);
+        let rendezesSplit = $("#rendezes").val().split("+");
+        let oszlop = rendezesSplit[0];
+        let sorrend = rendezesSplit[1];
 
         if(keresoMezo == null || 0 || '' || (keresoMezo.length < 1)){
             keresoMezo = 'null';

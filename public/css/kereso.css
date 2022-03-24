@@ -51,11 +51,12 @@
 
 .input-box input, select {
     padding: 10px;
-    background: rgba(192, 204, 240, 0.37);
+    background: rgb(255, 255, 255);
     border: 1px solid rgb(177, 177, 180);
     height: 50px;
     outline: 0; /* nem lesz kerete mikor belekattintunk */
     font-size: 20px;
+    border-radius: 10px;
 }
 
 .kereses form .btn {
