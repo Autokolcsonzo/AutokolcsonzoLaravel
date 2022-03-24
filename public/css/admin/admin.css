@@ -120,11 +120,11 @@
 
 /* ADMIN AUTÓ FELTÖLTÉS */
 
-.modellAdatokFeltoltes,
+/* .modellAdatokFeltoltes,
 .kepAdatokFeltoltes {
     display: none;
     max-width: 700px;
-}
+} */
 
 /*felhasználói adatok adatok*/
 
@@ -254,16 +254,13 @@ table td {
     color: #2b2b2b;
 }
 
-
-
-.ujAdmin{
-    margin-left:10px;
+.ujAdmin {
+    margin-left: 10px;
     padding: 10px;
     background-color: #97b9d246;
     border: 1px solid #8283853e;
     border-radius: 5px;
     color: #2b2b2b;
-  
 }
 
 .formcontainer {
@@ -290,9 +287,9 @@ table td {
     color: #2b2b2b;
 }
 
-.ujAdminForm{
+.ujAdminForm {
     display: none;
-    max-width: 700px;  
+    max-width: 700px;
 }
 
 .felhasznaloiModositas {
@@ -329,7 +326,7 @@ table td {
     border-radius: 5px;
 }
 
-#atelephely{
+#atelephely {
     padding: 10px;
     background: white;
     height: 40px;
@@ -392,7 +389,7 @@ table td {
     transition-duration: 0.2s;
 }
 
-.ujAdminFelvetel{
+.ujAdminFelvetel {
     margin: 10px;
     background-color: #e0e4e7;
     border: 1px solid rgba(27, 31, 35, 0.15);
@@ -405,10 +402,9 @@ table td {
     padding: 6px 16px;
     width: 200px;
     border-radius: 5px;
-
 }
 
-.ujAdminFelvetel:hover{
+.ujAdminFelvetel:hover {
     background-color: #b1c5ee;
     text-decoration: none;
     transition-duration: 0.2s;
