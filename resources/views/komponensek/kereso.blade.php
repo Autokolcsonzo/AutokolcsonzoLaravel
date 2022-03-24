@@ -5,7 +5,7 @@
                             <a href="regisztracio.html">Regisztráció</a>
                             </div> -->
 
-    <form action="">
+    <form >
         <div class="input-box">
             <label for="keresoMezo">Kereső</label>
             <input type="text" id="keresoMezo" placeholder="pl: kék suzuki">
@@ -125,9 +125,9 @@
         <section id="rendezes-box">
             <label for="rendezes">Rendezés</label>
             <select id="rendezes" name="rendezes">
-                <option value="alap">alapértelmezett</option>
-                <option value="novekvo">árszerint növekvő</option>
-                <option value="csokkeno">árszerint csökkenő</option>
+                <option value="alvazSzam+ASC">alapértelmezett</option>
+                <option value="napiAr+ASC">árszerint növekvő</option>
+                <option value="napiAr+DESC">árszerint csökkenő</option>
             </select>
         </section>
         @else

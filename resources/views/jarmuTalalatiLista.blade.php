@@ -48,8 +48,8 @@
 </head>
 
 <body>
+    @include('komponensek/toltes')
     <main>
-        @include('komponensek/toltes')
         <!-- TABLET, STB. NÉZET -->
         @if(Auth('felhasznalo'))
             @include('komponensek/felhasznaloNav')

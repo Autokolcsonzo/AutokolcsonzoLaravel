@@ -12,6 +12,7 @@ class autoKepek extends Model
     protected $table = 'auto_kepek';
 
     protected $fillable = [
+        'alvazSzam',
         'kep'
     ];
 }

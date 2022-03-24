@@ -7,18 +7,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/hambiMenu.js"></script>
+    <script src="js/admin/adminAuto.js"></script>
+    <script src="js/Ajax.js"></script>
+    <script src="js/admin/osszesAuto.js"></script>
     <script src="js/reszponzivDolgok.js"></script>
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
 
@@ -46,9 +50,9 @@
             <div class="fooldalInfo">
                 <form class="autokRendezes">
                     <div>
-                        <label class="kategoriaLabel" for="autoKategoria">Kategória:</label>
+                        <label class="kategoriaLabel" for="autoKategoria">Márka:</label>
                         <select name="autoKategoria" id="autoKategoria">
-                            <option value>Összes kategória</option>
+                            <option value>Összes márka</option>
                             <option value="compact">Compact</option>
                             <option value="economy">Economy</option>
                             <option value="luxus">Luxus</option>
@@ -59,9 +63,9 @@
                     </div>
 
                     <div>
-                        <label class="karosszeriaLabel" for="autoKarosszeria">Karosszéria:</label>
+                        <label class="karosszeriaLabel" for="autoKarosszeria">Típus:</label>
                         <select name="autoKarosszeria" id="autoKarosszeria">
-                            <option value>Összes karosszéria</option>
+                            <option value>Összes típus</option>
                             <option value="2-3ajto">2-3 ajtós</option>
                             <option value="4-5ajto">4-5 ajtós</option>
                             <option value="kabrio">Kabrió</option>
@@ -72,9 +76,9 @@
                     </div>
 
                     <div>
-                        <label class="valtoLabel" for="autoValto">Váltó:</label>
+                        <label class="valtoLabel" for="autoValto">Évjárat:</label>
                         <select name="autoValto" id="autoValto">
-                            <option value>Összes váltó</option>
+                            <option value>Évjárat</option>
                             <option value="automata">Autómata</option>
                             <option value="manualis">Manuális</option>
                         </select>
@@ -96,107 +100,41 @@
                 <div class="hirek">
 
                     <div class="placeholder_item2">
-                        <div class="tartalom">
-                            <img src="kepek/probaauto.jpg" alt="" class="kep" />
-                            <h3 class="termeknev">Ford Fiesta</h3>
-                            <p class="leiras">
-                                Akár havi 123.000 Ft-tól.
-                            </p>
-                        </div>
-                        <div class="adatok">
-                            <div>
-                                <span>Karosszéria</span>
-                                <span>4-5 ajtós</span>
+                            <div class="tartalom">
+                                <img src="kepek/probaauto.jpg" alt="" class="kep" />
+                                <h3 class="marka">Ford</h3>
+                                <p class="modell">Fiesta</p>
+                                <p class="napiAr">
+                                    Akár havi 123.000 Ft-tól.
+                                </p>
                             </div>
-                            <div>
-                                <span>Váltó</span>
-                                <span>Manuális</span>
+                            <div class="adatok">
+                                <div>
+                                    <span>Kivitel:</span>
+                                    <span class="kivitel">Combi</span>
+                                </div>
+                                <div>
+                                    <span>Üzemanyag:</span>
+                                    <span class="uzemanyag">benzin</span>
+                                </div>
+                                <div>
+                                    <span>Évjárat:</span>
+                                    <span class="evjarat">2003</span>
+                                </div>
+                                <div>
+                                    <span>Teljesítmény:</span>
+                                    <span class="teljesitmeny">300Le</span>
+                                </div>
                             </div>
-                            <div>
-                                <span>Utasok</span>
-                                <span>4 utas</span>
-                            </div>
-                            <div>
-                                <span>Csomagok</span>
-                                <span>2 csomag</span>
-                            </div>
-                        </div>
-                        <div class="autoListaGombok">
+                            <!--                <div class="autoListaGombok">
                             <button type="submit" class="lefoglalas">Lefoglalás</button>
                             <button type="submit" class="reszletek">Részletek</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
-
-                <div class="hirek">
-                    <div class="placeholder_item2">
-                        <div class="tartalom">
-                            <img src="kepek/probaauto.jpg" alt="" class="kep" />
-                            <h3 class="termeknev">Ford Fiesta</h3>
-                            <p class="leiras">
-                                Akár havi 123.000 Ft-tól.
-                            </p>
-                        </div>
-                        <div class="adatok">
-                            <div>
-                                <span>Karosszéria</span>
-                                <span>4-5 ajtós</span>
-                            </div>
-                            <div>
-                                <span>Váltó</span>
-                                <span>Manuális</span>
-                            </div>
-                            <div>
-                                <span>Utasok</span>
-                                <span>4 utas</span>
-                            </div>
-                            <div>
-                                <span>Csomagok</span>
-                                <span>2 csomag</span>
-                            </div>
-                        </div>
-                        <div class="autoListaGombok">
-                            <button type="submit" class="lefoglalas">Lefoglalás</button>
-                            <button type="submit" class="reszletek">Részletek</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hirek">
-                    <div class="placeholder_item2">
-                        <div class="tartalom">
-                            <img src="kepek/probaauto.jpg" alt="" class="kep" />
-                            <h3 class="termeknev">Ford Fiesta</h3>
-                            <p class="leiras">
-                                Akár havi 123.000 Ft-tól.
-                            </p>
-                        </div>
-                        <div class="adatok">
-                            <div>
-                                <span>Karosszéria</span>
-                                <span>4-5 ajtós</span>
-                            </div>
-                            <div>
-                                <span>Váltó</span>
-                                <span>Manuális</span>
-                            </div>
-                            <div>
-                                <span>Utasok</span>
-                                <span>4 utas</span>
-                            </div>
-                            <div>
-                                <span>Csomagok</span>
-                                <span>2 csomag</span>
-                            </div>
-                        </div>
-                        <div class="autoListaGombok">
-                            <button type="submit" class="lefoglalas">Lefoglalás</button>
-                            <button type="submit" class="reszletek">Részletek</button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+        </div>
 
         </div>
 
