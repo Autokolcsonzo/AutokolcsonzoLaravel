@@ -70,8 +70,8 @@ Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
 Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
 Route::post('/admin_autok', [AdminAutokController::class, 'ujAuto'])->name('admin_autok');
-Route::post('/admin_autok', [AdminAutokController::class, 'ujModell'])->name('admin_autok');
-Route::post('/admin_autok', [AdminAutokController::class, 'ujKep'])->name('admin_autok');
+Route::post('/admin_modellek', [AdminAutokController::class, 'ujModell'])->name('admin_modellek');
+Route::post('/admin_kepek', [AdminAutokController::class, 'ujKep'])->name('admin_kepek');
 
 
 
@@ -83,7 +83,7 @@ Route::get('/felhasznaloiProfil', [FelhasznaloProfil::class, 'bejelentkezett'])-
 
 Route::put('/update', [FelhasznaloProfil::class, 'update'])->name('felhasznalok.update');
 
-Route::put('/updatekep',[FelhasznaloProfil::class, 'profkepUpdate'])->name('felhasznalok.profkepUpdate');
+Route::put('/updatekep', [FelhasznaloProfil::class, 'profkepUpdate'])->name('felhasznalok.profkepUpdate');
 
 
 

@@ -3,8 +3,12 @@ $(function () {
     UjModellFelvetele();
     UjKepFelvetele();
     ReszletMegjelenit();
-    modal();
+    autoModal();
+    modellModal();
+    kepModal();
     ujAutoFelvitele();
+    ujModellFelvitele;
+    kepModal;
 });
 
 function ReszletMegjelenit() {
@@ -23,18 +27,7 @@ function ReszletMegjelenit() {
                     zarva = true;
                 }
             }
-            //console.log( index + ": " + $( this ).text() );
         });
-
-        //console.log(gombId);
-
-        /*if(zarva){
-            $(".reszlet").slideDown(500);
-            zarva = false;
-        }else{
-            $(".reszlet").slideUp(500);
-            zarva = true;
-        }*/
     });
 }
 
@@ -74,40 +67,111 @@ function UjKepFelvetele() {
     });
 }
 
-function modal() {
-    const open = document.getElementById('buttonAuto');
-    const modal_container = document.getElementById('ujAutoModal');
-    const close = document.getElementById('bezaras');
+function autoModal() {
+    const open = document.getElementById("buttonAuto");
+    const modal_container = document.getElementById("ujAutoModal");
+    const close = document.getElementById("autoBezaras");
 
-    open.addEventListener('click', () => {
-        modal_container.classList.add('show');   
+    open.addEventListener("click", () => {
+        modal_container.classList.add("show");
     });
 
-    close.addEventListener('click', () => {
-        modal_container.classList.remove('show');   
+    close.addEventListener("click", () => {
+        modal_container.classList.remove("show");
+    });
+}
+
+function modellModal() {
+    const open = document.getElementById("buttonModell");
+    const modal_container = document.getElementById("ujModellModal");
+    const close = document.getElementById("modellBezaras");
+
+    open.addEventListener("click", () => {
+        modal_container.classList.add("show");
+    });
+
+    close.addEventListener("click", () => {
+        modal_container.classList.remove("show");
+    });
+}
+
+function kepModal() {
+    const open = document.getElementById("buttonKep");
+    const modal_container = document.getElementById("ujKepModal");
+    const close = document.getElementById("kepBezaras");
+
+    open.addEventListener("click", () => {
+        modal_container.classList.add("show");
+    });
+
+    close.addEventListener("click", () => {
+        modal_container.classList.remove("show");
     });
 }
 
 function ujAutoFelvitele() {
-    jQuery('#addform').on('submit', function(e) {
+    jQuery("#addform").on("submit", function (e) {
         e.preventDefault();
 
         jQuery.ajax({
             type: "POST",
             url: "admin_autok",
-            data: jQuery('#addform').serialize(),
+            data: jQuery("#addform").serialize(),
             success: function (result) {
-             //   console.log(result);
-            //    $('#ujAutoModal').remove();
+                //   console.log(result);
+                //    $('#ujAutoModal').remove();
                 alert("Adatok elmentve.");
             },
-            error: function(error) {
-              //  console.log(error);
+            error: function (error) {
+                //  console.log(error);
                 alert("Adatok nem lettek elmentve.");
-            }
+            },
         });
     });
 }
+
+function ujModellFelvitele() {
+    jQuery("#addform").on("submit", function (e) {
+        e.preventDefault();
+
+        jQuery.ajax({
+            type: "POST",
+            url: "admin_modellek",
+            data: jQuery("#addform").serialize(),
+            success: function (result) {
+                //   console.log(result);
+                //    $('#ujAutoModal').remove();
+                alert("Adatok elmentve.");
+            },
+            error: function (error) {
+                //  console.log(error);
+                alert("Adatok nem lettek elmentve.");
+            },
+        });
+    });
+}
+
+function ujAutoFelvitele() {
+    jQuery("#addform").on("submit", function (e) {
+        e.preventDefault();
+
+        jQuery.ajax({
+            type: "POST",
+            url: "admin_autok",
+            data: jQuery("#addform").serialize(),
+            success: function (result) {
+                //   console.log(result);
+                //    $('#ujAutoModal').remove();
+                alert("Adatok elmentve.");
+            },
+            error: function (error) {
+                //  console.log(error);
+                alert("Adatok nem lettek elmentve.");
+            },
+        });
+    });
+}
+
 //Sortok
 /*     let keresomezo = $("#keresoMezo");
     keresomezo.on("keyup", () => {
