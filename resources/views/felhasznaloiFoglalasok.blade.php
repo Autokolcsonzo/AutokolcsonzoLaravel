@@ -67,14 +67,14 @@
                                 <h4>
                                     Elvitel:
                                 </h4>
-                                <p class="elvit">2022.01.02. </p>
+                                <p class="elvit"> {{$d->elvitel}}</p>
                             </div>
 
 
 
                             <div class="visszahozatal">
                                 <h4>Visszahozatal:</h4>
-                                <p class="visszahoz">2022.01.13. </p>
+                                <p class="visszahoz"> </p>
 
                             </div>
                         </div>
@@ -130,7 +130,7 @@
 
                                     <tr>
                                         <td>Üzemanyag típusa: </td>
-                                        <td id="uzemanyag">Benzin</td>
+                                        <td id="uzemanyag">{{$d->uzemanyag}}</td>
 
                                     </tr>
 
