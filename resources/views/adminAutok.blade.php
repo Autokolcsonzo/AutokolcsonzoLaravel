@@ -362,12 +362,26 @@
 
                                 <div class="sor">
                                     <div class="inputfield2">
+                                        <label for="alvazSzam">Alvázszám:</label>
+                                        <br />
+                                        <select class="alvazSzam" name="alvazSzam">
+                                            @foreach($adat as $a)
+                                            <option value="{{$a->alvazSzam}}">{{$a->alvazSzam}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="sor">
+                                    <div class="inputfield2">
                                         <label for="kep">Kép:</label>
 
                                         <br />
                                         <input type="file" name="kep" class="kep" /><br />
                                     </div>
+
                                 </div>
+                                <input type="submit" value="Adatok mentése" id="adatotMent" />
                             </form>
                             <button type="button" id="kepBezaras">Bezárás</button>
                         </div>
