@@ -43,7 +43,9 @@ class FelhasznaloFoglalas extends Controller
                     'utca',
                     'hazszam',
                     'napiar',
-                    'fizetes_alapja'
+                    'fizetes_alapja',
+                    'foglalas_osszege',
+                    'kelt'
 
 
 
@@ -53,4 +55,22 @@ class FelhasznaloFoglalas extends Controller
 
         return view('felhasznaloiFoglalasok', compact('data'));
     }
+
+
+    public function update(Request $request){
+        $data = $request->all();
+
+        $fogl_azonosito = $request->input('fogl_azonosito');
+
+
+        $foglalas = AdminFoglalasModel::find($fogl_azonosito);
+
+        $data['allapot'] = "Lemondva";
+
+        $foglalas->update($data);
+
+        return redirect()->back();
+        
+        
+}
 }

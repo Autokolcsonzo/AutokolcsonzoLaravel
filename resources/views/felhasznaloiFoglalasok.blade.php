@@ -10,19 +10,18 @@
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-        <script src="../js/felhasznalo/Foglalas.js"></script>
-        <script src="../js/felhasznalo/felhasznaloiFoglalas.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="../js/felhasznalo/Foglalas.js"></script>
+    <script src="../js/felhasznalo/felhasznaloiFoglalas.js"></script>
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -46,20 +45,20 @@
 
             <!-- fő container -->
             <div class="fFoglalasok">
-            @foreach($data as $d)
-                    @if($loop->iteration % 2 == 0)
+                @foreach($data as $d)
+                @if($d->allapot=="Aktív")
 
                 <!-- foglalás kártyák -->
                 <div class="fFoglalas even">
-                @else
+                    @else
                     <!-- foglalás adatok -->
                     <div class="fFoglalas odd">
-                    @endif
+                        @endif
                         <!-- kép az autóról -->
-                        <img src="../kepek/probaauto.jpg" alt="" id="foglalasKep" />
+                        <img src="{{$d->kep}}" alt="" id="foglalasKep" />
                         <!-- Autó megnevezése-->
 
-                        <h3 class="termeknev">Ford Fiesta</h3>
+                        <h3 class="termeknev">{{$d->marka}} {{$d->modell}}</h3>
                         <!-- dátumok div-je -->
                         <div class="datum">
 
@@ -74,90 +73,119 @@
 
                             <div class="visszahozatal">
                                 <h4>Visszahozatal:</h4>
-                                <p class="visszahoz"> </p>
+                                <p class="visszahoz">{{$d->visszahozatal}} </p>
 
                             </div>
                         </div>
                         <!-- gombok -->
 
-                     
-                        <p><input id="{{$loop->index}}" type="button" name="reszletGomb" class="reszletGomb"
-                                    value="Részletek" /></p>
+
+                        <p><input id="{{$loop->index}}" type="button" name="reszletGomb" class="reszletGomb" value="Részletek" /></p>
+
+
+
+
+                        @if($d->allapot=="Aktív")
+                        <form action="{{route('foglalas.update')}}" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" value="{{$d->fogazon_foglalas}}" name="fogl_azonosito">
+                            @method('PUT')
+                            @csrf
                             <p>
-                        <button type="submit" class="fogLemond">Foglalás lemondása</button></p>
+                                <button type="submit" class="fogLemond">Foglalás lemondása</button>
+                            </p>
+
+                        </form>
+                        @else
+                        <p>
+                            <button type="submit" class="fogLemondInaktiv">Foglalás lemondása</button>
+                        </p>
+
+                        @endif
 
                         <div id="r{{$loop->index}}" class="reszlet">
-                                <table class="reszAdatokTable">
+                            <table class="reszAdatokTable">
 
-                                    <tr>
-                                        <td>Foglalás összege: </td>
-                                        <td id="osszeg">125 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Befizettet összeg: </td>
-                                        <td id="befizetett">50 000 Ft</td>
+                                <tr>
+                                    <td>Foglalás összege: </td>
+                                    <td id="osszeg">{{$d->foglalas_osszege}}</td>
 
 
-                                    </tr>
+                                </tr>
 
-                                    <tr>
-                                        <td>Fizetendő összeg: </td>
-                                        <td id="hatralek">75 000 Ft</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Átvevő pont: </td>
-                                        <td id="telephely">Pécs</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Modell: </td>
-                                        <td id="modell">Modell megnevezése</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Kivitel: </td>
-                                        <td id="kivitel">Kivitel megnevezése</td>
+                                <tr>
+                                    <td>Befizettet összeg: </td>
+                                    <td id="befizetett">{{$d->befizetett_osszeg}}</td>
 
 
+                                </tr>
 
-                                    </tr>
-
-                                    <tr>
-                                        <td>Üzemanyag típusa: </td>
-                                        <td id="uzemanyag">{{$d->uzemanyag}}</td>
-
-                                    </tr>
+                                <tr>
+                                    <td>Fizetendő összeg: </td>
+                                    <td id="hatralek">{{$d->kifizetendo_osszegeg}}</td>
 
 
-                                </table>
-                            </div>
+                                </tr>
+
+                                <tr>
+                                    <td>Átvevő pont: </td>
+                                    <td id="telephely">{{$d->ir_szam}} {{$d->megye}} {{$d->varos}} {{$d->utca}} {{$d->hazszam}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Kivitel: </td>
+                                    <td id="modell">{{$d->kivitel}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Napi ár: </td>
+                                    <td id="kivitel">{{$d->napiAr}}</td>
+
+
+
+                                </tr>
+
+                                <tr>
+                                    <td>Üzemanyag típusa: </td>
+                                    <td id="uzemanyag">{{$d->uzemanyag}}</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>Foglalás ideje: </td>
+                                    <td id="foglido">{{$d->kelt}}</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>Állapot: </td>
+                                    <td id="allapot">{{$d->allapot}}</td>
+
+                                </tr>
+
+
+                            </table>
+                        </div>
                     </div>
 
                     <!-- lenyíló részletek -->
-               
 
-                        
-          
-                            @endforeach
+
+
+
+                    @endforeach
 
 
 
 
                 </div>
 
-              
 
 
-        </div>
 
-        <!-- Footer -->
-        @include('komponensek/footer')
+            </div>
+
+            <!-- Footer -->
+            @include('komponensek/footer')
     </main>
 </body>
 

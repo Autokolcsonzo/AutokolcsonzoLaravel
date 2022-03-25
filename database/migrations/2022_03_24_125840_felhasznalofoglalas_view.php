@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class FelhasznalofoglalasView extends Migration
 {
@@ -68,7 +69,9 @@ class FelhasznalofoglalasView extends Migration
                     fizetes.sorszam,
                     fizetes.fizetes_alapja,
                     fizetes.befizetett_osszeg,
-                    fizetes.kifizetendo_osszegeg
+                    fizetes.kifizetendo_osszegeg,
+                    (fizetes.befizetett_osszeg+fizetes.kifizetendo_osszegeg) AS foglalas_osszege
+                    
                     
                     
                     FROM    

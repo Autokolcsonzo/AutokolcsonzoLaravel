@@ -98,3 +98,6 @@ Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa'])
 
 
 Route::get('/felhasznaloiFoglalasok', [FelhasznaloFoglalas::class, 'index']);
+
+
+Route::put('/updateallapot', [FelhasznaloFoglalas::class, 'update'])->name('foglalas.update');
