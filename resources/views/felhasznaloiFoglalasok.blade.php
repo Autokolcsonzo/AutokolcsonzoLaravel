@@ -152,7 +152,7 @@
 
                                 <tr>
                                     <td>Foglalás ideje: </td>
-                                    <td id="foglido">{{$d->kelt}}</td>
+                                    <td id="foglido">{{$d->fogl_kelt}}</td>
 
                                 </tr>
 

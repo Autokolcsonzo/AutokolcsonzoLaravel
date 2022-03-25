@@ -45,11 +45,11 @@ class FelhasznaloFoglalas extends Controller
                     'napiar',
                     'fizetes_alapja',
                     'foglalas_osszege',
-                    'kelt'
+                    'fogl_kelt'
 
 
 
-            )->where('felhasznalo_foglalas.felhasznalo', '=', Session::get('loginId'))->get();
+            )->where('felhasznalo_foglalas.felhasznalo', '=', Session::get('loginId'))->get()->sortByDesc('fogl_kelt');
             
         }
 
