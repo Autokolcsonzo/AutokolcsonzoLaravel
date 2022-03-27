@@ -37,9 +37,14 @@ class AutokListazasaController extends Controller
         $oszlop,
         $sorrend)
     {
+        $datumString = '';
         $mezoArray = explode("+", $mezo);
         $checkboxArray = explode("+", $checkboxok);
-
+        if($elvitel == $visszahoz){
+            $datumString = 'elvitel NOT LIKE "%2022-03-26%" AND visszahozatal NOT LIKE "%2022-03-26%"';
+        }else{
+            $datumString = 'elvitel NOT BETWEEN "'.$elvitel.'" AND "'.$visszahoz.'" AND visszahozatal NOT BETWEEN "'.$elvitel.'" AND "'.$visszahoz.'"';
+        }
         if($helyszin == 'null'){
             $helyszin = '%';
         }
@@ -152,6 +157,7 @@ class AutokListazasaController extends Controller
             'auto_fill.utca',
             'auto_fill.hazszam'
             )
+            ->distinct()
             ->whereRaw('( auto_fill.varos LIKE "%'.$helyszin.'%"')
             ->whereRaw('auto_fill.marka LIKE "%'.$marka.'%"')
             ->whereRaw('auto_fill.modell LIKE "%'.$modell.'%"')
@@ -159,6 +165,9 @@ class AutokListazasaController extends Controller
             ->whereRaw('auto_fill.uzemanyag LIKE "%'.$uzemanyag.'%" )')
             ->whereRaw('('.$checkboxString.')')
             ->whereRaw('('.$mezoString.')')
+            //elvitel NOT LIKE '%2022-03-26%' AND visszahozatal NOT LIKE '%2022-03-26%'
+            //'elvitel NOT BETWEEN "'.$elvitel.'" AND "'.$visszahoz.'" AND visszahozatal NOT BETWEEN "'.$elvitel.'" AND "'.$visszahoz.'"'
+            ->whereRaw($datumString)
             ->where('auto_fill.napiAr','<=', $arIg)
             ->where('auto_fill.napiAr','>=', $arTol)
             ->where('auto_fill.evjarat','>=', $evTol)
@@ -167,7 +176,7 @@ class AutokListazasaController extends Controller
             //  elágazást kell írni hogy beálítsa az oszlop nevet a linkből és a rendezési sorrendet.
             //->orderBy($id_v_napiAr, $asc_v_desc)
             ->get();
-            
+            //CAST('2022-03-30 14:10:17' AS DATETIME) NOT BETWEEN elvitel and visszahozatal
             //dd($checkboxArray);
         /*dd($mezo, 
         $helyszin, 

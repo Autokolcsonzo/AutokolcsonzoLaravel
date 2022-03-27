@@ -30,7 +30,7 @@ class AutoAjax {
             type: "POST",
             data: adat,
             success: function (result) {
-                console.log(result);
+                console.log("result :",result);
             },
         });
     }
