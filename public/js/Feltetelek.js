@@ -1,30 +1,20 @@
-class Feltetelek {
-    constructor(elem, adat) {
-        this.adat = adat;
-        this.elem = elem;
-
-        $(".reszletekGomb").on("click", () => {
-            this.reszletekTrigger();
+$(function(){
+    let zarva = true;
+    $(".feltetelReszletek").css("display", "none");
+        $(".reszletekGomb").click(function () {
+            let gombId = this.id;
+            $(".reszletekGomb").each(function (index) {
+                let elem = "r"+this.id;
+                console.log(elem, gombId);
+                if ("r"+gombId == elem) {
+                    if (zarva) {
+                        $("#" + elem).slideDown(500);
+                        zarva = false;
+                    } else {
+                        $("#" + elem).slideUp(500);
+                        zarva = true;
+                    }
+                }
         });
-
-        this.setAdat(adat);
-    }
-
-    setAdat(adat) {
-        $(".feltetelReszletek").css("display", "none");
-
-        this.adat = adat;
-        this.zarva = true;
-        this.nyitva = false;
-    }
-
-    reszletekTrigger() {
-        if (this.zarva) {
-            $(this.elem.children(".feltetelReszletek")).slideDown(500);
-            this.zarva = false;
-        } else if (!this.zarva) {
-            $(this.elem.children(".feltetelReszletek")).slideUp(500);
-            this.zarva = true;
-        }
-    }
-}
+    });
+});

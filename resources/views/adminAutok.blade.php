@@ -48,7 +48,7 @@
         @include('komponensek/header')
 
         <div id="primary_content">
-
+            @if($loggedUser->jogkor == 2)
             <!-- ADMIN TÁBLÁZAT, KERESÉS -->
             <div class="adminKereses">
                 <!--  <div class="n1">
@@ -386,6 +386,12 @@
                             <button type="button" id="kepBezaras">Bezárás</button>
                         </div>
                     </div>
+                    @elseif($loggedUser->jogkor == 1)
+                    @php
+                    header("Location: " . URL::to('/login'), true, 302);
+                    exit();
+                    @endphp
+                    @endif
                 </div>
 
                 <!-- Footer -->

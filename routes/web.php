@@ -49,9 +49,9 @@ Route::get('jarmuTalalatiLista', function () {
 Route::get('/jarmuTalalatiLista', [jarmuTalalatiListaController::class, 'dashboard'])->middleware('isUser');
 
 
-    Route::get('adminAutok', function () {
-        return view('adminAutok');
-    });
+Route::get('adminAutok', function () {
+    return view('adminAutok');
+});
 
 
 Route::get('adminFelhasznalok', function () {
@@ -62,22 +62,14 @@ Route::get('adminFoglalas', function () {
     return view('adminFoglalas');
 });
 
+Route::get('/adminAutok', [AdminAutokController::class, 'adatokKiiratasa']);
+Route::get('/adminAutokEdit/{autok}', [AdminAutokController::class, 'edit']);
+Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
+Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
-Auth::routes();
-/* Admin API */
-//Route::group('isAdmin')->group(function() {
-//Route::middleware('isAdmin')->group(function() {
-Route::group(['middleware' => ['auth', 'isAdmin']], function () {
-    Route::get('/adminAutok', [AdminAutokController::class, 'adatokKiiratasa']);
-    Route::get('/adminAutokEdit/{autok}', [AdminAutokController::class, 'edit']);
-    Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
-    Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
-
-    Route::post('/admin_autok', [AdminAutokController::class, 'ujAuto'])->name('admin_autok');
-    Route::post('/admin_modellek', [AdminAutokController::class, 'ujModell'])->name('admin_modellek');
-    Route::post('/admin_kepek', [AdminAutokController::class, 'ujKep'])->name('admin_kepek');
-
-});
+Route::post('/admin_autok', [AdminAutokController::class, 'ujAuto'])->name('admin_autok');
+Route::post('/admin_modellek', [AdminAutokController::class, 'ujModell'])->name('admin_modellek');
+Route::post('/admin_kepek', [AdminAutokController::class, 'ujKep'])->name('admin_kepek');
 
 
 //felhasznaloProfilApi

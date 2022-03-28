@@ -16,7 +16,7 @@ class AuthCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Session()->has('loginId')) {
+        if (!Session()->has('loginId')) {
             return redirect('login')->with('fail', 'Előbb be kell jelentkezned!');
         }
         return $next($request);

@@ -29,7 +29,7 @@ class CreateFelhasznaloTable extends Migration
             $table->char('tel_szam', 12);
             $table->char('e_mail', 60);
             $table->timestamp('reg_datum');
-            $table->tinyInteger('jogkor')->nullable()->default('0');
+            $table->tinyInteger('jogkor')->nullable();
             $table->integer('telephely')->unsigned()->nullable();
             $table->foreign('telephely')->references('telephely_id')->on('telephely');
             $table->timestamps();

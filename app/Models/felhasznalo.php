@@ -3,6 +3,7 @@
 namespace App\Models;
 
 /* use Illuminate\Contracts\Auth\MustVerifyEmail; */
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,11 +12,10 @@ use Illuminate\Notifications\Notifiable;
 
 class felhasznalo extends Model
 {
-    protected $guard = "felhasznalo";
     protected $table = 'felhasznalo';
     use HasFactory, Notifiable;
 
-/*     public $timestamps = false;
+    /*     public $timestamps = false;
     public $email = false; */
 
     /**
@@ -23,7 +23,7 @@ class felhasznalo extends Model
      *
      * @var array<int, string>
      */
-        protected $fillable = [
+    protected $fillable = [
         /* 'name',
         'email',
         'password', */
@@ -47,7 +47,7 @@ class felhasznalo extends Model
      *
      * @var array<int, string>
      */
-        protected $hidden = [
+    protected $hidden = [
         'password',
         'remember_token',
     ];
@@ -57,7 +57,7 @@ class felhasznalo extends Model
      *
      * @var array<string, string>
      */
-        protected $casts = [
+    protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 }

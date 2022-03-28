@@ -48,12 +48,12 @@ class CustomAuthController extends Controller
         $felhasznalo->hazszam = $request->hazszam;
         $felhasznalo->tel_szam = $request->tel_szam;
         $felhasznalo->e_mail = $request->e_mail;
-        $felhasznalo->jogkor=1;
+        $felhasznalo->jogkor = 1;
         $res = $felhasznalo->save();
         if ($res) {
             return back()->with('success', 'regisztráltál');
         } else {
-            return back()->with('fail', 'NEM regisztráltál');
+            return back()->with('fail', 'Nem regisztráltál');
         }
     }
 
@@ -70,24 +70,24 @@ class CustomAuthController extends Controller
                 $request->session()->put('loginId', $felhasznalo->felhasznalo_id);
                 return redirect('dashboard');
             } else {
-                return back()->with('fail', 'Jelszó nem ugyan az.');
+                return back()->with('fail', 'Jelszó nem megfelelő.');
             }
-
         } else {
             return back()->with('fail', 'Ez az email nem regisztrált.');
         }
-        
     }
 
-    public function dashboard() {
+    public function dashboard()
+    {
         $data = array();
-        if(Session::has('loginId')) {
+        if (Session::has('loginId')) {
             $data = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
         }
         return view('dashboard', compact('data'));
     }
 
-    public function logout() {
+    public function logout()
+    {
         if (Session::has('loginId')) {
             Session::pull('loginId');
             return redirect('login');

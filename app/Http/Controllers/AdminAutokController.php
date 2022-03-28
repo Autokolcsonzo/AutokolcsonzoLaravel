@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\auto;
 use App\Models\modell;
 use App\Models\autoKepek;
+use App\Models\Felhasznalo;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class AdminAutokController extends Controller
 {
@@ -29,7 +32,12 @@ class AdminAutokController extends Controller
         $modell = DB::table('modell')->get();
         $telephely = DB::table('telephely')->get();
 
-        return view('adminAutok', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel', 'telephely', 'modell'));
+        $data = array();
+        if (Session::has('loginId')) {
+            $loggedUser = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
+        }
+
+        return view('adminAutok', compact('loggedUser', 'adat', 'felhasznalok', 'foglalasok', 'bevetel', 'telephely', 'modell'));
     }
 
     public function edit($alvazSzam)
@@ -115,7 +123,7 @@ class AdminAutokController extends Controller
         // $input = $req->all();
 
         if ($req->hasFile('kep')) {
-            
+
             $image = $req->file('kep');
             $image_name = $image->getClientOriginalName();
             $destinaion_path = 'kepek/autok/' . $image_name;
