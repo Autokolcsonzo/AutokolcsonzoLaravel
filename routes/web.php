@@ -46,7 +46,7 @@ Route::get('jarmuTalalatiLista', function () {
     return view('jarmuTalalatiLista');
 });
 
-Route::get('/jarmuTalalatiLista', [jarmuTalalatiListaController::class, 'dashboard'])->middleware('isUser');
+Route::get('/jarmuTalalatiLista', [jarmuTalalatiListaController::class, 'dashboard']); //->middleware('isUser');
 
 
 Route::get('adminAutok', function () {
