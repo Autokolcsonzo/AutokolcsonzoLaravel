@@ -41,9 +41,9 @@ return [
             'provider' => 'users',
         ],
         'felhasznalo' => [
-        'driver' => 'session',
-        'provider' => 'felhasznalos',
-    ],
+            'driver' => 'session',
+            'provider' => 'felhasznalos',
+        ],
     ],
 
     /*
@@ -69,9 +69,9 @@ return [
             'model' => App\Models\User::class,
         ],
         'felhasznalos' => [
-        'driver' => 'eloquent',
-        'model' => App\Models\felhasznalo::class,
-    ],
+            'driver' => 'eloquent',
+            'model' => App\Models\felhasznalo::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
