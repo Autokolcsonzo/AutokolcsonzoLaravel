@@ -54,21 +54,24 @@ class AutoFView extends Migration
                     telephely.ir_szam, 
                     telephely.varos, 
                     telephely.utca, 
-                    telephely.hazszam 
-                    
+                    telephely.hazszam,
+                    foglalas.elvitel,
+                    foglalas.visszahozatal
                     FROM    
                         auto,
                         auto_kepek,
                         auto_extra,
                         modell,
                         modell_tulajdonsag,
-                        telephely
+                        telephely,
+                        foglalas
                     WHERE 
                         auto.alvazSzam = auto_kepek.alvazSzam AND 
                         auto.alvazSzam = auto_extra.alvazSzam AND 
                         auto.modell = modell.modell_id AND 
                         modell.modell_id = modell_tulajdonsag.modell_id AND 
                         auto.telephely = telephely.telephely_id AND
+                        auto.alvazSzam = foglalas.alvazSzam AND
                         auto.statusz = 0
             SQL;
     }

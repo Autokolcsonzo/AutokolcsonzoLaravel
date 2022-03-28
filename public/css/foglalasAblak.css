@@ -28,6 +28,7 @@
   #valasztott-jarmu-kep{
       width: 300px;
       height: auto;
+      margin-right: 20px;
       border-radius: 10px;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
@@ -75,7 +76,7 @@
     "vja vja vja vja jar jar"
     "vja vja vja vja jar jar"
     "tbx tbx ibx ibx vjf vjf"
-    "ffa ffa ffa ffa vjf vjf"
+    "ffa ffa ffa ffa mod mod"
     ;
     background-size: cover;
     max-width: 1920px;
@@ -119,6 +120,10 @@
     grid-area: vjf;
     margin-bottom: auto;
   }
+  #módosítása {
+    grid-area: mod;
+    margin-bottom: auto;
+  }
   #valasztott-jarmu-adatok-wrapp{
     display: flex;
     flex-direction: column;
@@ -126,6 +131,7 @@
   }
   #valasztott-jarmu-parameterek{
       font-size: 35px;
+      text-align: left;
   }
   #valasztott-jarmu-helyszin,#valasztott-jarmu-ar{
     font-size: 25px;
@@ -180,7 +186,10 @@
 #foglalas-tol-box,#foglalas-ig-box{
   text-align: left;
 }
-#lefoglalas{
+#ellenőrizze{
+  text-align: left;
+}
+#lefoglalas, #módosítása{
     border-radius: 10px;
     border: none;
     padding: 10px;
@@ -193,7 +202,8 @@
     font-weight: bold;
     font-size: 15px;
     height: min-content;
-    margin-top: auto;
+    margin-top: 10%;
+    cursor: pointer;
 }
 #Felhasznaloi-feltetelek-btn{
   border: none;

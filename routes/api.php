@@ -7,6 +7,7 @@ use App\Http\Controllers\KedvezmenyekController;
 use App\Http\Controllers\KeresoViewController;
 use App\Http\Controllers\FelhasznaloAdmin;
 use App\Http\Controllers\TelephelyController;
+use App\Http\Controllers\FoglalasController;
 use App\Models\Telephely;
 
 /* use App\Http\Controllers\AdminAutokController; */
@@ -32,7 +33,7 @@ Route::apiResource('kedvezmeny', KedvezmenyekController::class);
 Route::get('auto_fill/{mezo}/{helyszin}/{elvitel}/{visszahoz}/{marka}/{modell}/{kivitel}/{uzemanyag}/{evTol}/{evIg}/{arTol}/{arIg}/{checkboxok}/{oszlop}/{sorrend}', [AutokListazasaController::class, 'keresesParameteresen']);
 Route::get('kedvezmeny', [KedvezmenyekController::class, 'kedvezmenyek']);
 //Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']);
-
+Route::post('foglalas', [FoglalasController::class, 'foglalas'])->name('ujFoglalas');
 
 
 Route::apiResource('keresoview', KeresoViewController::class);
