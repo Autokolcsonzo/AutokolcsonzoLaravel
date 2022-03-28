@@ -41,9 +41,9 @@ class AutokListazasaController extends Controller
         $mezoArray = explode("+", $mezo);
         $checkboxArray = explode("+", $checkboxok);
         if($elvitel == $visszahoz){
-            $datumString = 'elvitel NOT LIKE "%2022-03-26%" AND visszahozatal NOT LIKE "%2022-03-26%"';
+            $datumString = 'elvitel LIKE "%'.$elvitel.'%" AND visszahozatal LIKE "%'.$visszahoz.'%"';
         }else{
-            $datumString = 'elvitel NOT BETWEEN "'.$elvitel.'" AND "'.$visszahoz.'" AND visszahozatal NOT BETWEEN "'.$elvitel.'" AND "'.$visszahoz.'"';
+            $datumString = 'elvitel >= DATE_ADD("'.$elvitel.'", INTERVAL -1 DAY) AND visszahozatal <= DATE_ADD("'.$visszahoz.'", INTERVAL 1 DAY)';
         }
         if($helyszin == 'null'){
             $helyszin = '%';
@@ -135,6 +135,22 @@ class AutokListazasaController extends Controller
         //echo($checkboxString);
         //die;
         //dd($marka);
+
+        $tiltottAlvazSzam = DB::table('auto_fill')
+            ->select('alvazSzam')
+            ->distinct()
+            ->whereRaw($datumString)
+            ->get();
+
+
+        //push a tiltott alvazszamokat a tiltottAlvazSzam tombbe
+        $tiltottAlvazSzamArray = array();
+        foreach ($tiltottAlvazSzam as $key => $value) {
+            array_push($tiltottAlvazSzamArray, $value->alvazSzam);
+        }
+        //dd($tiltottAlvazSzamArray);
+
+
         $result = DB::table('auto_fill')
             ->select(
             'auto_fill.alvazSzam',
@@ -157,6 +173,7 @@ class AutokListazasaController extends Controller
             'auto_fill.utca',
             'auto_fill.hazszam'
             )
+            ->distinct()
             ->whereRaw('( auto_fill.varos LIKE "%'.$helyszin.'%"')
             ->whereRaw('auto_fill.marka LIKE "%'.$marka.'%"')
             ->whereRaw('auto_fill.modell LIKE "%'.$modell.'%"')
@@ -166,7 +183,7 @@ class AutokListazasaController extends Controller
             ->whereRaw('('.$mezoString.')')
             //elvitel NOT LIKE '%2022-03-26%' AND visszahozatal NOT LIKE '%2022-03-26%'
             //'elvitel NOT BETWEEN "'.$elvitel.'" AND "'.$visszahoz.'" AND visszahozatal NOT BETWEEN "'.$elvitel.'" AND "'.$visszahoz.'"'
-            ->whereRaw($datumString)
+            ->whereNotIn('auto_fill.alvazSzam', $tiltottAlvazSzamArray)
             ->where('auto_fill.napiAr','<=', $arIg)
             ->where('auto_fill.napiAr','>=', $arTol)
             ->where('auto_fill.evjarat','>=', $evTol)

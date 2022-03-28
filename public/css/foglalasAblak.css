@@ -225,11 +225,18 @@
     "jar jar jar jar"
     "tbx tbx tbx tbx"
     "ibx ibx ibx ibx"
+    "ffa ffa ffa ffa"
     "vjf vjf vjf vjf"
+    "mod mod mod mod"
+    
     ;
     background-size: cover;
     max-width: 1920px;
     justify-items: center;
+  }
+  #foglalas-felhasznaloi-adatok{
+    grid-area: ffa;
+    margin: 30px;
   }
   #valasztott-jarmu-adatok {
     flex-direction: column;
@@ -248,9 +255,9 @@
     margin-top: 20px;
     margin-bottom: 10px;
   }
-  #lefoglalas {
+  #lefoglalas,#módosítása {
     margin-top: 20px;
-    width: 30%;
+    width: 100%;
 }
 }
 @media only screen and (max-width: 600px) {
@@ -261,8 +268,13 @@
     margin-top: 20px;
     margin-bottom: 10px;
   }
-  #lefoglalas {
-    margin-top: 20px;
-    width: 270px;
-}
+  #személyes-adatok{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #személyes-adatok p{
+    text-align: center;
+    margin-bottom: 10px;
+  } 
 }

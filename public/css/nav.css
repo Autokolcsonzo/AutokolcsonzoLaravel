@@ -455,4 +455,10 @@ nav ul li:hover .felhasznaloMenu {
     margin-right: 0;
     width: 0px;
   }
+  @media only screen and (max-width: 1920px),screen and (max-height: 700px) {
+    nav ul {
+      position: unset;
+      width: 200px;
+  }
+  }
 }

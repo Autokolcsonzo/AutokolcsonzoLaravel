@@ -32,23 +32,32 @@ class KeresoFeltolteseLocalStorage {
 
     setHozottParameterek() {
         const keresOBJ = this.getAdatToLocalS();
-        /*let aktDatum = new Date();
+        let aktDatum = new Date();
         let aktNap = aktDatum.getDate();
-        let aktHo = aktDatum.getMonth() + this.honapSkip;
+        let aktHo = aktDatum.getMonth() +1;
         let aktEv = aktDatum.getFullYear();
-        let minDatumString = aktEv+'-'+aktHo+'-'+aktNap;*/
+        if (aktHo < 10) {
+            aktHo = "0" + aktHo;
+        }
+        if (aktNap < 10) {
+            aktNap = "0" + aktNap;
+        }
+        let minDatumString = aktEv+'-'+aktHo+'-'+aktNap;
+        let minDatumIntager = parseInt(aktEv+aktHo+aktNap);
+        console.log(minDatumIntager);
 
         if (keresOBJ == null || 0) {
             return
         } else {
             this.kulcsszo.val(keresOBJ.kulcsszo);
             this.telephely.val(keresOBJ.telephely);
-            /*if(keresOBJ.elvitelDatuma <= minDatumString){
+            if(parseInt(keresOBJ.elvitelDatuma) < minDatumIntager){
+            console.log('hibás elvitel');
                 this.elvitelDatuma.val(minDatumString).change();
             }else{
                 this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
-            }*/
-            this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
+            }
+            //this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
             this.elvitelDatuma.attr("max", keresOBJ.visszavitelDatuma).change();
             this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma).change();
             this.marka.val(keresOBJ.marka);

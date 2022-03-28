@@ -46,8 +46,6 @@ class FoglalasController extends Controller
         $foglalas->allapot = 'Aktív';
         $foglalas->save();
 
-        
-
         $foglalasId = DB::table('foglalas')
             ->select('fogl_azonosito')
             ->orderBy('fogl_azonosito', 'desc')
