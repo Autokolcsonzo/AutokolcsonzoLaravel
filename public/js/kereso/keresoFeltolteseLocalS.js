@@ -1,4 +1,8 @@
-
+$(function(){
+    const apiVegpont = "http://127.0.0.1:8000/api/kedvezmeny";
+    const kedvezmenyek = new KedvezmenyAjax();
+    kedvezmenyek.getAdat(apiVegpont);
+});
 
 
 class KeresoFeltolteseLocalStorage {
@@ -28,11 +32,22 @@ class KeresoFeltolteseLocalStorage {
 
     setHozottParameterek() {
         const keresOBJ = this.getAdatToLocalS();
+        /*let aktDatum = new Date();
+        let aktNap = aktDatum.getDate();
+        let aktHo = aktDatum.getMonth() + this.honapSkip;
+        let aktEv = aktDatum.getFullYear();
+        let minDatumString = aktEv+'-'+aktHo+'-'+aktNap;*/
+
         if (keresOBJ == null || 0) {
             return
         } else {
             this.kulcsszo.val(keresOBJ.kulcsszo);
             this.telephely.val(keresOBJ.telephely);
+            /*if(keresOBJ.elvitelDatuma <= minDatumString){
+                this.elvitelDatuma.val(minDatumString).change();
+            }else{
+                this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
+            }*/
             this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
             this.elvitelDatuma.attr("max", keresOBJ.visszavitelDatuma).change();
             this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma).change();
