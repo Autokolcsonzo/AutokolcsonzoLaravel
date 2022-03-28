@@ -13,14 +13,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/hambiMenu.js"></script>
     <script src="js/reszponzivDolgok.js"></script>
+    <script src="../js/Feltetelek.js"></script>
 
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
     <!-- Stílusok -->
@@ -33,6 +34,8 @@
     <link rel="stylesheet" href="css/kereso.css" />
     <link rel="stylesheet" href="css/autoCard.css" />
     <link rel="stylesheet" href="css/jarmuTalalatiLista.css" />
+    <link rel="stylesheet" href="css/feltetelek.css" />
+
 </head>
 
 <body>
@@ -45,11 +48,105 @@
         @include('komponensek/header')
 
 
-        
-        <div id="primary_content">
-            <p>Ide kerül a feltételek rész.</p>
 
-        
+        <div id="primary_content">
+
+            <div class="feltetelek">
+
+
+                <div class="foszoveg">
+                    <h2>
+                        Korhatár és vezetői engedély
+                    </h2>
+                    <input type="button" class="reszletekGomb" value="&#187" />
+                </div>
+                <div class="feltetelReszletek">
+                    <p> A gépjármű bérlésének feltétele, hogy a bérlő már betöltötte a 20. életévét, illetve legalább 2 éve rendelkezik már jogosítvánnyal, amely az autó elvitelekor ellenőrzésre kerül az iratok felmutatásával.</p>
+
+                </div>
+
+
+
+            </div>
+            <div class="feltetelek">
+
+
+<div class="foszoveg">
+    <h2>
+       Dokumentumok
+    </h2>
+    <input type="button" class="reszletekGomb" value="&#187" />
+</div>
+<div class="feltetelReszletek">
+    <p> A bérlőnek rendelkezni kell lakcímkártyával, illetve személyi igazolvánnyal vagy útlevéllel, amelyet a jármű elvitelekor köteles bemutatni munkatársainknak. </p>
+
+</div>
+
+
+
+</div>
+
+<div class="feltetelek">
+
+
+<div class="foszoveg">
+    <h2>
+    Bérleti időszak/bérleti díj
+    </h2>
+    <input type="button" class="reszletekGomb" value="&#187" />
+</div>
+<div class="feltetelReszletek">
+    <p> A minimális bérleti időtartam 1 nap, azaz 24 óra. </p>
+    <p>Amennyiben a bérlő nem hozza vissza a foglaláskor meghatározott időtartamra az autót, plusz egy nap kerül felszámításra.</p><br><br>
+    <strong>A bérleti díj tartalmazza: </strong><br><br>
+
+    <ul>
+        <li>Az autó karbantartását</li>
+        <li>Alaptakarítást</li>
+        <li>Fertőtlenítést</li>
+        <li>Segélyszolgálatot</li>
+        <li>Egyszeri tele tankot</li>
+    </ul><br><br>
+
+    <strong>A bérleti díj NEM tartalmazza: </strong><br><br>
+
+    <ul>
+        <li>Az autó további tankolását</li>
+        <li>Parkolási díjakat</li>
+        <li>Autópálya díjakat</li>
+        <li>A nem rendeltetésszerű használatból eredő javítási költségeket</li>
+       
+    </ul>
+
+
+</div>
+
+
+
+</div>
+
+<div class="feltetelek">
+
+
+<div class="foszoveg">
+    <h2>
+    Fizetési feltételek
+    </h2>
+    <input type="button" class="reszletekGomb" value="&#187" />
+</div>
+<div class="feltetelReszletek">
+    <p> A fizetés átutalással, illetve a helyszínen készpénzzel és kártyával történhet. </p>
+    <p> Bizonyos összeg letétként az autó elvitelekor fizetendő, majd az ezen kívül eső költségek a visszahozatalkor fizetendők. </p>
+
+</div>
+
+
+
+</div>
+
+
+
+
 
         </div>
 

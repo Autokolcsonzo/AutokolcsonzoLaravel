@@ -38,7 +38,8 @@ class felhasznalo extends Model
         'utca',
         'hazszam',
         'tel_szam',
-        'e_mail'
+        'e_mail',
+        'jogkor'
     ];
 
     /**

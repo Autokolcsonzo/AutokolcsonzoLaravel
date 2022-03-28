@@ -1,17 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\auto;
 use App\Models\modell;
 use App\Models\autoKepek;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 
 class AdminAutokController extends Controller
 {
+    /* public function __construct() {
+        $this->middleware(['auth:felhasznalo']);
+      } */
 
     public function adatokKiiratasa()
     {
