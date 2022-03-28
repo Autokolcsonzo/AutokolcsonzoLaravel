@@ -34,7 +34,8 @@ class User extends Authenticatable
             'utca',
             'hazszam',
             'tel_szam',
-            'e_mail'
+            'e_mail',
+            'jogkor'
     ];
 
     /**
