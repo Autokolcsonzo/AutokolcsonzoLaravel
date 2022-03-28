@@ -157,7 +157,6 @@ class AutokListazasaController extends Controller
             'auto_fill.utca',
             'auto_fill.hazszam'
             )
-            ->distinct()
             ->whereRaw('( auto_fill.varos LIKE "%'.$helyszin.'%"')
             ->whereRaw('auto_fill.marka LIKE "%'.$marka.'%"')
             ->whereRaw('auto_fill.modell LIKE "%'.$modell.'%"')

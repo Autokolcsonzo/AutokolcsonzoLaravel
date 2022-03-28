@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
     <!-- Scriptek -->
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,6 +25,7 @@
     <script src="js/autoLista/foglalas.js"></script>
     <script src="js/kereso/keresoFeltolteseLocalS.js"></script>
 
+
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
     <style>
@@ -32,6 +34,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        
     </style>
 
     <!-- Stílusok -->
@@ -45,10 +48,12 @@
     <link rel="stylesheet" href="css/autoCard.css" />
     <link rel="stylesheet" href="css/jarmuTalalatiLista.css" />
     <link rel="stylesheet" href="css/toltes.css" />
+
 </head>
 
 <body>
     @include('komponensek/toltes')
+
     <main>
         <!-- TABLET, STB. NÉZET -->
         @if(Auth('felhasznalo'))
