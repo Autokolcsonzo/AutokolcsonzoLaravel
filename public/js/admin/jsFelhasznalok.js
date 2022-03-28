@@ -22,15 +22,41 @@ $(function () {
 
     Jogkorokszerint();
 
+    var timeout = null;
+
     $("#fkereses").on("keyup", function () {
-        szuloElem.empty();
+        clearTimeout(timeout);
+   
+        
         let ertek = $(this).val();
-        console.log(ertek);
-        myAjax.getAdat(
-            apiVegpont + felhasznaloKereses + ertek,
-            felhasznalok,
-            Megjelenit1
-        );
+       
+        if (ertek.length >= 3) {
+
+            szuloElem.empty();
+            timeout = setTimeout(function() {
+                myAjax.getAdat(
+                    apiVegpont + felhasznaloKereses + ertek,
+                    felhasznalok,
+                    Megjelenit1
+                );     
+            
+            }, 500)
+       
+            
+        }
+
+      
+
+        if (ertek.length === 0) {
+            szuloElem.empty();
+            
+        timeout = setTimeout(function() {
+
+        
+            myAjax.getAdat(apiVegpont, felhasznalok, Megjelenit1);
+        }, 500)
+
+        }
     });
 
     let id = event.detail.felhasznalo_id;
