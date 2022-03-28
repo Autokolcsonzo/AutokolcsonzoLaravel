@@ -18,7 +18,7 @@ class FoglalasFeltoltes {
     constructor(elem, adat) {
         this.elem = elem;
         this.adat = adat;
-        this.autoId = this.elem.find("#lefoglalas");
+        this.autoId = this.elem.find("#autoId");
         this.napiAr = this.elem.find("#valasztott-jarmu-napiAr");
         this.helyszin = this.elem.find("#valasztott-jarmu-helyszin");
         this.igDatum = this.elem.find("#foglalas-igD");
@@ -50,6 +50,9 @@ class FoglalasFeltoltes {
         });
         this.felhasznaloiF.on("click", () => {
             this.felhasznaloiFTrigger();
+        });
+        this.foglalas.on("click", () => {
+            this.foglalasElkuldese();
         });
 
         $("#foglalas-tolD,#foglalas-igD").on("change", () => {
@@ -94,7 +97,7 @@ class FoglalasFeltoltes {
     kedvezmenyek.getAdat(apiVegpont);*/
 
         this.adat = adat;
-        this.autoId.attr("data", adat.autoId);
+        this.autoId.val(adat.autoId);
         this.napiAr.text(adat.napiAr);
         this.helyszin.text(adat.helyszin);
         //this.igDatum.val(adat.igDatum);
@@ -324,6 +327,25 @@ class FoglalasFeltoltes {
     }
     foglalasClear() {
         $("#foglalas-tolI,#foglalas-igI").empty();
+    }
+    foglalasElkuldese() {
+        const token = $('meta[name="csrf-token"]').attr("content");
+        let apiVegpont = "http://127.0.0.1:8000/api/foglalas";
+
+        /*let foglalas = {
+            tolD:$("#foglalas-tolD").val(),
+            tolI:$("#foglalas-tolI").val(),
+            igD:$("#foglalas-igD").val(),
+            igI:$("#foglalas-igI").val(),
+            alvazSzam:this.foglalas.data("id"),
+            felhasznaloID:$("#custId").val()
+        };*/
+        //console.log(foglalas);
+        //apiVegpont = apiVegpont;
+        //const autoA = new AutoAjax(token);
+        //autoA.postAdat(apiVegpont ,foglalas);
+
+        
     }
 }
 

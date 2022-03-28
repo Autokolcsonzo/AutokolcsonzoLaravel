@@ -25,7 +25,7 @@ class CreateFoglalasTable extends Migration
             $table->timestamp('fogl_kelt')->useCurrent();
             $table->dateTime('ervenyessegi_ido');
             $table->integer('kedvezmeny')->unsigned();
-            $table->foreign('kedvezmeny')->references('szazalek')->on('kedvezmeny');
+            $table->foreign('kedvezmeny')->references('szazalek_id')->on('kedvezmeny');
             $table->char('allapot', 20);
             $table->timestamps();
         });

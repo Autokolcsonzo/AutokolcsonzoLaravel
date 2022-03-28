@@ -1,124 +1,118 @@
 @charset "utf-8";
 
 .fFoglalasok {
-  margin: 20px;
-  display: flex;
-  flex-wrap: wrap;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .fFoglalas {
-  margin: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 20px rgb(0 0 0 / 20%);
-  overflow: hidden;
-  width: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 20%);
+    overflow: hidden;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .fFoglalas h3 {
-  color: #17446b;
-  padding: 10px;
-  text-shadow: 0px 4px 4px #8a8484;
-  font-size: 1.5em;
+    color: #17446b;
+    padding: 10px;
+    text-shadow: 0px 4px 4px #8a8484;
+    font-size: 1.5em;
 }
 
 .datum h4 {
-  color: #17446b;
+    color: #17446b;
 }
 
 .datum p {
-  font-style: italic;
+    font-style: italic;
 }
 
 .datum {
-  display: flex;
-  flex-direction:row;
-  align-content: center;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px;
-  font-size: 1em;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    font-size: 1em;
 }
 
-.elvitel{
-  margin:5px;
+.elvitel {
+    margin: 5px;
 }
 
-.visszahozatal{
-  margin:5px;
+.visszahozatal {
+    margin: 5px;
 }
 
 #foglalasKep {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .reszletGomb {
-  background-color: #e0e4e7;
-  border: none;
-  border-radius: 2px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
-    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-  cursor: pointer;
-  font-size: 1em;
-  font-weight: 500;
-  line-height: 20px;
-  padding: 5px;
-  margin: 2px;
+    background-color: #e0e4e7;
+    border: none;
+    border-radius: 2px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+        rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 5px;
+    margin: 2px;
 }
 
 .reszletGomb:hover {
-  background-color: #b1c5ee;
-  text-decoration: none;
-  transition-duration: 0.2s;
+    background-color: #b1c5ee;
+    text-decoration: none;
+    transition-duration: 0.2s;
+}
+
+.reszlet {
+    max-width: 100%;
+}
+
+.reszAdatokTable {
+    max-width: 100%;
 }
 
 .fogLemond {
-  background-color: #e0e4e7;
-  border: none;
-  border-radius: 2px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
-    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-  cursor: pointer;
-  font-size: 1em;
-  font-weight: 500;
-  line-height: 20px;
-  padding: 5px;
-  margin: 2px;
+    background-color: #e0e4e7;
+    border: none;
+    border-radius: 2px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+        rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 5px;
+    margin: 2px;
 }
 
 .fogLemond:hover {
-  background-color: #b1c5ee;
-  text-decoration: none;
-  transition-duration: 0.2s;
+    background-color: #b1c5ee;
+    text-decoration: none;
+    transition-duration: 0.2s;
 }
 
-
-
-.even {
-  background-color: rgb(236, 235, 235);
-  font-size: large;
+.odd {
+    background-color: rgb(236, 235, 235);
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .reszletTrigger li:hover {
-    background-color: #e0e4e7;
-    transition: none;
-  }
-
-  #fogMod:hover {
-    background-color: #e0e4e7;
-    transition: none;
-  }
-
-  #fogLemond:hover {
-    background-color: #e0e4e7;
-    transition: none;
-  }
+.fogLemondInaktiv {
+    display: none;
 }
+
 
 .reszAdatokTable {
   width: 100%;
@@ -139,15 +133,29 @@ td {
   font-weight: italic;
 }
 
-@media only screen and (max-width: 1200px) {
-  .fFoglalasok {
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-  }
+@media (hover: none) and (pointer: coarse) {
+    .reszletGomb:hover {
+        background-color: #e0e4e7;
+        transition: none;
+    }
 
-  .fFoglalas {
-    width: 400px;
-  }
+    .fogLemond:hover {
+        background-color: #e0e4e7;
+        transition: none;
+    }
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+    .fFoglalasok {
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fFoglalas {
+        width: 400px;
+    }
 }

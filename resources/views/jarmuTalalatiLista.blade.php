@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
     <!-- Scriptek -->
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,6 +25,7 @@
     <script src="js/autoLista/foglalas.js"></script>
     <script src="js/kereso/keresoFeltolteseLocalS.js"></script>
 
+
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
     <style>
@@ -32,6 +34,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        
     </style>
 
     <!-- Stílusok -->
@@ -45,10 +48,12 @@
     <link rel="stylesheet" href="css/autoCard.css" />
     <link rel="stylesheet" href="css/jarmuTalalatiLista.css" />
     <link rel="stylesheet" href="css/toltes.css" />
+
 </head>
 
 <body>
     @include('komponensek/toltes')
+
     <main>
         <!-- TABLET, STB. NÉZET -->
         @if(Auth('felhasznalo'))
@@ -72,7 +77,7 @@
                 <div class="modal-content">
                     <h1 id="Foglalas-cim">Foglalás leadása</h1>
                     <h1 id="foglalas-bezaras">X</h1>
-                    <form action="POST">
+                    <form method="POST" action='{{route("ujFoglalas")}}' >
                         <section id="valasztott-jarmu-adatok">
                             <img id="valasztott-jarmu-kep" src="kepek\232311_source.jpg" alt="kocsi">
                             <div id="valasztott-jarmu-adatok-wrapp">
@@ -92,23 +97,28 @@
                         </section>
                         <section id="foglalas-tol-box">
                             <label for="foglalas-tol">Felvétel:</label><br>
-                            <input id="foglalas-tolD" name="foglalas-tol" type="date" required>
-                            <select id="foglalas-tolI" name="foglalas-tol" required></select>
+                            <input id="foglalas-tolD" name="foglalas_tol" type="date" required>
+                            <select id="foglalas-tolI" name="foglalas_tolIdo" required></select>
                         </section>
                         <section id="foglalas-ig-box">
                             <label for="foglalas-ig">Letétel:</label><br>
-                            <input id="foglalas-igD" name="foglalas-ig" type="date" required>
-                            <select id="foglalas-igI" name="foglalas-ig" required></select>
+                            <input id="foglalas-igD" name="foglalas_ig" type="date" required>
+                            <select id="foglalas-igI" name="foglalas_igIdo" required></select>
                         </section>
                         <section id="foglalas-felhasznaloi-adatok">
+                            <p id="ellenőrizze">Kérjük ellenőrizze adatait a foglalás elött</p><br>
                             <div id="személyes-adatok">
-                                <p id="teljesNev"><br>Ménesi Csaba</p>
-                                <p id="felhasznaloNev"><br>Csa1999</p>
-                                <p id="email"><br>menesi777@gmail.com</p>
-                                <p id="telefon"><br>+366501080482</p>
+                                <p id="teljesNev"><br>{{$data->vezeteknev}} {{$data->keresztnev}}</p>
+                                <p id="felhasznaloNev"><br>{{$data->felhasznalonev}}</p>
+                                <p id="email"><br>{{$data->e_mail}}</p>
+                                <p id="telefon"><br>{{$data->tel_szam}}</p>
+                                <input type="hidden" id="custId" name="custId" value="{{$data->felhasznalo_id}}">
+                                <input type="hidden" id="autoId" name="autoId" value="">
                             </div>
                         </section>
-                        <button id="lefoglalas" class="" type="submit">Lefoglalás</button>
+                        <input id="lefoglalas" class="" type="submit" value="Lefoglalás"/>
+                        
+                        <a id="módosítása" href="http://127.0.0.1:8000/felhasznaloiProfil" class="">Adataim módosítása</a>
                     </form>
                     <div id="Felhasznaloi-feltetelek">
                         <p>Until recently, the prevailing view assumed lorem ipsum was born as a nonsense text. “It's

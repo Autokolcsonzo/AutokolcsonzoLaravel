@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class AutoFView extends Migration
+class FelhasznalofoglalasView extends Migration
 {
     /**
      * Run the migrations.
@@ -34,8 +35,17 @@ class AutoFView extends Migration
     private function createView(): string
     {
         return <<<SQL
-            CREATE VIEW auto_fill AS
+            CREATE VIEW felhasznalo_foglalas AS
                 SELECT 
+                foglalas.fogl_azonosito AS fogazon_foglalas,
+                    foglalas.alvazSzam AS foglalas_alvazszam,
+                    foglalas.felhasznalo,
+                    foglalas.elvitel,
+                    foglalas.visszahozatal,
+                    foglalas.fogl_kelt,
+                    foglalas.ervenyessegi_ido,
+                    foglalas.kedvezmeny,
+                    foglalas.allapot,
                     auto.alvazSzam,
                     auto.statusz, 
                     auto.napiAr, 
@@ -47,32 +57,38 @@ class AutoFView extends Migration
                     modell.kivitel, 
                     modell.uzemanyag, 
                     modell.teljesitmeny,
-                    modell_tulajdonsag.tulajdonsag,
-                    auto_kepek.kep, 
-                    auto_extra.extra_megnevezese, 
+                    auto_kepek.kep,
                     telephely.megye, 
                     telephely.ir_szam, 
                     telephely.varos, 
                     telephely.utca, 
                     telephely.hazszam,
-                    foglalas.elvitel,
-                    foglalas.visszahozatal
+                    fizetes.kifizetes_id,
+                    fizetes.fogl_azonosito as fizetes_foglalas,
+                    fizetes.kelt,
+                    fizetes.sorszam,
+                    fizetes.fizetes_alapja,
+                    fizetes.befizetett_osszeg,
+                    fizetes.kifizetendo_osszegeg,
+                    (fizetes.befizetett_osszeg+fizetes.kifizetendo_osszegeg) AS foglalas_osszege
+                    
+                    
+                    
                     FROM    
-                        auto,
+                        foglalas,
                         auto_kepek,
-                        auto_extra,
                         modell,
-                        modell_tulajdonsag,
                         telephely,
-                        foglalas
+                        auto,
+                        fizetes
+
                     WHERE 
                         auto.alvazSzam = auto_kepek.alvazSzam AND 
-                        auto.alvazSzam = auto_extra.alvazSzam AND 
                         auto.modell = modell.modell_id AND 
-                        modell.modell_id = modell_tulajdonsag.modell_id AND 
                         auto.telephely = telephely.telephely_id AND
-                        auto.alvazSzam = foglalas.alvazSzam AND
-                        auto.statusz = 0
+                        auto.alvazSzam=foglalas.alvazSzam AND
+                        foglalas.fogl_azonosito=fizetes.fogl_azonosito
+                    
             SQL;
     }
    
@@ -84,7 +100,8 @@ class AutoFView extends Migration
     private function dropView(): string
     {
         return <<<SQL
-            DROP VIEW IF EXISTS `auto_fill`;
+            DROP VIEW IF EXISTS `felhasznalo_foglalas`;
             SQL;
     }
 }
+

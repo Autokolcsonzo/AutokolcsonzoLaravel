@@ -5,7 +5,6 @@ class Auto {
         }else{
         this.elem = elem;
         this.adat = adat;
-        console.log(adat);
         this.autoId = this.elem.find(".jarmu-card-foglalas");
         this.kep = this.elem.find(".jarmu-card-kep");
         this.marka = this.elem.find(".jarmu-card-marka");
@@ -55,7 +54,6 @@ class Auto {
         this.adat = adat;
         this.autoId.attr("id", adat.alvazSzam);
         this.kep.attr("src", adat.kep);
-        console.log(adat)
         this.marka.text(adat.marka);
         this.modell.text(adat.modell);
         this.kivitel.text(adat.kivitel);
@@ -72,7 +70,7 @@ class Auto {
         this.zarva = true;
         this.nyitva = false;
     }
-
+    
     reszletekTrigger() {
         if (this.zarva) {
             $(this.elem.children(".card-block-3,.card-block-5")).slideDown(500);
@@ -86,8 +84,9 @@ class Auto {
     //A foglaláshoz menti le a választott játműt localstoragere.
     foglalasTrigger(adat) {
         this.adat = adat;
+        //console.log(adat.alvazSzam);
         let localFoglalasObj = {
-            autoId: adat.autoId,
+            autoId: adat.alvazSzam,
             kep: adat.kep,
             marka: adat.marka,
             modell: adat.modell,

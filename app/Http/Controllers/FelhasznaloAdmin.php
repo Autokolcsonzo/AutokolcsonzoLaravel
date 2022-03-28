@@ -55,7 +55,7 @@ class FelhasznaloAdmin extends Controller
 
    public function edit($felhasznalo_id)
    {
-      $felhasznalo = FelhasznaloModell::where('felhasznalo_id', $felhasznalo_id)->first();
+      $felhasznalo = FelhasznaloModell::where('felhasznalo_id', $felhasznalo_id);
       return response()->json([
          'success' => true,
          'felhasznalo' => $felhasznalo
@@ -78,7 +78,7 @@ class FelhasznaloAdmin extends Controller
    public function destroy($felhasznalo_id)
    {
       
-      $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
+      $felhasznalo = FelhasznaloModell::find($felhasznalo_id)->first();
       $felhasznalo->delete();
 
 

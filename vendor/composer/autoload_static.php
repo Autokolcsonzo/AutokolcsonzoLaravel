@@ -438,8 +438,8 @@ class ComposerStaticInita89d98ae4febcbd439f3f297dba88a09
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
         'Faker\\' => 
         array (
@@ -536,6 +536,9 @@ class ComposerStaticInita89d98ae4febcbd439f3f297dba88a09
         'App\\Http\\Controllers\\BejelentkezesController' => __DIR__ . '/../..' . '/app/Http/Controllers/BejelentkezesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CustomAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomAuthController.php',
+        'App\\Http\\Controllers\\FelhasznaloAdmin' => __DIR__ . '/../..' . '/app/Http/Controllers/FelhasznaloAdmin.php',
+        'App\\Http\\Controllers\\FelhasznaloFoglalas' => __DIR__ . '/../..' . '/app/Http/Controllers/FelhasznaloFoglalas.php',
+        'App\\Http\\Controllers\\FelhasznaloProfil' => __DIR__ . '/../..' . '/app/Http/Controllers/FelhasznaloProfil.php',
         'App\\Http\\Controllers\\FelhasznalokController' => __DIR__ . '/../..' . '/app/Http/Controllers/FelhasznalokController.php',
         'App\\Http\\Controllers\\FooldalController' => __DIR__ . '/../..' . '/app/Http/Controllers/FooldalController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
@@ -548,6 +551,7 @@ class ComposerStaticInita89d98ae4febcbd439f3f297dba88a09
         'App\\Http\\Controllers\\jarmuTalalatiListaController' => __DIR__ . '/../..' . '/app/Http/Controllers/jarmuTalalatiListaController.php',
         'App\\Http\\Controllers\\osszesAutoMenubolController' => __DIR__ . '/../..' . '/app/Http/Controllers/osszesAutoMenubolController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\AdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminMiddleware.php',
         'App\\Http\\Middleware\\AlreadyLoggedIn' => __DIR__ . '/../..' . '/app/Http/Middleware/AlreadyLoggedIn.php',
         'App\\Http\\Middleware\\AuthCheck' => __DIR__ . '/../..' . '/app/Http/Middleware/AuthCheck.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -557,11 +561,13 @@ class ComposerStaticInita89d98ae4febcbd439f3f297dba88a09
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
+        'App\\Http\\Middleware\\UserMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/UserMiddleware.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\AdminFoglalasModel' => __DIR__ . '/../..' . '/app/Models/AdminFoglalasModel.php',
         'App\\Models\\FelhasznaloModell' => __DIR__ . '/../..' . '/app/Models/FelhasznaloModell.php',
         'App\\Models\\KeresoViewModel' => __DIR__ . '/../..' . '/app/Models/KeresoViewModel.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\autoExtra' => __DIR__ . '/../..' . '/app/Models/autoExtra.php',
         'App\\Models\\autoKepek' => __DIR__ . '/../..' . '/app/Models/autoKepek.php',
         'App\\Models\\auto_fill' => __DIR__ . '/../..' . '/app/Models/auto_fill.php',
         'App\\Models\\felhasznalo' => __DIR__ . '/../..' . '/app/Models/felhasznalo.php',

@@ -15,7 +15,7 @@ $(function () {
     setTimeout(function(){
         $('#keresesBtn').click();
         $('#toltes-embed, #load').css('display', 'none');
-      }, 1000);
+      }, 1500);
 
     //keresesParameteresen( {mezo}/{helyszin}/{elvitel}/{visszahoz}/{marka}/{modell}/{kivitel}/{uzemanyag}/{evTol}/{evIg}/{arTol}/{arIg}/{checkboxok})
     //http://127.0.0.1:8000/api/auto_fill/kék/Budapest/2022-03-25/2022-03-26/BMW/X5/Kombi/Benzin/2013/2022/2000/6000/GPS
@@ -38,9 +38,9 @@ $(function () {
         let eig = $('#eig').val();
         let min = $("#min").val();
         let max = $("#max").val();
-        let oszlop = $("#rendezes").val();
-        let sorrend = $("#rendezes option").data();
-        console.log(oszlop , sorrend);
+        let rendezesSplit = $("#rendezes").val().split("+");
+        let oszlop = rendezesSplit[0];
+        let sorrend = rendezesSplit[1];
 
         if(keresoMezo == null || 0 || '' || (keresoMezo.length < 1)){
             keresoMezo = 'null';
@@ -82,8 +82,7 @@ $(function () {
             max = 'null';
         }
 
-
-
+        
 
         console.log(
             keresoMezo,'\n',
@@ -159,6 +158,10 @@ $(function () {
         let urlKompatibilis = "";
         urlKompatibilis = keresoMezo.replace(" ", "+");
         return urlKompatibilis;
-    }
+    }    
+
+
+
+   
 
 });
