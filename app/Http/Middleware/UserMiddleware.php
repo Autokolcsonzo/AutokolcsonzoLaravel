@@ -19,18 +19,18 @@ class UserMiddleware
     {
         if(Auth::check())
         {
-            if(Auth::felhasznalo()->jogkor == '0') // 0=felhasznalo
+            if(Auth::felhasznalo()->jogkor == '1') // 1=felhasznalo, 2=admin
             {
                 return $next($request);
             }
             else
             {
-                return redirect('/')->with('status', 'Nem vagy bejelentkezve.!');
+                return redirect('/')->with('status', 'Nem vagy bejelentkezve!');
             }
         }
         else
         {
-            return redirect('/bejelentkezes')->with('status', 'Előbb be kell jelentkezned!');
+            return redirect('/login')->with('status', 'Bejelentkezés szükséges!');
         }
     }
 }
