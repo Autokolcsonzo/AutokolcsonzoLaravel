@@ -18,9 +18,33 @@ class AdminFoglalasController extends Controller
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 
-        $adat = DB::table('foglalas')
-            ->select('fogl_azonosito', 'alvazSzam', 'felhasznalo', 'fogl_kelt', 'elvitel', 'visszahozatal', 'ervenyessegi_ido', 'kedvezmeny', 'allapot')
-            ->get();
+        $adat = DB::table('felhasznalo_foglalas')
+        ->select(
+            'fogazon_foglalas',
+            'alvazSzam',
+                'felhasznalo',
+                'elvitel',
+                'visszahozatal',
+                'fogl_kelt',
+                'ervenyessegi_ido',
+                'kedvezmeny',
+                'allapot',
+                'befizetett_osszeg',
+                'kifizetendo_osszegeg',
+                'kedvezmeny',
+                'megye',
+                'ir_szam',
+                'varos',
+                'utca',
+                'hazszam',
+                'napiar',
+                'fizetes_alapja',
+                'foglalas_osszege',
+                'fogl_kelt'
+
+
+
+        )->get()->sortByDesc('fogl_kelt');
         // return $adatok;
         return view('adminFoglalas', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel'));
     }
@@ -31,9 +55,7 @@ class AdminFoglalasController extends Controller
 
     public function store(Request $fogl_azonosito)
     {
-        $foglalas = AdminFoglalasModel::find($fogl_azonosito);
-
-        return response()->json($foglalas);
+  
     }
 
     public function show($fogl_azonosito)
@@ -42,6 +64,8 @@ class AdminFoglalasController extends Controller
 
     public function edit($fogl_azonosito)
     {
+        $data = AdminFoglalasModel::find($fogl_azonosito);
+        return view('adminFoglalasModositas', compact('data'));
     }
 
     public function update(Request $request, $fogl_azonosito)
@@ -52,11 +76,6 @@ class AdminFoglalasController extends Controller
     {
     }
 
-    public function expand()
-    {
-        $foglalas = AdminFoglalasModel::with('felhasznalo')->get();
-        return $foglalas;
-    }
 
     public function osszAdatok()
     {

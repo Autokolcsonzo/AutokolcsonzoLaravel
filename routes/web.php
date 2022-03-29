@@ -89,8 +89,9 @@ Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratas
 
 /* Foglalás API */
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
-Route::get('/api/foglalas/expand={child}', [AdminFoglalasController::class, 'expand']);
 Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);
+Route::get('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'edit']);
+
 
 
 Route::get('/felhasznaloiFoglalasok', [FelhasznaloFoglalas::class, 'index']);
