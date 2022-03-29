@@ -89,6 +89,8 @@ Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('admin
 Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);
 Route::get('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'edit'])->name('adminfoglalas.edit');
 Route::put('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'update'])->name('adminfoglalas.update');
+Route::get('/maiElvitel', [AdminFoglalasController::class, 'maiElvitel']);
+Route::get('/maiVisszahozatal', [AdminFoglalasController::class, 'maiVisszahozatal']);
 
 
 

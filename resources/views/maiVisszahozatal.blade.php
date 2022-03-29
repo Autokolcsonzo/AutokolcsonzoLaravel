@@ -64,10 +64,11 @@
 
                 <div class="szures">
             
+          
             <a href="/maiElvitel" class="elvitelSzures">Mai elvitel</a>
             <a href="/maiVisszahozatal" class="visszahozatalSzures">Mai visszahozatal</a>
+           
             <a href="adminFoglalas" class="osszesSzures">Összes foglalás</a>
-
            
           
 
@@ -124,7 +125,7 @@
                 </div>
                 <div class="foglalas">
 
-                    @foreach($adat as $data)
+                    @foreach($maiVisszahozatal as $data)
                     @if($loop->iteration % 2 == 0)
                     <div class="foadatok even">
                         @else
