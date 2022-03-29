@@ -52,30 +52,28 @@
 
                 <div class="foglalasModositas">
 
-                    <form action="" method="POST">
+                    <form action='{{route("adminfoglalas.update",$data->fogazon_foglalas)}}' method="POST">
                         @method('PUT')
                         @csrf
-
-                        <input type="hidden" value="{{$data->fogazon_foglalas}}" name="fogazon_foglalas">
 
 
 
 
                         <div class="form-header">
-                            <h3>Adatok módosítása</h3>
+                            <h3>Foglalás adatainak módosítása</h3>
                         </div>
                         <div class="sor">
                             <div class="inputfield">
                                 <label for="elvitel">Elvitel:</label>
                                 <br />
-                                <input type="date" name="elvitel" id="elvitelf" value="{{ old('elvitel') ?? $data->elvitel }}" />
+                                <input type="datetime" name="elvitel" id="elvitelf" value="{{ old('elvitel') ?? $data->elvitel }}" />
 
                             </div>
 
                             <div class="inputfield">
                                 <label for="visszahozatal">Visszahozatal:</label><br>
 
-                                <input type="date" name="visszahozatal" id="visszahozatalf" value="{{ old('visszahozatal') ?? $data->visszahozatal }}" />
+                                <input type="datetime" name="visszahozatal" id="visszahozatalf" value="{{ old('visszahozatal') ?? $data->visszahozatal }}" />
                             </div>
 
                         </div>
@@ -95,13 +93,9 @@
                             </div>
 
                             <div class="inputfield">
-                                <label for="allapot">Állapot:</label> <br />
-                                <select name="allapot" id="allapotf">
-                                    <option value="volvo">Aktív</option>
-                                    <option value="saab">Teljesítve</option>
-                                    <option value="mercedes">Lemondva</option>
-
-                                </select>
+                                <label for="allapot">Állapot (Teljesítve, Lemondva, Aktív):</label> <br />
+                        
+                                <input type="text" name="allapot" id="allapot" value="{{ old('allapot') ?? $data->allapot }}" /><br />
 
                             </div>
                         </div>

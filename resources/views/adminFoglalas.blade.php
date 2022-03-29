@@ -113,12 +113,13 @@
             <div class="foglalasAdmin">
                 <div class="fogFejlec">
                     <h2>Azonosító</h2>
+                    <h2>Telephely</h2>
                     <h2>Alvázszám</h2>
                     <h2>Felhasználó</h2>
                     <h2>Foglalás ideje</h2>
                     <h2></h2>
                     <h2></h2>
-                    <h2></h2>
+                 
                 </div>
                 <div class="foglalas">
 
@@ -129,12 +130,13 @@
                         <div class="foadatok odd">
                             @endif
                             <p class="fogazon_foglalas">{{$data->fogazon_foglalas}}</p>
+                            <p class="telephely">{{$data->varos}} {{$data->utca}}</p>
                             <p class="alvazszam">{{$data->alvazSzam}}</p>
                             <p class="alvazSzam">{{$data->felhasznalo}}</p>
                             <p class="fogl_kelt">{{$data->fogl_kelt}}</p>
                             <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
                             <p>
-                            <a class="fadatokMod" href="{{url('/adminFoglalasModositas/'.$data->fogazon_foglalas)}}">Módosítás</a>
+                            <a class="fadatokMod" href='{{route("adminfoglalas.edit",$data->fogazon_foglalas)}}'>Módosítás</a>
                             
                             </p>
 

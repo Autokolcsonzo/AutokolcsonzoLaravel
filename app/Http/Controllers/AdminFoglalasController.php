@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Foglalas;
-use App\Models\AdminFoglalasModel;
+
+use App\Models\FoglalasViewModel;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
+
 
 class AdminFoglalasController extends Controller
 {
@@ -19,9 +18,9 @@ class AdminFoglalasController extends Controller
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 
         $adat = DB::table('felhasznalo_foglalas')
-        ->select(
-            'fogazon_foglalas',
-            'alvazSzam',
+            ->select(
+                'fogazon_foglalas',
+                'alvazSzam',
                 'felhasznalo',
                 'elvitel',
                 'visszahozatal',
@@ -44,32 +43,39 @@ class AdminFoglalasController extends Controller
 
 
 
-        )->get()->sortByDesc('fogl_kelt');
+            )->get()->sortByDesc('fogl_kelt');
         // return $adatok;
         return view('adminFoglalas', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel'));
     }
 
-    public function create()
-    {
-    }
 
-    public function store(Request $fogl_azonosito)
-    {
-  
-    }
 
-    public function show($fogl_azonosito)
+    public function edit($fogazon_foglalas)
     {
-    }
 
-    public function edit($fogl_azonosito)
-    {
-        $data = AdminFoglalasModel::find($fogl_azonosito);
+        $data = FoglalasViewModel::find($fogazon_foglalas);
         return view('adminFoglalasModositas', compact('data'));
     }
 
-    public function update(Request $request, $fogl_azonosito)
+    public function update(Request $request, $fogazon_foglalas)
     {
+
+ 
+
+        $data = FoglalasViewModel::find($fogazon_foglalas);
+
+      
+        $data->elvitel = $request->elvitel;
+        $data->visszahozatal = $request->visszahozatal;
+        $data->kedvezmeny = $request->kedvezmeny;
+        $data->ervenyessegi_ido = $request->visszahozatal;
+        $data->allapot = $request->allapot;
+        $data->fizetes_alapja = $request->fizetes_alapja;
+        $data->befizetett_osszeg = $request->befizetett_osszeg;
+        $data->kifizetendo_osszegeg = $request->kifizetendo_osszegeg;
+        $data->save();
+
+        return redirect('adminFoglalas');
     }
 
     public function destroy($fogl_azonosito)
