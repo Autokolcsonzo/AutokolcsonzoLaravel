@@ -20,7 +20,7 @@ class AdminAutokController extends Controller
 
     public function adatokKiiratasa()
     {
-        $felhasznalok = DB::table('felhasznalo')->count();
+      /*   $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
         $adat = DB::table('auto')
@@ -30,14 +30,18 @@ class AdminAutokController extends Controller
             ->get();
 
         $modell = DB::table('modell')->get();
-        $telephely = DB::table('telephely')->get();
-
-        $data = array();
+        $telephely = DB::table('telephely')->get(); */
+        
+        return view('adminAutok'/* , compact('loggedUser', 'adat', 'felhasznalok', 'foglalasok', 'bevetel', 'telephely', 'modell') */);
+        /* $data = array();
         if (Session::has('loginId')) {
             $loggedUser = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
-        }
-
-        return view('adminAutok', compact('loggedUser', 'adat', 'felhasznalok', 'foglalasok', 'bevetel', 'telephely', 'modell'));
+            if ($loggedUser->jogkor == 2) {
+            }
+            else {
+                return redirect()->back();
+            }
+        } */
     }
 
     public function edit($alvazSzam)

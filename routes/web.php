@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminFelhasznalo;
 use App\Http\Controllers\FelhasznaloFoglalas;
 use App\Http\Controllers\FelhasznaloProfil;
 use App\Http\Controllers\jarmuTalalatiListaController;
+use App\Http\Middleware\adminMiddleware;
 
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
@@ -46,13 +47,7 @@ Route::get('jarmuTalalatiLista', function () {
     return view('jarmuTalalatiLista');
 });
 
-Route::get('/jarmuTalalatiLista', [jarmuTalalatiListaController::class, 'dashboard']); //->middleware('isUser');
-
-
-Route::get('adminAutok', function () {
-    return view('adminAutok');
-});
-
+Route::get('/jarmuTalalatiLista', [jarmuTalalatiListaController::class, 'dashboard'])->middleware('isLoggedIn');
 
 Route::get('adminFelhasznalok', function () {
     return view('adminFelhasznalok');
@@ -62,15 +57,17 @@ Route::get('adminFoglalas', function () {
     return view('adminFoglalas');
 });
 
-Route::get('/adminAutok', [AdminAutokController::class, 'adatokKiiratasa']);
-Route::get('/adminAutokEdit/{autok}', [AdminAutokController::class, 'edit']);
-Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
-Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
-Route::post('/admin_autok', [AdminAutokController::class, 'ujAuto'])->name('admin_autok');
-Route::post('/admin_modellek', [AdminAutokController::class, 'ujModell'])->name('admin_modellek');
-Route::post('/admin_kepek', [AdminAutokController::class, 'ujKep'])->name('admin_kepek');
+Route::middleware([adminMiddleware::class])->group(function () {
+    Route::get('/adminAutok', [AdminAutokController::class, 'adatokKiiratasa']);
+    Route::get('/adminAutokEdit/{autok}', [AdminAutokController::class, 'edit']);
+    Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
+    Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
 
+    Route::post('/admin_autok', [AdminAutokController::class, 'ujAuto'])->name('admin_autok');
+    Route::post('/admin_modellek', [AdminAutokController::class, 'ujModell'])->name('admin_modellek');
+    Route::post('/admin_kepek', [AdminAutokController::class, 'ujKep'])->name('admin_kepek');
+});
 
 //felhasznaloProfilApi
 
