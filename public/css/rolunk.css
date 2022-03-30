@@ -1,3 +1,95 @@
+.box{
+    margin: 5% 0;
+}
+hr{
+    width: 60%;
+    color: grey;
+    opacity: 0.7;
+}
+
+.kozepre {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;; 
+    grid-template-areas:
+      "cc cc cc cc"
+      "cp cp cp cp"
+      "cl cl cl cl";
+  }
+  #cegunk-cim, #kozosen-cim {
+    grid-area: cc;
+    color: #17446b;
+    font-weight: 900;
+    font-size: 3rem;
+    font-family: "Teko", sans-serif;
+  }
+  #cegunk-parag, #kozosen-parag {
+    grid-area: cp;
+  }
+  #cegunk-leiras, #kozosen-leiras {
+    grid-area: cl;
+    margin: 20px;
+    text-align: justify;
+  }
+
+  .jobbra {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "lp lp lc lc"
+      "lp lp ll ll"
+      "lp lp ll ll";
+  }
+  #Lejla-cim, #csaba-cim {
+    grid-area: lc;
+    text-align: left;
+    color: #17446b;
+    font-size: 2rem;
+    font-family: "Teko", sans-serif;
+    padding-left: 14px;
+  }
+  #Lejla-parag, #csaba-parag {
+    grid-area: lp;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  #Lejla-leiras, #csaba-leiras {
+    grid-area: ll;
+    margin: 20px;
+    text-align: left;
+  }
+
+  .balra {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "lc lc lp lp"
+      "ll ll lp lp"
+      "ll ll lp lp";
+  }
+  #Klaudia-cim {
+    grid-area: lc;
+    text-align: right;
+    color: #17446b;
+    font-size: 2rem;
+    font-family: "Teko", sans-serif;
+    padding-right: 14px;
+  }
+  #Klaudia-parag {
+    grid-area: lp;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  #Klaudia-leiras {
+    grid-area: ll;
+    margin: 20px;
+    text-align: right;
+  }
+
+
+
+
+
 #rolunk-box{
     display: flex;
     flex-direction: column;
@@ -16,3 +108,13 @@
     width: 300px;
     margin: auto;
 }
+#kozosen-parag img{
+    max-width: 700px;
+    margin: auto;
+}
+#cegunk-parag img{
+    max-width: 700px;
+    margin: auto;
+}
+
+

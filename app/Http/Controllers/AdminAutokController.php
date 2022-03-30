@@ -14,34 +14,10 @@ use Illuminate\Support\Facades\Session;
 
 class AdminAutokController extends Controller
 {
-    /* public function __construct() {
-        $this->middleware(['auth:felhasznalo']);
-      } */
 
     public function adatokKiiratasa()
     {
-      /*   $felhasznalok = DB::table('felhasznalo')->count();
-        $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
-        $adat = DB::table('auto')
-            ->join('modell', 'auto.modell', '=', 'modell.modell_id')
-            ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
-            ->select('modell.tipus', 'modell.uzemanyag', 'modell.teljesitmeny', 'modell.evjarat', 'auto.napiAr', 'auto.szin', 'auto.forgalmiSzam',  'auto.alvazSzam', 'auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
-            ->get();
-
-        $modell = DB::table('modell')->get();
-        $telephely = DB::table('telephely')->get(); */
-        
-        return view('adminAutok'/* , compact('loggedUser', 'adat', 'felhasznalok', 'foglalasok', 'bevetel', 'telephely', 'modell') */);
-        /* $data = array();
-        if (Session::has('loginId')) {
-            $loggedUser = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
-            if ($loggedUser->jogkor == 2) {
-            }
-            else {
-                return redirect()->back();
-            }
-        } */
+        return view('adminAutok');
     }
 
     public function edit($alvazSzam)
@@ -110,39 +86,38 @@ class AdminAutokController extends Controller
 
     public function ujKep(Request $req)
     {
-        /* $auto_kepek = [
-            //alváz szám, migrációba is vissza
-            'kep' => $req->kep
-        ]; */
-
         $auto_kepek = new autoKepek();
-        //   $alvazSzam = $req->input('alvazSzam');
-
-        //  $alvaz = autoKepek::find($alvazSzam);
 
         $auto_kepek->alvazSzam = $req->input('alvazSzam');
 
-        // $auto_kepek->kep = $req->input('kep');
-
-        // $input = $req->all();
-
         if ($req->hasFile('kep')) {
-
             $image = $req->file('kep');
             $image_name = $image->getClientOriginalName();
             $destinaion_path = 'kepek/autok/' . $image_name;
             request()->file('kep')->move(public_path('kepek/autok/'), $image_name);
-
             $auto_kepek['kep'] = $destinaion_path;
-            // dd($input['kep']);
         }
+
         $auto_kepek->save();
-        //  $alvaz->save($auto_kepek);
-        //$auto_kepek->kep = $req->input('kep');
-        // DB::table('auto_kepek')->insert($input);
 
-
-        //   return redirect()->back();
         return redirect('/adminAutok')->with('auto_kepek', $auto_kepek);
+    }
+
+    public function keres(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $name = $request->get('name');
+            $data = Auto::where('alvazSzam', 'LIKE', '%'.$name.'%')->paginate(5);
+        }
+        /* $search = $request->input('search');
+
+        // Search in the title and body columns from the posts table
+        $posts = Auto::query()
+            ->where('alvazSzam', 'LIKE', "%{$search}%")
+            ->orWhere('rendszam', 'LIKE', "%{$search}%")
+            ->get(); */
+
+        // Return the search view with the resluts compacted
+        return view('/adminAutok', compact('data'));
     }
 }

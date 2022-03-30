@@ -290,7 +290,7 @@
         </div>
 
         <!-- Footer -->
-        @yinclude('komponensek/footer')
+        @include('komponensek/footer')
     </main>
 </body>
 

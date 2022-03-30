@@ -14,7 +14,7 @@ class AdminFoglalasController extends Controller
 
     public function adatokKiiratasa()
     {
-        $felhasznalok = DB::table('felhasznalo')->count();
+         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 

@@ -9,13 +9,6 @@ use App\Models\Felhasznalo;
 
 class adminMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
-     */
     public function handle(Request $request, Closure $next)
     {
         $felhasznalok = DB::table('felhasznalo')->count();
@@ -30,7 +23,6 @@ class adminMiddleware
         $modell = DB::table('modell')->get();
         $telephely = DB::table('telephely')->get();
 
-        $data = array();
         if (Session()->has('loginId')) {
             $loggedUser = Felhasznalo::where('felhasznalo_id', '=', Session()->get('loginId'))->first();
             if ($loggedUser->jogkor == 2) {
@@ -39,6 +31,8 @@ class adminMiddleware
             else {
                 return redirect()->back();
             }
+        } else {
+            return response()->view('welcome');
         }
         return $next($request);
     }
