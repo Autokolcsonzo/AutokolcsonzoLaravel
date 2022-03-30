@@ -42,8 +42,8 @@
             <div class="logo">
                 <img src="kepek/logo.png" alt="logo" />
             </div>
-            <li class="profilNavGomb"><a href="{{ asset('felhasznaloiProfil') }}">Profilom</a></li>
-            <li class="foglalasNavGomb"><a href="{{ asset('felhasznaloiFoglalasok') }}">Foglalásaim</a></li>
+            <li class="elosProfilNavGomb"><a href="{{ asset('felhasznaloiProfil') }}">Profilom</a></li>
+            <li class="elsoFoglalasNavGomb"><a href="{{ asset('felhasznaloiFoglalasok') }}">Foglalásaim</a></li>
                         <!--{ route('welcome') } kicseréltem hogy ne az alapra vigyen vissza folyton. BTW nem találtam a routot-->
             <li><a href="http://127.0.0.1:8000/dashboard">Kezdőlap</a></li>
             <li><a href="{{ route('rolunk') }}">Rólunk</a></li>

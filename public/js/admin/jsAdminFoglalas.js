@@ -1,15 +1,25 @@
 $(function () {
+  
+    ReszletMegjelenit();
+ 
+});
 
-
-
-        $(".fadatokMod").click(function () {
-            if ($(".fadatokMod").hasClass("clicked-once")) {
-                $(".foglalasModositas").slideUp(1000);
-                $(".fadatokMod").removeClass("clicked-once");
-            } else {
-                $(".fadatokMod").addClass("clicked-once");
-                $(".foglalasModositas").slideDown(1000);
+function ReszletMegjelenit() {
+    let zarva = true;
+    $(".reszletek").css("display", "none");
+    $(".fReszletek").click(function () {
+        let gombId = this.id;
+        $(".reszletek").each(function (index) {
+            let elem = this.id;
+            if ("r" + gombId == elem) {
+                if (zarva) {
+                    $("#" + elem).slideDown(500);
+                    zarva = false;
+                } else {
+                    $("#" + elem).slideUp(500);
+                    zarva = true;
+                }
             }
         });
-    
-});
+    });
+}

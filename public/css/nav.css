@@ -218,7 +218,7 @@ nav ul li:hover .felhasznaloMenu {
     margin-right: 320px;
   }
 
-  .kijelentkezesGomb{
+  .kijelentkezesGomb, .elosProfilNavGomb, .elsoFoglalasNavGomb{
     display: none;
   }
 

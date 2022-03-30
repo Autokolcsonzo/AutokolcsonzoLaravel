@@ -201,6 +201,13 @@ max-width: 700px;
   padding:10px;
 }
 
+.uzenet{
+  color:darkred;
+  font-weight: bolder;
+  padding:10px;
+
+}
+
 
 
 @media only screen and (max-width: 700px) {

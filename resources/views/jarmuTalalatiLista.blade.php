@@ -56,11 +56,7 @@
 
     <main>
         <!-- TABLET, STB. NÉZET -->
-        @if(Auth('felhasznalo'))
-            @include('komponensek/felhasznaloNav')
-        @else
-            @include('komponensek/nav')
-        @endif
+        @include('komponensek/felhasznaloNav')
 
         <!-- HEADER -->
         @include('komponensek/header')

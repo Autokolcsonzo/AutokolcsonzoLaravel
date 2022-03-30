@@ -133,6 +133,13 @@ td {
   font-weight: italic;
 }
 
+.uzenet{
+    color:darkred;
+    font-weight: bolder;
+    padding:10px;
+  
+  }
+
 @media (hover: none) and (pointer: coarse) {
     .reszletGomb:hover {
         background-color: #e0e4e7;

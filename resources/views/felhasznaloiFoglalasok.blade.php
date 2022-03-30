@@ -11,7 +11,6 @@
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <script src="../js/felhasznalo/Foglalas.js"></script>
     <script src="../js/felhasznalo/felhasznaloiFoglalas.js"></script>
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
@@ -42,6 +41,10 @@
         @include('komponensek/header')
 
         <div id="primary_content">
+
+        @if(session()->has('status'))
+                <p class="uzenet">{{session('status')}}</p>
+                @endif
 
             <!-- fő container -->
             <div class="fFoglalasok">
@@ -77,12 +80,13 @@
 
                             </div>
                         </div>
+
                         <!-- gombok -->
 
 
                         <p><input id="{{$loop->index}}" type="button" name="reszletGomb" class="reszletGomb" value="Részletek" /></p>
 
-
+                        <!-- Foglalás lemondása, ha Aktív a foglalás állapota -->
 
 
                         @if($d->allapot=="Aktív")
@@ -101,7 +105,7 @@
                         </p>
 
                         @endif
-
+                        <!-- lenyíló részletek -->
                         <div id="r{{$loop->index}}" class="reszlet">
                             <table class="reszAdatokTable">
 
@@ -167,7 +171,7 @@
                         </div>
                     </div>
 
-                    <!-- lenyíló részletek -->
+
 
 
 
@@ -183,9 +187,10 @@
 
 
             </div>
+        </div>
 
-            <!-- Footer -->
-            @include('komponensek/footer')
+        <!-- Footer -->
+        @include('komponensek/footer')
     </main>
 </body>
 
