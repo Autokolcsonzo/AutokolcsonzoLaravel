@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FelhasznaloModell;
-use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\Hash;
 
 class FelhasznaloAdmin extends Controller
@@ -45,7 +45,7 @@ class FelhasznaloAdmin extends Controller
       $felhasznalo->jogkor = 2;
       $felhasznalo->save();
 
-      return redirect()->back();
+      return redirect()->back()->with('status', 'Adatok sikeresen feltöltve!');
    }
 
 
@@ -69,7 +69,7 @@ class FelhasznaloAdmin extends Controller
       $data = $request->all();
       $felhasznalo->update($data);
 
-      return redirect()->back();
+      return redirect()->back()->with('status', 'Adatok sikeresen módosítva!');
    }
 
 
@@ -77,12 +77,12 @@ class FelhasznaloAdmin extends Controller
 
    public function destroy($felhasznalo_id)
    {
-      
+
       $felhasznalo = FelhasznaloModell::find($felhasznalo_id)->first();
       $felhasznalo->delete();
 
 
-      return redirect()->back();
+      return redirect()->back()->with('status', 'Adatok sikeresen törölve!');
    }
 
 

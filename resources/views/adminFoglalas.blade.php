@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
-    <script src="../js/admin/adminAutok.js"></script>
+    <script src="../js/admin/jsAdminFoglalas.js"></script>
 
 
     <style>
@@ -30,7 +30,6 @@
     <link rel="stylesheet" href="../css/szerkezet.css" />
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
-    <!--   <link rel="stylesheet" href="css/fooldal.css" /> -->
     <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/admin/admin.css" />
 </head>
@@ -62,19 +61,21 @@
                     </div>
                 </div>
 
+                <!-- szűrt adatok linkjei -->
+
                 <div class="szures">
-            
-            <a href="/maiElvitel" class="elvitelSzures">Mai elvitel</a>
-            <a href="/maiVisszahozatal" class="visszahozatalSzures">Mai visszahozatal</a>
-            <a href="adminFoglalas" class="osszesSzures">Összes foglalás</a>
 
-           
-          
+                    <a href="/maiElvitel" class="elvitelSzures">Mai elvitel</a>
+                    <a href="/maiVisszahozatal" class="visszahozatalSzures">Mai visszahozatal</a>
+                    <a href="adminFoglalas" class="osszesSzures">Összes foglalás</a>
 
-                    
+
+
+
+
                 </div>
             </div>
-     
+
 
             <h3 class="oldalNev">Foglalások</h3>
 
@@ -87,9 +88,7 @@
                         <span>Összes felhasználó</span>
                     </div>
                 </div>
-                <!--         </div> -->
 
-                <!--    <div class="values"> -->
                 <div class="val-box">
                     <i class="fas fa-car"></i>
                     <div>
@@ -97,9 +96,7 @@
                         <span>Összes foglalás</span>
                     </div>
                 </div>
-                <!--   </div> -->
-                <!-- 
-                                    <div class="values"> -->
+
                 <div class="val-box">
                     <i class="fas fa-money-check-alt"></i>
                     <div>
@@ -108,8 +105,12 @@
                     </div>
                 </div>
             </div>
-            
 
+            <!-- fő adatrészek -->
+
+            @if(session()->has('status'))
+                <p class="uzenet">{{session('status')}}</p>
+                @endif
 
             <div class="foglalasAdmin">
                 <div class="fogFejlec">
@@ -120,7 +121,7 @@
                     <h2>Foglalás ideje</h2>
                     <h2></h2>
                     <h2></h2>
-                 
+
                 </div>
                 <div class="foglalas">
 
@@ -137,11 +138,12 @@
                             <p class="fogl_kelt">{{$data->fogl_kelt}}</p>
                             <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
                             <p>
-                            <a class="fadatokMod" href='{{route("adminfoglalas.edit",$data->fogazon_foglalas)}}'>Módosítás</a>
-                            
+                                <a class="fadatokMod" href='{{route("adminfoglalas.edit",$data->fogazon_foglalas)}}'>Módosítás</a>
+
                             </p>
 
                         </div>
+                        <!-- lenyíló részletek -->
 
                         <div id="r{{$loop->index}}" class="reszletek">
                             <div class="reszlet">
@@ -181,6 +183,7 @@
 
 
             </div>
+</div>
 
             <!-- Footer -->
             @include('komponensek/footer')

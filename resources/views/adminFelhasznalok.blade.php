@@ -12,10 +12,7 @@
 
 
     <!-- Scriptek -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-
-    </script>
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/admin/Felhasznalo.js"></script>
     <script src="../js/Ajax.js"></script>
@@ -56,7 +53,7 @@
                 <div class="n1">
                     <div class="kereses">
                         <i class="far fa-search"></i>
-                        <input id="fkereses" type="text" placeholder="Felhasználónév"value="">
+                        <input id="fkereses" type="text" placeholder="Felhasználónév" value="">
                     </div>
                 </div>
 
@@ -86,10 +83,12 @@
                     </div>
                 </div>
 
+                <!-- Új admin felvétele, lenyíló form -->
+
                 <div class="ujAdminFelvetele">
 
                     <div>
-                    <a href="#ujadminForm"> <input type="button" name="ujAdmin" class="ujAdmin" value="Új admin hozzáadása"></a>
+                        <a href="#ujadminForm"> <input type="button" name="ujAdmin" class="ujAdmin" value="Új admin hozzáadása"></a>
                     </div>
                 </div>
 
@@ -106,9 +105,7 @@
                         <span>Összes felhasználó</span>
                     </div>
                 </div>
-                <!--         </div> -->
 
-                <!--    <div class="values"> -->
                 <div class="val-box">
                     <i class="fas fa-car"></i>
                     <div>
@@ -116,9 +113,7 @@
                         <span>Összes foglalás</span>
                     </div>
                 </div>
-                <!--   </div> -->
-                <!-- 
-                                    <div class="values"> -->
+
                 <div class="val-box">
                     <i class="fas fa-money-check-alt"></i>
                     <div>
@@ -128,6 +123,10 @@
                 </div>
             </div>
 
+            <!-- Fő adat -->
+            @if(session()->has('status'))
+                <p class="uzenet">{{session('status')}}</p>
+                @endif
 
             <div class="felhasznalokAdmin">
                 <div class="felhFejlec">
@@ -140,12 +139,6 @@
                     <h2></h2>
                 </div>
                 <div class="felhasznalo">
-
-
-
-
-
-
                     <div class="foadatok">
 
                         <p class="jogkor"></p>
@@ -154,13 +147,13 @@
                         <p class="regDatum"></p>
                         <p><input type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
                         <p><input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" /></p>
-                 
-                        @foreach($felhasznalo as $f)
 
-                       
+                        @foreach($felhasznalo as $f)
+                      
+
                         <form action='{{route("delete.felhasznalo",$f->felhasznalo_id)}}' id="torlesform" method="POST">
-                    
-                            @endforeach
+                        @endforeach
+                           
                             @method('DELETE')
                             @csrf
 
@@ -168,7 +161,7 @@
                             <button type="submit" class="torles">Törlés</button>
                         </form>
                     </div>
-
+                    <!-- részletek -->
 
                     <div class="reszletek">
                         <div class="reszlet">
@@ -197,7 +190,7 @@
 
             </div>
 
-
+            <!-- lenyíló form a módosításhoz -->
             <div class="formcontainer">
                 <div class="felhasznaloiModositas">
 
@@ -331,7 +324,7 @@
                 <div class="ujAdminForm" id="ujadminForm">
 
 
-
+                    <!-- lenyíló form az új adminhoz -->
 
 
 
@@ -357,7 +350,7 @@
 
                         </div>
                         <div class="sor">
-                      
+
                             <div class="inputfield">
                                 <label for="jelszo">Jelszo:</label>
                                 <br />
@@ -365,13 +358,13 @@
 
                             </div>
                             <div class="inputfield">
-                            <label for="telephely">Telephely:</label><br>
-                            <select name="telephely" id="atelephely">
+                                <label for="telephely">Telephely:</label><br>
+                                <select name="telephely" id="atelephely">
 
 
-</select>
-</div>
-</div>
+                                </select>
+                            </div>
+                        </div>
 
 
 

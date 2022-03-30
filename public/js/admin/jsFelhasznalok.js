@@ -22,53 +22,48 @@ $(function () {
 
     Jogkorokszerint();
 
+    /*keresőmező keresés*/
+
     var timeout = null;
 
     $("#fkereses").on("keyup", function () {
         clearTimeout(timeout);
-   
-        
-        let ertek = $(this).val();
-       
-        if (ertek.length >= 3) {
 
+        let ertek = $(this).val();
+
+        if (ertek.length >= 3) {
             szuloElem.empty();
-            timeout = setTimeout(function() {
+            timeout = setTimeout(function () {
                 myAjax.getAdat(
                     apiVegpont + felhasznaloKereses + ertek,
                     felhasznalok,
                     Megjelenit1
-                );     
-            
-            }, 500)
-       
-            
+                );
+            }, 700);
         }
-
-      
 
         if (ertek.length === 0) {
             szuloElem.empty();
-            
-        timeout = setTimeout(function() {
 
-        
-            myAjax.getAdat(apiVegpont, felhasznalok, Megjelenit1);
-        }, 500)
-
+            timeout = setTimeout(function () {
+                myAjax.getAdat(apiVegpont, felhasznalok, Megjelenit1);
+            }, 500);
         }
     });
 
-    let id = event.detail.felhasznalo_id;
-    console.log(id);
+    /*Törlés*/
 
     $(window).on("torol", (event) => {
         let id = event.detail.felhasznalo_id;
+  
 
         myAjax.deleteAdat(apiVegpont, id);
     });
 
+    /*Módosítás*/
+
     $(window).on("adatmentes", (event) => {
+        let id = event.detail.felhasznalo_id;
         event.preventDefault();
 
         let felhasznalonev = $("#ifnev").val();
@@ -99,6 +94,8 @@ $(function () {
         ajax.putAdat(apiVegpont, id, ujAdat);
         location.reload();
     });
+
+    /*Új admin felvétele*/
 
     $(window).on("felvesz", (event) => {
         event.preventDefault();
@@ -135,6 +132,8 @@ $(function () {
         ajax.postAdat(apiVegpont, ujAdat);
     });
 
+    /*Select feltöltése a telephelyekkel*/
+
     function telephelyFeltolt(telepek) {
         let option = "";
         telepek.forEach(function (elem) {
@@ -147,6 +146,8 @@ $(function () {
             $("#atelephely").append(option);
         });
     }
+
+    /*Select Jogkörök szerinti megjelenítés*/
 
     function Jogkorokszerint() {
         $("#jogkorKategoriak").on("change", function () {
@@ -213,6 +214,8 @@ $(function () {
         });
         FormMegjelenes();
     }
+
+     /*Lenyílók*/
 
     function FormMegjelenes() {
         $(".fadatokMod").click(function () {

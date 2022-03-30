@@ -83,7 +83,7 @@ class FelhasznaloProfil extends Controller
 
 
         $data->update();
-        return  redirect('felhasznaloiProfil');
+        return  redirect('felhasznaloiProfil')->with('status', 'Adatok sikeresen módosítva!');
     }
 
 
@@ -118,7 +118,7 @@ class FelhasznaloProfil extends Controller
             $image = $request->file('profilkep');
             $folder= $data['felhasznalo_id'];
             $image_Name = $image->getClientOriginalName();
-            $image_path = '/public/kepek/profilkepek/'.$folder.'/'.$image_Name;
+            $image_path = 'kepek/profilkepek/'.$folder.'/'.$image_Name;
             request()->file("profilkep")->move(public_path('public/kepek/profilkepek/'.$folder), $image_Name);
             $data['profilkep'] = $image_path;
         }
@@ -127,6 +127,6 @@ class FelhasznaloProfil extends Controller
 
 
 
-        return redirect()->back()->with('status', 'adatok sikeresen feltöltve');
+        return redirect()->back()->with('status', 'Adatok sikeresen feltöltve!');
     }
 }

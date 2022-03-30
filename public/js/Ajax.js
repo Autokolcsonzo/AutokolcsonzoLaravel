@@ -12,7 +12,7 @@ class MyAjax {
                 result.forEach((value) => {
                     tomb.push(value);
                 });
-                //console.log(tomb);
+               
 
                 myCallback(tomb);
             },
@@ -39,7 +39,7 @@ class MyAjax {
 
             success: function (result) {
                 console.log(result);
-                console.log(apiVegpont);
+             
             },
         });
     }

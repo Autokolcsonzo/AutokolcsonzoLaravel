@@ -13,14 +13,14 @@ class FelhasznaloFoglalas extends Controller
     public function index()
     {
 
-      
+
         $data = array();
         $password = array();
         if (Session::has('loginId')) {
             $data = DB::table('felhasznalo_foglalas')
-            ->select(
-                'fogazon_foglalas',
-                'alvazSzam',
+                ->select(
+                    'fogazon_foglalas',
+                    'alvazSzam',
                     'felhasznalo',
                     'elvitel',
                     'visszahozatal',
@@ -49,15 +49,15 @@ class FelhasznaloFoglalas extends Controller
 
 
 
-            )->where('felhasznalo_foglalas.felhasznalo', '=', Session::get('loginId'))->get()->sortByDesc('fogl_kelt');
-            
+                )->where('felhasznalo_foglalas.felhasznalo', '=', Session::get('loginId'))->get()->sortByDesc('fogl_kelt');
         }
 
         return view('felhasznaloiFoglalasok', compact('data'));
     }
 
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         $data = $request->all();
 
         $fogl_azonosito = $request->input('fogl_azonosito');
@@ -69,8 +69,6 @@ class FelhasznaloFoglalas extends Controller
 
         $foglalas->update($data);
 
-        return redirect()->back();
-        
-        
-}
+        return redirect()->back()->with('status', 'A foglalás lemondásra került!');
+    }
 }

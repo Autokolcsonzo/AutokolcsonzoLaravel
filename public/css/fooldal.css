@@ -1,219 +1,218 @@
 @charset "utf-8";
 
 #primary_content {
-  text-align: center;
+    text-align: center;
 }
 
 .fooldalInfo {
-  font-size: 1em;
-  display: flex;
-  padding: 20px;
-  background-color: rgb(231, 231, 240);
-  margin: 100px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid #17446b;
+    font-size: 1em;
+    display: flex;
+    padding: 20px;
+    background-color: rgb(231, 231, 240);
+    margin: 100px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #17446b;
 }
 
 .fooldalInfo img {
-  padding: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .fooldalInfo h3 {
-  padding: 10px;
-  font-size: 1, 5em;
-  color: #17446b;
-  font-family: "Cormorant SC", serif;
+    padding: 10px;
+    font-size: 1, 5em;
+    color: #17446b;
+    font-family: "Cormorant SC", serif;
 }
 
 .infoHelyszin {
-  flex-grow: 1;
+    flex-grow: 1;
 
-  padding: 10px;
+    padding: 10px;
 }
 
 .infoDatum {
-  flex-grow: 2;
+    flex-grow: 2;
 
-  padding: 10px;
+    padding: 10px;
 }
 
 .infoAuto {
-  flex-grow: 3;
+    flex-grow: 3;
 
-  padding: 10px;
+    padding: 10px;
 }
 
 .infoHelyszin + .infoDatum + .infoAuto {
-  margin-left: 1%;
+    margin-left: 1%;
 }
 
 .marketingContainer {
-  margin-left: 0;
-  margin-right: 0;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .marketingInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-  width: 200px;
-  height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
 }
 
 .marketingInfo p {
-  font-size: 1, 5em;
-  color: rgb(77, 75, 75);
-  text-shadow: 0px 4px 4px #464444;
-  font-family: "Cormorant SC", serif;
-  font-weight: bold;
+    font-size: 1, 5em;
+    color: rgb(77, 75, 75);
+    text-shadow: 0px 4px 4px #464444;
+    font-family: "Cormorant SC", serif;
+    font-weight: bold;
 }
 .marketingIcon {
-  margin: 20px;
-  background-color: #17446b;
-  border-radius: 50%;
-  width: 50%;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
-    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    margin: 20px;
+    background-color: #17446b;
+    border-radius: 50%;
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+        rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
 .marketingIcon img {
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 }
 
 .hirekContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .hirek {
-  margin: 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  width: 400px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 400px;
 }
 .hirKep img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .hirKep img:hover {
-  filter: grayscale(100);
+    filter: grayscale(100);
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .hirKep img:hover {
-    filter: none;
-  }
+    .hirKep img:hover {
+        filter: none;
+    }
 }
 
 .hir {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
-  min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 250px;
 }
 
 .tag {
-  background: #17446b;
-  border-radius: 50px;
-  font-size: 12px;
-  margin-bottom: 20px;
-  color: #fff;
-  padding: 2px 10px;
-  text-transform: uppercase;
-  cursor: pointer;
+    background: #17446b;
+    border-radius: 50px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: #fff;
+    padding: 2px 10px;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .hir p {
-  font-size: 13px;
-  margin: 0 0 40px;
-  padding: 20px;
+    font-size: 13px;
+    margin: 0 0 40px;
+    padding: 20px;
 }
 
 .hir h4 {
-  color: grey;
-  font-size: 20px;
+    color: grey;
+    font-size: 20px;
 }
 
 .tovabb {
-  display: flex;
-  margin-top: auto;
-  color: #17446b;
-  font-family: "Teko", sans-serif;
-  -webkit-text-stroke: 1px #17446b;
-  text-shadow: 0px 4px 4px #8a8484;
-  font-size: 23px;
+    display: flex;
+    margin-top: auto;
+    color: #17446b;
+    font-family: "Teko", sans-serif;
+    -webkit-text-stroke: 1px #17446b;
+    text-shadow: 0px 4px 4px #8a8484;
+    font-size: 23px;
 }
 
 .tovabb:hover {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .tovabb:hover {
-    font-size: 23px;
-  }
+    .tovabb:hover {
+        font-size: 23px;
+    }
 }
 
 .cim {
-  color: #17446b;
-  font-family: "Teko", sans-serif;
-  -webkit-text-stroke: 1px #17446b;
-  text-shadow: 0px 4px 4px #c4bbbb;
-  font-size: 25px;
-  margin: 50px;
-  border-bottom: 2px solid rgb(197, 187, 187);
+    color: #17446b;
+    font-family: "Teko", sans-serif;
+    -webkit-text-stroke: 1px #17446b;
+    text-shadow: 0px 4px 4px #c4bbbb;
+    font-size: 25px;
+    margin: 50px;
+    border-bottom: 2px solid rgb(197, 187, 187);
 }
 
 @media only screen and (max-width: 1480px) {
-  .hirekContainer {
-    flex-direction: column;
-    align-content: center;
-  }
+    .hirekContainer {
+        flex-direction: column;
+        align-content: center;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
-  .marketingContainer {
-    flex-direction: column;
-    align-content: center;
-  }
-  .fooldalInfo {
-    flex-direction: column;
-  }
+    .marketingContainer {
+        flex-direction: column;
+        align-content: center;
+    }
+    .fooldalInfo {
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-  .fooldalInfo {
-    font-size: 1em;
-    display: flex;
-    margin : 10px;
-    text-align: center;
-    border-radius: 5px;
-}
-.hirek {
-  margin: 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgb(0 0 0 / 20%);
-  overflow: hidden;
-  width: fit-content;
-}
-
+    .fooldalInfo {
+        font-size: 1em;
+        display: flex;
+        margin: 10px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .hirek {
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 20px rgb(0 0 0 / 20%);
+        overflow: hidden;
+        width: fit-content;
+    }
 }

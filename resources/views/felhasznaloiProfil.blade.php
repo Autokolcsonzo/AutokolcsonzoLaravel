@@ -52,19 +52,23 @@
         <div id="primary_content">
             <div class="fprofil">
                 <div class="profilkep">
-              
-                <form action="{{route('felhasznalok.profkepUpdate')}}" method="POST" enctype="multipart/form-data">
-                <input type="hidden" value="{{$data->felhasznalo_id}}" name="felhasznalo_id">
-                @method('PUT')
+
+                    <form action="{{route('felhasznalok.profkepUpdate')}}" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" value="{{$data->felhasznalo_id}}" name="felhasznalo_id">
+                        @method('PUT')
                         @csrf
-                    <img src="{{$data->profilkep}}" name="kep" id="profKep" alt="" /><br>
-                    
-                    <input type="file" id="profkepFel" name="profilkep"><br>
-                    <input type="submit" name="fkepMod" id="fkepMod" value="Profilkép feltöltése" />
-                </form>
+                        <img src="{{$data->profilkep}}" name="kep" id="profKep" alt="" /><br>
+
+                        <input type="file" id="profkepFel" name="profilkep"><br>
+                        <input type="submit" name="fkepMod" id="fkepMod" value="Profilkép feltöltése" />
+                    </form>
                 </div>
 
+                @if(session()->has('status'))
+                <p class="uzenet">{{session('status')}}</p>
+                @endif
 
+                <!-- Bejelentkezett felhasználó adatai -->
 
                 <div class="fadatok">
 
@@ -125,13 +129,14 @@
                     </table>
 
 
-                    </tr>
+
                     </table>
 
                 </div>
 
                 <input type="button" name="fadatokMod" id="fadatokMod" value="Adatok módosítása" style="display:block" />
 
+                <!-- Hibák jelzése a felhasználó felé -->
                 @if($errors->any())
 
                 <ul>
@@ -144,7 +149,7 @@
 
                 @endif
 
-
+                <!-- Felhasználó adatainak módosítása-->
                 <div class="felhasznaloiModositas">
 
 

@@ -23,7 +23,7 @@ class FelhasznalokController extends Controller
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
-        $felhasznalo=FelhasznaloModell::orderBy('felhasznalo_id','DESC')->get();
+        $felhasznalo=DB::table('felhasznalo')->get();
 
      
     

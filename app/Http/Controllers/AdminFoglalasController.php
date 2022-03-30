@@ -45,7 +45,7 @@ class AdminFoglalasController extends Controller
 
 
             )->get()->sortByDesc('fogl_kelt');
-        // return $adatok;
+ 
         return view('adminFoglalas', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel'));
     }
 
@@ -61,11 +61,11 @@ class AdminFoglalasController extends Controller
     public function update(Request $request, $fogazon_foglalas)
     {
 
- 
+
 
         $data = FoglalasViewModel::find($fogazon_foglalas);
 
-      
+
         $data->elvitel = $request->elvitel;
         $data->visszahozatal = $request->visszahozatal;
         $data->kedvezmeny = $request->kedvezmeny;
@@ -76,12 +76,10 @@ class AdminFoglalasController extends Controller
         $data->kifizetendo_osszegeg = $request->kifizetendo_osszegeg;
         $data->save();
 
-        return redirect('adminFoglalas');
+        return redirect('adminFoglalas')->with('status', 'Az adatok módosultak.');
     }
 
-    public function destroy($fogl_azonosito)
-    {
-    }
+ 
 
 
     public function osszAdatok()
@@ -93,81 +91,81 @@ class AdminFoglalasController extends Controller
     }
 
 
-    public function maiElvitel(){
+    public function maiElvitel()
+    {
 
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 
         $maiElvitel = DB::table('felhasznalo_foglalas')
-        ->select(
-            'fogazon_foglalas',
-            'alvazSzam',
-            'felhasznalo',
-            'elvitel',
-            'visszahozatal',
-            'fogl_kelt',
-            'ervenyessegi_ido',
-            'kedvezmeny',
-            'allapot',
-            'befizetett_osszeg',
-            'kifizetendo_osszegeg',
-            'kedvezmeny',
-            'megye',
-            'ir_szam',
-            'varos',
-            'utca',
-            'hazszam',
-            'napiar',
-            'fizetes_alapja',
-            'foglalas_osszege',
-            'fogl_kelt'
+            ->select(
+                'fogazon_foglalas',
+                'alvazSzam',
+                'felhasznalo',
+                'elvitel',
+                'visszahozatal',
+                'fogl_kelt',
+                'ervenyessegi_ido',
+                'kedvezmeny',
+                'allapot',
+                'befizetett_osszeg',
+                'kifizetendo_osszegeg',
+                'kedvezmeny',
+                'megye',
+                'ir_szam',
+                'varos',
+                'utca',
+                'hazszam',
+                'napiar',
+                'fizetes_alapja',
+                'foglalas_osszege',
+                'fogl_kelt'
 
 
 
-        )->whereDate('elvitel', Carbon::today())
-        ->get();
-    // return $adatok;
-    return view('maiElvitel', compact('maiElvitel', 'felhasznalok', 'foglalasok', 'bevetel'));
-
+            )->whereDate('elvitel', Carbon::today())
+            ->get();
+       
+        return view('maiElvitel', compact('maiElvitel', 'felhasznalok', 'foglalasok', 'bevetel'));
     }
 
-    public function maiVisszahozatal(){
+    public function maiVisszahozatal()
+    {
 
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 
         $maiVisszahozatal = DB::table('felhasznalo_foglalas')
-        ->select(
-            'fogazon_foglalas',
-            'alvazSzam',
-            'felhasznalo',
-            'elvitel',
-            'visszahozatal',
-            'fogl_kelt',
-            'ervenyessegi_ido',
-            'kedvezmeny',
-            'allapot',
-            'befizetett_osszeg',
-            'kifizetendo_osszegeg',
-            'kedvezmeny',
-            'megye',
-            'ir_szam',
-            'varos',
-            'utca',
-            'hazszam',
-            'napiar',
-            'fizetes_alapja',
-            'foglalas_osszege',
-            'fogl_kelt'
+            ->select(
+                'fogazon_foglalas',
+                'alvazSzam',
+                'felhasznalo',
+                'elvitel',
+                'visszahozatal',
+                'fogl_kelt',
+                'ervenyessegi_ido',
+                'kedvezmeny',
+                'allapot',
+                'befizetett_osszeg',
+                'kifizetendo_osszegeg',
+                'kedvezmeny',
+                'megye',
+                'ir_szam',
+                'varos',
+                'utca',
+                'hazszam',
+                'napiar',
+                'fizetes_alapja',
+                'foglalas_osszege',
+                'fogl_kelt'
 
 
 
-        )->whereDate('visszahozatal', Carbon::today())
-        ->get();
-    // return $adatok;
-    return view('maiVisszahozatal', compact('maiVisszahozatal', 'felhasznalok', 'foglalasok', 'bevetel'));
-
+            )->whereDate('visszahozatal', Carbon::today())
+            ->get();
+    
+        return view('maiVisszahozatal', compact('maiVisszahozatal', 'felhasznalok', 'foglalasok', 'bevetel'));
     }
 }
