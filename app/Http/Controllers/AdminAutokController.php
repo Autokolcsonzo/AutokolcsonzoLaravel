@@ -102,4 +102,22 @@ class AdminAutokController extends Controller
 
         return redirect('/adminAutok')->with('auto_kepek', $auto_kepek);
     }
+
+    public function keres(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $name = $request->get('name');
+            $data = Auto::where('alvazSzam', 'LIKE', '%'.$name.'%')->paginate(5);
+        }
+        /* $search = $request->input('search');
+
+        // Search in the title and body columns from the posts table
+        $posts = Auto::query()
+            ->where('alvazSzam', 'LIKE', "%{$search}%")
+            ->orWhere('rendszam', 'LIKE', "%{$search}%")
+            ->get(); */
+
+        // Return the search view with the resluts compacted
+        return view('/adminAutok', compact('data'));
+    }
 }

@@ -1,12 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FooldalController;
-use App\Http\Controllers\BejelentkezesController;
-use App\Http\Controllers\RegisztralasController;
 use App\Http\Controllers\osszesAutoMenubolController;
-use App\Http\Controllers\MenuRolunkController;
-use App\Http\Controllers\MenuFeltetelekController;
 use App\Http\Controllers\FelhasznalokController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\AdminFoglalasController;
@@ -28,7 +23,10 @@ Route::get('/dashboard', [CustomAuthController::class, 'dashboard'])->middleware
 Route::get('/logout', [CustomAuthController::class, 'logout']);
 
 /* Alap routeok */
-Route::get('/', [FooldalController::class, 'index'])->name('welcome');
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
+
 Route::get('osszesAutoMenubol', [osszesAutoMenubolController::class, 'index'])->name('osszesAutoMenubol');
 
 Route::get('felhasznaloiProfil', function () {
@@ -55,6 +53,7 @@ Route::middleware([adminMiddleware::class])->group(function () {
     Route::get('/adminAutokEdit/{autok}', [AdminAutokController::class, 'edit']);
     Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
     Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
+    Route::get('/adminAutok/keres/', [AdminAutokController::class, 'keres']);
 
     Route::post('/admin_autok', [AdminAutokController::class, 'ujAuto'])->name('admin_autok');
     Route::post('/admin_modellek', [AdminAutokController::class, 'ujModell'])->name('admin_modellek');

@@ -42,21 +42,27 @@
 <body>
     <main>
         <!-- TABLET, STB. NÉZET -->
-        @include('komponensek/nav')
+        @include('komponensek/felhasznaloNav')
 
         <!--   Fejléc -->
         @include('komponensek/header')
 
         <div id="primary_content">
-       
+
             <!-- ADMIN TÁBLÁZAT, KERESÉS -->
             <div class="adminKereses">
-                <!--  <div class="n1">
+                <div class="n1">
                     <div class="kereses">
-                        <i class="far fa-search"></i>
-                        <input type="text" placeholder="Search" name="autokKereses">
+                        <form action="{{ url('/adminAutok/keres/') }}" method="POST">
+                            @method('get')
+                            @csrf
+                            <input type="text" name="name"/>
+                            <input type="submit" value="Keresés"/>
+                        </form>
+                        <!-- <i class="far fa-search"></i>
+                        <input id="fkereses" type="text" placeholder="alvázszám" value=""> -->
                     </div>
-                </div> -->
+                </div>
 
                 <div class="adminFeladatValasztas">
                     <div id="adminKategoriak">
@@ -142,7 +148,6 @@
                     <h2></h2>
                 </div>
                 <div class="felhasznalo">
-
                     @foreach($adat as $data)
                     @if($loop->iteration % 2 == 0)
                     <div class="foadatok even">
@@ -187,7 +192,6 @@
                             </div>
                         </div>
                         @endforeach
-
                     </div>
                 </div>
 
