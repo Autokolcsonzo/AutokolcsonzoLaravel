@@ -67,8 +67,7 @@
 
         <!-- felhasználóknak segítség/információ a foglaláshoz -->
         <div id="primary_content">
-            <h1>Üdv: </h1>
-            <h2> {{$data->keresztnev}} </h2>
+            <h2 id="udv">Üdvözlünk az oldalon {{$data->keresztnev}} !</h2>
             <div class="fooldalInfo">
                 <div class="infoHelyszin">
                     <img src="kepek/location.png" alt="" />
