@@ -14,7 +14,7 @@ class FelhasznalofoglalasView extends Migration
      */
     public function up()
     {
-        \DB::statement($this->createView());
+        DB::statement($this->createView());
     }
    
     /**
@@ -24,7 +24,7 @@ class FelhasznalofoglalasView extends Migration
      */
     public function down()
     {
-        \DB::statement($this->dropView());
+        DB::statement($this->dropView());
     }
    
     /**

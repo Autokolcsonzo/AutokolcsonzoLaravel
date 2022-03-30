@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="navbar">
         <div class="reszpGombok">
-        
+
         </div>
         <div class="nav_right">
             <ul>
@@ -18,8 +18,8 @@
                         </div>
                         <div class="dd_right">
                             <ul>
-                                <li>Profilom</li>
-                                <li>Foglalásaim</li>
+                                <li class="profilNavGomb"><a href="{{ asset('felhasznaloiProfil') }}">Profilom</a></li>
+                                <li class="foglalasNavGomb"><a href="{{ asset('felhasznaloiFoglalasok') }}">Foglalásaim</a></li>
                                 <li><a href="logout">Kijelentkezés</a></li>
                             </ul>
                         </div>
@@ -49,9 +49,11 @@
             <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
             <li><a href="{{ route('feltetelek') }}">Feltételek</a></li>
             <li>
-                <a href="{{ route('osszesAutoMenubol') }}">Járműveink<!--  <i class="fa fa-arrow-right"></i> --></a>
-                <li class="kijelentkezesGomb"><a href="logout">Kijelentkezés</a></li>
-                <!-- <div class="autokMenu">
+                <a href="{{ route('osszesAutoMenubol') }}">Járműveink
+                    <!--  <i class="fa fa-arrow-right"></i> -->
+                </a>
+            <li class="kijelentkezesGomb"><a href="logout">Kijelentkezés</a></li>
+            <!-- <div class="autokMenu">
                     <ul>
                         <li><a href="{{ route('osszesAutoMenubol') }}">Összes</a></li>
                         <li><a href="#">Autók</a></li>
@@ -72,7 +74,8 @@
 <div class="mobilNav">
     <ul class="navLista2">
         <li><a href=" {{ route('welcome') }} ">Kezdőlap</a></li>
-        <li><a href="#">Profilom</a></li>
+        <li class="profilNavGomb"><a href="{{ asset('felhasznaloiProfil') }}">Profilom</a></li>
+            <li class="foglalasNavGomb"><a href="{{ asset('felhasznaloiFoglalasok') }}">Foglalásaim</a></li>
         <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
         <li><a href="{{ route('feltetelek') }}">Feltételek</a></li>
         <li><a href="{{ route('osszesAutoMenubol') }}">Járműveink</a></li>

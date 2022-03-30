@@ -298,7 +298,7 @@ table td {
 }
 
 .foglalasModositas {
-    display: none;
+
     max-width: 700px;
 }
 
@@ -327,6 +327,13 @@ table td {
 }
 
 #atelephely {
+    padding: 10px;
+    background: white;
+    height: 40px;
+    border: none;
+}
+
+#allapotf {
     padding: 10px;
     background: white;
     height: 40px;
@@ -408,6 +415,51 @@ table td {
     background-color: #b1c5ee;
     text-decoration: none;
     transition-duration: 0.2s;
+}
+
+.elvitelSzures{
+    margin: 10px;
+    background-color: #e0e4e7;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 2px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+        rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 16px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.osszesSzures{
+    margin: 10px;
+    background-color: #e0e4e7;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 2px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+        rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 16px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.visszahozatalSzures{
+    margin: 10px;
+    background-color: #e0e4e7;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 2px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+        rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 16px;
+    width: 200px;
+    border-radius: 5px;
 }
 
 #admin-auto-reszletek-embed {
