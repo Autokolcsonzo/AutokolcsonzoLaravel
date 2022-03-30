@@ -47,6 +47,10 @@ Route::get('rolunk', function () {
     return view('rolunk');
 })->name('rolunk');
 
+Route::get('foglalasUzenet', function () {
+    return view('foglalasUzenet');
+})->name('foglalasUzenet');
+
 Route::get('/jarmuTalalatiLista', [jarmuTalalatiListaController::class, 'dashboard'])->middleware('isLoggedIn');
 
 /* AdminAutok */

@@ -44,16 +44,21 @@ class KeresoFeltolteseLocalStorage {
         }
         let minDatumString = aktEv+'-'+aktHo+'-'+aktNap;
         let minDatumIntager = parseInt(aktEv+aktHo+aktNap);
-        console.log(minDatumIntager);
+        let localElInteger;
+
+        setTimeout(function(){
+            localElInteger = parseInt(keresOBJ.elvitelDatuma);
+        }, 500);
 
         if (keresOBJ == null || 0) {
             return
         } else {
             this.kulcsszo.val(keresOBJ.kulcsszo);
             this.telephely.val(keresOBJ.telephely);
-            if(parseInt(keresOBJ.elvitelDatuma) < minDatumIntager){
-            console.log('hibás elvitel');
+            if(localElInteger < minDatumIntager){
+                console.log('hibás elvitel');
                 this.elvitelDatuma.val(minDatumString).change();
+                console.log(localElInteger , minDatumIntager);
             }else{
                 this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
             }
