@@ -139,7 +139,38 @@ td {
     padding:10px;
   
   }
-
+.foglalas_container{
+    margin: 50px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+.foglalas-boxi{
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#nincsF,#nincsFp{
+    text-align: center;
+    margin: auto;
+    color: #17446b;
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: "Teko", sans-serif;
+}
+#nincsFp{
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: "Teko", sans-serif;
+    color: #17446b;
+    border: grey solid 1px;
+}
 @media (hover: none) and (pointer: coarse) {
     .reszletGomb:hover {
         background-color: #e0e4e7;
