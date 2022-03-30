@@ -23,7 +23,6 @@ class adminMiddleware
         $modell = DB::table('modell')->get();
         $telephely = DB::table('telephely')->get();
 
-        $data = array();
         if (Session()->has('loginId')) {
             $loggedUser = Felhasznalo::where('felhasznalo_id', '=', Session()->get('loginId'))->first();
             if ($loggedUser->jogkor == 2) {

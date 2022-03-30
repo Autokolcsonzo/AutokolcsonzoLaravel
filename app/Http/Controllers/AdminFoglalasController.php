@@ -14,7 +14,7 @@ class AdminFoglalasController extends Controller
 
     public function adatokKiiratasa()
     {
-        $felhasznalok = DB::table('felhasznalo')->count();
+        /* $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 
@@ -46,7 +46,8 @@ class AdminFoglalasController extends Controller
 
             )->get()->sortByDesc('fogl_kelt');
         // return $adatok;
-        return view('adminFoglalas', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel'));
+        return view('adminFoglalas', compact('adat', 'felhasznalok', 'foglalasok', 'bevetel')); */
+        return view('adminFoglalas');
     }
 
 
