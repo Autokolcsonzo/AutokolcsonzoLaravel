@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FooldalController;
 use App\Http\Controllers\BejelentkezesController;
 use App\Http\Controllers\RegisztralasController;
@@ -10,14 +9,13 @@ use App\Http\Controllers\MenuRolunkController;
 use App\Http\Controllers\MenuFeltetelekController;
 use App\Http\Controllers\FelhasznalokController;
 use App\Http\Controllers\CustomAuthController;
-use App\Http\Controllers\KeresoViewController;
 use App\Http\Controllers\AdminFoglalasController;
 use App\Http\Controllers\AdminAutokController;
-use App\Http\Controllers\AdminFelhasznalo;
 use App\Http\Controllers\FelhasznaloFoglalas;
 use App\Http\Controllers\FelhasznaloProfil;
 use App\Http\Controllers\jarmuTalalatiListaController;
 use App\Http\Middleware\adminMiddleware;
+use App\Http\Middleware\adminFelhasznaloMiddleware;
 
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
@@ -81,8 +79,9 @@ Route::put('/updatekep', [FelhasznaloProfil::class, 'profkepUpdate'])->name('fel
 
 
 
-
-Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratasa']);
+Route::middleware([adminFelhasznaloMiddleware::class])->group(function () {
+    Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratasa']);
+});
 
 /* Foglalás API */
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');

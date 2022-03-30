@@ -9,13 +9,6 @@ use App\Models\Felhasznalo;
 
 class adminMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
-     */
     public function handle(Request $request, Closure $next)
     {
         $felhasznalok = DB::table('felhasznalo')->count();
@@ -39,6 +32,8 @@ class adminMiddleware
             else {
                 return redirect()->back();
             }
+        } else {
+            return response()->view('welcome');
         }
         return $next($request);
     }
