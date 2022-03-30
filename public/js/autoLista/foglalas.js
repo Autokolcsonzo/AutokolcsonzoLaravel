@@ -158,7 +158,7 @@ class FoglalasFeltoltes {
         if (isNaN(vegosszeg)) {
             vegosszeg = 0;
         }
-        this.vegosszeg.text(vegosszeg);
+        this.vegosszeg.text(Math.round(vegosszeg));
         this.kedvezmeny.text(kapottKedvezmeny);
     }
 
