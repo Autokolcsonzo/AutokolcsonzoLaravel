@@ -42,7 +42,11 @@
     <main>
 
         <!-- TABLET, STB. NÉZET -->
-        @include('komponensek/nav')
+        @if(Auth('felhasznalo'))
+            @include('komponensek/felhasznaloNav')
+        @else
+            @include('komponensek/nav')
+        @endif
 
         <!-- HEADER -->
         @include('komponensek/header')

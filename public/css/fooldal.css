@@ -3,7 +3,11 @@
 #primary_content {
   text-align: center;
 }
-
+#udv{
+  font-size: 2rem;
+  font-family: "Teko", sans-serif;
+  color: #17446b;
+}
 .fooldalInfo {
   font-size: 1em;
   display: flex;
