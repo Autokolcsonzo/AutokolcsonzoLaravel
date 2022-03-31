@@ -46,12 +46,7 @@
 
             <!-- ADMIN TÁBLÁZAT, KERESÉS -->
             <div class="adminKereses">
-                <div class="n1">
-                    <div class="kereses">
-                        <i class="far fa-search"></i>
-                        <input type="text" placeholder="Search">
-                    </div>
-                </div>
+              
 
                 <div class="adminFeladatValasztas">
                     <div id="adminKategoriak">
