@@ -12,7 +12,9 @@ class FelhasznaloFoglalas extends Controller
 {
     public function index()
     {
-
+        DB::table('foglalas')
+              ->whereRaw('ervenyessegi_ido < NOW()')
+              ->update(['allapot' => 'Teljesítve']);
 
         $data = array();
         $password = array();
