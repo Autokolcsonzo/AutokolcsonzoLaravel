@@ -45,26 +45,29 @@ class KeresoFeltolteseLocalStorage {
         let minDatumString = aktEv+'-'+aktHo+'-'+aktNap;
         let minDatumIntager = parseInt(aktEv+aktHo+aktNap);
         let localElInteger;
-
+        
+        localElInteger = parseInt(keresOBJ.elvitelDatuma);
         setTimeout(function(){
-            localElInteger = parseInt(keresOBJ.elvitelDatuma);
-        }, 500);
 
+        }, 1500);
+        console.log(localElInteger , minDatumIntager);
         if (keresOBJ == null || 0) {
             return
         } else {
             this.kulcsszo.val(keresOBJ.kulcsszo);
             this.telephely.val(keresOBJ.telephely);
+            
             if(localElInteger < minDatumIntager){
                 console.log('hibás elvitel');
                 this.elvitelDatuma.val(minDatumString).change();
+                this.visszavitelDatuma.val(minDatumString).change();
                 console.log(localElInteger , minDatumIntager);
             }else{
                 this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
+                this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma).change();
             }
             //this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
             this.elvitelDatuma.attr("max", keresOBJ.visszavitelDatuma).change();
-            this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma).change();
             this.marka.val(keresOBJ.marka);
             this.modell.val(keresOBJ.modell);
             this.kivitel.val(keresOBJ.kivitel);
