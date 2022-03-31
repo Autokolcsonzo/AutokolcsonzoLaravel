@@ -11,7 +11,7 @@
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/hambiMenu.js"></script>
-    <script src="js/reszponzivDolgok.js"></script>
+    <script src="js/Responzivitas.js"></script>
     <style>
     /* Betűtípusok */
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');

@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/hambiMenu.js"></script>
-    <script src="js/reszponzivDolgok.js"></script>
+    <script src="js/Responzivitas.js"></script>
     <script src="js/kereso/dropDownKereso.js"></script>
     <script src="js/kereso/keresesiOpciokAjax.js"></script>
     <script src="js/kereso/keresoFeltoltes.js"></script>
