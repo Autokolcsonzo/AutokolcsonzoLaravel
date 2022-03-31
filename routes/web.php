@@ -84,8 +84,9 @@ Route::get('/maiVisszahozatal', [AdminFoglalasController::class, 'maiVisszahozat
 
 /* AdminFelhasznalok */
 Route::middleware([adminFelhasznaloMiddleware::class])->group(function () {
+    Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratasa']);
 });
-Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratasa']);
+
 
 
 /* felhasznaloProfilApi */
