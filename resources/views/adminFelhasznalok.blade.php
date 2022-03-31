@@ -15,6 +15,7 @@
     <script src="../js/admin/Responzivitas.js"></script>
     <script src="../js/Ajax.js"></script>
     <script src="../js/admin/jsFelhasznalok.js"></script>
+    <script src="../js/admin/Felhasznalo.js"></script>
     <script src="../js/reszponzivDolgok.js"></script>
     <style>
         /* Betűtípusok */
