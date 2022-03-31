@@ -33,18 +33,40 @@ class FoglalasController extends Controller
                 $kedvSzazalek = $szazalek_id;
             }
         }
-        
-        $foglalas = new AdminFoglalasModel();
-        $foglalas->fogl_azonosito = $request->fogl_azonosito;
-        $foglalas->alvazSzam = $request->autoId;
-        $foglalas->felhasznalo = $request->custId;
-        $foglalas->elvitel = $request->foglalas_tol." ".$request->foglalas_tolIdo;
-        $foglalas->visszahozatal = $request->foglalas_ig." ".$request->foglalas_igIdo;
-        $foglalas->fogl_kelt = $request->foglalas_kelt;
-        $foglalas->ervenyessegi_ido = $request->foglalas_ig;
-        $foglalas->kedvezmeny = $kedvSzazalek;
-        $foglalas->allapot = 'Aktív';
-        $foglalas->save();
+
+        $datumString = '';
+        if($request->foglalas_tol == $request->foglalas_ig){
+            $datumString = 'elvitel LIKE "%'.$request->foglalas_tol.'%" AND visszahozatal LIKE "%'.$request->foglalas_ig.'%"';
+        }else{
+            $datumString = 'elvitel >= DATE_ADD("'.$request->foglalas_tol.'", INTERVAL -1 DAY) AND visszahozatal <= DATE_ADD("'.$request->foglalas_ig.'", INTERVAL 1 DAY)';
+        }
+        $tiltottAlvazSzam = DB::table('auto_fill')
+            ->select('alvazSzam')
+            ->distinct()
+            ->whereRaw($datumString)
+            ->get();
+        $tiltottAlvazSzamArray = array();
+        foreach ($tiltottAlvazSzam as $key => $value) {
+            array_push($tiltottAlvazSzamArray, $value->alvazSzam);
+        }
+
+        if(in_array($request->autoId, $tiltottAlvazSzamArray)){
+            return redirect('foglalasUzenet');
+            //dd("sikeres szűrés!" , $request->autoId , $tiltottAlvazSzamArray, $request->foglalas_tol, $request->foglalas_ig);
+        }else{
+            //dd("Nincs ütközés", $request->autoId , $tiltottAlvazSzamArray, $request->foglalas_tol, $request->foglalas_ig);
+            $foglalas = new AdminFoglalasModel();
+            $foglalas->fogl_azonosito = $request->fogl_azonosito;
+            $foglalas->alvazSzam = $request->autoId;
+            $foglalas->felhasznalo = $request->custId;
+            $foglalas->elvitel = $request->foglalas_tol." ".$request->foglalas_tolIdo;
+            $foglalas->visszahozatal = $request->foglalas_ig." ".$request->foglalas_igIdo;
+            $foglalas->fogl_kelt = $request->foglalas_kelt;
+            $foglalas->ervenyessegi_ido = $request->foglalas_ig;
+            $foglalas->kedvezmeny = $kedvSzazalek;
+            $foglalas->allapot = 'Aktív';
+            $foglalas->save();
+        }
 
         $foglalasId = DB::table('foglalas')
             ->select('fogl_azonosito')
@@ -72,7 +94,8 @@ class FoglalasController extends Controller
         $fizetes->kifizetendo_osszegeg = $fizetendoOsszeg;
         $fizetes->save();
         
-        return back()->with('success', 'Sikeres foglalás');
+        //return back()->with('success', 'Sikeres foglalás');
+        return redirect('felhasznaloiFoglalasok');
 
     }
 }

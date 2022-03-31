@@ -2,7 +2,7 @@
 <html lang="hu-HU">
 
 <head>
-<title>Dropmyride autókölcsönző</title>
+    <title>Dropmyride autókölcsönző</title>
     <link rel="icon" type="image/x-icon" href="..kepek/logo.png">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -46,9 +46,11 @@
 
         <div id="primary_content">
 
+      
 
+            <!-- Foglalás módosításának a formja-->
 
-                <div class="formcontainer">
+            <div class="formcontainer">
 
                 <div class="foglalasModositas">
 
@@ -94,7 +96,7 @@
 
                             <div class="inputfield">
                                 <label for="allapot">Állapot (Teljesítve, Lemondva, Aktív):</label> <br />
-                        
+
                                 <input type="text" name="allapot" id="allapot" value="{{ old('allapot') ?? $data->allapot }}" /><br />
 
                             </div>
@@ -137,12 +139,12 @@
                 </div>
 
 
-</div>
-
             </div>
 
-            <!-- Footer -->
-            @include('komponensek/footer')
+        </div>
+
+        <!-- Footer -->
+        @include('komponensek/footer')
     </main>
 </body>
 

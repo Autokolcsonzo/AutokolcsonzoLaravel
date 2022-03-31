@@ -61,7 +61,7 @@ class Auto {
         this.evjarat.text(adat.evjarat);
         this.teljesitmeny.text(adat.teljesitmeny);
         this.ar.text(adat.napiAr);
-        this.hetAr.text(adat.napiAr * this.hetiAr());
+        this.hetAr.text(Math.round(adat.napiAr * this.hetiAr()));
         this.helyszin.text(adat.varos);
         this.szin.text(adat.szin);
         this.egyeb.text(adat.tulajdonsag);

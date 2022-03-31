@@ -1,13 +1,9 @@
 @charset "utf-8";
 
-/*.reszletek, .reszlet {
-  display: none;
-}*/
 
 .adminKereses {
     display: flex;
     align-items: center;
-    /*   justify-content: space-between; */
     background-color: #fff;
     padding: 15px 30px;
     border-bottom: 3px solid blue;
@@ -15,8 +11,6 @@
 
 .adminKereses .kereses {
     display: flex;
-    /*  justify-content: flex-start; */
-    /*   align-items: center; */
     padding: 10px 14px;
     border: 1px solid gray;
     border-radius: 4px;
@@ -42,8 +36,7 @@
 .jogkorValasztas {
     display: flex;
     margin-left: 5%;
-    /*  justify-content: flex-start; */
-    /*   align-items: center; */
+ 
 }
 
 .adminKereses,
@@ -86,7 +79,6 @@
     border-radius: 50%;
     text-align: center;
     color: white;
-    /*   background-color: rgb(73, 73, 172); */
     margin-right: 15px;
 }
 
@@ -117,14 +109,6 @@
 .autoAdatokModositas {
     max-width: 700px;
 }
-
-/* ADMIN AUTÓ FELTÖLTÉS */
-
-/* .modellAdatokFeltoltes,
-.kepAdatokFeltoltes {
-    display: none;
-    max-width: 700px;
-} */
 
 /*felhasználói adatok adatok*/
 
@@ -223,28 +207,6 @@
     flex: 1;
     font-size: 1rem;
 }
-/* TÁBLÁZAT */
-
-/* table {
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    table-layout: fixed;
-}
-
-table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: 0.35em;
-}
-
-table th,
-table td {
-    padding: 0.625em;
-    text-align: center;
-} */
 
 .torles {
     padding: 4px 10px;
@@ -298,7 +260,6 @@ table td {
 }
 
 .foglalasModositas {
-
     max-width: 700px;
 }
 
@@ -417,7 +378,7 @@ table td {
     transition-duration: 0.2s;
 }
 
-.elvitelSzures{
+.elvitelSzures {
     margin: 10px;
     background-color: #e0e4e7;
     border: 1px solid rgba(27, 31, 35, 0.15);
@@ -432,7 +393,7 @@ table td {
     border-radius: 5px;
 }
 
-.osszesSzures{
+.osszesSzures {
     margin: 10px;
     background-color: #e0e4e7;
     border: 1px solid rgba(27, 31, 35, 0.15);
@@ -447,7 +408,7 @@ table td {
     border-radius: 5px;
 }
 
-.visszahozatalSzures{
+.visszahozatalSzures {
     margin: 10px;
     background-color: #e0e4e7;
     border: 1px solid rgba(27, 31, 35, 0.15);
@@ -525,6 +486,13 @@ h1 {
     background-color: rgb(236, 235, 235);
     font-size: large;
 }
+
+.uzenet{
+    color:darkred;
+    font-weight: bolder;
+    padding:10px;
+  
+  }
 
 @media only screen and (max-width: 1151px) {
     body {
