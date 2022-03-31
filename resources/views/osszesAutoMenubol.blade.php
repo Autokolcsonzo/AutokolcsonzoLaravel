@@ -15,7 +15,7 @@
     <script src="js/admin/adminAuto.js"></script>
     <script src="js/Ajax.js"></script>
     <script src="js/osszesAuto.js"></script>
-    <script src="js/reszponzivDolgok.js"></script>
+    <script src="js/Responzivitas.js"></script>
     <style>
         /* Betűtípusok */
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');

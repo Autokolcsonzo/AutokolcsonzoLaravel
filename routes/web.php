@@ -75,9 +75,9 @@ Route::post('/admin_kepek', [AdminAutokController::class, 'ujKep'])->name('admin
 /* AdminFoglalas */
 Route::middleware([adminFoglalasMiddleware::class])->group(function () {
     Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);
-    Route::get('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'edit'])->name('adminfoglalas.edit');
 });
 
+Route::get('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'edit'])->name('adminfoglalas.edit');
 Route::get('/maiElvitel', [AdminFoglalasController::class, 'maiElvitel']);
 Route::get('/maiVisszahozatal', [AdminFoglalasController::class, 'maiVisszahozatal']);
 

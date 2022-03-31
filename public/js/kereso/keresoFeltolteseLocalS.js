@@ -32,6 +32,11 @@ class KeresoFeltolteseLocalStorage {
 
     setHozottParameterek() {
         const keresOBJ = this.getAdatToLocalS();
+        let localElInteger = keresOBJ.elvitelDatuma;
+        console.log(keresOBJ.elvitelDatuma);
+        let localElInteger2 = localElInteger.replace('-', '');
+        localElInteger2 = localElInteger2.replace('-', '');
+        localElInteger2 = parseInt(localElInteger2);
         let aktDatum = new Date();
         let aktNap = aktDatum.getDate();
         let aktHo = aktDatum.getMonth() +1;
@@ -44,27 +49,28 @@ class KeresoFeltolteseLocalStorage {
         }
         let minDatumString = aktEv+'-'+aktHo+'-'+aktNap;
         let minDatumIntager = parseInt(aktEv+aktHo+aktNap);
-        let localElInteger;
-
+        
         setTimeout(function(){
-            localElInteger = parseInt(keresOBJ.elvitelDatuma);
-        }, 500);
 
+        }, 1500);
+        console.log(localElInteger2 , minDatumIntager);
         if (keresOBJ == null || 0) {
             return
         } else {
             this.kulcsszo.val(keresOBJ.kulcsszo);
             this.telephely.val(keresOBJ.telephely);
-            if(localElInteger < minDatumIntager){
+            
+            if(localElInteger2 < minDatumIntager){
                 console.log('hibás elvitel');
                 this.elvitelDatuma.val(minDatumString).change();
+                this.visszavitelDatuma.val(minDatumString).change();
                 console.log(localElInteger , minDatumIntager);
             }else{
                 this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
+                this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma).change();
             }
             //this.elvitelDatuma.val(keresOBJ.elvitelDatuma).change();
             this.elvitelDatuma.attr("max", keresOBJ.visszavitelDatuma).change();
-            this.visszavitelDatuma.val(keresOBJ.visszavitelDatuma).change();
             this.marka.val(keresOBJ.marka);
             this.modell.val(keresOBJ.modell);
             this.kivitel.val(keresOBJ.kivitel);
