@@ -52,16 +52,16 @@
             <!-- ADMIN TÁBLÁZAT, KERESÉS -->
             <div class="adminKereses">
                 <div class="n1">
-                    <div class="kereses">
+                    <!-- <div class="kereses">
                         <form action="{{ url('/adminAutok/keres/') }}" method="POST">
                             @method('get')
                             @csrf
                             <input type="text" name="name"/>
                             <input type="submit" value="Keresés"/>
                         </form>
-                        <!-- <i class="far fa-search"></i>
-                        <input id="fkereses" type="text" placeholder="alvázszám" value=""> -->
-                    </div>
+                        <i class="far fa-search"></i>
+                        <input id="fkereses" type="text" placeholder="alvázszám" value="">
+                </div> -->
                 </div>
 
                 <div class="adminFeladatValasztas">
