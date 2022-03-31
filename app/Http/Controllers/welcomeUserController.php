@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\Felhasznalo;
 use Illuminate\Support\Facades\Session;
 
-class osszesAutoMenubolController extends Controller
+class welcomeUserController extends Controller
 {
-    public function index() {
+    public function welcomekUser() {
         $data = array();
         if(Session::has('loginId')) {
             $data = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
         }
-        return view('osszesAutoMenubol', compact('data'));
+        return view('welcome', compact('data'));
     }
 }

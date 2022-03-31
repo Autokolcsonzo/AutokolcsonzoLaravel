@@ -40,10 +40,10 @@
 <body>
     <main>
         <!-- TABLET, STB. NÉZET -->
-        @if(Auth('felhasznalo'))
-        @include('komponensek/felhasznaloNav')
+        @if(empty($data->felhasznalo_id))
+            @include('komponensek/nav')
         @else
-        @include('komponensek/nav')
+            @include('komponensek/felhasznaloNav')
         @endif
 
         <!--   Fejléc -->

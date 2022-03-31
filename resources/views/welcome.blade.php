@@ -45,6 +45,16 @@
     <main>
 
         <!-- TABLET, STB. NÉZET -->
+
+        @if(empty($data->felhasznalo_id))
+            <!--- Nincs bejelentkezve --->
+        @else
+            <!--- redirect to dashboard --->
+            <script>window.location = "/dashboard";</script>
+        @endif
+
+
+
         @include('komponensek/nav')
 
         <!-- HEADER -->

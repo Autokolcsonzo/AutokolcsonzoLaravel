@@ -42,10 +42,10 @@
     <main>
 
         <!-- TABLET, STB. NÉZET -->
-        @if(Auth('felhasznalo'))
-            @include('komponensek/felhasznaloNav')
-        @else
+        @if(empty($data->felhasznalo_id))
             @include('komponensek/nav')
+        @else
+            @include('komponensek/felhasznaloNav')
         @endif
 
         <!-- HEADER -->

@@ -5,14 +5,18 @@ use App\Http\Controllers\osszesAutoMenubolController;
 use App\Http\Controllers\FelhasznalokController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\AdminFoglalasController;
+use App\Http\Controllers\ReszletekController;
 use App\Http\Controllers\AdminAutokController;
 use App\Http\Controllers\FelhasznaloFoglalas;
 use App\Http\Controllers\FelhasznaloProfil;
+use App\Http\Controllers\welcomeUserController;
+use App\Http\Controllers\RolunkController;
 use App\Http\Controllers\jarmuTalalatiListaController;
 use App\Http\Middleware\adminMiddleware;
 use App\Http\Middleware\adminFelhasznaloMiddleware;
 use App\Http\Middleware\adminFoglalasMiddleware;
 use App\Http\Middleware\AutokListazasaController;
+
 
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
@@ -25,9 +29,8 @@ Route::get('/dashboard', [CustomAuthController::class, 'dashboard'])->middleware
 Route::get('/logout', [CustomAuthController::class, 'logout']);
 
 /* Alap routeok */
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+
+Route::get('/', [welcomeUserController::class, 'welcomekUser'])->name('welcome');
 
 /* Route::get('/osszesAutoMenubol', function () {
     return view('osszesAutoMenubol');
@@ -45,13 +48,12 @@ Route::get('felhasznaloiFoglalasok', function () {
     return view('felhasznaloiFoglalasok');
 });
 
-Route::get('feltetelek', function () {
+/*Route::get('feltetelek', function () {
     return view('feltetelek');
-})->name('feltetelek');
+});*/
 
-Route::get('rolunk', function () {
-    return view('rolunk');
-})->name('rolunk');
+Route::get('/rolunk', [RolunkController::class, 'rolunkUser'])->name('rolunk');
+Route::get('/feltetelek', [ReszletekController::class, 'feltetelekUser'])->name('feltetelek');
 
 Route::get('foglalasUzenet', function () {
     return view('foglalasUzenet');
