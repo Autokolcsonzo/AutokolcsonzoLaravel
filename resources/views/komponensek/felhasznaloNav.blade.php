@@ -44,9 +44,8 @@
             </div>
             <li class="elosProfilNavGomb"><a href="{{ asset('felhasznaloiProfil') }}">Profilom</a></li>
             <li class="elsoFoglalasNavGomb"><a href="{{ asset('felhasznaloiFoglalasok') }}">Foglalásaim</a></li>
-
-            <li><a href="{{ route('welcome') }}">Kezdőlap</a></li>
-            <!-- <li><a href="http://127.0.0.1:8000/dashboard">Kezdőlap</a></li> -->
+            <!--{ route('welcome') } kicseréltem hogy ne az alapra vigyen vissza folyton. BTW nem találtam a routot-->
+            <li><a href="http://127.0.0.1:8000/dashboard">Kezdőlap</a></li>
             <li><a href="{{ route('rolunk') }}">Rólunk</a></li>
             <li><a href="{{ route('feltetelek') }}">Feltételek</a></li>
             <li>
