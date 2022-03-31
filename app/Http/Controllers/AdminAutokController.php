@@ -31,12 +31,10 @@ class AdminAutokController extends Controller
         $torles = DB::table('auto')
             ->leftJoin('auto_kepek', 'auto.alvazSzam', '=', 'auto_kepek.alvazSzam')
             ->leftJoin('auto_extra', 'auto.alvazSzam', '=', 'auto_extra.alvazSzam')
-            ->leftJoin('fizetes', 'fizetes.fogl_azonosito', '=', 'foglalas.fogl_azonosito')
             ->leftJoin('foglalas', 'auto.alvazSzam', '=', 'foglalas.alvazSzam')
             ->where('auto.alvazSzam', $alvazSzam);
         DB::table('auto_kepek')->where('alvazSzam', $alvazSzam)->delete();
         DB::table('auto_extra')->where('alvazSzam', $alvazSzam)->delete();
-        DB::table('fizetes')->where('fogl_azonosito', $alvazSzam)->delete();
         DB::table('foglalas')->where('alvazSzam', $alvazSzam)->delete();
         $torles->delete();
         return redirect()->back();

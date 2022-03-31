@@ -16,7 +16,7 @@ class CreateFizetesTable extends Migration
         Schema::create('fizetes', function (Blueprint $table) {
             $table->increments("kifizetes_id");
             $table->integer("fogl_azonosito")->unsigned();
-            $table->foreign('fogl_azonosito')->references('fogl_azonosito')->on('foglalas');
+            $table->foreign('fogl_azonosito')->references('fogl_azonosito')->on('foglalas')->onDelete('cascade');;
             $table->timestamp('kelt')->useCurrent();
             $table->integer("sorszam");
             $table->char("fizetes_alapja", 30);
