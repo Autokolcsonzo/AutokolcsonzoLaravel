@@ -6,9 +6,6 @@ $(function () {
     autoModal();
     modellModal();
     kepModal();
-    ujAutoFelvitele();
-    ujModellFelvitele;
-    kepModal;
 });
 
 function ReszletMegjelenit() {
@@ -110,13 +107,13 @@ function kepModal() {
 }
 
 function ujAutoFelvitele() {
-    jQuery("#addform").on("submit", function (e) {
+    $("#addform").on("submit", function (e) {
         e.preventDefault();
 
         jQuery.ajax({
             type: "POST",
             url: "admin_autok",
-            data: jQuery("#addform").serialize(),
+            data: $("#addform").serialize(),
             success: function (result) {
                 //   console.log(result);
                 //    $('#ujAutoModal').remove();
@@ -131,13 +128,13 @@ function ujAutoFelvitele() {
 }
 
 function ujModellFelvitele() {
-    jQuery("#addform").on("submit", function (e) {
+    $("#addform").on("submit", function (e) {
         e.preventDefault();
 
         jQuery.ajax({
             type: "POST",
             url: "admin_modellek",
-            data: jQuery("#addform").serialize(),
+            data: $("#addform").serialize(),
             success: function (result) {
                 //   console.log(result);
                 //    $('#ujAutoModal').remove();
@@ -151,14 +148,14 @@ function ujModellFelvitele() {
     });
 }
 
-function ujAutoFelvitele() {
-    jQuery("#addform").on("submit", function (e) {
+function ujKepFelvitele() {
+    $("#addform").on("submit", function (e) {
         e.preventDefault();
 
         jQuery.ajax({
             type: "POST",
-            url: "admin_autok",
-            data: jQuery("#addform").serialize(),
+            url: "admin_kepek",
+            data: $("#addform").serialize(),
             success: function (result) {
                 //   console.log(result);
                 //    $('#ujAutoModal').remove();
@@ -171,28 +168,3 @@ function ujAutoFelvitele() {
         });
     });
 }
-
-//Sortok
-/*     let keresomezo = $("#keresoMezo");
-    keresomezo.on("keyup", () => {
-        autok.splice(0, autok.length);
-        $("#jarmu-lista").empty();
-        let apivegpont = "http://localhost:3000/autok";
-        apivegpont += "?q=" + keresomezo.val();
-        console.log(autok);
-        autoAjax.getAdat(apivegpont, autok, autoFeltoltes);
-    });
-
-    $("#rendezes").on("change", () => {
-        let apivegpont = "http://localhost:3000/autok";
-        $("#jarmu-lista").empty();
-        if ($("#rendezes").val() == "alap") {
-            autoAjax.getAdat(apivegpont, autok, autoFeltoltes);
-        } else if ($("#rendezes").val() == "novekvo") {
-            apivegpont += "?_sort=ar&_order=asc";
-            autoAjax.getAdat(apivegpont, autok, autoFeltoltes);
-        } else if ($("#rendezes").val() == "csokkeno") {
-            apivegpont += "?_sort=ar&_order=desc";
-            autoAjax.getAdat(apivegpont, autok, autoFeltoltes);
-        }
-    }); */

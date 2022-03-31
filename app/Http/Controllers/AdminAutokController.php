@@ -30,8 +30,12 @@ class AdminAutokController extends Controller
     {
         $torles = DB::table('auto')
             ->leftJoin('auto_kepek', 'auto.alvazSzam', '=', 'auto_kepek.alvazSzam')
+            ->leftJoin('auto_extra', 'auto.alvazSzam', '=', 'auto_extra.alvazSzam')
+            ->leftJoin('foglalas', 'auto.alvazSzam', '=', 'foglalas.alvazSzam')
             ->where('auto.alvazSzam', $alvazSzam);
         DB::table('auto_kepek')->where('alvazSzam', $alvazSzam)->delete();
+        DB::table('auto_extra')->where('alvazSzam', $alvazSzam)->delete();
+        DB::table('foglalas')->where('alvazSzam', $alvazSzam)->delete();
         $torles->delete();
         return redirect()->back();
     }
@@ -101,23 +105,5 @@ class AdminAutokController extends Controller
         $auto_kepek->save();
 
         return redirect('/adminAutok')->with('auto_kepek', $auto_kepek);
-    }
-
-    public function keres(Request $request)
-    {
-        if($request->isMethod('post')) {
-            $name = $request->get('name');
-            $data = Auto::where('alvazSzam', 'LIKE', '%'.$name.'%')->paginate(5);
-        }
-        /* $search = $request->input('search');
-
-        // Search in the title and body columns from the posts table
-        $posts = Auto::query()
-            ->where('alvazSzam', 'LIKE', "%{$search}%")
-            ->orWhere('rendszam', 'LIKE', "%{$search}%")
-            ->get(); */
-
-        // Return the search view with the resluts compacted
-        return view('/adminAutok', compact('data'));
     }
 }

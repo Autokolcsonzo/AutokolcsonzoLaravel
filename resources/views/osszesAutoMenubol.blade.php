@@ -14,8 +14,8 @@
     <script src="js/hambiMenu.js"></script>
     <script src="js/admin/adminAuto.js"></script>
     <script src="js/Ajax.js"></script>
-    <script src="js/admin/osszesAuto.js"></script>
-    <script src="js/reszponzivDolgok.js"></script>
+    <script src="js/osszesAuto.js"></script>
+    <script src="js/Responzivitas.js"></script>
     <style>
         /* Betűtípusok */
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
@@ -41,9 +41,9 @@
     <main>
         <!-- TABLET, STB. NÉZET -->
         @if(Auth('felhasznalo'))
-            @include('komponensek/felhasznaloNav')
+        @include('komponensek/felhasznaloNav')
         @else
-            @include('komponensek/nav')
+        @include('komponensek/nav')
         @endif
 
         <!--   Fejléc -->
@@ -51,7 +51,7 @@
 
         <!-- felhasználóknak segítség/információ a foglaláshoz -->
         <div id="primary_content">
-            <div class="fooldalInfo">
+            <!--  <div class="fooldalInfo">
                 <form class="autokRendezes">
                     <div>
                         <label class="kategoriaLabel" for="autoKategoria">Márka:</label>
@@ -92,7 +92,7 @@
                     </div>
                 </form>
 
-            </div>
+            </div> -->
 
             <!-- Összes autó -->
 
@@ -104,33 +104,33 @@
                 <div class="hirek">
 
                     <div class="placeholder_item2">
-                            <div class="tartalom">
-                                <img src="kepek/probaauto.jpg" alt="" class="kep" style="width:350px; height:200px"/>
-                                <h3 class="marka">Ford</h3>
-                                <p class="modell">Fiesta</p>
-                                <p class="napiAr">
-                                    Akár havi 123.000 Ft-tól.
-                                </p>
+                        <div class="tartalom">
+                            <img src="kepek/probaauto.jpg" alt="" class="kep" style="width:350px; height:200px" />
+                            <h3 class="marka">Ford</h3>
+                            <p class="modell">Fiesta</p>
+                            <p class="napiAr">
+                                Akár havi 123.000 Ft-tól.
+                            </p>
+                        </div>
+                        <div class="adatok">
+                            <div>
+                                <span>Kivitel:</span>
+                                <span class="kivitel">Combi</span>
                             </div>
-                            <div class="adatok">
-                                <div>
-                                    <span>Kivitel:</span>
-                                    <span class="kivitel">Combi</span>
-                                </div>
-                                <div>
-                                    <span>Üzemanyag:</span>
-                                    <span class="uzemanyag">benzin</span>
-                                </div>
-                                <div>
-                                    <span>Évjárat:</span>
-                                    <span class="evjarat">2003</span>
-                                </div>
-                                <div>
-                                    <span>Teljesítmény:</span>
-                                    <span class="teljesitmeny">300Le</span>
-                                </div>
+                            <div>
+                                <span>Üzemanyag:</span>
+                                <span class="uzemanyag">benzin</span>
                             </div>
-                            <!--                <div class="autoListaGombok">
+                            <div>
+                                <span>Évjárat:</span>
+                                <span class="evjarat">2003</span>
+                            </div>
+                            <div>
+                                <span>Teljesítmény:</span>
+                                <span class="teljesitmeny">300Le</span>
+                            </div>
+                        </div>
+                        <!--                <div class="autoListaGombok">
                             <button type="submit" class="lefoglalas">Lefoglalás</button>
                             <button type="submit" class="reszletek">Részletek</button>
                         </div> -->

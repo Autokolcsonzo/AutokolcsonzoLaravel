@@ -11,10 +11,8 @@
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <script src="../js/reszponzivDolgok.js"></script>
-    <script src="../js/hambiMenu.js"></script>
+    <script src="../js/Responzivitas.js"></script>
     <script src="../js/admin/jsAdminFoglalas.js"></script>
-
 
     <style>
         /* Betűtípusok */
@@ -27,31 +25,18 @@
 
     <!-- Stílusok -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../css/szerkezet.css" />
-    <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/nav.css" />
+
     <link rel="stylesheet" href="../css/admin/admin.css" />
 </head>
 
 <body>
     <main>
-        <!-- TABLET, STB. NÉZET -->
-        @include('komponensek/felhasznaloNav')
-
-        <!--   Fejléc -->
-        @include('komponensek/header')
 
         <div id="primary_content">
 
             <!-- ADMIN TÁBLÁZAT, KERESÉS -->
-            <div class="adminKereses">
-                <div class="n1">
-                    <div class="kereses">
-                        <i class="far fa-search"></i>
-                        <input type="text" placeholder="Search">
-                    </div>
-                </div>
+            <div class="adminKeresesFoglalas">
+
 
                 <div class="adminFeladatValasztas">
                     <div id="adminKategoriak">
@@ -61,18 +46,20 @@
                     </div>
                 </div>
 
-                <!-- szűrt adatok linkjei -->
+                <div class="ujAdatokFelvetele">
+                    <!-- szűrt adatok linkjei -->
 
-                <div class="szures">
+                    <div class="szures">
 
-                    <a href="/maiElvitel" class="elvitelSzures">Mai elvitel</a>
-                    <a href="/maiVisszahozatal" class="visszahozatalSzures">Mai visszahozatal</a>
-                    <a href="adminFoglalas" class="osszesSzures">Összes foglalás</a>
+                        <a href="/maiElvitel" class="elvitelSzures">Mai elvitel</a>
+                        <a href="/maiVisszahozatal" class="visszahozatalSzures">Mai visszahozatal</a>
+                        <a href="adminFoglalas" class="osszesSzures">Összes foglalás</a>
 
+                    </div>
+                </div>
 
-
-
-
+                <div class="ujAdatokFelvetele">
+                    <a href="logout">Kijelentkezés</a>
                 </div>
             </div>
 
@@ -109,8 +96,8 @@
             <!-- fő adatrészek -->
 
             @if(session()->has('status'))
-                <p class="uzenet">{{session('status')}}</p>
-                @endif
+            <p class="uzenet">{{session('status')}}</p>
+            @endif
 
             <div class="foglalasAdmin">
                 <div class="fogFejlec">
@@ -183,10 +170,8 @@
 
 
             </div>
-</div>
+        </div>
 
-            <!-- Footer -->
-            @include('komponensek/footer')
     </main>
 </body>
 
