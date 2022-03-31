@@ -17,7 +17,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
-    <script src="../js/hambiMenu.js"></script>
     <script src="../js/admin/adminAutok.js"></script>
 
     <style>
@@ -31,38 +30,17 @@
 
     <!-- Stílusok -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../css/szerkezet.css" />
-    <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/admin/admin.css" />
     <link rel="stylesheet" href="../css/admin/modal.css" />
 </head>
 
 <body>
     <main>
-        <!-- TABLET, STB. NÉZET -->
-        @include('komponensek/felhasznaloNav')
-
-        <!--   Fejléc -->
-        @include('komponensek/header')
 
         <div id="primary_content">
 
             <!-- ADMIN TÁBLÁZAT, KERESÉS -->
             <div class="adminKereses">
-                <div class="n1">
-                    <!-- <div class="kereses">
-                        <form action="{{ url('/adminAutok/keres/') }}" method="POST">
-                            @method('get')
-                            @csrf
-                            <input type="text" name="name"/>
-                            <input type="submit" value="Keresés"/>
-                        </form>
-                        <i class="far fa-search"></i>
-                        <input id="fkereses" type="text" placeholder="alvázszám" value="">
-                </div> -->
-                </div>
 
                 <div class="adminFeladatValasztas">
                     <div id="adminKategoriak">
@@ -73,7 +51,7 @@
                 </div>
 
                 <div class="ujAdatokFelvetele">
-                    <div>
+                    <div class="ujGombok">
                         <!-- <a href="#autoAdatokFeltoltes"><input type="button" name="ujAutoGomb" class="ujAutoGomb"
                                 value="Új autó felvétele"></a> -->
                         <button type="button" id="buttonAuto" data-toggle="modal" data-target="#ujAutoModal">
@@ -82,7 +60,7 @@
 
                     </div>
 
-                    <div>
+                    <div class="ujGombok">
                         <!-- <a href="#modellAdatokFeltoltes"><input type="button" name="ujModellGomb" class="ujModellGomb"
                                 value="Új modell felvétele"></a> -->
                         <button type="button" id="buttonModell" data-toggle="modal" data-target="#ujModellModal">
@@ -90,13 +68,17 @@
                         </button>
                     </div>
 
-                    <div>
+                    <div class="ujGombok">
                         <!-- <a href="#kepAdatokFeltoltes"><input type="button" name="ujKepGomb" class="ujKepGomb"
                                 value="Új kép felvétele"></a> -->
                         <button type="button" id="buttonKep" data-toggle="modal" data-target="#ujKepModal">
                             Új kép felvétele
                         </button>
                     </div>
+                </div>
+
+                <div class="ujAdatokFelvetele">
+                    <a href="logout">Kijelentkezés</a>
                 </div>
 
             </div>
@@ -395,7 +377,7 @@
 
         </div>
         <!-- Footer -->
-        @include('komponensek/footer')
+
     </main>
 </body>
 

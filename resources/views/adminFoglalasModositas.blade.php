@@ -12,7 +12,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/reszponzivDolgok.js"></script>
-    <script src="../js/hambiMenu.js"></script>
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
 
@@ -46,7 +45,7 @@
 
         <div id="primary_content">
 
-      
+
 
             <!-- Foglalás módosításának a formja-->
 
