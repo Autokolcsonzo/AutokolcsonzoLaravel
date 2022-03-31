@@ -49,7 +49,7 @@ Route::get('felhasznaloadmin', [FelhasznaloAdmin::class, 'index']);
 Route::post('felhasznaloadmin', [FelhasznaloAdmin::class, 'store'])->name('uj.felhasznaloadmin');
 Route::get('felhasznaloadmin/{felhasznalo}/edit', [FelhasznaloAdmin::class, 'edit']);
 Route::put('felhasznaloadmin/{felhasznalo}', [FelhasznaloAdmin::class, 'update'])->name('updateadmin.felhasznalo');
-Route::delete('felhasznaloadmin/{felhasznalo}', [FelhasznaloAdmin::class, 'destroy'])->name('delete.felhasznalo');
+Route::delete('felhasznaloadmin/delete/{id}', [FelhasznaloAdmin::class, 'destroy']);
 Route::get('felhasznaloadmin/expand={child}', [FelhasznaloAdmin::class, 'expandTelephely']);
 Route::get('felhasznaloadmin/keres', [FelhasznaloAdmin::class, 'keres']);
 

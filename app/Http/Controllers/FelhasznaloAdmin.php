@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FelhasznaloModell;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -77,8 +78,28 @@ class FelhasznaloAdmin extends Controller
 
    public function destroy($felhasznalo_id)
    {
+      
+      $foglalasid = DB::table('foglalas')
+      ->select('fogl_azonosito')
+      ->distinct()
+      ->where('felhasznalo', '=', $felhasznalo_id)
+      ->get();
+      $foglIdArray = array();
+      foreach ($foglalasid as $value) {
+         foreach ($value as $id) {
+            array_push($foglIdArray, $id);
+         }
+      }
 
-      $felhasznalo = FelhasznaloModell::find($felhasznalo_id)->first();
+      DB::table('fizetes')
+      ->whereIn('fogl_azonosito', $foglIdArray)
+      ->delete();
+
+      DB::table('foglalas')
+      ->whereIn('fogl_azonosito', $foglIdArray)
+      ->delete();
+
+      $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
       $felhasznalo->delete();
 
 

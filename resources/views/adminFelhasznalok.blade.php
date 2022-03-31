@@ -7,7 +7,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content=<?php $token = csrf_token();
+                                    echo $token; ?>>
 
 
 
@@ -19,7 +20,7 @@
     <script src="../js/admin/jsFelhasznalok.js"></script>
     <script src="../js/reszponzivDolgok.js"></script>
     <script src="../js/hambiMenu.js"></script>
-    <script src="../js/admin/adminAutok.js"></script>
+   
     <style>
         /* Betűtípusok */
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
@@ -148,18 +149,17 @@
                         <p><input type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
                         <p><input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" /></p>
 
-                        @foreach($felhasznalo as $f)
+
                       
 
-                        <form action='{{route("delete.felhasznalo",$f->felhasznalo_id)}}' id="torlesform" method="POST">
-                        @endforeach
+                    
                            
                             @method('DELETE')
                             @csrf
 
 
                             <button type="submit" class="torles">Törlés</button>
-                        </form>
+                      
                     </div>
                     <!-- részletek -->
 

@@ -119,7 +119,7 @@ class FelhasznaloProfil extends Controller
             $folder= $data['felhasznalo_id'];
             $image_Name = $image->getClientOriginalName();
             $image_path = 'kepek/profilkepek/'.$folder.'/'.$image_Name;
-            request()->file("profilkep")->move(public_path('public/kepek/profilkepek/'.$folder), $image_Name);
+            request()->file("profilkep")->move(public_path('kepek/profilkepek/'.$folder), $image_Name);
             $data['profilkep'] = $image_path;
         }
 

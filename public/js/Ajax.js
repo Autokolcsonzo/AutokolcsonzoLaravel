@@ -12,7 +12,6 @@ class MyAjax {
                 result.forEach((value) => {
                     tomb.push(value);
                 });
-               
 
                 myCallback(tomb);
             },
@@ -20,6 +19,7 @@ class MyAjax {
     }
 
     postAdat(apiVegpont, adat) {
+        adat._token = this.token;
         $.ajax({
             headers: { "X-CSRF-TOKEN": this.token },
             url: apiVegpont,
@@ -34,17 +34,18 @@ class MyAjax {
     deleteAdat(apiVegpont, id) {
         $.ajax({
             headers: { "X-CSRF-TOKEN": this.token },
-            url: apiVegpont + "/" + id,
+            url: apiVegpont + id,
             type: "DELETE",
-
+            mode: "no-cors",
+            data: this.token,
             success: function (result) {
                 console.log(result);
-             
             },
         });
     }
 
     putAdat(apiVegpont, id, adat) {
+        adat._token = this.token;
         $.ajax({
             headers: { "X-CSRF-TOKEN": this.token },
             datatype: "JSON",

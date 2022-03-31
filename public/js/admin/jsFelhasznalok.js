@@ -55,9 +55,8 @@ $(function () {
 
     $(window).on("torol", (event) => {
         let id = event.detail.felhasznalo_id;
-  
 
-        myAjax.deleteAdat(apiVegpont, id);
+        myAjax.deleteAdat(apiVegpont+"/delete/", id);
     });
 
     /*Módosítás*/
