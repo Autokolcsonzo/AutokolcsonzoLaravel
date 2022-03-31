@@ -77,9 +77,10 @@ Route::post('/admin_kepek', [AdminAutokController::class, 'ujKep'])->name('admin
 Route::middleware([adminFoglalasMiddleware::class])->group(function () {
     Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);
     Route::get('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'edit'])->name('adminfoglalas.edit');
-    Route::get('/maiElvitel', [AdminFoglalasController::class, 'maiElvitel']);
-    Route::get('/maiVisszahozatal', [AdminFoglalasController::class, 'maiVisszahozatal']);
 });
+
+Route::get('/maiElvitel', [AdminFoglalasController::class, 'maiElvitel']);
+Route::get('/maiVisszahozatal', [AdminFoglalasController::class, 'maiVisszahozatal']);
 
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
 Route::put('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'update'])->name('adminfoglalas.update');
