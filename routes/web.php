@@ -62,29 +62,30 @@ Route::get('/jarmuTalalatiLista', [jarmuTalalatiListaController::class, 'dashboa
 Route::middleware([adminMiddleware::class])->group(function () {
     Route::get('/adminAutok', [AdminAutokController::class, 'adatokKiiratasa']);
     Route::get('/adminAutokEdit/{autok}', [AdminAutokController::class, 'edit']);
-    Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
-    Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
-    Route::get('/adminAutok/keres/', [AdminAutokController::class, 'keres']);
-
-    Route::post('/admin_autok', [AdminAutokController::class, 'ujAuto'])->name('admin_autok');
-    Route::post('/admin_modellek', [AdminAutokController::class, 'ujModell'])->name('admin_modellek');
-    Route::post('/admin_kepek', [AdminAutokController::class, 'ujKep'])->name('admin_kepek');
 });
+Route::put('/adminAutokEdit/{autok}', [AdminAutokController::class, 'update']);
+Route::delete('/delete/{alvazSzam}', [AdminAutokController::class, 'delete']);
+Route::get('/adminAutok/keres/', [AdminAutokController::class, 'keres']);
+
+Route::post('/admin_autok', [AdminAutokController::class, 'ujAuto'])->name('admin_autok');
+Route::post('/admin_modellek', [AdminAutokController::class, 'ujModell'])->name('admin_modellek');
+Route::post('/admin_kepek', [AdminAutokController::class, 'ujKep'])->name('admin_kepek');
 
 /* AdminFoglalas */
 Route::middleware([adminFoglalasMiddleware::class])->group(function () {
     Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
-    Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);
-    Route::get('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'edit'])->name('adminfoglalas.edit');
     Route::put('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'update'])->name('adminfoglalas.update');
-    Route::get('/maiElvitel', [AdminFoglalasController::class, 'maiElvitel']);
-    Route::get('/maiVisszahozatal', [AdminFoglalasController::class, 'maiVisszahozatal']);
 });
+
+Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);
+Route::get('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'edit'])->name('adminfoglalas.edit');
+Route::get('/maiElvitel', [AdminFoglalasController::class, 'maiElvitel']);
+Route::get('/maiVisszahozatal', [AdminFoglalasController::class, 'maiVisszahozatal']);
 
 /* AdminFelhasznalok */
 Route::middleware([adminFelhasznaloMiddleware::class])->group(function () {
-    Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratasa']);
 });
+Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratasa']);
 
 
 /* felhasznaloProfilApi */
