@@ -40,7 +40,11 @@
 <body>
     <main>
         <!-- TABLET, STB. NÉZET -->
-        @include('komponensek/nav')
+        @if(Auth('felhasznalo'))
+            @include('komponensek/felhasznaloNav')
+        @else
+            @include('komponensek/nav')
+        @endif
 
         <!--   Fejléc -->
         @include('komponensek/header')
@@ -101,7 +105,7 @@
 
                     <div class="placeholder_item2">
                             <div class="tartalom">
-                                <img src="kepek/probaauto.jpg" alt="" class="kep" />
+                                <img src="kepek/probaauto.jpg" alt="" class="kep" style="width:350px; height:200px"/>
                                 <h3 class="marka">Ford</h3>
                                 <p class="modell">Fiesta</p>
                                 <p class="napiAr">

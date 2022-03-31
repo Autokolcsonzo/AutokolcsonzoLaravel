@@ -9,7 +9,7 @@ $(function () {
 
     let apiVegpont =
         url +
-        "api/auto_fill/null/null/null/null/null/null/null/null/null/null/null/null/null";
+        "api/auto_fill/null/null/null/null/null/null/null/null/null/null/null/null/null/alvazSzam/asc";
 
     myAjax.getAdat(apiVegpont, autok, Megjelenit);
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\jarmuTalalatiListaController;
 use App\Http\Middleware\adminMiddleware;
 use App\Http\Middleware\adminFelhasznaloMiddleware;
 use App\Http\Middleware\adminFoglalasMiddleware;
+use App\Http\Middleware\AutokListazasaController;
 
 
 /* Regisztráció, bejelentkezés, kiejelntkezés */
@@ -27,7 +28,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+/* Route::get('/osszesAutoMenubol', function () {
+    return view('osszesAutoMenubol');
+}); */
+
 Route::get('osszesAutoMenubol', [osszesAutoMenubolController::class, 'index'])->name('osszesAutoMenubol');
+
+//Route::get('auto_fill/{mezo}/{helyszin}/{elvitel}/{visszahoz}/{marka}/{modell}/{kivitel}/{uzemanyag}/{evTol}/{evIg}/{arTol}/{arIg}/{checkboxok}/{oszlop}/{sorrend}', [AutokListazasaController::class, 'keresesParameteresen'])->name('osszesAutoMenubol');
 
 Route::get('felhasznaloiProfil', function () {
     return view('felhasznaloiProfil');
