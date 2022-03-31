@@ -60,7 +60,7 @@ class KeresoFeltolteseLocalStorage {
             this.kulcsszo.val(keresOBJ.kulcsszo);
             this.telephely.val(keresOBJ.telephely);
             
-            if(localElInteger < minDatumIntager){
+            if(localElInteger2 < minDatumIntager){
                 console.log('hibás elvitel');
                 this.elvitelDatuma.val(minDatumString).change();
                 this.visszavitelDatuma.val(minDatumString).change();
