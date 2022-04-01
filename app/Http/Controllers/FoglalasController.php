@@ -40,7 +40,7 @@ class FoglalasController extends Controller
         }else{
             $datumString = 'elvitel >= DATE_ADD("'.$request->foglalas_tol.'", INTERVAL -1 DAY) AND visszahozatal <= DATE_ADD("'.$request->foglalas_ig.'", INTERVAL 1 DAY)';
         }
-        $tiltottAlvazSzam = DB::table('auto_fill')
+        $tiltottAlvazSzam = DB::table('foglalas')
             ->select('alvazSzam')
             ->distinct()
             ->whereRaw($datumString)

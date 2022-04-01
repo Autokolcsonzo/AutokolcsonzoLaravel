@@ -17,7 +17,7 @@ class AdminFoglalasController extends Controller
 
 
         DB::table('foglalas')
-              ->whereRaw('ervenyessegi_ido < NOW()')
+              ->whereRaw('ervenyessegi_ido < CURRENT_DATE')
               ->update(['allapot' => 'Teljesítve']);
 
 
