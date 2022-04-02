@@ -17,8 +17,6 @@ use App\Http\Middleware\adminFelhasznaloMiddleware;
 use App\Http\Middleware\adminFoglalasMiddleware;
 use App\Http\Middleware\AutokListazasaController;
 
-
-
 /* Regisztráció, bejelentkezés, kiejelntkezés */
 
 Route::get('/login', [CustomAuthController::class, 'login'])->middleware('alreadyLoggedIn');
@@ -31,37 +29,22 @@ Route::get('/logout', [CustomAuthController::class, 'logout']);
 /* Alap routeok */
 
 Route::get('/', [welcomeUserController::class, 'welcomekUser'])->name('welcome');
-
-/* Route::get('/osszesAutoMenubol', function () {
-    return view('osszesAutoMenubol');
-}); */
-
+Route::get('/rolunk', [RolunkController::class, 'rolunkUser'])->name('rolunk');
+Route::get('/feltetelek', [ReszletekController::class, 'feltetelekUser'])->name('feltetelek');
 Route::get('osszesAutoMenubol', [osszesAutoMenubolController::class, 'index'])->name('osszesAutoMenubol');
-
-//Route::get('auto_fill/{mezo}/{helyszin}/{elvitel}/{visszahoz}/{marka}/{modell}/{kivitel}/{uzemanyag}/{evTol}/{evIg}/{arTol}/{arIg}/{checkboxok}/{oszlop}/{sorrend}', [AutokListazasaController::class, 'keresesParameteresen'])->name('osszesAutoMenubol');
-
 Route::get('felhasznaloiProfil', function () {
     return view('felhasznaloiProfil');
 });
-
 Route::get('felhasznaloiFoglalasok', function () {
     return view('felhasznaloiFoglalasok');
 });
-
-/*Route::get('feltetelek', function () {
-    return view('feltetelek');
-});*/
-
-Route::get('/rolunk', [RolunkController::class, 'rolunkUser'])->name('rolunk');
-Route::get('/feltetelek', [ReszletekController::class, 'feltetelekUser'])->name('feltetelek');
-
 Route::get('foglalasUzenet', function () {
     return view('foglalasUzenet');
 })->name('foglalasUzenet');
-
 Route::get('/jarmuTalalatiLista', [jarmuTalalatiListaController::class, 'dashboard'])->middleware('isLoggedIn');
 
 /* AdminAutok */
+
 Route::middleware([adminMiddleware::class])->group(function () {
     Route::get('/adminAutok', [AdminAutokController::class, 'adatokKiiratasa']);
 });
@@ -75,6 +58,7 @@ Route::post('/admin_modellek', [AdminAutokController::class, 'ujModell'])->name(
 Route::post('/admin_kepek', [AdminAutokController::class, 'ujKep'])->name('admin_kepek');
 
 /* AdminFoglalas */
+
 Route::middleware([adminFoglalasMiddleware::class])->group(function () {
     Route::get('adminFoglalas', [AdminFoglalasController::class, 'adatokKiiratasa']);
 });
@@ -88,12 +72,14 @@ Route::get('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController:
 Route::put('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'update'])->name('adminfoglalas.update');
 
 /* AdminFelhasznalok */
+
 Route::middleware([adminFelhasznaloMiddleware::class])->group(function () {
     Route::get('/adminFelhasznalok', [FelhasznalokController::class, 'adatokKiiratasa']);
 });
 
 
 /* felhasznaloProfilApi */
+
 Route::get('/felhasznaloiProfil', [FelhasznaloProfil::class, 'bejelentkezett'])->middleware('isLoggedIn');
 
 Route::put('/update', [FelhasznaloProfil::class, 'update'])->name('felhasznalok.update');

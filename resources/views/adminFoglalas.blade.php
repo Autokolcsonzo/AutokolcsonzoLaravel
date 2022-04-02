@@ -11,7 +11,6 @@
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <script src="../js/Responzivitas.js"></script>
     <script src="../js/admin/jsAdminFoglalas.js"></script>
 
     <style>
@@ -39,13 +38,13 @@
 
                 <div class="adminFeladatValasztas">
                     <div id="adminKategoriak">
-                        <a href="{{ 'adminAutok' }}">Autók</a>
+                        <a href="{{ 'dashboard' }}">Autók</a>
                         <a href="{{ 'adminFelhasznalok' }}">Felhasználók</a>
                         <a href="#">Foglalások</a>
                     </div>
                 </div>
 
-                <div class="ujAdatokFelvetele">
+                <div class="foglalasSzuresGombok">
                     <!-- szűrt adatok linkjei -->
 
                     <div class="szures">

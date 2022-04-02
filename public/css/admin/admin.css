@@ -68,7 +68,8 @@ body {
 
 .adminKereses .adminFeladatValasztas,
 .ujAdatokFelvetele,
-.jogkorValasztas {
+.jogkorValasztas,
+.foglalasSzuresGombok {
     display: flex;
     margin-left: 5%;
 }

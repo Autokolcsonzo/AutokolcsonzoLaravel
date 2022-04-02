@@ -41,13 +41,13 @@
 
                 <div class="adminFeladatValasztas">
                     <div id="adminKategoriak">
-                        <a href="{{ 'adminAutok' }}">Autók</a>
+                        <a href="{{ 'dashboard' }}">Autók</a>
                         <a href="{{ 'adminFelhasznalok' }}">Felhasználók</a>
                         <a href="#">Foglalások</a>
                     </div>
                 </div>
 
-                <div class="ujAdatokFelvetele">
+                <div class="foglalasSzuresGombok">
                     <!-- szűrt adatok linkjei -->
                     <div class="szures">
 
