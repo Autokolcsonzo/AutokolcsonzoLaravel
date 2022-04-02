@@ -136,19 +136,20 @@ class AutokListazasaController extends Controller
         //die;
         //dd($marka);
 
-        $tiltottAlvazSzam = DB::table('auto_fill')
+        $tiltottAlvazSzam = DB::table('foglalas')
             ->select('alvazSzam')
             ->distinct()
             ->whereRaw($datumString)
             ->get();
-
+        
 
         //push a tiltott alvazszamokat a tiltottAlvazSzam tombbe
         $tiltottAlvazSzamArray = array();
         foreach ($tiltottAlvazSzam as $key => $value) {
             array_push($tiltottAlvazSzamArray, $value->alvazSzam);
         }
-        //dd($tiltottAlvazSzamArray);
+        //10 - 0 
+        //dd('foglalas', $tiltottAlvazSzamArray);
 
 
         $result = DB::table('auto_fill')
