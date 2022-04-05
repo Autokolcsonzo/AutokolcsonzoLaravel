@@ -9,7 +9,10 @@ class FoglalasMain {
         const sablonElem = $(".modal-content");
         sablonElem.remove();
         const FoglalasEmbed = sablonElem.clone().appendTo(szuloElem);
-        const foglalasHandeler = new FoglalasFeltoltes(FoglalasEmbed,foglalasraObj);
+        const foglalasHandeler = new FoglalasFeltoltes(
+            FoglalasEmbed,
+            foglalasraObj
+        );
         sablonElem.hide();
     }
 }
@@ -62,7 +65,7 @@ class FoglalasFeltoltes {
             this.VegosszegKalkulalasa(this.adat);
             //this.handelerMinIdoUtkozes();
         });
-         $("#foglalas-tolI,#foglalas-igI").on("change", () => {
+        $("#foglalas-tolI").on("change", () => {
             //this.setMinMaxDatumOnClick();
             //this.setMinFogIdo();
             this.handelerMinIdoUtkozes();
@@ -242,6 +245,7 @@ class FoglalasFeltoltes {
             $("#foglalas-igD").val() ==
             this.getMinFogElvitelDatum().MinDatumString
         ) {
+            $("#foglalas-tolI option[value='00:00:00']").remove();
             for (let index = ora + 2; index <= 24; index++) {
                 if (ora + 2 == index) {
                     $("#foglalas-igI").append(
@@ -279,10 +283,20 @@ class FoglalasFeltoltes {
     }
 
     handelerMinIdoUtkozes() {
+        let today = new Date();
+        let ora = today.getHours();
+        let perc = today.getMinutes();
+        if (perc < 10) {
+            perc = "0" + perc;
+        } else if (perc == 0) {
+            perc = "00";
+        }
         if (
             $("#foglalas-tolD").val() == $("#foglalas-igD").val() &&
-            $("#foglalas-tolD").val() != this.getMinFogElvitelDatum().MinDatumString
+            $("#foglalas-tolD").val() !=
+                this.getMinFogElvitelDatum().MinDatumString
         ) {
+            $("#foglalas-tolI option[value='00:00:00']").remove();
             let elvitelOra = parseInt($("#foglalas-tolI").val().split(":"));
             if (isNaN(elvitelOra)) {
                 elvitelOra = 0;
@@ -291,7 +305,7 @@ class FoglalasFeltoltes {
             for (let index = elvitelOra + 1; index <= 24; index++) {
                 if (index == 24) {
                     $("#foglalas-igI").append(
-                        `<option value="00:00:00"}">${"00:00"}</option>`
+                        `<option value="23:59:00"}">${"23:59"}</option>`
                     );
                 } else {
                     $("#foglalas-igI").append(
@@ -301,6 +315,42 @@ class FoglalasFeltoltes {
                     );
                 }
             }
+        }
+        if (
+            $("#foglalas-tolD").val() == $("#foglalas-igD").val() &&
+            $("#foglalas-tolD").val() == this.getMinFogElvitelDatum().MinDatumString
+        ) {
+            console.log("to day handeler");
+
+            $("#foglalas-igI").empty();
+
+            console.log("üritve");
+            let elvOraInt = $("#foglalas-tolI").val();
+            elvOraInt = elvOraInt.split(":");
+            elvOraInt = parseInt(elvOraInt);
+            let visszaOraInt = $("#foglalas-tolI").val();
+            visszaOraInt = visszaOraInt.split(":");
+            visszaOraInt = parseInt(visszaOraInt);
+                for (let index = elvOraInt + 1; index <= 24; index++) {
+                    if (elvOraInt-1 == ora && index == elvOraInt+1) {
+                        $("#foglalas-igI").append(
+                            `<option value="${index + ":" + perc + ":00"}">${
+                                index + ":" + perc
+                            }</option>`
+                        );
+                    } else if (index == 24) {
+                        $("#foglalas-igI").append(
+                            `<option value="23:59:00">${"23:59"}</option>`
+                        );
+                    } else {
+                        $("#foglalas-igI").append(
+                            `<option value="${index + ":00:00"}">${
+                                index + ":00"
+                            }</option>`
+                        );
+                    }
+                }
+                
         }
     }
 
@@ -344,8 +394,6 @@ class FoglalasFeltoltes {
         //apiVegpont = apiVegpont;
         //const autoA = new AutoAjax(token);
         //autoA.postAdat(apiVegpont ,foglalas);
-
-        
     }
 }
 
@@ -361,26 +409,36 @@ class KedvezmenyAjax {
             url: apiVegpont,
             type: "GET",
             success: function (result) {
-                let txt = "{"
+                let txt = "{";
                 result.forEach((value, index) => {
-                   index++;
-                    if(index == result.length){
-                        txt += '"'+value.naptol+'"'+":"+value.szazalek+"";
-                    }else{
-                        txt += '"'+value.naptol+'"'+":"+value.szazalek+",";
+                    index++;
+                    if (index == result.length) {
+                        txt +=
+                            '"' +
+                            value.naptol +
+                            '"' +
+                            ":" +
+                            value.szazalek +
+                            "";
+                    } else {
+                        txt +=
+                            '"' +
+                            value.naptol +
+                            '"' +
+                            ":" +
+                            value.szazalek +
+                            ",";
                     }
-                   
                 });
-                txt+="}";
+                txt += "}";
                 kedvezmenyek = JSON.parse(txt);
-                console.log(txt)
+                console.log(txt);
                 localStorage.setItem(
                     "kedvezmenyek",
                     JSON.stringify(kedvezmenyek)
                 );
             },
-            
         });
-        console.log(kedvezmenyek)
+        console.log(kedvezmenyek);
     }
 }

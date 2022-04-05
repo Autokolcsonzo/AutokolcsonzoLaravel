@@ -39,7 +39,7 @@ class adminFoglalasMiddleware
                 'foglalas_osszege',
                 'fogl_kelt'
 
-            )->get()->sortByDesc('fogl_kelt');
+            )->get()->sortByDesc('fogazon_foglalas');
         // return $adatok;
 
         if (Session()->has('loginId')) {
