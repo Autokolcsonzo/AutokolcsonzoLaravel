@@ -153,7 +153,7 @@ class DatumIdo {
     }
 
     handelerMinIdoUtkozes() {
-        if($("#elvitel").val() > $("#visszavitel").val()){
+        /*if($("#elvitel").val() > $("#visszavitel").val()){
             return
         }else{
             if (
@@ -180,7 +180,7 @@ class DatumIdo {
                     }
                 }
             }
-        }
+        }*/
     }
 
     handelerMinDatumUtkozes() {

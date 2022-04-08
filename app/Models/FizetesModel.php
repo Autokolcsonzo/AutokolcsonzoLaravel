@@ -14,7 +14,7 @@ class FizetesModel extends Model
    
 
     protected $fillable = [
-  
+        'kifizetes_id',
         'fogl_azonosito',
         'kelt',
         'sorszam',
