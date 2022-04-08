@@ -91,7 +91,7 @@ class CustomAuthController extends Controller
 
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
+        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszeg');
 
         $data = array();
         if (Session::has('loginId')) {

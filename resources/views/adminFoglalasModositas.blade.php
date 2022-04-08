@@ -118,8 +118,8 @@
                             </div>
 
                             <div class="inputfield">
-                                <label for="kifizetendo_osszegeg">Kifizetendő összeg:</label><br>
-                                <input type="text" name="kifizetendo_osszegeg" id="kifizetendo_osszegegf" value="{{ old('kifizetendo_osszegeg') ?? $data->kifizetendo_osszegeg }}" />
+                                <label for="kifizetendo_osszeg">Kifizetendő összeg:</label><br>
+                                <input type="text" name="kifizetendo_osszeg" id="kifizetendo_osszegf" value="{{ old('kifizetendo_osszeg') ?? $data->kifizetendo_osszeg }}" />
                             </div>
 
                         </div>
