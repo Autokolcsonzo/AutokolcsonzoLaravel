@@ -17,8 +17,9 @@ class FelhasznaloProfil extends Controller
 
 
 
-    public function bejelentkezett()
+    public function bejelentkezett(Request $request)
     {
+      
         $data = array();
         $password = array();
         if (Session::has('loginId')) {
@@ -38,7 +39,7 @@ class FelhasznaloProfil extends Controller
 
     {
 
-        Hash::make($request->input['jelszo']);
+     
 
         $rules = [
             'felhasznalonev' => 'min:4|max:10',
@@ -79,6 +80,7 @@ class FelhasznaloProfil extends Controller
         $data->varos = $input['varos'];
         $data->utca = $input['utca'];
         $data->hazszam = $input['hazszam'];
+     
 
 
 
