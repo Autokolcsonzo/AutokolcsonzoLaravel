@@ -100,8 +100,7 @@ class CustomAuthController extends Controller
                 return view('dashboard', compact('data'));
             }
             if ($data->jogkor == 2) {
-                return
-                    view('adminAutok', compact('data', 'telephely', 'modell', 'adat', 'felhasznalok', 'foglalasok', 'bevetel'));
+                return view('adminAutok', compact('data', 'telephely', 'modell', 'adat', 'felhasznalok', 'foglalasok', 'bevetel'));
             }
         }
     }
