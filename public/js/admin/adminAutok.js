@@ -106,7 +106,7 @@ function kepModal() {
     });
 }
 
-function ujAutoFelvitele() {
+/* function ujAutoFelvitele() {
     $("#addform").on("submit", function (e) {
         e.preventDefault();
 
@@ -125,7 +125,7 @@ function ujAutoFelvitele() {
             },
         });
     });
-}
+} */
 
 function ujModellFelvitele() {
     $("#addform").on("submit", function (e) {
