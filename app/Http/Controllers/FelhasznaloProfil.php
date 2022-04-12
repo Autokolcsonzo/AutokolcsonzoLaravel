@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\FelhasznaloModell;
-use App\Models\Felhasznalo;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -17,12 +16,13 @@ class FelhasznaloProfil extends Controller
 
 
 
-    public function bejelentkezett()
+    public function bejelentkezett(Request $request)
     {
+      
         $data = array();
         $password = array();
         if (Session::has('loginId')) {
-            $data = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
+            $data = FelhasznaloModell::where('felhasznalo_id', '=', Session::get('loginId'))->first();
         }
 
 
@@ -38,7 +38,7 @@ class FelhasznaloProfil extends Controller
 
     {
 
-        Hash::make($request->input['jelszo']);
+     
 
         $rules = [
             'felhasznalonev' => 'min:4|max:10',
@@ -79,6 +79,7 @@ class FelhasznaloProfil extends Controller
         $data->varos = $input['varos'];
         $data->utca = $input['utca'];
         $data->hazszam = $input['hazszam'];
+     
 
 
 
@@ -98,14 +99,15 @@ class FelhasznaloProfil extends Controller
         $felhasznalo = FelhasznaloModell::find($felhasznalo_id);
 
         $rules = [
-            'profilkep' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000'
+            'profilkep' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
         ];
 
         $customMessages = [
             'profilkep.mimes' => 'Csak jpg, png, jpeg, gif és svg formátumú kép tölthető fel.',
             'profilkep.image' => 'Csak kép tölthető fel.',
-            'profilkep.max' => 'Túl nagy képet próbálsz feltölteni.'
-
+            'profilkep.max' => 'Túl nagy képet próbálsz feltölteni.',
+           
+            
 
         ];
 

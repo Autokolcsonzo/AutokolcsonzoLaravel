@@ -14,13 +14,13 @@ class FizetesModel extends Model
    
 
     protected $fillable = [
-  
+        'kifizetes_id',
         'fogl_azonosito',
         'kelt',
         'sorszam',
         'fizetes_alapja',
         'befizetett_osszeg',
-        'kifizetendo_osszegeg',
+        'kifizetendo_osszeg',
         'created_at',
         'updated_at'
     ];

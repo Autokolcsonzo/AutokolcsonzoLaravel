@@ -149,7 +149,7 @@
                                     <p class="allapot">{{$data->allapot}}</p>
                                     <p class="fizetes_alapja">{{$data->fizetes_alapja}}</p>
                                     <p class="befizetett_osszeg">{{$data->befizetett_osszeg}}</p>
-                                    <p class="kifizetendo_osszegeg">{{$data->kifizetendo_osszegeg}}</p>
+                                    <p class="kifizetendo_osszeg">{{$data->kifizetendo_osszeg}}</p>
                                     <p class="foglalas_osszege">{{$data->foglalas_osszege}}</p>
 
 

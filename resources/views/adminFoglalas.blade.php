@@ -10,7 +10,8 @@
 
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="../js/admin/jsAdminFoglalas.js"></script>
 
     <style>
@@ -20,6 +21,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+
     </style>
 
     <!-- Stílusok -->
@@ -69,7 +71,7 @@
                 <div class="val-box">
                     <i class="fas fa-users"></i>
                     <div class="felhasznalokSzamaSablon">
-                        <h3 class="felhasznalokSzama">{{$felhasznalok}}</h3>
+                        <h3 class="felhasznalokSzama">{{ $felhasznalok }}</h3>
                         <span>Összes felhasználó</span>
                     </div>
                 </div>
@@ -77,7 +79,7 @@
                 <div class="val-box">
                     <i class="fas fa-car"></i>
                     <div>
-                        <h3>{{$foglalasok}}</h3>
+                        <h3>{{ $foglalasok }}</h3>
                         <span>Összes foglalás</span>
                     </div>
                 </div>
@@ -85,7 +87,7 @@
                 <div class="val-box">
                     <i class="fas fa-money-check-alt"></i>
                     <div>
-                        <h3>{{$bevetel}}</h3>
+                        <h3>{{ $bevetel }}</h3>
                         <span>Bejövő összeg</span>
                     </div>
                 </div>
@@ -93,8 +95,8 @@
 
             <!-- fő adatrészek -->
 
-            @if(session()->has('status'))
-            <p class="uzenet">{{session('status')}}</p>
+            @if (session()->has('status'))
+                <p class="uzenet">{{ session('status') }}</p>
             @endif
 
             <div class="foglalasAdmin">
@@ -110,64 +112,93 @@
                 </div>
                 <div class="foglalas">
 
-                    @foreach($adat as $data)
-                    @if($loop->iteration % 2 == 0)
-                    <div class="foadatok even">
-                        @else
-                        <div class="foadatok odd">
-                            @endif
-                            <p class="fogazon_foglalas">{{$data->fogazon_foglalas}}</p>
-                            <p class="telephely">{{$data->varos}} {{$data->utca}}</p>
-                            <p class="alvazszam">{{$data->alvazSzam}}</p>
-                            <p class="alvazSzam">{{$data->felhasznalo}}</p>
-                            <p class="fogl_kelt">{{$data->fogl_kelt}}</p>
-                            <p><input id="{{$loop->index}}" type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
-                            <p>
-                                <a class="fadatokMod" href='{{route("adminfoglalas.edit",$data->fogazon_foglalas)}}'>Módosítás</a>
+                    @foreach ($adat as $data)
+                        @if ($loop->iteration % 2 == 0)
+                            <div class="foadatok even">
+                            @else
+                                <div class="foadatok odd">
+                        @endif
+                        <p class="fogazon_foglalas">{{ $data->fogazon_foglalas }}</p>
+                        <p class="telephely">{{ $data->varos }} {{ $data->utca }}</p>
+                        <p class="alvazszam">{{ $data->alvazSzam }}</p>
+                        <p class="alvazSzam">{{ $data->felhasznalo }}</p>
+                        <p class="fogl_kelt">{{ $data->fogl_kelt }}</p>
+                        <p><input id="{{ $loop->index }}" type="button" name="fReszletek" class="fReszletek"
+                                value="Részletek" /></p>
+                        <p><input id="{{ $loop->index }}" type="button" name="fFizetes" class="fFizetes"
+                                value="Fizetés" /></p>
+                        <p>
+                            <a class="fadatokMod"
+                                href="{{ route('adminfoglalas.edit', $data->fogazon_foglalas) }}">Módosítás</a>
 
-                            </p>
-
-                        </div>
-                        <!-- lenyíló részletek -->
-
-                        <div id="r{{$loop->index}}" class="reszletek">
-                            <div class="reszlet">
-                                <div class="reszletFejlec">
-                                    <h2>Elvitel</h2>
-                                    <h2>Visszahozatal</h2>
-                                    <h2>Érvényesség</h2>
-                                    <h2>Kedvezmény</h2>
-                                    <h2>Állapot</h2>
-                                    <h2>Fizetés alap</h2>
-                                    <h2>Befizetett</h2>
-                                    <h2>Kifizetendő</h2>
-                                    <h2>Összesen</h2>
-                                </div>
-                                <div class="reszletadatok">
-                                    <p class="elvitel">{{$data->elvitel}}</p>
-                                    <p class="visszahozatal">{{$data->visszahozatal}}</p>
-                                    <p class="ervenyessegi_ido">{{$data->ervenyessegi_ido}}</p>
-                                    <p class="kedvezmeny">{{$data->kedvezmeny}}</p>
-                                    <p class="allapot">{{$data->allapot}}</p>
-                                    <p class="fizetes_alapja">{{$data->fizetes_alapja}}</p>
-                                    <p class="befizetett_osszeg">{{$data->befizetett_osszeg}}</p>
-                                    <p class="kifizetendo_osszegeg">{{$data->kifizetendo_osszegeg}}</p>
-                                    <p class="foglalas_osszege">{{$data->foglalas_osszege}}</p>
-
-
-                                </div>
-                            </div>
-
-                        </div>
-                        @endforeach
-
-                    </div>
+                        </p>
 
                 </div>
 
+                <div id="a{{ $loop->index }}" class="fizetes">
+                    <section class="befizBox">
+                        <section class="vegosszegBox">
+                            <h4>foglalás végösszege</h4>
+                            <p>{{ $data->kifizetendo_osszeg }}</p>
+                        </section>
+                        <section class="befizzetettBox">
+                            <h4>Befizetett összeg</h4>
+                            <p>{{ $data->befizetett_osszeg }}</p>
+                        </section>
+                        <section class="hatralekBox">
+                            <h4>Hátralék</h4>
+                            <p>{{ $data->kifizetendo_osszeg - $data->befizetett_osszeg }}</p>
+                        </section>
+                        <section class="hatralekBox">
+                            <h4>Fizetés alapja</h4>
+                            <p class="fizetes_alapja">{{ $data->fizetes_alapja }}</p>
+                        </section>
+                        <form class="fizetes-form" method="POST" action='{{route("ujFizetes")}}' >
+                            <input type="hidden" name="fogazon_foglalas" value="{{ $data->fogazon_foglalas }}" />
+                            <section id="befizetes-form-box">
+                                <h4>befizetes</h4>
+                                <input class="befizInput" type="number" name="befizetes" placeholder="Fizetés" required />
+                                <input class="befizInput" type="text" name="alapja" placeholder="Befizetés alapja" required />
+                            </section>
+                            <input id="veglegesites" type="submit" value="Véglegesítés" />
+                        </form>
+                    </section>
 
+
+                </div>
+
+                <!-- lenyíló részletek -->
+
+                <div id="r{{ $loop->index }}" class="reszletek">
+                    <div class="reszlet">
+                        <div class="reszletFejlec">
+                            <h2>Elvitel</h2>
+                            <h2>Visszahozatal</h2>
+                            <h2>Érvényesség</h2>
+                            <h2>Kedvezmény</h2>
+                            <h2>Állapot</h2>
+                        </div>
+                        <div class="reszletadatok">
+                            <p class="elvitel">{{ $data->elvitel }}</p>
+                            <p class="visszahozatal">{{ $data->visszahozatal }}</p>
+                            <p class="ervenyessegi_ido">{{ $data->ervenyessegi_ido }}</p>
+                            <p class="kedvezmeny">{{ $data->kedvezmeny }}</p>
+                            <p class="allapot">{{ $data->allapot }}</p>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                @endforeach
 
             </div>
+
+        </div>
+
+
+
+        </div>
         </div>
 
     </main>

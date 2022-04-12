@@ -21,7 +21,7 @@ class CreateFizetesTable extends Migration
             $table->integer("sorszam");
             $table->char("fizetes_alapja", 30);
             $table->integer("befizetett_osszeg");
-            $table->integer("kifizetendo_osszegeg");
+            $table->integer("kifizetendo_osszeg");
             $table->timestamps();
         });
     }

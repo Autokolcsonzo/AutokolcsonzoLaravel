@@ -85,6 +85,19 @@ class CustomAuthController extends Controller
 
     public function dashboard()
     {
+        $adat = DB::table('auto')
+            ->join('modell', 'auto.modell', '=', 'modell.modell_id')
+            ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
+            ->select('modell.tipus', 'modell.uzemanyag', 'modell.teljesitmeny', 'modell.evjarat', 'auto.napiAr', 'auto.szin', 'auto.forgalmiSzam',  'auto.alvazSzam', 'auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
+            ->get();
+
+        $modell = DB::table('modell')->get();
+        $telephely = DB::table('telephely')->get();
+
+        $felhasznalok = DB::table('felhasznalo')->count();
+        $foglalasok = DB::table('foglalas')->count();
+        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszeg');
+
         $data = array();
         if (Session::has('loginId')) {
             $data = Felhasznalo::where('felhasznalo_id', '=', Session::get('loginId'))->first();
@@ -92,8 +105,7 @@ class CustomAuthController extends Controller
                 return view('dashboard', compact('data'));
             }
             if ($data->jogkor == 2) {
-                return
-                    view('adminAutok', compact('data', 'telephely', 'modell', 'adat', 'felhasznalok', 'foglalasok', 'bevetel'));
+                return view('adminAutok', compact('data', 'telephely', 'modell', 'adat', 'felhasznalok', 'foglalasok', 'bevetel'));
             }
         }
     }
