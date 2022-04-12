@@ -13,7 +13,7 @@ class adminMiddleware
     {
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
+        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszeg');
 
         $modell = DB::table('modell')->get();
         $telephely = DB::table('telephely')->get();
