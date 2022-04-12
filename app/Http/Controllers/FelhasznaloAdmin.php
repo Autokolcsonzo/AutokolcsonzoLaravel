@@ -107,11 +107,6 @@ class FelhasznaloAdmin extends Controller
    }
 
 
-   public function expandTelephely()
-   {
-      $felhasznalo = FelhasznaloModell::with('telephely')->get();
-      return $felhasznalo;
-   }
 
 
    public function keres(Request $request)

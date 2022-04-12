@@ -176,7 +176,7 @@ $(function () {
 
         felhasznalok.forEach(function (elem) {
             const ujElem = sablonElem.clone().appendTo(szuloElem);
-            const ujTermek = new Felhasznalo(ujElem, elem);
+            const ujFelhasznalo = new Felhasznalo(ujElem, elem);
         });
 
         FormMegjelenes();
@@ -192,7 +192,7 @@ $(function () {
         felhasznalok.forEach(function (elem) {
             if (elem["jogkor"] === 1) {
                 const ujElem = sablonElem.clone().appendTo(szuloElem);
-                const ujTermek = new Felhasznalo(ujElem, elem);
+                const ujFelhasznalo = new Felhasznalo(ujElem, elem);
             }
         });
         FormMegjelenes();
@@ -208,7 +208,7 @@ $(function () {
         felhasznalok.forEach(function (elem) {
             if (elem["jogkor"] === 2) {
                 const ujElem = sablonElem.clone().appendTo(szuloElem);
-                const ujTermek = new Felhasznalo(ujElem, elem);
+                const ujFelhasznalo = new Felhasznalo(ujElem, elem);
             }
         });
         FormMegjelenes();

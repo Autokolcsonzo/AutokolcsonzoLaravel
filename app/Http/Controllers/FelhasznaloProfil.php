@@ -16,7 +16,7 @@ class FelhasznaloProfil extends Controller
 
 
 
-    public function bejelentkezett(Request $request)
+    public function bejelentkezett()
     {
       
         $data = array();
