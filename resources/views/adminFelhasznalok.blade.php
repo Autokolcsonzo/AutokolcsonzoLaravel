@@ -46,7 +46,7 @@
 
                 <div class="adminFeladatValasztas">
                     <div id="adminKategoriak">
-                        <a href="{{ 'dashboard' }}">Autók</a>
+                        <a href="{{ 'adminAutok' }}">Autók</a>
                         <a href="#">Felhasználók</a>
                         <a href="{{ 'adminFoglalas' }}">Foglalások</a>
                     </div>

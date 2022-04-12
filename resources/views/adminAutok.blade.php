@@ -184,7 +184,7 @@
                             <form id="addform" action="{{ route('admin_autok') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-header">
-                                    <h3>Adatok módosítása</h3>
+                                    <h3>Új adatok felvétele</h3>
                                 </div>
 
                                 <div class="sor">
@@ -270,7 +270,7 @@
                             <form id="addform" action="{{ route('admin_modellek') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-header">
-                                    <h3>Adatok módosítása</h3>
+                                    <h3>Új adatok felvétele</h3>
                                 </div>
 
                                 <div class="sor">
@@ -342,7 +342,7 @@
                             <form id="addform" action="{{ route('admin_kepek') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-header">
-                                    <h3>Adatok módosítása</h3>
+                                    <h3>Új adatok felvétele</h3>
                                 </div>
 
                                 <div class="sor">

@@ -26,14 +26,14 @@ class CustomAuthController extends Controller
             'vezeteknev' => 'required',
             'keresztnev' => 'required',
             'felhasznalonev' => 'required',
-            'jelszo' => 'required',
+            'jelszo' => 'required|confirmed|min:8',
             'szul_ido' => 'required',
-            'ir_szam' => 'required',
+            'ir_szam' => 'required|min:4',
             'megye' => 'required',
             'varos' => 'required',
             'utca' => 'required',
             'hazszam' => 'required',
-            'tel_szam' => 'required',
+            'tel_szam' => 'required|min:11',
             'e_mail' => 'required'
         ]);
         $felhasznalo = new Felhasznalo();
@@ -69,12 +69,17 @@ class CustomAuthController extends Controller
 
             if (Hash::check($request->jelszo, $felhasznalo->jelszo)) {
                 $request->session()->put('loginId', $felhasznalo->felhasznalo_id);
-                return redirect('dashboard');
+                if ($felhasznalo->jogkor == 1) {
+                    return redirect('dashboard');
+                }
+                if ($felhasznalo->jogkor == 2) {
+                    return redirect('adminAutok');
+                }
             } else {
                 return back()->with('fail', 'Jelszó nem megfelelő.');
             }
         } else {
-            return back()->with('fail', 'Ez az email nem regisztrált.');
+            return back()->with('fail', 'Ez a felhasználónév nem regisztrált.');
         }
     }
 
