@@ -11,10 +11,8 @@
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <script src="../js/Responzivitas.js"></script>
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
-
 
     <style>
         /* Betűtípusok */
@@ -27,20 +25,11 @@
 
     <!-- Stílusok -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../css/szerkezet.css" />
-    <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/admin/admin.css" />
 </head>
 
 <body>
     <main>
-        <!-- TABLET, STB. NÉZET -->
-        @include('komponensek/felhasznaloNav')
-
-        <!--   Fejléc -->
-        @include('komponensek/header')
 
         <div id="primary_content">
 
@@ -141,8 +130,6 @@
 
         </div>
 
-        <!-- Footer -->
-        @include('komponensek/footer')
     </main>
 </body>
 
