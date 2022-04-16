@@ -79,10 +79,7 @@ class AdminFoglalasController extends Controller
         $data->kedvezmeny = $request->kedvezmeny;
         $data->ervenyessegi_ido = $request->visszahozatal;
         $data->allapot = $request->allapot;
-        $data->fizetes_alapja = $request->fizetes_alapja;
-        $data->befizetett_osszeg = $request->befizetett_osszeg;
-        $data->kifizetendo_osszeg = $request->kifizetendo_osszeg;
-        $data->save();
+        $data->update();
 
         return redirect('adminFoglalas')->with('status', 'Az adatok módosultak.');
     }

@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="ujAdatokFelvetele">
+                <div class="kijelentkezes">
                     <a href="logout">Kijelentkezés</a>
                 </div>
             </div>

@@ -171,7 +171,7 @@ $(function () {
         szuloElem.show();
         $(".felhasznalokAdmin").append("<div class='felhFejlec'></div>");
         $(".felhFejlec").append(
-            "<h2>Jogkör</h2><h2>Felhasználónev</h2><h2>E-mail</h2><h2>Reg. dátum</h2><h2></h2><h2></h2><h2></h2>"
+            "<h2>Jogkör</h2><h2>Felhasználónev</h2><h2>E-mail</h2><h2>Regisztráció dátuma</h2><h2></h2><h2></h2><h2></h2>"
         );
 
         felhasznalok.forEach(function (elem) {
@@ -186,7 +186,7 @@ $(function () {
         szuloElem.show();
         $(".felhasznalokAdmin").append("<div class='felhFejlec'></div>");
         $(".felhFejlec").append(
-            "<h2>Jogkör</h2><h2>Felhasználónev</h2><h2>E-mail</h2><h2>Reg. dátum</h2><h2></h2><h2></h2><h2></h2>"
+            "<h2>Jogkör</h2><h2>Felhasználónev</h2><h2>E-mail</h2><h2>Regisztráció dátuma</h2><h2></h2><h2></h2><h2></h2>"
         );
 
         felhasznalok.forEach(function (elem) {
@@ -202,7 +202,7 @@ $(function () {
         szuloElem.show();
         $(".felhasznalokAdmin").append("<div class='felhFejlec'></div>");
         $(".felhFejlec").append(
-            "<h2>Jogkör</h2><h2>Felhasználónev</h2><h2>E-mail</h2><h2>Reg. dátum</h2><h2></h2><h2></h2><h2></h2>"
+            "<h2>Jogkör</h2><h2>Felhasználónev</h2><h2>E-mail</h2><h2>Regisztráció dátuma</h2><h2></h2><h2></h2><h2></h2>"
         );
 
         felhasznalok.forEach(function (elem) {

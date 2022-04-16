@@ -89,30 +89,7 @@
                             </div>
                         </div>
 
-                        <div class="sor">
-                            <div class="inputfield">
-                                <label for="fizetes_alapja">Fizetés alapja:</label>
-                                <br>
-                                <input type="text" id="fizetes_alapjaf" name="fizetes_alapja" value="{{ old('fizetes_alapja') ?? $data->fizetes_alapja}}" />
-                            </div>
-
-
-
-                        </div>
-
-                        <div class="sor">
-                            <div class="inputfield">
-                                <label for="befizetett_osszeg">Befizetett összeg:</label><br>
-                                <input type="text" name="befizetett_osszeg" id="befizetett_osszegf" value="{{ old('befizetett_osszeg') ?? $data->befizetett_osszeg}}" /><br>
-                            </div>
-
-                            <div class="inputfield">
-                                <label for="kifizetendo_osszeg">Kifizetendő összeg:</label><br>
-                                <input type="text" name="kifizetendo_osszeg" id="kifizetendo_osszegf" value="{{ old('kifizetendo_osszeg') ?? $data->kifizetendo_osszeg }}" />
-                            </div>
-
-                        </div>
-
+                        
 
 
 
