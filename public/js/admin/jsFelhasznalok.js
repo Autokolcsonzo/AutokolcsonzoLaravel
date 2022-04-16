@@ -59,45 +59,12 @@ $(function () {
         myAjax.deleteAdat(apiVegpont+"/delete/", id);
     });
 
-    /*Módosítás*/
-
-    $(window).on("adatmentes", (event) => {
-        let id = event.detail.felhasznalo_id;
-        event.preventDefault();
-
-        let felhasznalonev = $("#ifnev").val();
-        console.log("kattint");
-        let vezeteknev = $("#ivnev").val();
-        let keresztnev = $("#iknev").val();
-        let szul_ido = $("#iszdatum").val();
-        let ir_szam = $("#iiranyitoszam").val();
-        let megye = $("#imegye").val();
-        let varos = $("#ivaros").val();
-        let utca = $("#iutca").val();
-        let hazszam = $("#ihazszam").val();
-        let e_mail = $("#iemail").val();
-        let tel_szam = $("#itelszam").val();
-        let ujAdat = {
-            felhasznalonev: felhasznalonev,
-            vezeteknev: vezeteknev,
-            keresztnev: keresztnev,
-            szul_ido: szul_ido,
-            ir_szam: ir_szam,
-            megye: megye,
-            varos: varos,
-            utca: utca,
-            hazszam: hazszam,
-            e_mail: e_mail,
-            tel_szam: tel_szam,
-        };
-        ajax.putAdat(apiVegpont, id, ujAdat);
-        location.reload();
-    });
+  
 
     /*Új admin felvétele*/
 
-    $(window).on("felvesz", (event) => {
-        event.preventDefault();
+    $(window).on("felvesz", () => {
+     
 
         let felhasznalonev = $("#afnev").val();
         let vezeteknev = $("#avnev").val();
