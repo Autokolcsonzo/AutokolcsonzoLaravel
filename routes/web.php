@@ -46,7 +46,7 @@ Route::get('/jarmuTalalatiLista', [jarmuTalalatiListaController::class, 'dashboa
 /* AdminAutok */
 
 Route::middleware([adminMiddleware::class])->group(function () {
-    Route::get('/adminAutok', [AdminAutokController::class, 'adatokKiiratasa']);
+    Route::get('/adminAutok', [AdminAutokController::class, 'index']);
 });
 
 Route::get('/adminAutokEdit/{autok}', [AdminAutokController::class, 'edit']);
@@ -64,8 +64,8 @@ Route::middleware([adminFoglalasMiddleware::class])->group(function () {
 });
 
 Route::get('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'edit'])->name('adminfoglalas.edit');
-Route::get('/maiElvitel', [AdminFoglalasController::class, 'maiElvitel']);
-Route::get('/maiVisszahozatal', [AdminFoglalasController::class, 'maiVisszahozatal']);
+Route::get('/maiElvitel', [AdminFoglalasController::class, 'maiElvitel'])->middleware('adminFoglalas');
+Route::get('/maiVisszahozatal', [AdminFoglalasController::class, 'maiVisszahozatal'])->middleware('adminFoglalas');
 
 Route::post('/foglalas', [AdminFoglalasController::class, 'store'])->name('adminfoglalas');
 Route::get('/adminFoglalasModositas/{fogl_azonosito}', [AdminFoglalasController::class, 'edit'])->name('adminfoglalas.edit');

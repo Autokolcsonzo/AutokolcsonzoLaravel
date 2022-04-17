@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Session;
 class AdminAutokController extends Controller
 {
 
-    public function adatokKiiratasa()
+    public function index()
     {
         return view('adminAutok');
     }
@@ -104,6 +104,6 @@ class AdminAutokController extends Controller
 
         $auto_kepek->save();
 
-        return redirect('/dashboard')->with('auto_kepek', $auto_kepek);
+        return redirect('/dashboard');
     }
 }

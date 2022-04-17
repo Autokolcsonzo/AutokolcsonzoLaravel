@@ -24,7 +24,7 @@ class AdminFoglalasController extends Controller
 
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszeg');
+        $bevetel = DB::table('fizetes')->sum('befizetett_osszeg');
 
         $adat = DB::table('felhasznalo_foglalas')
             ->select(
@@ -104,7 +104,7 @@ class AdminFoglalasController extends Controller
 
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszeg');
+        $bevetel = DB::table('fizetes')->sum('befizetett_osszeg');
 
         $maiElvitel = DB::table('felhasznalo_foglalas')
             ->select(
@@ -143,7 +143,7 @@ class AdminFoglalasController extends Controller
 
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszeg');
+        $bevetel = DB::table('fizetes')->sum('befizetett_osszeg');
 
         $maiVisszahozatal = DB::table('felhasznalo_foglalas')
             ->select(

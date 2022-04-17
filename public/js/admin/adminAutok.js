@@ -1,7 +1,4 @@
 $(function () {
-    UjAutoFelvetele();
-    UjModellFelvetele();
-    UjKepFelvetele();
     ReszletMegjelenit();
     autoModal();
     modellModal();
@@ -25,42 +22,6 @@ function ReszletMegjelenit() {
                 }
             }
         });
-    });
-}
-
-function UjAutoFelvetele() {
-    $(".ujAutoGomb").click(function () {
-        if ($(".ujAutoGomb").hasClass("clicked-once")) {
-            $(".autoAdatokFeltoltes").slideUp(500);
-            $(".ujAutoGomb").removeClass("clicked-once");
-        } else {
-            $(".ujAutoGomb").addClass("clicked-once");
-            $(".autoAdatokFeltoltes").slideDown(500);
-        }
-    });
-}
-
-function UjModellFelvetele() {
-    $(".ujModellGomb").click(function () {
-        if ($(".ujModellGomb").hasClass("clicked-once")) {
-            $(".modellAdatokFeltoltes").slideUp(500);
-            $(".ujAutoGomb").removeClass("clicked-once");
-        } else {
-            $(".ujModellGomb").addClass("clicked-once");
-            $(".modellAdatokFeltoltes").slideDown(500);
-        }
-    });
-}
-
-function UjKepFelvetele() {
-    $(".ujKepGomb").click(function () {
-        if ($(".ujKepGomb").hasClass("clicked-once")) {
-            $(".kepAdatokFeltoltes").slideUp(500);
-            $(".ujKepGomb").removeClass("clicked-once");
-        } else {
-            $(".ujKepGomb").addClass("clicked-once");
-            $(".kepAdatokFeltoltes").slideDown(500);
-        }
     });
 }
 
@@ -106,7 +67,7 @@ function kepModal() {
     });
 }
 
-function ujAutoFelvitele() {
+/* function ujAutoFelvitele() {
     $("#addform").on("submit", function (e) {
         e.preventDefault();
 
@@ -167,4 +128,4 @@ function ujKepFelvitele() {
             },
         });
     });
-}
+} */
