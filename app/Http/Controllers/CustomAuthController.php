@@ -69,17 +69,12 @@ class CustomAuthController extends Controller
 
             if (Hash::check($request->jelszo, $felhasznalo->jelszo)) {
                 $request->session()->put('loginId', $felhasznalo->felhasznalo_id);
-                if ($felhasznalo->jogkor == 1) {
-                    return redirect('dashboard');
-                }
-                if ($felhasznalo->jogkor == 2) {
-                    return redirect('adminAutok');
-                }
+                return redirect('dashboard');
             } else {
                 return back()->with('fail', 'Jelszó nem megfelelő.');
             }
         } else {
-            return back()->with('fail', 'Ez a felhasználónév nem regisztrált.');
+            return back()->with('fail', 'Ez az email nem regisztrált.');
         }
     }
 
