@@ -14,7 +14,7 @@ class adminFelhasznaloMiddleware
     {
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
+        $bevetel = DB::table('fizetes')->sum('befizetett_osszeg');
         $felhasznalo=FelhasznaloModell::orderBy('felhasznalo_id','DESC')->get();
         
         if (Session()->has('loginId')) {

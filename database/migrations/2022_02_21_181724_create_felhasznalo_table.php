@@ -18,7 +18,7 @@ class CreateFelhasznaloTable extends Migration
             $table->char('vezeteknev', 30);
             $table->char('keresztnev', 30);
             $table->char('felhasznalonev', 30);
-            $table->char('jelszo', 70);
+            $table->char('jelszo', 20);
             $table->date('szul_ido');
             $table->string('profilkep')->default('../kepek/profilkep.png')->nullable();
             $table->char('ir_szam', 5);
@@ -27,7 +27,7 @@ class CreateFelhasznaloTable extends Migration
             $table->char('utca', 30);
             $table->char('hazszam', 10);
             $table->char('tel_szam', 12);
-            $table->char('e_mail', 60);
+            $table->char('e_mail', 60)->unique();
             $table->timestamp('reg_datum');
             $table->tinyInteger('jogkor')->nullable();
             $table->integer('telephely')->unsigned()->nullable();

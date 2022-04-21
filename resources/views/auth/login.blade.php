@@ -41,24 +41,20 @@
 
         <div class="fprofil">
             <div class="bejelentkezoFelulet">
-                @if (session('status'))
-                {{ session('status') }}
-                @endif
+
                 <form action="{{ 'login-user' }}" method="POST">
-                    @if(Session::has('success'))
-                    <div class="alert alert-success">
-                        {{Session::get('success')}}
-                    </div>
-                    @endif
+
                     @if(Session::has('fail'))
-                    <div class="alert alert-danger">
+                    <div>
                         {{Session::get('fail')}}
                     </div>
                     @endif
+
                     @csrf
                     <div class=" form-header">
                         <h3>Bejelentkezés</h3>
                     </div>
+
                     <div class="sor">
                         <div class="inputfield">
                             <label for="felhasznalonev">Felhasználónév:</label>
@@ -75,14 +71,12 @@
                                 <input type="password" id="jelszo1" name="jelszo" class="jelszo" placeholder="******" />
                                 <span class="text-danger">@error('jelszo') {{$message}} @enderror</span>
                             </div>
-
                         </div>
-
                     </div>
+
                     <input type="submit" value="Bejelentkezés" id="adatotMent" />
-
-
                 </form>
+
             </div>
         </div>
 

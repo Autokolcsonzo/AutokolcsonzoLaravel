@@ -22,7 +22,7 @@ class FizetesController extends Controller
             ->where('fogl_azonosito', '=', $request->fogazon_foglalas)
             ->get();
         $fizetendo = DB::table('fizetes')
-            ->selectRaw('MAX(kifizetendo_osszegeg) AS kifizetendo_osszegeg')
+            ->selectRaw('MAX(kifizetendo_osszeg) AS kifizetendo_osszeg')
             ->distinct()
             ->where('fogl_azonosito', '=', $request->fogazon_foglalas)
             ->get();
@@ -35,7 +35,7 @@ class FizetesController extends Controller
             $fizetes->sorszam = $fizetesekSzama;
             $fizetes->fizetes_alapja = $request->alapja;
             $fizetes->befizetett_osszeg = $eddigBefizetve[0]->befizetett_osszeg;
-            $fizetes->kifizetendo_osszegeg = $fizetendo[0]->kifizetendo_osszegeg + abs($request->befizetes);
+            $fizetes->kifizetendo_osszeg = $fizetendo[0]->kifizetendo_osszeg + abs($request->befizetes);
             $fizetes->save();
         }else{
             $fizetes = new FizetesModel();
@@ -45,7 +45,7 @@ class FizetesController extends Controller
             $fizetes->sorszam = $fizetesekSzama;
             $fizetes->fizetes_alapja = $request->alapja;
             $fizetes->befizetett_osszeg = $request->befizetes + $eddigBefizetve[0]->befizetett_osszeg;
-            $fizetes->kifizetendo_osszegeg =  $fizetendo[0]->kifizetendo_osszegeg;
+            $fizetes->kifizetendo_osszeg =  $fizetendo[0]->kifizetendo_osszeg;
             $fizetes->save();
         }
 

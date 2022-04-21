@@ -24,7 +24,7 @@ class AdminFoglalasController extends Controller
 
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
+        $bevetel = DB::table('fizetes')->sum('befizetett_osszeg');
 
         $adat = DB::table('felhasznalo_foglalas')
             ->select(
@@ -38,7 +38,7 @@ class AdminFoglalasController extends Controller
                 'kedvezmeny',
                 'allapot',
                 'befizetett_osszeg',
-                'kifizetendo_osszegeg',
+                'kifizetendo_osszeg',
                 'kedvezmeny',
                 'megye',
                 'ir_szam',
@@ -79,10 +79,7 @@ class AdminFoglalasController extends Controller
         $data->kedvezmeny = $request->kedvezmeny;
         $data->ervenyessegi_ido = $request->visszahozatal;
         $data->allapot = $request->allapot;
-        $data->fizetes_alapja = $request->fizetes_alapja;
-        $data->befizetett_osszeg = $request->befizetett_osszeg;
-        $data->kifizetendo_osszegeg = $request->kifizetendo_osszegeg;
-        $data->save();
+        $data->update();
 
         return redirect('adminFoglalas')->with('status', 'Az adatok módosultak.');
     }
@@ -94,7 +91,7 @@ class AdminFoglalasController extends Controller
     {
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('foglalas')->select('kifizetendo_osszegeg')->count();
+        $bevetel = DB::table('foglalas')->select('kifizetendo_osszeg')->count();
         return view('adminFoglalas', compact('felhasznalok', 'foglalasok', 'bevetel'));
     }
 
@@ -104,7 +101,7 @@ class AdminFoglalasController extends Controller
 
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
+        $bevetel = DB::table('fizetes')->sum('befizetett_osszeg');
 
         $maiElvitel = DB::table('felhasznalo_foglalas')
             ->select(
@@ -118,7 +115,7 @@ class AdminFoglalasController extends Controller
                 'kedvezmeny',
                 'allapot',
                 'befizetett_osszeg',
-                'kifizetendo_osszegeg',
+                'kifizetendo_osszeg',
                 'kedvezmeny',
                 'megye',
                 'ir_szam',
@@ -143,7 +140,7 @@ class AdminFoglalasController extends Controller
 
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
+        $bevetel = DB::table('fizetes')->sum('befizetett_osszeg');
 
         $maiVisszahozatal = DB::table('felhasznalo_foglalas')
             ->select(
@@ -157,7 +154,7 @@ class AdminFoglalasController extends Controller
                 'kedvezmeny',
                 'allapot',
                 'befizetett_osszeg',
-                'kifizetendo_osszegeg',
+                'kifizetendo_osszeg',
                 'kedvezmeny',
                 'megye',
                 'ir_szam',

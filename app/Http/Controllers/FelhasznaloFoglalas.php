@@ -31,7 +31,7 @@ class FelhasznaloFoglalas extends Controller
                     'kedvezmeny',
                     'allapot',
                     'befizetett_osszeg',
-                    'kifizetendo_osszegeg',
+                    'kifizetendo_osszeg',
                     'kedvezmeny',
                     'kep',
                     'uzemanyag',

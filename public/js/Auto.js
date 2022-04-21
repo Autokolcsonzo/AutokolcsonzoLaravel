@@ -16,13 +16,11 @@ class Auto {
     }
 
     setAdat(adat) {
-        $(".reszletek").css("display", "none");
         this.adat = adat;
-        this.kep.attr('src', adat.kep);
+        this.kep.attr("src", adat.kep);
         this.marka.text(adat.marka);
         this.modell.text(adat.modell);
         this.napiAr.text(adat.napiAr);
-        // this.felhasznalokSzamaSablon.text(adat.felhasznalokSzamaSablon);
         this.kivitel.text(adat.kivitel);
         this.uzemanyag.text(adat.uzemanyag);
         this.evjarat.text(adat.evjarat);

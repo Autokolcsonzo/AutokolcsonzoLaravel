@@ -52,30 +52,6 @@ class FelhasznaloAdmin extends Controller
 
 
 
-
-
-   public function edit($felhasznalo_id)
-   {
-      $felhasznalo = FelhasznaloModell::where('felhasznalo_id', $felhasznalo_id);
-      return response()->json([
-         'success' => true,
-         'felhasznalo' => $felhasznalo
-      ]);
-   }
-
-   public function update(Request $request, $felhasznalo_id)
-   {
-
-      $felhasznalo = FelhasznaloModell::where('felhasznalo_id', $felhasznalo_id)->first();
-      $data = $request->all();
-      $felhasznalo->update($data);
-
-      return redirect()->back()->with('status', 'Adatok sikeresen módosítva!');
-   }
-
-
-
-
    public function destroy($felhasznalo_id)
    {
       
@@ -107,11 +83,6 @@ class FelhasznaloAdmin extends Controller
    }
 
 
-   public function expandTelephely()
-   {
-      $felhasznalo = FelhasznaloModell::with('telephely')->get();
-      return $felhasznalo;
-   }
 
 
    public function keres(Request $request)
