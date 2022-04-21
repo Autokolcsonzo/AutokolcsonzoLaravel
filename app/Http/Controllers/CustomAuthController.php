@@ -25,15 +25,15 @@ class CustomAuthController extends Controller
         $request->validate([
             'vezeteknev' => 'required',
             'keresztnev' => 'required',
-            'felhasznalonev' => 'required', /* |unique:felhasznalo */
-            'jelszo' => 'required|confirmed|min:8',
+            'felhasznalonev' => 'required',
+            'jelszo' => 'required',
             'szul_ido' => 'required',
-            'ir_szam' => 'required|min:4',
+            'ir_szam' => 'required',
             'megye' => 'required',
             'varos' => 'required',
             'utca' => 'required',
             'hazszam' => 'required',
-            'tel_szam' => 'required|min:11',
+            'tel_szam' => 'required',
             'e_mail' => 'required'
         ]);
         $felhasznalo = new Felhasznalo();
@@ -50,9 +50,9 @@ class CustomAuthController extends Controller
         $felhasznalo->tel_szam = $request->tel_szam;
         $felhasznalo->e_mail = $request->e_mail;
         $felhasznalo->jogkor = 1;
-        $allapot = $felhasznalo->save();
-        if ($allapot) {
-            return back()->with('success', 'Regisztráltál');
+        $res = $felhasznalo->save();
+        if ($res) {
+            return back()->with('success', 'regisztráltál');
         } else {
             return back()->with('fail', 'Nem regisztráltál');
         }
@@ -80,20 +80,18 @@ class CustomAuthController extends Controller
 
     public function dashboard()
     {
-        $felhasznalok = DB::table('felhasznalo')->count();
-        $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('befizetett_osszeg');
+        $adat = DB::table('auto')
+            ->join('modell', 'auto.modell', '=', 'modell.modell_id')
+            ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
+            ->select('modell.tipus', 'modell.uzemanyag', 'modell.teljesitmeny', 'modell.evjarat', 'auto.napiAr', 'auto.szin', 'auto.forgalmiSzam',  'auto.alvazSzam', 'auto.statusz', 'auto.rendszam', 'modell.marka', 'telephely.varos')
+            ->get();
 
         $modell = DB::table('modell')->get();
         $telephely = DB::table('telephely')->get();
 
-        $adat = DB::table('auto')
-        ->join('modell', 'auto.modell', '=', 'modell.modell_id')
-        ->join('telephely', 'auto.telephely', '=', 'telephely.telephely_id')
-        ->select('modell.tipus', 'modell.uzemanyag', 'modell.teljesitmeny', 'modell.evjarat',
-            'auto.napiAr', 'auto.szin', 'auto.forgalmiSzam',  'auto.alvazSzam', 'auto.statusz',
-            'auto.rendszam', 'modell.marka', 'telephely.varos')
-        ->get();
+        $felhasznalok = DB::table('felhasznalo')->count();
+        $foglalasok = DB::table('foglalas')->count();
+        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 
         $data = array();
         if (Session::has('loginId')) {
@@ -102,7 +100,8 @@ class CustomAuthController extends Controller
                 return view('dashboard', compact('data'));
             }
             if ($data->jogkor == 2) {
-                return view('adminAutok', compact('data', 'telephely', 'modell', 'adat', 'felhasznalok', 'foglalasok', 'bevetel'));
+                return
+                    view('adminAutok', compact('data', 'telephely', 'modell', 'adat', 'felhasznalok', 'foglalasok', 'bevetel'));
             }
         }
     }

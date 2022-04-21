@@ -12,17 +12,17 @@
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/hambiMenu.js"></script>
-    <script src="js/Auto.js"></script>
+    <script src="js/admin/adminAuto.js"></script>
     <script src="js/Ajax.js"></script>
     <script src="js/osszesAuto.js"></script>
     <script src="js/Responzivitas.js"></script>
     <style>
-    /* Betűtípusok */
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
+        /* Betűtípusok */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
     </style>
 
 
@@ -41,15 +41,58 @@
     <main>
         <!-- TABLET, STB. NÉZET -->
         @if(empty($data->felhasznalo_id))
-        @include('komponensek/nav')
+            @include('komponensek/nav')
         @else
-        @include('komponensek/felhasznaloNav')
+            @include('komponensek/felhasznaloNav')
         @endif
 
         <!--   Fejléc -->
         @include('komponensek/header')
 
+        <!-- felhasználóknak segítség/információ a foglaláshoz -->
         <div id="primary_content">
+            <!--  <div class="fooldalInfo">
+                <form class="autokRendezes">
+                    <div>
+                        <label class="kategoriaLabel" for="autoKategoria">Márka:</label>
+                        <select name="autoKategoria" id="autoKategoria">
+                            <option value>Összes márka</option>
+                            <option value="compact">Compact</option>
+                            <option value="economy">Economy</option>
+                            <option value="luxus">Luxus</option>
+                            <option value="mini">Mini</option>
+                            <option value="premium">Premium</option>
+                            <option value="standard">Standard</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="karosszeriaLabel" for="autoKarosszeria">Típus:</label>
+                        <select name="autoKarosszeria" id="autoKarosszeria">
+                            <option value>Összes típus</option>
+                            <option value="2-3ajto">2-3 ajtós</option>
+                            <option value="4-5ajto">4-5 ajtós</option>
+                            <option value="kabrio">Kabrió</option>
+                            <option value="kombi">Kombi</option>
+                            <option value="teherauto">Teherautó</option>
+                            <option value="egyteru">Egyterű</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="valtoLabel" for="autoValto">Évjárat:</label>
+                        <select name="autoValto" id="autoValto">
+                            <option value>Évjárat</option>
+                            <option value="automata">Autómata</option>
+                            <option value="manualis">Manuális</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="szuresGomb">Szűrés</button>
+                    </div>
+                </form>
+
+            </div> -->
 
             <!-- Összes autó -->
 
@@ -87,6 +130,10 @@
                                 <span class="teljesitmeny">300Le</span>
                             </div>
                         </div>
+                        <!--                <div class="autoListaGombok">
+                            <button type="submit" class="lefoglalas">Lefoglalás</button>
+                            <button type="submit" class="reszletek">Részletek</button>
+                        </div> -->
                     </div>
                 </div>
             </div>

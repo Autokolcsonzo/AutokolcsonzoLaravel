@@ -43,12 +43,12 @@
             <div class="regisztracioFelulet">
                 <form action="{{ 'register-user' }}" method="POST">
                     @if(Session::has('success'))
-                    <div class="sikeresRegisztralas">
+                    <div class="alert alert-success">
                         {{Session::get('success')}}
                     </div>
                     @endif
                     @if(Session::has('fail'))
-                    <div class="sikertelenRegisztralas">
+                    <div class="alert alert-danger">
                         {{Session::get('fail')}}
                     </div>
                     @endif
@@ -60,16 +60,14 @@
                         <div class="inputfield">
                             <label for="vezeteknev">Vezetéknév:</label>
                             <br />
-                            <input type="text" name="vezeteknev" id="vnev" placeholder="Kovács"
-                                value="{{ old('vezeteknev') }}" required />
+                            <input type="text" name="vezeteknev" id="vnev" placeholder="Kovács" required />
                             <span class="text-danger">@error('vezeteknev') {{$message}} @enderror</span>
                         </div>
 
-                        <div class=" inputfield">
+                        <div class="inputfield">
                             <label for="keresztnev">Keresztnév:</label><br>
 
-                            <input type="text" name="keresztnev" id="knev" placeholder="Kati"
-                                value="{{ old('keresztnev') }}" required />
+                            <input type="text" name="keresztnev" id="knev" placeholder="Kati" required />
                             <span class="text-danger">@error('keresztnev') {{$message}} @enderror</span>
                         </div>
 
@@ -80,15 +78,13 @@
                             <label for="felhasznalonev">Felhasználónév:</label>
 
                             <br />
-                            <input type="text" name="felhasznalonev" id="fnev" placeholder="kati97"
-                                value="{{ old('felhasznalonev') }}" required /><br />
+                            <input type="text" name="felhasznalonev" id="fnev" placeholder="valaki97" required /><br />
                             <span class="text-danger">@error('felhasznalonev') {{$message}} @enderror</span>
                         </div>
 
                         <div class="inputfield">
                             <label for="e_mail">E-mail cím:</label> <br />
-                            <input type="email" id="email" name="e_mail" placeholder="kati97@gmail.com"
-                                value="{{ old('e_mail') }}" required />
+                            <input type="email" id="email" name="e_mail" placeholder="valami@gmail.com" required />
                         </div>
                     </div>
 
@@ -103,26 +99,22 @@
                         <div class="inputfield">
                             <label for="jelszo">Jelszó újra:</label>
                             <br>
-                            <input type="password" name="jelszo_confirmation" id="jelszo2" class="jelszo"
-                                placeholder="******" required />
+                            <input type="password" name="jelszo" id="jelszo2" class="jelszo" placeholder="******"
+                                required />
                         </div>
 
                     </div>
-                    <span class="text-danger">@error('jelszo') {{$message}} @enderror</span>
 
                     <div class="sor">
                         <div class="inputfield">
                             <label for="szul_ido">Születési dátum:</label><br>
-                            <input type="date" name="szul_ido" id="szdatum" value="{{ old('szul_ido') }}"
-                                required /><br>
+                            <input type="date" name="szul_ido" id="szdatum" required /><br>
                         </div>
 
                         <div class="inputfield">
                             <label for="tel_szam">Telefonszám:</label><br>
-                            <input type="text" name="tel_szam" class="telszam" placeholder="+36-20-345-6789"
-                                value="{{ old('tel_szam') }}" required />
+                            <input type="text" name="tel_szam" class="telszam" placeholder="+36-20-345-6789" required />
                         </div>
-                        <span class="text-danger">@error('tel_szam') {{$message}} @enderror</span>
 
                     </div>
 
@@ -133,41 +125,37 @@
                         <div class="inputfield">
                             <label for="ir_szam">Cím:</label>
                             <br />
-                            <input type="text" name="ir_szam" id="iranyitoszam" placeholder="Irányítószám"
-                                value="{{ old('ir_szam') }}" required />
+                            <input type="text" name="ir_szam" id="iranyitoszam" placeholder="Irányítószám" required />
+
                         </div>
-                        <span class="text-danger">@error('ir_szam') {{$message}} @enderror</span>
 
                     </div>
 
                     <div class="sor">
 
                         <div class="inputfield">
-                            <input type="text" id="megye" name="megye" placeholder="Megye" value="{{ old('megye') }}"
-                                required />
+                            <input type="text" id="megye" name="megye" placeholder="Megye" required />
+
                         </div>
 
                         <div class="inputfield">
-                            <input type="text" name="varos" id="varos" placeholder="Város" value="{{ old('varos') }}"
-                                required />
+                            <input type="text" name="varos" id="varos" placeholder="Város" required />
                         </div>
-                        <span class="text-danger">@error('varos') {{$message}} @enderror</span>
+
                     </div>
 
 
                     <div class="sor">
 
                         <div class="inputfield">
-                            <input type="text" id="utca" name="utca" placeholder="Utca" value="{{ old('utca') }}"
-                                required />
+                            <input type="text" id="utca" name="utca" placeholder="Utca" required />
+
                         </div>
-                        <span class="text-danger">@error('utca') {{$message}} @enderror</span>
 
                         <div class="inputfield">
-                            <input type="text" id="hazszam" name="hazszam" placeholder="Házszám"
-                                value="{{ old('hazszam') }}" required />
+
+                            <input type="text" id="hazszam" name="hazszam" placeholder="Házszám" required />
                         </div>
-                        <span class="text-danger">@error('hazszam') {{$message}} @enderror</span>
 
                     </div>
                     <input type="submit" value="Regisztráció" id="adatotMent" />

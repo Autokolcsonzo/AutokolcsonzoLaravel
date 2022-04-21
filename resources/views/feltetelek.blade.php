@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/hambiMenu.js"></script>
     <script src="js/Responzivitas.js"></script>
-    <script src="../js/feltetelek.js"></script>
+    <script src="../js/Feltetelek.js"></script>
 
     <style>
         /* Betűtípusok */

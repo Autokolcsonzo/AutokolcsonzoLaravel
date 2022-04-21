@@ -33,6 +33,7 @@ Route::apiResource('kedvezmeny', KedvezmenyekController::class);
 
 Route::get('auto_fill/{mezo}/{helyszin}/{elvitel}/{visszahoz}/{marka}/{modell}/{kivitel}/{uzemanyag}/{evTol}/{evIg}/{arTol}/{arIg}/{checkboxok}/{oszlop}/{sorrend}', [AutokListazasaController::class, 'keresesParameteresen']);
 Route::get('kedvezmeny', [KedvezmenyekController::class, 'kedvezmenyek']);
+//Route::delete('adminAutok/{alvazSzam}', [AutokListazasaController::class, 'destroy']);
 Route::post('foglalas', [FoglalasController::class, 'foglalas'])->name('ujFoglalas');
 Route::post('fizetes', [FizetesController::class, 'fizetes'])->name('ujFizetes');
 
@@ -47,8 +48,10 @@ Route::get('keresoview', [KeresoViewController::class, 'index']);
 
 Route::get('felhasznaloadmin', [FelhasznaloAdmin::class, 'index']);
 Route::post('felhasznaloadmin', [FelhasznaloAdmin::class, 'store'])->name('uj.felhasznaloadmin');
-
+Route::get('felhasznaloadmin/{felhasznalo}/edit', [FelhasznaloAdmin::class, 'edit']);
+Route::put('felhasznaloadmin/{felhasznalo}', [FelhasznaloAdmin::class, 'update'])->name('updateadmin.felhasznalo');
 Route::delete('felhasznaloadmin/delete/{id}', [FelhasznaloAdmin::class, 'destroy']);
+Route::get('felhasznaloadmin/expand={child}', [FelhasznaloAdmin::class, 'expandTelephely']);
 Route::get('felhasznaloadmin/keres', [FelhasznaloAdmin::class, 'keres']);
 
 

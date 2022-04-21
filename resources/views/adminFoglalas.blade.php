@@ -40,7 +40,7 @@
 
                 <div class="adminFeladatValasztas">
                     <div id="adminKategoriak">
-                        <a href="{{ 'adminAutok' }}">Autók</a>
+                        <a href="{{ 'dashboard' }}">Autók</a>
                         <a href="{{ 'adminFelhasznalok' }}">Felhasználók</a>
                         <a href="#">Foglalások</a>
                     </div>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="kijelentkezes">
+                <div class="ujAdatokFelvetele">
                     <a href="logout">Kijelentkezés</a>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                                 value="Fizetés" /></p>
                         <p>
                             <a class="fadatokMod"
-                                href="{{ route('adminfoglalas.edit', $data->fogazon_foglalas) }}">Módosítás</a>
+                                href='{{ route('adminfoglalas.edit', $data->fogazon_foglalas) }}'>Módosítás</a>
 
                         </p>
 
@@ -139,7 +139,7 @@
                     <section class="befizBox">
                         <section class="vegosszegBox">
                             <h4>foglalás végösszege</h4>
-                            <p>{{ $data->kifizetendo_osszeg }}</p>
+                            <p>{{ $data->kifizetendo_osszegeg }}</p>
                         </section>
                         <section class="befizzetettBox">
                             <h4>Befizetett összeg</h4>
@@ -147,7 +147,7 @@
                         </section>
                         <section class="hatralekBox">
                             <h4>Hátralék</h4>
-                            <p>{{ $data->kifizetendo_osszeg - $data->befizetett_osszeg }}</p>
+                            <p>{{ $data->kifizetendo_osszegeg - $data->befizetett_osszeg }}</p>
                         </section>
                         <section class="hatralekBox">
                             <h4>Fizetés alapja</h4>

@@ -91,7 +91,7 @@ class FoglalasController extends Controller
         $fizetes->sorszam = 0;
         $fizetes->fizetes_alapja = "foglalás létrehozva";
         $fizetes->befizetett_osszeg = 0;
-        $fizetes->kifizetendo_osszeg = $fizetendoOsszeg;
+        $fizetes->kifizetendo_osszegeg = $fizetendoOsszeg;
         $fizetes->save();
         
         //return back()->with('success', 'Sikeres foglalás');
