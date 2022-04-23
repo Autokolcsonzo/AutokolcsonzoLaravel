@@ -27,7 +27,7 @@ class FoglalasViewModel extends Model
                 'kedvezmeny',
                 'allapot',
                 'befizetett_osszeg',
-                'kifizetendo_osszegeg',
+                'kifizetendo_osszeg',
                 'kedvezmeny',
                 'megye',
                 'ir_szam',

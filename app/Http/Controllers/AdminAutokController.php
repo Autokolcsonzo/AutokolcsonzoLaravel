@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Session;
 class AdminAutokController extends Controller
 {
 
-    public function adatokKiiratasa()
+    public function index()
     {
         return view('adminAutok');
     }
@@ -71,7 +71,7 @@ class AdminAutokController extends Controller
         $auto->statusz = $req->input('statusz');
         $auto->rendszam = $req->input('rendszam');
         $auto->save();
-        return redirect('/adminAutok');
+        return redirect('/dashboard');
     }
 
     public function ujModell(Request $req)
@@ -85,7 +85,7 @@ class AdminAutokController extends Controller
         $modell->kivitel = $req->input('kivitel');
         $modell->uzemanyag = $req->input('uzemanyag');
         $modell->save();
-        return redirect('/adminAutok');
+        return redirect('/dashboard');
     }
 
     public function ujKep(Request $req)
@@ -104,6 +104,6 @@ class AdminAutokController extends Controller
 
         $auto_kepek->save();
 
-        return redirect('/adminAutok')->with('auto_kepek', $auto_kepek);
+        return redirect('/dashboard');
     }
 }

@@ -135,7 +135,7 @@
 
                                 <tr>
                                     <td>Fizetendő összeg: </td>
-                                    <td id="hatralek">{{$d->kifizetendo_osszegeg}}</td>
+                                    <td id="hatralek">{{$d->kifizetendo_osszeg}}</td>
 
 
                                 </tr>

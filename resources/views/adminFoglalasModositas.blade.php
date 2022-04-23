@@ -11,10 +11,8 @@
     <!-- Scriptek -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <script src="../js/Responzivitas.js"></script>
     <meta name="csrf-token" content=<?php $token = csrf_token();
                                     echo $token; ?>>
-
 
     <style>
         /* Betűtípusok */
@@ -27,20 +25,11 @@
 
     <!-- Stílusok -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../css/szerkezet.css" />
-    <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/admin/admin.css" />
 </head>
 
 <body>
     <main>
-        <!-- TABLET, STB. NÉZET -->
-        @include('komponensek/felhasznaloNav')
-
-        <!--   Fejléc -->
-        @include('komponensek/header')
 
         <div id="primary_content">
 
@@ -100,30 +89,7 @@
                             </div>
                         </div>
 
-                        <div class="sor">
-                            <div class="inputfield">
-                                <label for="fizetes_alapja">Fizetés alapja:</label>
-                                <br>
-                                <input type="text" id="fizetes_alapjaf" name="fizetes_alapja" value="{{ old('fizetes_alapja') ?? $data->fizetes_alapja}}" />
-                            </div>
-
-
-
-                        </div>
-
-                        <div class="sor">
-                            <div class="inputfield">
-                                <label for="befizetett_osszeg">Befizetett összeg:</label><br>
-                                <input type="text" name="befizetett_osszeg" id="befizetett_osszegf" value="{{ old('befizetett_osszeg') ?? $data->befizetett_osszeg}}" /><br>
-                            </div>
-
-                            <div class="inputfield">
-                                <label for="kifizetendo_osszegeg">Kifizetendő összeg:</label><br>
-                                <input type="text" name="kifizetendo_osszegeg" id="kifizetendo_osszegegf" value="{{ old('kifizetendo_osszegeg') ?? $data->kifizetendo_osszegeg }}" />
-                            </div>
-
-                        </div>
-
+                        
 
 
 
@@ -141,8 +107,6 @@
 
         </div>
 
-        <!-- Footer -->
-        @include('komponensek/footer')
     </main>
 </body>
 
