@@ -43,11 +43,10 @@
                         <input id="fkereses" type="text" placeholder="Felhasználónév" value="">
                     </div>
                 </div>
-                <div class="reszponzivnezet">
 
                 <div class="adminFeladatValasztas">
                     <div id="adminKategoriak">
-                        <a href="{{ 'adminAutok' }}">Autók</a>
+                        <a href="{{ 'dashboard' }}">Autók</a>
                         <a href="#">Felhasználók</a>
                         <a href="{{ 'adminFoglalas' }}">Foglalások</a>
                     </div>
@@ -70,19 +69,18 @@
                         </select>
                     </div>
                 </div>
-                </div >
+
                 <!-- Új admin felvétele, lenyíló form -->
                 <div class="ujAdatokFelvetele">
                     <div class="ujAdminFelvetele">
 
                         <div>
-                             <input type="button" name="ujAdmin" class="ujAdmin" value="Új admin hozzáadása">
+                            <a href="#ujadminForm"> <input type="button" name="ujAdmin" class="ujAdmin" value="Új admin hozzáadása"></a>
                         </div>
                     </div>
                 </div>
 
-
-                <div class="kijelentkezes">
+                <div class="ujAdatokFelvetele">
                     <a href="logout">Kijelentkezés</a>
                 </div>
 
@@ -124,8 +122,13 @@
 
             <div class="felhasznalokAdmin">
                 <div class="felhFejlec">
-                 
-                    
+                    <h2>Jogkör</h2>
+                    <h2>Felhasználónev</h2>
+                    <h2>E-mail</h2>
+                    <h2>Reg. dátum</h2>
+                    <h2></h2>
+                    <h2></h2>
+                    <h2></h2>
                 </div>
                 <div class="felhasznalo">
                     <div class="foadatok">
@@ -134,11 +137,9 @@
                         <p class="felhnev"></p>
                         <p class="email"></p>
                         <p class="regDatum"></p>
-                        
-                       
                         <p><input type="button" name="fReszletek" class="fReszletek" value="Részletek" /></p>
-                     
-                        <p></p>
+                        <p><input type="button" name="fadatokMod" class="fadatokMod" value="Adatok módosítása" /></p>
+
 
                       
 
@@ -148,8 +149,7 @@
                             @csrf
 
 
-                           <p> <button type="submit" class="torles">Törlés</button><p>
-                              
+                            <button type="submit" class="torles">Törlés</button>
                       
                     </div>
                     <!-- részletek -->
@@ -181,7 +181,135 @@
 
             </div>
 
-        
+            <!-- lenyíló form a módosításhoz -->
+            <div class="formcontainer">
+                <div class="felhasznaloiModositas">
+
+
+
+
+
+                    @foreach($felhasznalo as $f)
+                    <form action='{{route("updateadmin.felhasznalo",$f->felhasznalo_id)}}' id="updateform" method="POST">
+                        @endforeach
+
+                        @method('PUT')
+                        @csrf
+
+
+
+
+
+                        <div class="form-header">
+                            <h3>Adatok módosítása</h3>
+                        </div>
+                        <div class="sor">
+                            <div class="inputfield">
+                                <label for="vezeteknev">Vezetéknév:</label>
+                                <br />
+                                <input type="text" name="vezeteknev" id="ivnev" value="" />
+
+                            </div>
+
+                            <div class="inputfield">
+                                <label for="keresztnev">Keresztnév:</label><br>
+
+                                <input type="text" name="keresztnev" id="iknev" value="" />
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div class="sor">
+                            <div class="inputfield">
+                                <label for="felhasznalonev">Felhasználónév:</label>
+
+                                <br />
+                                <input type="text" name="felhasznalonev" id="ifnev" value="" /><br />
+                            </div>
+
+                            <div class="inputfield">
+                                <label for="e_mail">E-mail cím:</label> <br />
+                                <input type="email" id="iemail" name="e_mail" value="" />
+                            </div>
+                        </div>
+
+
+                        <div class="sor">
+                            <div class="inputfield">
+                                <label for="szul_ido">Születési dátum:</label><br>
+                                <input type="date" name="szul_ido" id="iszdatum" value="" /><br>
+                            </div>
+
+                            <div class="inputfield">
+                                <label for="tel_szam">Telefonszám:</label><br>
+                                <input type="text" name="tel_szam" id="itelszam" placeholder="+36-20-345-6789" value="" />
+                            </div>
+
+                        </div>
+
+
+                        <div class="sor">
+
+                            <label for="ir_szam"></label>
+                            <div class="inputfield">
+                                <label>Cím:</label>
+                                <br />
+                                <input type="text" name="ir_szam" id="iiranyitoszam" value="" />
+
+                            </div>
+
+                        </div>
+
+                        <div class="sor">
+                            <label for="megye"></label>
+                            <div class="inputfield">
+                                <input type="text" name="megye" id="imegye" value="" />
+                            </div>
+                            <label for="varos"></label>
+                            <div class="inputfield">
+                                <input type="text" name="varos" id="ivaros" value="" />
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+
+
+                        <div class="sor">
+                            <label for="utca"></label>
+                            <div class="inputfield">
+                                <input type="text" name="utca" id="iutca" value="" />
+
+                            </div>
+                            <label for="hazszam"></label>
+                            <div class="inputfield">
+
+                                <input type="text" name="hazszam" id="ihazszam" value="" />
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                        <input type="submit" value="Adatok mentése" class="adatotMent" />
+
+
+                    </form>
+                </div>
+
+
+            </div>
 
             <div class="formcontainer">
                 <div class="ujAdminForm" id="ujadminForm">
@@ -266,9 +394,9 @@
 
                         <div class="sor">
 
-                        
+                            <label for="ir_szam"></label>
                             <div class="inputfield">
-                            <label for="ir_szam">Irányító szám:</label>
+                                <label>Cím:</label>
                                 <br />
                                 <input type="text" name="ir_szam" id="airanyitoszam" value="" />
 
@@ -277,14 +405,12 @@
                         </div>
 
                         <div class="sor">
-                         
+                            <label for="megye"></label>
                             <div class="inputfield">
-                            <label for="megye">Megye:</label><br />
                                 <input type="text" name="megye" id="amegye" value="" />
                             </div>
-                            
+                            <label for="varos"></label>
                             <div class="inputfield">
-                            <label for="varos">Város:</label><br />
                                 <input type="text" name="varos" id="avaros" value="" />
                             </div>
 
@@ -298,15 +424,13 @@
 
 
                         <div class="sor">
-                           
+                            <label for="utca"></label>
                             <div class="inputfield">
-                            <label for="utca">Utca:</label><br />
                                 <input type="text" name="utca" id="autca" value="" />
 
                             </div>
-                            
+                            <label for="hazszam"></label>
                             <div class="inputfield">
-                            <label for="hazszam">Házszám:</label><br />
 
                                 <input type="text" name="hazszam" id="ahazszam" value="" />
                             </div>

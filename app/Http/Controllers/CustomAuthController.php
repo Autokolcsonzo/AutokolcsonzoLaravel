@@ -26,14 +26,14 @@ class CustomAuthController extends Controller
             'vezeteknev' => 'required',
             'keresztnev' => 'required',
             'felhasznalonev' => 'required',
-            'jelszo' => 'required|confirmed|min:8',
+            'jelszo' => 'required',
             'szul_ido' => 'required',
-            'ir_szam' => 'required|min:4',
+            'ir_szam' => 'required',
             'megye' => 'required',
             'varos' => 'required',
             'utca' => 'required',
             'hazszam' => 'required',
-            'tel_szam' => 'required|min:11',
+            'tel_szam' => 'required',
             'e_mail' => 'required'
         ]);
         $felhasznalo = new Felhasznalo();
@@ -69,17 +69,12 @@ class CustomAuthController extends Controller
 
             if (Hash::check($request->jelszo, $felhasznalo->jelszo)) {
                 $request->session()->put('loginId', $felhasznalo->felhasznalo_id);
-                if ($felhasznalo->jogkor == 1) {
-                    return redirect('dashboard');
-                }
-                if ($felhasznalo->jogkor == 2) {
-                    return redirect('adminAutok');
-                }
+                return redirect('dashboard');
             } else {
                 return back()->with('fail', 'Jelszó nem megfelelő.');
             }
         } else {
-            return back()->with('fail', 'Ez a felhasználónév nem regisztrált.');
+            return back()->with('fail', 'Ez az email nem regisztrált.');
         }
     }
 
@@ -96,7 +91,7 @@ class CustomAuthController extends Controller
 
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszeg');
+        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 
         $data = array();
         if (Session::has('loginId')) {
@@ -105,7 +100,8 @@ class CustomAuthController extends Controller
                 return view('dashboard', compact('data'));
             }
             if ($data->jogkor == 2) {
-                return view('adminAutok', compact('data', 'telephely', 'modell', 'adat', 'felhasznalok', 'foglalasok', 'bevetel'));
+                return
+                    view('adminAutok', compact('data', 'telephely', 'modell', 'adat', 'felhasznalok', 'foglalasok', 'bevetel'));
             }
         }
     }

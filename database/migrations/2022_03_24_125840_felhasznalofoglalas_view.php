@@ -69,8 +69,8 @@ class FelhasznalofoglalasView extends Migration
                     fizetes.sorszam,
                     fizetes.fizetes_alapja,
                     fizetes.befizetett_osszeg,
-                    fizetes.kifizetendo_osszeg,
-                    (fizetes.befizetett_osszeg+fizetes.kifizetendo_osszeg) AS foglalas_osszege
+                    fizetes.kifizetendo_osszegeg,
+                    (fizetes.befizetett_osszeg+fizetes.kifizetendo_osszegeg) AS foglalas_osszege
                     
                     
                     

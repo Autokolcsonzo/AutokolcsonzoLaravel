@@ -16,6 +16,8 @@ class Felhasznalo {
         this.szul_ido = this.elem.find(".szul_ido");
         this.reszletekGomb = this.elem.find(".fReszletek");
         this.torolGomb = this.elem.find(".torles");
+        this.felhasznaloModosit = this.elem.find(".fadatokMod");
+        this.adatotMentGomb = this.elem.find(".adatotMent");
         this.ujAdminGomb = this.elem.find(".ujAdminFelvetel");
         this.opcio = this.elem.find(".telep");
         this.zarva = true;
@@ -24,6 +26,13 @@ class Felhasznalo {
             this.reszletekTrigger();
         });
 
+        this.felhasznaloModosit.on("click", () => {
+            this.modositFormtrigger(this.adat);
+        });
+
+        this.adatotMentGomb.on("click", () => {
+            this.kattintasTrigger("adatmentes");
+        });
 
         this.torolGomb.on("click", () => {
             this.kattintasTrigger("torol");
@@ -70,5 +79,17 @@ class Felhasznalo {
         window.dispatchEvent(esemeny);
     }
 
-
+    modositFormtrigger(adat) {
+        $("#ifnev").val(adat.felhasznalonev);
+        $("#ivnev").val(adat.vezeteknev);
+        $("#iknev").val(adat.keresztnev);
+        $("#iszdatum").val(adat.szul_ido);
+        $("#iiranyitoszam").val(adat.ir_szam);
+        $("#imegye").val(adat.megye);
+        $("#ivaros").val(adat.varos);
+        $("#iutca").val(adat.utca);
+        $("#ihazszam").val(adat.hazszam);
+        $("#iemail").val(adat.e_mail);
+        $("#itelszam").val(adat.tel_szam);
+    }
 }

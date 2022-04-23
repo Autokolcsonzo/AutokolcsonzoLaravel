@@ -12,7 +12,7 @@ class FelhasznalokController extends Controller
         return view('adminFelhasznalok');
         /* $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszeg');
+        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
         $felhasznalo=DB::table('felhasznalo')->get();
 
      

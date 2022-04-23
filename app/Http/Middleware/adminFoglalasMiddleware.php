@@ -13,7 +13,7 @@ class adminFoglalasMiddleware
     {
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
-        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszeg');
+        $bevetel = DB::table('fizetes')->sum('kifizetendo_osszegeg');
 
         $adat = DB::table('felhasznalo_foglalas')
             ->select(
@@ -27,7 +27,7 @@ class adminFoglalasMiddleware
                 'kedvezmeny',
                 'allapot',
                 'befizetett_osszeg',
-                'kifizetendo_osszeg',
+                'kifizetendo_osszegeg',
                 'kedvezmeny',
                 'megye',
                 'ir_szam',

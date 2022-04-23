@@ -20,7 +20,7 @@ class FizetesModel extends Model
         'sorszam',
         'fizetes_alapja',
         'befizetett_osszeg',
-        'kifizetendo_osszeg',
+        'kifizetendo_osszegeg',
         'created_at',
         'updated_at'
     ];
