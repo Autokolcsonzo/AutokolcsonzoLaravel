@@ -187,7 +187,7 @@
                 <div class="ujAdminForm" id="ujadminForm">
 
 
-                    <!-- lenyíló form az új adminhoz -->
+                 
 
 
 
