@@ -18,7 +18,7 @@ class CreateFelhasznaloTable extends Migration
             $table->char('vezeteknev', 30);
             $table->char('keresztnev', 30);
             $table->char('felhasznalonev', 30);
-            $table->char('jelszo', 20);
+            $table->char('jelszo', 70);
             $table->date('szul_ido');
             $table->string('profilkep')->default('../kepek/profilkep.png')->nullable();
             $table->char('ir_szam', 5);
