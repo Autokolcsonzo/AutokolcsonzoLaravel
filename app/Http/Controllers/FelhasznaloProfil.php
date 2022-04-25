@@ -44,7 +44,7 @@ class FelhasznaloProfil extends Controller
             'felhasznalonev' => 'min:4|max:10',
             'keresztnev' => 'min:3|max:15|regex:/^([^0-9]*)$/',
             'vezeteknev' => 'min:3|max:15|regex:/^([^0-9]*)$/',
-            'jelszo' => 'min:5|max:10'
+            'jelszo' => 'min:8|max:10'
         ];
 
         $customMessages = [
