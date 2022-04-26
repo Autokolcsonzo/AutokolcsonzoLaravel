@@ -15,7 +15,7 @@ class CreateAutoKepekTable extends Migration
     {
         Schema::create('auto_kepek', function (Blueprint $table) {
             $table->increments('auto_kep_id');
-            $table->char('alvazSzam');
+            $table->string('alvazSzam');
             $table->foreign('alvazSzam')->references('alvazSzam')->on('auto');
             $table->string('kep');
             $table->timestamp('kesz_datum')->useCurrent();

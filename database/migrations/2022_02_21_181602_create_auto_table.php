@@ -14,7 +14,7 @@ class CreateAutoTable extends Migration
     public function up()
     {
         Schema::create('auto', function (Blueprint $table) {
-            $table->char('alvazSzam', 17)->primary();
+            $table->string('alvazSzam')->primary();
             $table->integer('modell')->unsigned();
             $table->integer('telephely')->unsigned();
             $table->foreign('telephely')->references('telephely_id')->on('telephely');

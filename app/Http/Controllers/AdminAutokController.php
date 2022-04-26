@@ -39,13 +39,12 @@ class AdminAutokController extends Controller
         $torles->delete();
         return redirect()->back();
     }
-
+    
     public function update(Request $req, $alvazSzam)
     {
-        $input = $req->all();
-
+        
         $data = Auto::find($alvazSzam);
-
+        $input = $req->all();
         $data->alvazSzam = $input['alvazSzam'];
         $data->telephely = $input['telephely'];
         $data->napiAr = $input['napiAr'];

@@ -11,6 +11,7 @@ class Auto extends Model
 
     protected $table = 'auto';
     protected $primaryKey = 'alvazSzam';
+    protected $keyType = 'string';
 
     protected $fillable = [
         'alvazSzam',
