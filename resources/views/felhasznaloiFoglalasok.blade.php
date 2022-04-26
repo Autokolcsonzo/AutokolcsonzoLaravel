@@ -122,7 +122,7 @@
 
                                 <tr>
                                     <td>Foglalás összege: </td>
-                                    <td id="osszeg">{{$d->foglalas_osszege}}</td>
+                                    <td id="osszeg">{{$d->kifizetendo_osszeg}}</td>
 
 
                                 </tr>
@@ -136,7 +136,7 @@
 
                                 <tr>
                                     <td>Fizetendő összeg: </td>
-                                    <td id="hatralek">{{$d->kifizetendo_osszeg}}</td>
+                                    <td id="hatralek">{{$d->kifizetendo_osszeg - $d->befizetett_osszeg}}</td>
 
 
                                 </tr>

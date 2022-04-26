@@ -14,6 +14,11 @@ class FoglalasController extends Controller
 {
     public function foglalas(Request $request)
     {   
+        $this->validate($request, [
+            'foglalas_tol' => 'required|date|before:foglalas_ig',
+            'foglalas_ig' => 'required|date|after:foglalas_tol',
+        ]);
+
         //kedvezmény százalékla a napokra
         $datum1 = date_create($request->input('foglalas_tol'));
         $datum2 = date_create($request->input('foglalas_ig'));
@@ -25,12 +30,14 @@ class FoglalasController extends Controller
             ->select('szazalek_id', 'kedvezmeny.szazalek', 'kedvezmeny.naptol')
             ->get();
         $kedvSzazalek = 0;
+        $kedv_id = 0;
         foreach ($kedvezmenyek as $kedvezmeny) {
             $szazalek_id = $kedvezmeny->szazalek_id;
             $szazalek = $kedvezmeny->szazalek;
             $naptol = $kedvezmeny->naptol;
             if($naptol <= $napok) {
-                $kedvSzazalek = $szazalek_id;
+                $kedvSzazalek = $szazalek;
+                $kedv_id = $szazalek_id;
             }
         }
 
@@ -63,7 +70,7 @@ class FoglalasController extends Controller
             $foglalas->visszahozatal = $request->foglalas_ig." ".$request->foglalas_igIdo;
             $foglalas->fogl_kelt = $request->foglalas_kelt;
             $foglalas->ervenyessegi_ido = $request->foglalas_ig;
-            $foglalas->kedvezmeny = $kedvSzazalek;
+            $foglalas->kedvezmeny = $kedv_id;
             $foglalas->allapot = 'Aktív';
             $foglalas->save();
         }

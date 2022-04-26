@@ -175,6 +175,7 @@
                             <h2>Elvitel</h2>
                             <h2>Visszahozatal</h2>
                             <h2>Érvényesség</h2>
+                            <h2>Módisítva</h2>
                             <h2>Kedvezmény</h2>
                             <h2>Állapot</h2>
                         </div>
@@ -182,6 +183,7 @@
                             <p class="elvitel">{{ $data->elvitel }}</p>
                             <p class="visszahozatal">{{ $data->visszahozatal }}</p>
                             <p class="ervenyessegi_ido">{{ $data->ervenyessegi_ido }}</p>
+                            <p class="ervenyessegi_ido">{{ $data->kelt }}</p>
                             <p class="kedvezmeny">{{ $data->kedvezmeny }}</p>
                             <p class="allapot">{{ $data->allapot }}</p>
 
