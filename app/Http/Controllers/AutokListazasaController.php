@@ -140,6 +140,7 @@ class AutokListazasaController extends Controller
             ->select('alvazSzam')
             ->distinct()
             ->whereRaw($datumString)
+            ->whereRaw('allapot NOT LIKE "%Lemondva%"')
             ->get();
         
 

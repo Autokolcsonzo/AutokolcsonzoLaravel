@@ -14,7 +14,18 @@ class adminFoglalasMiddleware
         $felhasznalok = DB::table('felhasznalo')->count();
         $foglalasok = DB::table('foglalas')->count();
         $bevetel = DB::table('fizetes')->sum('befizetett_osszeg');
-
+        
+        
+        $fogazonKelt = DB::table('felhasznalo_foglalas')
+        ->selectRaw('fogazon_foglalas , MAX(kelt) as kelt')
+        ->groupBy('fogazon_foglalas')
+        ->get();
+        $fogazonKelt = $fogazonKelt->toArray();
+        $fogazonArray = array_column($fogazonKelt, 'fogazon_foglalas');
+        $keltArray = array_column($fogazonKelt, 'kelt');
+        //dd($fogazonArray, $keltArray);
+        
+        
         $adat = DB::table('felhasznalo_foglalas')
             ->select(
                 'fogazon_foglalas',
@@ -37,10 +48,16 @@ class adminFoglalasMiddleware
                 'napiar',
                 'fizetes_alapja',
                 'foglalas_osszege',
-                'fogl_kelt'
+                'fogl_kelt',
+                'kelt'
 
-            )->get()->sortByDesc('fogazon_foglalas');
-        // return $adatok;
+            )
+            ->whereIn('fogazon_foglalas', $fogazonArray)
+            ->whereIn('kelt', $keltArray)
+            ->groupBy('fogazon_foglalas')
+            ->get();
+            //->sortBy('kelt');
+
 
         if (Session()->has('loginId')) {
             $loggedUser = Felhasznalo::where('felhasznalo_id', '=', Session()->get('loginId'))->first();

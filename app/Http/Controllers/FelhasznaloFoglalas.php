@@ -12,6 +12,14 @@ class FelhasznaloFoglalas extends Controller
 {
     public function index()
     {
+        $fogazonKelt = DB::table('felhasznalo_foglalas')
+        ->selectRaw('fogazon_foglalas , MAX(kelt) as kelt')
+        ->groupBy('fogazon_foglalas')
+        ->get();
+        $fogazonKelt = $fogazonKelt->toArray();
+        $fogazonArray = array_column($fogazonKelt, 'fogazon_foglalas');
+        $keltArray = array_column($fogazonKelt, 'kelt');
+
         DB::table('foglalas')
               ->whereRaw('ervenyessegi_ido < CURRENT_DATE')
               ->update(['allapot' => 'Teljesítve']);
@@ -47,11 +55,18 @@ class FelhasznaloFoglalas extends Controller
                     'napiar',
                     'fizetes_alapja',
                     'foglalas_osszege',
-                    'fogl_kelt'
+                    'fogl_kelt',
+                    'kelt'
 
 
 
-                )->where('felhasznalo_foglalas.felhasznalo', '=', Session::get('loginId'))->get()->sortByDesc('fogl_kelt');
+                )
+                ->where('felhasznalo_foglalas.felhasznalo', '=', Session::get('loginId'))
+                ->whereIn('fogazon_foglalas', $fogazonArray)
+                ->whereIn('kelt', $keltArray)
+                ->groupBy('fogazon_foglalas')
+                ->get()
+                ->sortByDesc('kelt');
         }
 
         return view('felhasznaloiFoglalasok', compact('data'));

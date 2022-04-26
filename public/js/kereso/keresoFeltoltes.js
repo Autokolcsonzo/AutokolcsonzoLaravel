@@ -1,7 +1,5 @@
 class KeresoFeltolo {
-    constructor() {
-
-    }
+    constructor() {}
     markaModellKapcsolat(valasztottMarka, opciok) {
         opciok.forEach(function (obj) {
             for (let marka in obj.marka) {
@@ -54,12 +52,30 @@ class KeresoFeltolo {
                 let option = `<option value='${obj.uzemanyag[index]}'>${obj.uzemanyag[index]}</option>`;
                 $("#uzemanyag").append(option);
             }
+            let checkboxsArray = [];
             for (let index = 0; index < obj.checkboxs.length; index++) {
+                //split obj.checkboxs by "," and add to array checkboxs array
+                obj.checkboxs[index].trim();
+                let checkboxsSeged = obj.checkboxs[index].split(",");
+                //console.log(checkboxsSeged);
+                for (let index2 = 0; index2 < checkboxsSeged.length; index2++) {
+                    let trimed = checkboxsSeged[index2].trim();
+                    if (
+                        !checkboxsArray.includes(trimed) &&
+                        !checkboxsSeged[index2] == ""
+                    ) {
+                        checkboxsArray.push(trimed);
+                    }
+                }
+            }
+            for (let index = 0; index < checkboxsArray.length; index++) {
                 $("#check_wrapper-1").append(`<section>
-                                            <label for="${obj.checkboxs[index]}">${obj.checkboxs[index]}</label>
-                                            <input class="kersoCheckbox" type="checkbox" name="${obj.checkboxs[index]}" value="${obj.checkboxs[index]}">
+                                            <label for="${checkboxsArray[index]}">${checkboxsArray[index]}</label>
+                                            <input class="kersoCheckbox" type="checkbox" name="${checkboxsArray[index]}" value="${checkboxsArray[index]}">
                                           </section>`);
             }
+
+            //console.log(checkboxsArray);
             evjarat(obj.evjarat[0], obj.evjarat[1]);
             //console.log("évjárat  : " + obj.evjarat[0], obj.evjarat[1]);
             //console.log(evjaratReturn);
@@ -121,7 +137,7 @@ class KeresoFeltolo {
             return;
         }
     }
-    markaRegen(opciok){
+    markaRegen(opciok) {
         $("#modell").append(`<option value=''>--Modell--</option>`);
         opciok.forEach(function (obj) {
             for (let modell in obj.marka) {
@@ -132,5 +148,4 @@ class KeresoFeltolo {
             }
         });
     }
-    
 }
