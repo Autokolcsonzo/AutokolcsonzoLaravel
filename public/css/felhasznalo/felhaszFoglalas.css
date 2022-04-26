@@ -171,6 +171,13 @@ td {
     color: #17446b;
     border: grey solid 1px;
 }
+
+.cim{
+    font-size: 40px;
+    text-align: center;
+    color: #17446b;  
+    font-family: "Teko", sans-serif;
+}
 @media (hover: none) and (pointer: coarse) {
     .reszletGomb:hover {
         background-color: #e0e4e7;

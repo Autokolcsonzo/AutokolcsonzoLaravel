@@ -47,9 +47,11 @@
         @include('komponensek/felhasznaloNav')
 
         <!--   Fejléc -->
-        @include('komponensek/header')
+        @include('komponensek/header2')
 
         <div id="primary_content">
+
+        <div class="cim">{{$data->vezeteknev}} {{$data->keresztnev}} profilja</div>
             <div class="fprofil">
                 <div class="profilkep">
 

@@ -38,15 +38,16 @@
         @include('komponensek/felhasznaloNav')
 
         <!--   Fejléc -->
-        @include('komponensek/header')
+        @include('komponensek/header2')
 
         <div id="primary_content">
+        <div class="cim">Foglalásaim</div>
 
         @if(count($data) == 0)
             <div class="foglalas_container">
                 <div class="foglalas-boxi">
                     <h1 id="nincsF">Jelenleg még nincs foglalásod.</h1>
-                    <a href="http://127.0.0.1:8000/jarmuTalalatiLista" id="nincsFp">Foglalj még most!</a>
+                    <a href=" {{'jarmuTalalatiLista'}} " id="nincsFp">Foglalj még most!</a>
                 </div>
             </div>
         @endif

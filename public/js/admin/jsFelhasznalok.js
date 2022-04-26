@@ -57,8 +57,8 @@ $(function () {
         let id = event.detail.felhasznalo_id;
 
         myAjax.deleteAdat(apiVegpont+"/delete/", id);
-        this.location.reload(true);
-        $(".uzenet").append("Adatok sikeresen törölve!");
+        
+    
 
       
     });
