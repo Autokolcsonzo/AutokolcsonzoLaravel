@@ -28,6 +28,20 @@ class FelhasznaloAdmin extends Controller
 
    public function store(Request $request)
    {
+      $request->validate([
+         'vezeteknev' => 'required',
+         'keresztnev' => 'required',
+         'felhasznalonev' => 'required',
+         'jelszo' => 'required|min:8',
+         'szul_ido' => 'required',
+         'ir_szam' => 'required|min:4',
+         'megye' => 'required',
+         'varos' => 'required',
+         'utca' => 'required',
+         'hazszam' => 'required',
+         'tel_szam' => 'required|min:11',
+         'e_mail' => 'required'
+     ]);
 
       $felhasznalo = new FelhasznaloModell();
       $felhasznalo->vezeteknev = $request->vezeteknev;

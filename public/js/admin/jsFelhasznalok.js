@@ -57,6 +57,10 @@ $(function () {
         let id = event.detail.felhasznalo_id;
 
         myAjax.deleteAdat(apiVegpont+"/delete/", id);
+        
+    
+
+      
     });
 
   
@@ -96,6 +100,7 @@ $(function () {
             telephely: telephely,
         };
         ajax.postAdat(apiVegpont, ujAdat);
+        $(".uzenet").append("Adatok sikeresen feltöltve!");
     });
 
     /*Select feltöltése a telephelyekkel*/

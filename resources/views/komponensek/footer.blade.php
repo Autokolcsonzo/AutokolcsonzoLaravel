@@ -58,7 +58,7 @@
             <ul>
                 <li>
                     <address>
-                        <h4>Szeged</h4>4521 Kerge Jenő utca 83
+                        <h4>Szeged</h4>6700 Kossuth Lajos sugárút 83
                     </address>
                 </li>
                 <li><a class="telefon_Szam" href="tel:+36301088482">Hívás: +3630-108-84-82</a></li>
@@ -66,7 +66,7 @@
             <ul>
                 <li>
                     <address>
-                        <h4>Budapest</h4>Mérnökutca 39
+                        <h4>Budapest</h4>Mérnök utca 39
                     </address>
                 </li>
                 <li><a class="telefon_Szam" href="tel:+36304512356">Hívás: +3630-451-33-56</a></li>
@@ -74,7 +74,7 @@
             <ul>
                 <li>
                     <address>
-                        <h4>Győr</h4>5731 Kelemen út 12
+                        <h4>Győr</h4>9019 Rákóczi út 12
                     </address>
                 </li>
                 <li><a class="telefon_Szam" href="tel:06209623456">Hívás: 0620-962-34-56</a></li>

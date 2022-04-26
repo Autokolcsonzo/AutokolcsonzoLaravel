@@ -121,6 +121,7 @@
             @if(session()->has('status'))
             <p class="uzenet">{{session('status')}}</p>
             @endif
+         
 
             <div class="felhasznalokAdmin">
                 <div class="felhFejlec">
@@ -217,7 +218,7 @@
                             <div class="inputfield">
                                 <label for="jelszo">Jelszo:</label>
                                 <br />
-                                <input type="text" name="jelszo" id="ajelszo" value="" />
+                                <input type="password" name="jelszo" id="ajelszo" value="" />
 
                             </div>
                             <div class="inputfield">
