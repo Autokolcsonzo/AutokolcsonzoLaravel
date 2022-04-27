@@ -83,6 +83,7 @@ class AdminAutokController extends Controller
         $modell->evjarat = $req->input('evjarat');
         $modell->kivitel = $req->input('kivitel');
         $modell->uzemanyag = $req->input('uzemanyag');
+        $modell->teljesitmeny = $req->input('teljesitmeny');
         $modell->save();
         return redirect('/dashboard');
     }

@@ -254,12 +254,11 @@
                                     </div>
                                 </div>
 
+                                <div class="modalGombok">
+                                    <input type="submit" value="Adatok mentése" id="adatotMent" />
+                                    <button type="button" id="autoBezaras">Bezárás</button>
+                                </div>
                             </form>
-                            <div class="modalGombok">
-                                <input type="submit" value="Adatok mentése" id="adatotMent" />
-                                <!-- <button type="submit" id="mentes">Adatok mentése</button> -->
-                                <button type="button" id="autoBezaras">Bezárás</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -330,11 +329,11 @@
                                 </div>
 
 
+                                <div class="modalGombok">
+                                    <input type="submit" value="Adatok mentése" id="adatotMent" />
+                                    <button type="button" id="modellBezaras">Bezárás</button>
+                                </div>
                             </form>
-                            <div class="modalGombok">
-                                <input type="submit" value="Adatok mentése" id="adatotMent" />
-                                <button type="button" id="modellBezaras">Bezárás</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -373,11 +372,11 @@
                                     </div>
 
                                 </div>
+                                <div class="modalGombok">
+                                    <input type="submit" value="Adatok mentése" id="adatotMent" />
+                                    <button type="button" id="kepBezaras">Bezárás</button>
+                                </div>
                             </form>
-                            <div class="modalGombok">
-                                <input type="submit" value="Adatok mentése" id="adatotMent" />
-                                <button type="button" id="kepBezaras">Bezárás</button>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -26,6 +26,7 @@
 
 #adatotMent, #modellBezaras, #autoBezaras, #kepBezaras {
     width: 40%;
+    border-radius: 5px;
   
 }
 
@@ -47,9 +48,9 @@
 }
 
 .modal-container {
-    display: flex;
+/*     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     background-color: rgba(255, 255, 255, 0.83);
     position: fixed;
     opacity: 0;
@@ -57,7 +58,6 @@
     top: 15%;
     left: 40%;
     height: auto;
-    width: 50vh;
     transition: opacity 0.3s ease;
 }
 
@@ -74,4 +74,46 @@
     /*     width: 600px; */
     max-width: 100%;
     text-align: center;
+}
+
+@media only screen and (max-width: 1360px) {
+    .modal-container {
+        left: 32%;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    .modal-container {
+        left: 30%;
+    }
+}
+
+@media only screen and (max-width: 925px) {
+    .modal-container {
+        left: 25%;
+    }
+
+    #buttonAuto, #buttonModell, #buttonKep {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    #adminKategoriak a {
+        padding: 2px;
+    }
+
+    #buttonAuto, #buttonModell, #buttonKep {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    #adminKategoriak a {
+        padding: 0;
+    }
+
+    #buttonAuto, #buttonModell, #buttonKep {
+        margin-left: 0;
+    }
 }
