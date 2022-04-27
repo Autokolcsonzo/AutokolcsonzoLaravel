@@ -11,6 +11,30 @@
     margin: 0;
 } */
 
+.modell, .telephely {
+    width: 100%;
+    height: 64%;
+    font-size: 16px
+}
+
+#alvazszamKep,
+.kep {
+    width: 60%;
+    height: 60%;
+    font-size: 16px
+}
+
+#adatotMent, #modellBezaras, #autoBezaras, #kepBezaras {
+    width: 40%;
+  
+}
+
+.modalGombok {
+    display: flex;
+    justify-content: space-around;
+    height: 30px;
+}
+
 #buttonAuto,
 #buttonModell,
 #buttonKep {
@@ -26,7 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.583);
+    background-color: rgba(255, 255, 255, 0.83);
     position: fixed;
     opacity: 0;
     pointer-events: none;
@@ -43,9 +67,9 @@
 }
 
 .modal {
-    background-color: rgba(255, 255, 255, 0.583);
+    background-color: rgba(255, 255, 255, 0.83);
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgb(0, 0, 0);
     padding: 30px 50px;
     /*     width: 600px; */
     max-width: 100%;

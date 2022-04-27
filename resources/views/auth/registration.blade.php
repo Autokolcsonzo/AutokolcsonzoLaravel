@@ -43,12 +43,12 @@
             <div class="regisztracioFelulet">
                 <form action="{{ 'register-user' }}" method="POST">
                     @if(Session::has('success'))
-                    <div class="sikeresRegisztralas">
+                    <div class="visszajelzes">
                         {{Session::get('success')}}
                     </div>
                     @endif
                     @if(Session::has('fail'))
-                    <div class="sikertelenRegisztralas">
+                    <div class="hibauzenet">
                         {{Session::get('fail')}}
                     </div>
                     @endif

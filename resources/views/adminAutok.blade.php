@@ -254,10 +254,12 @@
                                     </div>
                                 </div>
 
-                                <input type="submit" value="Adatok mentése" id="adatotMent" />
                             </form>
-                            <!-- <button type="submit" id="mentes">Adatok mentése</button> -->
-                            <button type="button" id="autoBezaras">Bezárás</button>
+                            <div class="modalGombok">
+                                <input type="submit" value="Adatok mentése" id="adatotMent" />
+                                <!-- <button type="submit" id="mentes">Adatok mentése</button> -->
+                                <button type="button" id="autoBezaras">Bezárás</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -327,10 +329,12 @@
                                     </div>
                                 </div>
 
-                                <input type="submit" value="Adatok mentése" id="adatotMent" />
 
                             </form>
-                            <button type="button" id="modellBezaras">Bezárás</button>
+                            <div class="modalGombok">
+                                <input type="submit" value="Adatok mentése" id="adatotMent" />
+                                <button type="button" id="modellBezaras">Bezárás</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -352,7 +356,7 @@
                                     <div class="inputfield2">
                                         <label for="alvazSzam">Alvázszám:</label>
                                         <br />
-                                        <select class="alvazSzam" name="alvazSzam">
+                                        <select class="alvazSzam" name="alvazSzam" id="alvazszamKep">
                                             @foreach($adat as $a)
                                             <option value="{{$a->alvazSzam}}">{{$a->alvazSzam}}</option>
                                             @endforeach
@@ -369,9 +373,11 @@
                                     </div>
 
                                 </div>
-                                <input type="submit" value="Adatok mentése" id="adatotMent" />
                             </form>
-                            <button type="button" id="kepBezaras">Bezárás</button>
+                            <div class="modalGombok">
+                                <input type="submit" value="Adatok mentése" id="adatotMent" />
+                                <button type="button" id="kepBezaras">Bezárás</button>
+                            </div>
                         </div>
                     </div>
                 </div>

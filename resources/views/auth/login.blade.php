@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <!--   <link rel="stylesheet" href="css/regisztracio.css" /> -->
-    <link rel="stylesheet" href="css/felhasznalo/felhasznaloiProfil.css" />
+    <link rel="stylesheet" href="{{ asset('css/felhasznalo/felhasznaloiProfil.css') }}" />
 </head>
 
 <body>
@@ -45,7 +45,7 @@
                 <form action="{{ 'login-user' }}" method="POST">
 
                     @if(Session::has('fail'))
-                    <div>
+                    <div class="hibauzenet">
                         {{Session::get('fail')}}
                     </div>
                     @endif
@@ -54,14 +54,15 @@
                     <div class=" form-header">
                         <h3>Bejelentkezés</h3>
                     </div>
-
+                    <span id="nemRegFelh">@error('felhasznalonev'){{$message}} @enderror</span>
+                    <span class="text-danger">@error('jelszo') {{$message}} @enderror</span>
                     <div class="sor">
                         <div class="inputfield">
                             <label for="felhasznalonev">Felhasználónév:</label>
 
                             <br />
                             <input type="text" name="felhasznalonev" id="fnev" placeholder="valaki97" /><br />
-                            <span class="text-danger">@error('felhasznalonev') {{$message}} @enderror</span>
+
                         </div>
 
                         <div class="sor">
@@ -69,7 +70,7 @@
                                 <label for="jelszo">Jelszó:</label>
                                 <br>
                                 <input type="password" id="jelszo1" name="jelszo" class="jelszo" placeholder="******" />
-                                <span class="text-danger">@error('jelszo') {{$message}} @enderror</span>
+
                             </div>
                         </div>
                     </div>
