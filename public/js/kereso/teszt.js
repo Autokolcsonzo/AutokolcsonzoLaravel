@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
     //$('#Khelyszinek').val("Budapest");
     //$('#Khelyszinek').append("Budapest");
     //$('#Khelyszinek').attr('value','Budapest');

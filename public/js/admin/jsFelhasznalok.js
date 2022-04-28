@@ -6,11 +6,9 @@ $(function () {
 
     let felhasznaloKereses = "/keres?felhasznalonev_like=";
 
-    let url = "http://localhost:8000/";
+    let apiVegpont = "/api/felhasznaloadmin";
 
-    let apiVegpont = url + "api/felhasznaloadmin";
-
-    let telephelyVegp = url + "api/telephely";
+    let telephelyVegp = "/api/telephely";
 
     const szuloElem = $(".felhasznalokAdmin");
     const sablonElem = $(".felhasznalo");
@@ -56,20 +54,12 @@ $(function () {
     $(window).on("torol", (event) => {
         let id = event.detail.felhasznalo_id;
 
-        myAjax.deleteAdat(apiVegpont+"/delete/", id);
-        
-    
-
-      
+        myAjax.deleteAdat(apiVegpont + "/delete/", id);
     });
-
-  
 
     /*Új admin felvétele*/
 
     $(window).on("felvesz", () => {
-     
-
         let felhasznalonev = $("#afnev").val();
         let vezeteknev = $("#avnev").val();
         let keresztnev = $("#aknev").val();
@@ -186,7 +176,7 @@ $(function () {
         FormMegjelenes();
     }
 
-     /*Lenyílók*/
+    /*Lenyílók*/
 
     function FormMegjelenes() {
         $(".fadatokMod").click(function () {

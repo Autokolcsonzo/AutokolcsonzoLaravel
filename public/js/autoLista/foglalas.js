@@ -318,7 +318,8 @@ class FoglalasFeltoltes {
         }
         if (
             $("#foglalas-tolD").val() == $("#foglalas-igD").val() &&
-            $("#foglalas-tolD").val() == this.getMinFogElvitelDatum().MinDatumString
+            $("#foglalas-tolD").val() ==
+                this.getMinFogElvitelDatum().MinDatumString
         ) {
             console.log("to day handeler");
 
@@ -331,26 +332,25 @@ class FoglalasFeltoltes {
             let visszaOraInt = $("#foglalas-tolI").val();
             visszaOraInt = visszaOraInt.split(":");
             visszaOraInt = parseInt(visszaOraInt);
-                for (let index = elvOraInt + 1; index <= 24; index++) {
-                    if (elvOraInt-1 == ora && index == elvOraInt+1) {
-                        $("#foglalas-igI").append(
-                            `<option value="${index + ":" + perc + ":00"}">${
-                                index + ":" + perc
-                            }</option>`
-                        );
-                    } else if (index == 24) {
-                        $("#foglalas-igI").append(
-                            `<option value="23:59:00">${"23:59"}</option>`
-                        );
-                    } else {
-                        $("#foglalas-igI").append(
-                            `<option value="${index + ":00:00"}">${
-                                index + ":00"
-                            }</option>`
-                        );
-                    }
+            for (let index = elvOraInt + 1; index <= 24; index++) {
+                if (elvOraInt - 1 == ora && index == elvOraInt + 1) {
+                    $("#foglalas-igI").append(
+                        `<option value="${index + ":" + perc + ":00"}">${
+                            index + ":" + perc
+                        }</option>`
+                    );
+                } else if (index == 24) {
+                    $("#foglalas-igI").append(
+                        `<option value="23:59:00">${"23:59"}</option>`
+                    );
+                } else {
+                    $("#foglalas-igI").append(
+                        `<option value="${index + ":00:00"}">${
+                            index + ":00"
+                        }</option>`
+                    );
                 }
-                
+            }
         }
     }
 
@@ -380,7 +380,7 @@ class FoglalasFeltoltes {
     }
     foglalasElkuldese() {
         const token = $('meta[name="csrf-token"]').attr("content");
-        let apiVegpont = "http://127.0.0.1:8000/api/foglalas";
+        let apiVegpont = "/api/foglalas";
 
         /*let foglalas = {
             tolD:$("#foglalas-tolD").val(),

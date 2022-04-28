@@ -5,11 +5,8 @@ $(function () {
     const szuloElem = $(".hirekContainer");
     const sablonElem = $(".hirek");
 
-    let url = "http://localhost:8000/";
-
     let apiVegpont =
-        url +
-        "api/auto_fill/null/null/null/null/null/null/null/null/null/null/null/null/null/alvazSzam/asc";
+        "/api/auto_fill/null/null/null/null/null/null/null/null/null/null/null/null/null/alvazSzam/asc";
 
     myAjax.getAdat(apiVegpont, autok, Megjelenit);
 
