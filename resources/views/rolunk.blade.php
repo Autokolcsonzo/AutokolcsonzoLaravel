@@ -20,7 +20,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Teko:wght@300&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+SC&display=swap');
-
     </style>
 
     <!-- Stílusok -->
@@ -37,14 +36,14 @@
     <main>
 
         <!-- TABLET, STB. NÉZET -->
-        
-        
+
+
 
 
         @if(empty($data->felhasznalo_id))
-            @include('komponensek/nav')
+        @include('komponensek/nav')
         @else
-            @include('komponensek/felhasznaloNav')
+        @include('komponensek/felhasznaloNav')
         @endif
 
         <!-- HEADER -->
@@ -76,12 +75,11 @@
                         Rackham.
                     </p>
                 </div>
-                <hr>  
+                <hr>
                 <div class="kozepre box" id="kozosen-box">
                     <h2 id="kozosen-cim">Csapatunkról</h2>
                     <div class="" id="kozosen-parag">
-                        <img class="" id="csoportKep" src="staticKepek/pngwing.com.png"
-                            alt="hárman együtt." />
+                        <img class="" id="csoportKep" src="staticKepek/pngwing.com.png" alt="hárman együtt." />
                     </div>
                     <p id="kozosen-leiras" class="leiras">
                         Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
@@ -103,8 +101,7 @@
                 <div class="jobbra box" id="lejla">
                     <h2 id="Lejla-cim">Illés Lejla</h2>
                     <div class="paragraf" id="Lejla-parag">
-                        <img class="kepek" id="Lejla-kep"
-                            src="staticKepek/124222672_3324832837635702_5388733774866104714_n.jpg" alt="Lejla." />
+                        <img class="kepek" id="Lejla-kep" src="staticKepek/124222672_3324832837635702_5388733774866104714_n.jpg" alt="Lejla." />
                     </div>
                     <p id="Lejla-leiras" class="leiras">
                         Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
@@ -126,8 +123,7 @@
                 <div class="balra box" id="klaudia">
                     <h2 id="Klaudia-cim">Hecz Klaudia</h2>
                     <div class="paragraf" id="Klaudia-parag">
-                        <img id="Klaudia-kep" class="kepek"
-                            src="staticKepek/272670825_4970303359688189_9111850961024660227_n.jpg" alt="Klaudia." />
+                        <img id="Klaudia-kep" class="kepek" src="staticKepek/70589015_2585825648135984_4886489308904554496_n.jpg" alt="Klaudia." />
                     </div>
                     <p id="Klaudia-leiras" class="leiras">
                         Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
@@ -149,8 +145,7 @@
                 <div class="jobbra box" id="csaba">
                     <h2 id="csaba-cim">Ménesi csaba</h2>
                     <div class="paragraf" id="csaba-parag">
-                        <img class="kepek" id="csaba-kep"
-                            src="staticKepek/46632025_1262237667263967_1805694600170438656_n.jpg" alt="csaba." />
+                        <img class="kepek" id="csaba-kep" src="staticKepek/46632025_1262237667263967_1805694600170438656_n.jpg" alt="csaba." />
                     </div>
                     <p id="csaba-leiras" class="leiras">
                         Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
@@ -166,7 +161,7 @@
                         Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced
                         in their exact original form, accompanied by English versions from the 1914 translation by H.
                         Rackham.
-                        
+
                     </p>
                 </div>
             </div>
